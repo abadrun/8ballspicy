@@ -1,0 +1,92 @@
+IPA: /home/user/8ballspicy/8-ball-pool-i3rby-IPAOMTK.COM.ipa
+Size: 98,576,945 bytes
+SHA-256: 59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8
+Is ZIP (IPA container): True
+Archive entries: 3505
+Top level: ['Payload']
+App bundle: Payload/pool.app
+
+--- Host app identity (Info.plist) ---
+  CFBundleIdentifier = com.miniclip.8ballpoolmult
+  CFBundleDisplayName = 8 Ball Pool
+  CFBundleShortVersionString = 56.30.0
+  CFBundleVersion = 5328
+  AppID = 543186831
+  MinimumOSVersion = 13.0
+  DecryptedBy = '@FastDecryptBot - https://t.me/FastDecryptBot'  <-- TAMPERED / non-App-Store key
+  NSUserTrackingUsageDescription = 'Used to bind your subscription key to this device and protect your activation.'  <-- TAMPERED / non-App-Store key
+
+--- Main executable ---
+  Mach-O: cputype=0x0100000c (arm64)
+  LC_ENCRYPTION_INFO_64 cryptid = 0  (0 => FairPlay DRM stripped)
+  LC_LOAD_DYLIB count: 69
+  Injected load command(s): ['@executable_path/Frameworks/libloader.framework/libloader']
+
+--- DRM / redistribution indicators ---
+  SC_Info present: True (contents: ['Payload/pool.app/SC_Info/', 'Payload/pool.app/SC_Info/.keep'])
+  embedded.mobileprovision: False
+  _CodeSignature/CodeResources files2 entries: 3400
+  libloader covered by (re)signature: True
+
+--- Frameworks ---
+  AdSurgeSDK.framework
+  AppLovinSDK.framework
+  BigoADS.framework
+  DTBiOSSDK.framework
+  FBAudienceNetwork.framework
+  FBLPromises.framework
+  FirebaseAnalytics.framework
+  FirebaseCore.framework
+  FirebaseCoreExtension.framework
+  FirebaseCoreInternal.framework
+  FirebaseCrashlytics.framework
+  FirebaseInstallations.framework
+  FirebaseRemoteConfigInterop.framework
+  FirebaseSessions.framework
+  GoogleAdsOnDeviceConversion.framework
+  GoogleAppMeasurement.framework
+  GoogleAppMeasurementIdentitySupport.framework
+  GoogleDataTransport.framework
+  GoogleUtilities.framework
+  InMobiSDK.framework
+  MolocoSDK.framework
+  OMSDK_Appodeal.framework
+  Promises.framework
+  libloader.framework
+  libswift_Concurrency.dylib
+  nanopb.framework
+
+--- libloader.framework (the injected overlay) ---
+  CFBundleIdentifier = com.appdome.libloader (disguised as an Appdome-style framework)
+  Binary size: 11,493,804 bytes
+  Mach-O cputype=0x0100000c, LC_LOAD_DYLIB=22, cryptid=0
+  Cheat feature marker strings found:
+    [x] 'Aim Mode'
+    [x] 'Aim Strength'
+    [x] 'Auto Play'
+    [x] 'Auto Queue'
+    [x] 'Cushion: Pro banks'
+    [x] 'Activate Key'
+    [x] 'Activate your subscription key here'
+    [x] 'Activate PRO to unlock Automation and Auto Queue'
+    [x] 'Prediction Lines'
+    [x] 'Opponent Lines'
+    [x] 'Table Outline'
+    [x] 'Hides lines, menu, and buttons from streams, recordings, and screenshots.'
+  Mod-menu Objective-C classes found:
+    [x] GBModMenu
+    [x] GBMenuFeatureTile
+    [x] GBMenuEntitlementCard
+    [x] GBMenuFXToggleRow
+    [x] GBMenuMeterRow
+    [x] GBMenuStackedSegmentRow
+    [x] GBMenuKeyValueRow
+    [x] GBMenuLockStrip
+  Third-party rewarded-ad endpoint strings: ['https://omg10.com/4/1286848']
+
+--- Host app localization folders ---
+  ['BigoADSRes.bundle', 'Frameworks', 'PlugIns', 'ar.lproj', 'de.lproj', 'eng.lproj', 'es.lproj', 'fr.lproj', 'hi.lproj', 'id.lproj', 'it.lproj', 'ja.lproj', 'ko.lproj', 'kor.lproj', 'pt-BR.lproj', 'pt-PT.lproj', 'pt.lproj', 'ru.lproj', 'tr.lproj', 'vi.lproj']
+
+Conclusion: the archive is a FairPlay-stripped pirated copy of Miniclip's
+8 Ball Pool with an injected compiled cheat overlay (libloader.framework).
+No source code for the overlay exists inside the artifact.
