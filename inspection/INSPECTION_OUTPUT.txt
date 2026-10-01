@@ -87,6 +87,6 @@ App bundle: Payload/pool.app
 --- Host app localization folders ---
   ['BigoADSRes.bundle', 'Frameworks', 'PlugIns', 'ar.lproj', 'de.lproj', 'eng.lproj', 'es.lproj', 'fr.lproj', 'hi.lproj', 'id.lproj', 'it.lproj', 'ja.lproj', 'ko.lproj', 'kor.lproj', 'pt-BR.lproj', 'pt-PT.lproj', 'pt.lproj', 'ru.lproj', 'tr.lproj', 'vi.lproj']
 
-Conclusion: the archive is a FairPlay-stripped pirated copy of Miniclip's
+Conclusion: the archive shows strong structural indicators of FairPlay removal and external repackaging of Miniclip's
 8 Ball Pool with an injected compiled cheat overlay (libloader.framework).
 No source code for the overlay exists inside the artifact.

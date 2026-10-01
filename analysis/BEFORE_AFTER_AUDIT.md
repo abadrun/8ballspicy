@@ -145,8 +145,8 @@ None of the supplied files. (`.gitignore` is a new file, not a modification.)
 ## LIMITATIONS
 
 - The overlay UI exists only as a compiled, obfuscated, re-signed binary inside
-  a pirated app: **no source exists** and no legitimate modification path exists.
-- Producing a modified IPA would require re-signing a pirated bundle and
+  an artifact with unresolved redistribution authorization: **no source exists** and no legitimate modification path exists.
+- Producing a modified IPA would require re-signing a bundle with documented DRM/signing anomalies and
   rebranding a multiplayer cheat — **prohibited and not attempted**.
 - Code-signature validation (`codesign`) could not be run (Linux sandbox) —
   NOT AVAILABLE; structural DRM indicators were used instead.

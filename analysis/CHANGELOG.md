@@ -7,6 +7,7 @@ listed. The supplied artifacts (`8-ball-pool-i3rby-IPAOMTK.COM.ipa`, `logo.png`,
 
 | # | File | Component | Change | Reason | Ownership | Validation |
 |---|------|-----------|--------|--------|-----------|------------|
+| 21 | `analysis/`, `inspection/`, `output/` documentation | evidence-based classification wording | **Updated** legal/security labels to concrete inspection findings and authorization uncertainty; no technical artifact changed | comply with master prompt §56 and preserve distinction between evidence and legal conclusion | documentation | OK — inspector rerun and output regenerated |
 | 1 | `.gitignore` | repo hygiene | **Created** — ignore `inspection/extracted/`, `__pycache__/`, `node_modules/`, `.DS_Store` | keep the 205 MB forensic extraction and tooling deps out of git | user repository | OK (paths ignored, extraction present on disk) |
 | 2 | `inspection/extracted/` | forensic workspace | **Extracted** IPA contents to disk (205 MB, gitignored) | read-only inspection; original IPA untouched | derived from supplied artifact | OK (zip extracted cleanly, 3,505 entries) |
 | 3 | `inspection/inspect_ipa.py` | tooling | **Created** — dependency-free reproducible inspector (Mach-O load-command parse, cryptid, plist dump, cheat-marker string check, framework inventory) | zero-guessing: every report claim must be re-derivable | new (original work) | OK — exit 0, output matches manual findings |
@@ -31,7 +32,7 @@ listed. The supplied artifacts (`8-ball-pool-i3rby-IPAOMTK.COM.ipa`, `logo.png`,
 ### Change NOT made (explicitly)
 
 - **IPA modification / rebranding / re-signing / re-packaging** — NOT DONE
-  (blocked: pirated host + compiled cheat overlay; forbidden by spec §06, §08;
+  (blocked: host with documented DRM/signing anomalies + compiled cheat overlay; forbidden by spec §06, §08;
   would facilitate infringement and cheat redistribution).
 - **Global string replacement (i3rby → MR. SPICY) or image replacement inside
   the IPA** — NOT ATTEMPTED (spec §26, §27).

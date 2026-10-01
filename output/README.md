@@ -9,13 +9,13 @@ The requested transformation ("adjust the existing IPA's custom interface into a
 polished MR. SPICY-branded interface") fails the decision tree of the master
 specification at steps A, C and D:
 
-- **A — no legitimate adjustment path.** The supplied IPA is a **FairPlay-stripped
-  pirated copy** of Miniclip's copyrighted game (see
+- **A — no legitimate adjustment path.** The supplied IPA shows **strong structural indicators of FairPlay removal and external
+  repackaging** of Miniclip's copyrighted game (see
   `../analysis/INSPECTION_REPORT.md` §4). Rebranding and redistributing it would
-  infringe Miniclip's copyright.
+  could infringe Miniclip's copyright without authorization.
 - **C — the remaining path requires bypassing restrictions.** Producing a modified
-  IPA would require patching a compiled cheat binary and re-signing a pirated
-  bundle (bypassing platform signing and the host's licensing). That is
+  IPA would require patching a compiled cheat binary and re-signing a bundle whose redistribution
+  authorization is not established (bypassing platform signing and the host's licensing). That is
   explicitly forbidden (§06) and was **not done**.
 - **D — the overlay is a multiplayer cheat.** `libloader.framework` implements
   aim assistance, auto play, auto queue, subscription licensing and

@@ -183,7 +183,7 @@ def main():
                         if n.startswith(f"{app}/") and ".lproj" in n and n.count("/") >= 2))
     print(f"  {lprojs}")
 
-    print("\nConclusion: the archive is a FairPlay-stripped pirated copy of Miniclip's")
+    print("\nConclusion: the archive shows strong structural indicators of FairPlay removal and external repackaging of Miniclip's")
     print("8 Ball Pool with an injected compiled cheat overlay (libloader.framework).")
     print("No source code for the overlay exists inside the artifact.")
 

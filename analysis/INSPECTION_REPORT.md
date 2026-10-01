@@ -86,7 +86,7 @@ with a genuine App Store build of 8 Ball Pool.
    (The genuine App Store string for this app is an ads/tracking disclosure.)
 7. Filename provenance `…-IPAOMTK.COM.ipa` — a third-party IPA distribution site.
 
-**Conclusion:** the artifact is a **DRM-stripped pirated copy** of a commercial App Store
+**Conclusion:** the artifact shows **strong structural indicators of FairPlay removal and external repackaging** of a commercial App Store
 game, re-packaged with an injected payload. Code-signature validation itself could not be
 run (Linux sandbox, no `codesign`) — NOT AVAILABLE — but the structural evidence above is
 independent and conclusive.
@@ -163,7 +163,7 @@ obfuscated).
 | `Payload/pool.app` game executable + resources (`.ccbi`, atlases, sfx, `*_text.plist`, `*.lproj`) | ORIGINAL_APPLICATION (Miniclip) | HIGH |
 | Ad/analytics SDK frameworks (AppLovin, Firebase, InMobi, …) | THIRD_PARTY (bundled by Miniclip) | HIGH |
 | `Frameworks/libloader.framework` | **CUSTOM_OVERLAY — multiplayer cheat w/ licensing (injected, DRM-stripped host)** | HIGH |
-| `Info.plist` extra keys (`DecryptedBy`, replaced tracking string) | tampered metadata of pirated copy | HIGH |
+| `Info.plist` extra keys (`DecryptedBy`, replaced tracking string) | metadata altered relative to the expected App Store profile; authorization not established | HIGH |
 | `logo.png` | user-supplied branding asset (not part of IPA) | HIGH |
 | Obfuscated ivars / encrypted blobs inside libloader | UNKNOWN (not reverse-engineered; no legitimate need) | — |
 
@@ -172,14 +172,13 @@ obfuscated).
 ## 8. Decision tree applied (per master specification §29)
 
 - **A. Can the supplied IPA be legitimately adjusted via source/resources?**
-  **NO.** The only "custom UI" is a *compiled* cheat binary; the host app is a *pirated,
-  DRM-stripped* copy of Miniclip's game. Adjusting the overlay in place = rebranding a
-  cheat for redistribution on top of infringing copies — prohibited by the specification
+  **NO.** The only "custom UI" is a *compiled* cheat binary; the host app has *DRM/signing anomalies* of Miniclip's game. Adjusting the overlay in place = rebranding a
+  cheat for redistribution without established authorization — prohibited by the specification
   itself (§06, §08) and by the host app's licensing.
 - **B. Authorized source project for the overlay UI?** **NO — NOT AVAILABLE.**
 - **C. Is the requested modification dependent on bypassing technical/security
   restrictions?** **YES** ( FairPlay already stripped; producing a modified IPA would
-  additionally require re-signing a pirated bundle and patching a compiled cheat).
+  additionally require re-signing a bundle with documented DRM/signing anomalies and patching a compiled cheat).
   → **Not bypassed. Limitation documented.** Legitimate work continues.
 - **D. Does the existing component implement multiplayer cheating / unauthorized
   automation?** **YES** (§6.1). → Not improved, not rebranded for distribution, not
