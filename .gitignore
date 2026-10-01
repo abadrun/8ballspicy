@@ -1,0 +1,12 @@
+# Large forensic extraction (regenerate with inspection/inspect_ipa.py)
+inspection/extracted/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+
+# Node (validation tooling only)
+node_modules/
