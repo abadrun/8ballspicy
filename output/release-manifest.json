@@ -1,9 +1,9 @@
 {
-  "schemaVersion": 3,
-  "generatedAt": "2026-10-02T06:10:00Z",
-  "status": "DEVICE_COMPONENT_BUILD_ONLY",
+  "schemaVersion": 4,
+  "generatedAt": "2026-10-02T11:20:21Z",
+  "status": "HOST_INTEGRATION_BLOCKED",
   "releaseEligible": false,
-  "statusMessage": "A validated unsigned arm64 iphoneos component build exists. No authorized host application or Apple signing configuration is present, so no IPA was produced.",
+  "statusMessage": "The verified unsigned arm64 iphoneos component is preserved. An authorized host source project and legitimate Apple signing configuration are required before an IPA can be produced.",
   "source": {
     "file": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
     "sha256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8",
@@ -56,10 +56,6 @@
     "ipa": null,
     "ipaSha256": null
   },
-  "signing": {
-    "status": "NOT_PERFORMED",
-    "reason": "Unsigned component build has no authorized host, provisioning profile, certificate, or private key"
-  },
   "deviceRuntimeTest": {
     "status": "NOT_PERFORMED",
     "reason": "A physical device launch requires a signed host application and registered device"
@@ -71,9 +67,27 @@
     "antiCheatOrTamperBypass": false,
     "noOpRepackagingClaimedAsModification": false
   },
-  "finalIPA": {
+  "deviceComponent": "VERIFIED",
+  "authorizedHostIntegration": "BLOCKED",
+  "signingDetails": {
+    "status": "NOT_AVAILABLE",
+    "reason": "No authorized host application source or CI-integrated legitimate Apple signing configuration is available."
+  },
+  "signing": "NOT_AVAILABLE",
+  "finalIPADetails": {
     "status": "NOT_PRODUCED",
     "path": null,
     "sha256": null
-  }
+  },
+  "finalIPA": "NOT_PRODUCED",
+  "hostIntegrationPipeline": {
+    "status": "PREPARED_NOT_EXECUTED",
+    "entrypoint": "ExistingIPAWorkspace/scripts/integrate-authorized-host-macos.sh",
+    "projectConfigurator": "ExistingIPAWorkspace/scripts/configure-authorized-host-package.py",
+    "ipaValidator": "ExistingIPAWorkspace/scripts/validate-final-ipa.py",
+    "componentVerification": "SHA-256 must remain c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b before host integration.",
+    "outputIPA": "output/final.ipa",
+    "outputChecksum": "output/final.sha256"
+  },
+  "componentSHA256": "c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b"
 }
