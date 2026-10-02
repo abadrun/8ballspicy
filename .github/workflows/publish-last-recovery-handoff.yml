@@ -1,0 +1,191 @@
+name: Publish verified last-recovery handoff
+
+on:
+  push:
+    branches:
+      - arena/01a0fc96-8ballspicy
+    paths:
+      - ".github/workflows/publish-last-recovery-handoff.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+env:
+  SOURCE_RUN_ID: "37065736048"
+  SOURCE_ARTIFACT_ID: "11252573771"
+  EXPECTED_HANDOFF_SHA256: 1bbec431e921ae7c53e489ba7a4fb6cb459936af0d14814e997da4965c516ebc
+  EXPECTED_COMPONENT_SHA256: 3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f
+  EXPECTED_BASELINE_SHA256: 59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: arena/01a0fc96-8ballspicy
+
+      - name: Download the successful Mac-side handoff
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/mac-handoff
+          mkdir -p /tmp/mac-handoff
+          gh run download "$SOURCE_RUN_ID" \
+            --repo "$GITHUB_REPOSITORY" \
+            --name ExistingIPAOverlay-mac-production-handoff \
+            --dir /tmp/mac-handoff
+          find /tmp/mac-handoff -type f -print | sort
+
+      - name: Validate and stage the handoff without manufacturing an IPA
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import shutil
+          import zipfile
+          from pathlib import Path
+
+          downloaded = Path('/tmp/mac-handoff')
+          archive_candidates = [
+              path for path in downloaded.rglob('ExistingIPAOverlay-mac-production-handoff.zip')
+              if path.is_file()
+          ]
+          report_candidates = [
+              path for path in downloaded.rglob('mac-handoff-report.json')
+              if path.is_file()
+          ]
+          if len(archive_candidates) != 1 or len(report_candidates) != 1:
+              raise SystemExit(
+                  f'expected one handoff ZIP and report, got {archive_candidates}, {report_candidates}'
+              )
+          archive = archive_candidates[0]
+          report_path = report_candidates[0]
+          archive_hash = hashlib.sha256(archive.read_bytes()).hexdigest()
+          if archive_hash != os.environ['EXPECTED_HANDOFF_SHA256']:
+              raise SystemExit(f'handoff hash mismatch: {archive_hash}')
+          report = json.loads(report_path.read_text())
+          required = {
+              'state': 'COMPONENT_READY_FOR_PRODUCTION',
+              'macosXcode': 'AVAILABLE',
+              'componentBuild': 'PASS',
+              'validation': 'PASS',
+              'productionHost': 'NOT_FOUND',
+              'signing': 'NOT_AVAILABLE',
+          }
+          for key, value in required.items():
+              if report.get(key) != value:
+                  raise SystemExit(f'handoff report mismatch: {key}={report.get(key)!r}')
+          if report['component']['sha256'] != os.environ['EXPECTED_COMPONENT_SHA256']:
+              raise SystemExit('component report hash mismatch')
+          if report['baseline']['sha256'] != os.environ['EXPECTED_BASELINE_SHA256']:
+              raise SystemExit('baseline report hash mismatch')
+          if report['finalIPA']['status'] != 'NOT_PRODUCED':
+              raise SystemExit('unexpected final IPA claim')
+
+          with zipfile.ZipFile(archive) as outer:
+              bad = outer.testzip()
+              if bad:
+                  raise SystemExit(f'handoff ZIP CRC failure at {bad}')
+              names = outer.namelist()
+              device_names = [
+                  name for name in names
+                  if name.endswith('/components/ExistingIPAOverlay-ios-device-reproducible.zip')
+              ]
+              sample_names = [
+                  name for name in names
+                  if name.endswith('/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip')
+              ]
+              report_names = [name for name in names if name.endswith('/mac-handoff-report.json')]
+              if len(device_names) != 1 or len(sample_names) != 1 or len(report_names) != 1:
+                  raise SystemExit('handoff contents are incomplete or ambiguous')
+              component_hash = hashlib.sha256(outer.read(device_names[0])).hexdigest()
+              if component_hash != os.environ['EXPECTED_COMPONENT_SHA256']:
+                  raise SystemExit(f'embedded component hash mismatch: {component_hash}')
+              embedded_report = json.loads(outer.read(report_names[0]))
+              if embedded_report != report:
+                  raise SystemExit('embedded and separately uploaded handoff reports differ')
+              if any(name.lower().endswith('.ipa') for name in names):
+                  raise SystemExit('handoff must not contain an IPA')
+
+          baseline = Path('8-ball-pool-i3rby-IPAOMTK.COM.ipa')
+          if hashlib.sha256(baseline.read_bytes()).hexdigest() != os.environ['EXPECTED_BASELINE_SHA256']:
+              raise SystemExit('repository baseline hash mismatch')
+
+          output = Path('output')
+          output.mkdir(exist_ok=True)
+          shutil.copy2(archive, output / archive.name)
+          for suffix in ('.manifest.json', '.sha256'):
+              matches = list(downloaded.rglob(archive.name + suffix))
+              if len(matches) != 1:
+                  raise SystemExit(f'missing handoff sidecar: {suffix}')
+              shutil.copy2(matches[0], output / matches[0].name)
+          shutil.copy2(report_path, Path('analysis/LAST_MACOS_RECOVERY_REPORT.json'))
+
+          evidence = {
+              'schemaVersion': 1,
+              'state': 'COMPONENT_READY_FOR_PRODUCTION',
+              'sourceWorkflowRun': int(os.environ['SOURCE_RUN_ID']),
+              'sourceWorkflowJob': 111032957210,
+              'sourceCommit': report['commit'],
+              'actionsArtifactId': int(os.environ['SOURCE_ARTIFACT_ID']),
+              'actionsArtifactName': 'ExistingIPAOverlay-mac-production-handoff',
+              'repositoryHandoffPath': 'output/ExistingIPAOverlay-mac-production-handoff.zip',
+              'handoffSHA256': archive_hash,
+              'componentSHA256': os.environ['EXPECTED_COMPONENT_SHA256'],
+              'baselineSHA256': os.environ['EXPECTED_BASELINE_SHA256'],
+              'componentBuild': 'PASS',
+              'sampleHostBuild': 'PASS',
+              'sampleHostArchive': 'PASS_UNSIGNED_TEST_ONLY',
+              'reproducibility': 'PASS',
+              'validation': 'PASS',
+              'productionHost': 'NOT_FOUND',
+              'signing': 'NOT_AVAILABLE',
+              'finalIPA': 'NOT_PRODUCED',
+              'finalIPASHA256': None,
+          }
+          Path('analysis/LAST_MACOS_RECOVERY_EVIDENCE.json').write_text(
+              json.dumps(evidence, indent=2, sort_keys=True) + '\n'
+          )
+
+          manifest_path = Path('analysis/PRODUCTION_MANIFEST.json')
+          manifest = json.loads(manifest_path.read_text())
+          manifest.update({
+              'STATE': 'COMPONENT_READY_FOR_PRODUCTION',
+              'MACOS_XCODE_STATUS': 'AVAILABLE_VIA_GITHUB_HOSTED_RUNNER',
+              'PRODUCTION_HOST_STATUS': 'NOT_FOUND_AFTER_FINAL_MACOS_RECOVERY',
+              'SIGNING_STATUS': 'NOT_AVAILABLE',
+              'COMPONENT_BUILD': 'PASS',
+              'SAMPLE_HOST_BUILD': 'PASS',
+              'SAMPLE_HOST_ARCHIVE': 'PASS_UNSIGNED_TEST_ONLY',
+              'VALIDATION': 'PASS',
+              'REPRODUCIBILITY': 'PASS',
+              'LAST_MACOS_RECOVERY_RUN': int(os.environ['SOURCE_RUN_ID']),
+              'MACOS_HANDOFF_PATH': 'output/ExistingIPAOverlay-mac-production-handoff.zip',
+              'MACOS_HANDOFF_SHA256': archive_hash,
+          })
+          manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n')
+          print(json.dumps(evidence, indent=2, sort_keys=True))
+          PY
+          test ! -e output/final.ipa
+          git diff --check
+
+      - name: Commit the complete verified handoff to the fixed branch
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add \
+            analysis/LAST_MACOS_RECOVERY_REPORT.json \
+            analysis/LAST_MACOS_RECOVERY_EVIDENCE.json \
+            analysis/PRODUCTION_MANIFEST.json \
+            output/ExistingIPAOverlay-mac-production-handoff.zip \
+            output/ExistingIPAOverlay-mac-production-handoff.zip.manifest.json \
+            output/ExistingIPAOverlay-mac-production-handoff.zip.sha256
+          git commit -m "Publish verified Mac production handoff"
+          git push origin HEAD:arena/01a0fc96-8ballspicy
