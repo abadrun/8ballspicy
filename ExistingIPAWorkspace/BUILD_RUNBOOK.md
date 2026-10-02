@@ -6,8 +6,8 @@
 |---|---|
 | Original IPA checksum | **VERIFIED** |
 | Debian structural/source tests | **DONE** |
-| macOS package tests | **DONE / VERIFIED** — GitHub Actions run `36967006266` passed |
-| unsigned iOS Simulator component build | **DONE / VERIFIED** — artifact `11210610256` produced by run `36967006266` |
+| macOS package tests | **DONE / VERIFIED** — GitHub Actions run `36967188194` passed |
+| unsigned iOS Simulator component build | **DONE / VERIFIED** — artifact `11210665414` produced by run `36967188194` |
 | Authorized host project integration | **NOT DONE — authorized host source is not present** |
 | Host archive | **REQUIRES MACOS/XCODE** |
 | Apple signing/export | **REQUIRES DEVELOPER SIGNING** |
@@ -25,7 +25,7 @@ python3 inspection/inventory_existing_ipa.py > /tmp/ipa-inventory.json
 cmp /tmp/ipa-inventory.json ExistingIPAWorkspace/Inventory/IPA_FILE_INVENTORY.json
 ```
 
-The committed workflow `.github/workflows/build-overlay.yml` runs the real Swift tests and an unsigned iOS Simulator build on a GitHub-hosted Mac. Run `36967006266` completed successfully in 1m41s and uploaded the 674,196-byte Actions artifact `ExistingIPAOverlay-ios-simulator-build` (artifact ID `11210610256`). Its build script is:
+The committed workflow `.github/workflows/build-overlay.yml` runs the real Swift tests and an unsigned iOS Simulator build on a GitHub-hosted Mac. Run [`36967188194`](https://github.com/abadrun/8ballspicy/actions/runs/36967188194) completed successfully in 1m26s and uploaded the 674,100-byte Actions artifact `ExistingIPAOverlay-ios-simulator-build` (artifact ID `11210665414`). The inner component ZIP SHA-256 is `ad3ebf2f8ac4199f5bb3e587be8637b99db2ab87c4bc939552de1f0d16f3994a`. Its build script is:
 
 ```bash
 bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh

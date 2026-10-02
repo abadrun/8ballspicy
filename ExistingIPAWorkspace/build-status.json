@@ -1,0 +1,50 @@
+{
+  "updatedAt": "2026-10-02T05:04:20Z",
+  "baseline": {
+    "status": "VERIFIED",
+    "file": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
+    "sha256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8"
+  },
+  "debianValidation": {
+    "status": "DONE",
+    "sourceStructure": "VERIFIED",
+    "localizationParity": "VERIFIED",
+    "shellSyntax": "VERIFIED",
+    "ipaValidator": "VERIFIED_AGAINST_BASELINE"
+  },
+  "macOSComponentBuild": {
+    "status": "DONE",
+    "verification": "VERIFIED",
+    "workflowRun": 36967188194,
+    "workflowUrl": "https://github.com/abadrun/8ballspicy/actions/runs/36967188194",
+    "job": 110713377458,
+    "swiftPackageTests": "PASSED",
+    "iOSSimulatorBuild": "PASSED",
+    "artifact": {
+      "id": 11210665414,
+      "name": "ExistingIPAOverlay-ios-simulator-build",
+      "actionsArchiveSizeBytes": 674100,
+      "innerZipSha256": "ad3ebf2f8ac4199f5bb3e587be8637b99db2ab87c4bc939552de1f0d16f3994a",
+      "signed": false,
+      "ipa": false
+    }
+  },
+  "authorizedHostIntegration": {
+    "status": "NOT_DONE",
+    "reason": "Authorized host Xcode source project is not present"
+  },
+  "archive": {
+    "status": "REQUIRES_MACOS_XCODE_AND_AUTHORIZED_HOST"
+  },
+  "signing": {
+    "status": "REQUIRES_DEVELOPER_SIGNING"
+  },
+  "deviceTest": {
+    "status": "REQUIRES_DEVICE_TEST"
+  },
+  "finalIPA": {
+    "status": "NOT_DONE",
+    "path": null,
+    "sha256": null
+  }
+}

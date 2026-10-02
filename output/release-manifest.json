@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "generatedAt": "2026-10-02T00:00:00Z",
   "status": "existing-ipa-preserved-source-integration-pending",
-  "statusMessage": "NOT PRODUCED YET — BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION",
+  "statusMessage": "NOT PRODUCED YET \u2014 BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION",
   "source": {
     "file": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
     "sha256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8",
@@ -32,11 +32,15 @@
     "type": "Swift Package",
     "minimumIOSVersion": "16.0",
     "swiftToolsVersion": "5.9",
-    "localizations": ["en", "id"],
+    "localizations": [
+      "en",
+      "id"
+    ],
     "externalDependencies": [],
     "structuralValidation": "passed",
     "compiledInCurrentEnvironment": false,
-    "integratedIntoExistingIPA": false
+    "integratedIntoExistingIPA": false,
+    "compiledOnGitHubMacOS": true
   },
   "outputs": {
     "sourceWorkspace": "ExistingIPAWorkspace/",
@@ -61,5 +65,18 @@
     "code signing or provisioning",
     "IPA repackaging"
   ],
-  "reasonNoIPA": "The existing artifact is a compiled app bundle, not an authorized host Xcode project. Integrating executable source would alter signed bytes and requires the host owner's source, entitlements, provisioning, Xcode build, and legitimate Apple signing/export path, none of which are available here."
+  "reasonNoIPA": "The overlay source now passes Swift package tests and an unsigned iOS Simulator build on macOS. A final IPA still requires an authorized host Xcode source project, host integration, developer signing credentials/provisioning, archive/export, and device validation; those developer inputs are not present.",
+  "updatedAt": "2026-10-02T05:04:20Z",
+  "componentBuild": {
+    "status": "verified",
+    "workflowRun": 36967188194,
+    "workflowUrl": "https://github.com/abadrun/8ballspicy/actions/runs/36967188194",
+    "artifactId": 11210665414,
+    "artifactName": "ExistingIPAOverlay-ios-simulator-build",
+    "artifactArchiveSizeBytes": 674100,
+    "innerZipSha256": "ad3ebf2f8ac4199f5bb3e587be8637b99db2ab87c4bc939552de1f0d16f3994a",
+    "platform": "iOS Simulator",
+    "signed": false,
+    "ipa": false
+  }
 }
