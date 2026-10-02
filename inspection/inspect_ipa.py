@@ -7,16 +7,21 @@ without modifying the original artifact (read-only).
 
 Usage:
     python3 inspection/inspect_ipa.py [path-to-ipa]
+    python3 inspection/inspect_ipa.py [path-to-ipa] --extract-to /tmp/baseline
 
-Writes a text report to stdout. Extracts nothing to disk unless --extract
-is passed (then to inspection/extracted/, which is gitignored).
+Writes a text report to stdout. Extraction is optional, explicit, guarded
+against path traversal, and never writes back to the source archive. The
+legacy ``--extract`` alias defaults to inspection/extracted/.
 """
 
+import argparse
 import hashlib
-import struct
-import sys
-import zipfile
 import os
+from pathlib import Path, PurePosixPath
+import re
+import shutil
+import struct
+import zipfile
 
 DEFAULT_IPA = os.path.join(os.path.dirname(__file__), "..", "8-ball-pool-i3rby-IPAOMTK.COM.ipa")
 
@@ -45,6 +50,32 @@ GB_MENU_CLASSES = [
     "GBMenuKeyValueRow",
     "GBMenuLockStrip",
 ]
+
+I3RBY_MARKER = re.compile(rb"com\.i3rby\.[A-Za-z0-9._-]+")
+
+
+def safe_extract(archive, destination):
+    """Extract to an explicit directory after rejecting unsafe member paths."""
+    destination = Path(destination).resolve()
+    destination.mkdir(parents=True, exist_ok=True)
+    if any(destination.iterdir()):
+        raise ValueError(f"extraction directory must be empty: {destination}")
+    for info in archive.infolist():
+        member = PurePosixPath(info.filename)
+        if member.is_absolute() or ".." in member.parts:
+            raise ValueError(f"unsafe ZIP member path: {info.filename}")
+        target = destination.joinpath(*member.parts)
+        try:
+            target.relative_to(destination)
+        except ValueError as error:
+            raise ValueError(f"ZIP member escapes extraction directory: {info.filename}") from error
+        if info.is_dir():
+            target.mkdir(parents=True, exist_ok=True)
+            continue
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with archive.open(info) as source, target.open("wb") as output:
+            shutil.copyfileobj(source, output)
+    return destination
 
 
 def sha256(path):
@@ -92,15 +123,30 @@ def extractable_strings(data, min_len=6):
 
 
 def main():
-    ipa = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_IPA
-    ipa = os.path.abspath(ipa)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("ipa", nargs="?", default=DEFAULT_IPA)
+    parser.add_argument(
+        "--extract-to",
+        "--extract",
+        dest="extract_to",
+        nargs="?",
+        const=os.path.join(os.path.dirname(__file__), "extracted"),
+        metavar="DIR",
+        help="safely extract the verified archive to DIR",
+    )
+    args = parser.parse_args()
+    ipa = os.path.abspath(args.ipa)
     print(f"IPA: {ipa}")
     print(f"Size: {os.path.getsize(ipa):,} bytes")
     print(f"SHA-256: {sha256(ipa)}")
     zip_magic = b"PK\x03\x04"
-    print(f"Is ZIP (IPA container): {open(ipa, 'rb').read(4) == zip_magic}")
+    with open(ipa, "rb") as source:
+        print(f"Is ZIP (IPA container): {source.read(4) == zip_magic}")
 
     z = zipfile.ZipFile(ipa)
+    bad_member = z.testzip()
+    if bad_member:
+        raise ValueError(f"ZIP integrity failure at {bad_member}")
     names = z.namelist()
     print(f"Archive entries: {len(names)}")
     print(f"Top level: {sorted(set(n.split('/')[0] for n in names))}")
@@ -108,6 +154,9 @@ def main():
                    if n.startswith("Payload/") and n.count("/") >= 2 and n.split("/")[1].endswith(".app"))
     app = f"Payload/{app_dir}"
     print(f"App bundle: {app}")
+    if args.extract_to:
+        destination = safe_extract(z, args.extract_to)
+        print(f"Extracted baseline: {destination} ({len(names)} ZIP members)")
 
     # --- Info.plist ---
     import plistlib
@@ -176,12 +225,19 @@ def main():
             print(f"    [{'x' if c in joined else ' '}] {c}")
         ad_urls = sorted({s for s in strs if s.startswith("http") and "omg" in s})
         print(f"  Third-party rewarded-ad endpoint strings: {ad_urls}")
+        i3rby_markers = sorted(
+            marker.decode("ascii", "replace")
+            for marker in set(I3RBY_MARKER.findall(ll_data))
+        )
+        print(f"  i3rby persistent-domain markers: {i3rby_markers}")
 
     # --- Host app Arabic localization (context for EN/AR requirement) ---
     print("\n--- Host app localization folders ---")
     lprojs = sorted(set(n.split("/")[2] for n in names
-                        if n.startswith(f"{app}/") and ".lproj" in n and n.count("/") >= 2))
+                        if n.startswith(f"{app}/") and n.count("/") >= 2
+                        and n.split("/")[2].endswith(".lproj")))
     print(f"  {lprojs}")
+    z.close()
 
     print("\nConclusion: the archive is a FairPlay-stripped pirated copy of Miniclip's")
     print("8 Ball Pool with an injected compiled cheat overlay (libloader.framework).")

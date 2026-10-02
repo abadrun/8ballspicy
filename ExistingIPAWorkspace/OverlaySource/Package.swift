@@ -19,6 +19,10 @@ let package = Package(
             dependencies: ["ExistingIPAOverlayCore"],
             resources: [.process("Resources")]
         ),
-        .testTarget(name: "ExistingIPAOverlayCoreTests", dependencies: ["ExistingIPAOverlayCore"])
+        .testTarget(name: "ExistingIPAOverlayCoreTests", dependencies: ["ExistingIPAOverlayCore"]),
+        .testTarget(
+            name: "ExistingIPAOverlayUITests",
+            dependencies: ["ExistingIPAOverlayUI", "ExistingIPAOverlayCore"]
+        )
     ]
 )

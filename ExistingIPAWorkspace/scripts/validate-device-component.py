@@ -50,8 +50,21 @@ def main() -> None:
         device_names = [name for name in names if name.startswith("Debug-iphoneos/")]
         if not device_names:
             fail("Debug-iphoneos product directory is missing")
+        if any(name.startswith("Payload/") or ".app/" in name for name in names):
+            fail("component archive must not contain an application payload")
         if any("iphonesimulator" in name or "simulator" in name.lower() for name in names):
             fail("simulator product is present")
+
+        required_products = {
+            "Debug-iphoneos/ExistingIPAOverlayCore.o",
+            "Debug-iphoneos/ExistingIPAOverlayCore.swiftmodule/arm64-apple-ios.swiftmodule",
+            "Debug-iphoneos/ExistingIPAOverlayUI.o",
+            "Debug-iphoneos/ExistingIPAOverlayUI.swiftmodule/arm64-apple-ios.swiftmodule",
+            "Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+        }
+        missing = sorted(required_products - names)
+        if missing:
+            fail(f"required component products are missing: {', '.join(missing)}")
 
         arm64_modules = [name for name in device_names if "arm64-apple-ios" in name]
         if not arm64_modules:
@@ -68,18 +81,32 @@ def main() -> None:
             if cputype != ARM64_CPUTYPE:
                 fail(f"{name} has cputype 0x{cputype:08x}, expected arm64")
 
-        bundle_plists = [name for name in device_names if name.endswith(".bundle/Info.plist")]
-        if not bundle_plists:
-            fail("resource bundle metadata is missing")
-        info = plistlib.loads(archive.read(bundle_plists[0]))
+        ui_object = archive.read("Debug-iphoneos/ExistingIPAOverlayUI.o")
+        ui_module = archive.read(
+            "Debug-iphoneos/ExistingIPAOverlayUI.swiftmodule/arm64-apple-ios.swiftmodule"
+        )
+        if b"ExistingIPAOverlayView" not in ui_object or b"ExistingIPAOverlayView" not in ui_module:
+            fail("public ExistingIPAOverlayView entry point is missing from the UI products")
+        if b"ExistingIPAOverlayUI" not in ui_object or b"ExistingIPAOverlayUI" not in ui_module:
+            fail("ExistingIPAOverlayUI Swift module marker is missing")
+
+        bundle_plist = "Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist"
+        info = plistlib.loads(archive.read(bundle_plist))
         if info.get("CFBundlePackageType") != "BNDL":
             fail("resource bundle metadata has an unexpected package type")
+        if info.get("CFBundleIdentifier") != "overlaysource.ExistingIPAOverlayUI.resources":
+            fail("resource bundle identifier is unexpected")
+        if info.get("MinimumOSVersion") != "16.0":
+            fail("resource bundle minimum iOS version is unexpected")
 
     print("VALID")
     print(f"file={artifact}")
     print(f"sizeBytes={artifact.stat().st_size}")
-    print(f"deviceProduct=Debug-iphoneos")
-    print(f"architecture=arm64")
+    print("deviceProduct=Debug-iphoneos")
+    print("architecture=arm64")
+    print("swiftModules=ExistingIPAOverlayCore,ExistingIPAOverlayUI")
+    print("entryPoint=ExistingIPAOverlayUI.ExistingIPAOverlayView")
+    print("resourceBundle=ExistingIPAOverlay_ExistingIPAOverlayUI.bundle")
     print(f"sha256={digest(artifact)}")
 
 

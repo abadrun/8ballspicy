@@ -169,7 +169,16 @@ def main() -> None:
     parser.add_argument("--require-provisioning", action="store_true")
     parser.add_argument("--codesign-verify", action="store_true")
     parser.add_argument("--require-arm64", action="store_true")
-    parser.add_argument("--require-component", metavar="NAME")
+    parser.add_argument(
+        "--require-component",
+        metavar="NAME",
+        help="require a dynamic component path/load command or a static-link marker in the main executable",
+    )
+    parser.add_argument(
+        "--require-resource-bundle",
+        metavar="NAME.bundle",
+        help="require a SwiftPM resource bundle at the application-bundle root",
+    )
     parser.add_argument("--bundle-id")
     args = parser.parse_args()
     ipa = args.ipa.resolve()
@@ -235,6 +244,22 @@ def main() -> None:
             else:
                 component_evidence = f"main executable loads {dylib_references[0]}"
 
+        resource_bundle_evidence = "not requested"
+        if args.require_resource_bundle:
+            bundle_name = args.require_resource_bundle
+            if not bundle_name.endswith(".bundle") or "/" in bundle_name or "\\" in bundle_name:
+                fail("required resource bundle must be a bundle basename ending in .bundle")
+            resource_info_path = f"{app}/{bundle_name}/Info.plist"
+            if resource_info_path not in names:
+                fail(f"required resource bundle is missing from the app root: {bundle_name}")
+            try:
+                resource_info = plistlib.loads(archive.read(resource_info_path))
+            except (plistlib.InvalidFileException, ValueError) as error:
+                fail(f"required resource bundle Info.plist is invalid: {error}")
+            if resource_info.get("CFBundlePackageType") != "BNDL":
+                fail("required resource bundle has an unexpected package type")
+            resource_bundle_evidence = resource_info_path
+
         if args.codesign_verify or args.require_provisioning:
             with tempfile.TemporaryDirectory(prefix="ipa-validation-") as temporary:
                 root = Path(temporary)
@@ -254,6 +279,7 @@ def main() -> None:
     print(f"bundleIdentifier={bundle_id}")
     print(f"architectures={','.join(architectures)}")
     print(f"component={component_evidence}")
+    print(f"resourceBundle={resource_bundle_evidence}")
     print(f"sha256={sha256(ipa)}")
 
 

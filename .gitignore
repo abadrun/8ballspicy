@@ -16,3 +16,7 @@ node_modules/
 DerivedData/
 *.xcarchive
 output/components/
+.swiftpm/
+xcuserdata/
+*.xcuserstate
+output/test-results/

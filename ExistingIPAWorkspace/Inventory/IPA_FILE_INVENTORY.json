@@ -1,9 +1,18 @@
 {
+  "appExtensions": [
+    "Payload/pool.app/PlugIns/NotificationContent.appex",
+    "Payload/pool.app/PlugIns/NotificationService.appex",
+    "Payload/pool.app/PlugIns/PoolWidgetExtension.appex",
+    "Payload/pool.app/PlugIns/PooliMessage.appex"
+  ],
   "application": {
     "build": "5328",
     "bundleIdentifier": "com.miniclip.8ballpoolmult",
     "displayName": "8 Ball Pool",
     "macho": {
+      "architectures": [
+        "arm64"
+      ],
       "cpuType": 16777228,
       "cryptid": 0,
       "loadDylibCount": 69,
@@ -78,7 +87,13 @@
         "/usr/lib/swift/libswiftNetwork.dylib",
         "@executable_path/Frameworks/libloader.framework/libloader"
       ],
-      "recognized": true
+      "recognized": true,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
     },
     "mainExecutable": "Payload/pool.app/pool",
     "mainExecutableClassification": "UNKNOWN",
@@ -86,14 +101,941 @@
     "version": "56.30.0"
   },
   "applicationBundle": "Payload/pool.app",
+  "applicationInfoPlist": {
+    "format": "xml",
+    "keyCount": 66,
+    "keys": [
+      "AppID",
+      "AppLovinVerboseLogging",
+      "BuildMachineOSBuild",
+      "CFBundleDevelopmentRegion",
+      "CFBundleDisplayName",
+      "CFBundleExecutable",
+      "CFBundleIconName",
+      "CFBundleIcons",
+      "CFBundleIcons~ipad",
+      "CFBundleIdentifier",
+      "CFBundleInfoDictionaryVersion",
+      "CFBundleName",
+      "CFBundlePackageType",
+      "CFBundleShortVersionString",
+      "CFBundleSignature",
+      "CFBundleSupportedPlatforms",
+      "CFBundleURLTypes",
+      "CFBundleVersion",
+      "DTAppStoreToolsBuild",
+      "DTCompiler",
+      "DTPlatformBuild",
+      "DTPlatformName",
+      "DTPlatformVersion",
+      "DTSDKBuild",
+      "DTSDKName",
+      "DTXcode",
+      "DTXcodeBuild",
+      "DTXcodeBuildDistribution",
+      "DecryptedBy",
+      "FBLikeObject",
+      "FBLikePage",
+      "FBSchemeSuffix",
+      "FYBVideoPlayerOptionCloseButtonDelay",
+      "FacebookAdvertiserIDCollectionEnabled",
+      "FacebookAppID",
+      "FacebookAutoInitEnabled",
+      "FacebookAutoLogAppEventsEnabled",
+      "FacebookClientToken",
+      "FacebookDisplayName",
+      "GADApplicationIdentifier",
+      "GADDelayAppMeasurementInit",
+      "GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS",
+      "GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_STORAGE",
+      "GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_USER_DATA",
+      "GOOGLE_ANALYTICS_DEFAULT_ALLOW_ANALYTICS_STORAGE",
+      "LSApplicationCategoryType",
+      "LSApplicationQueriesSchemes",
+      "LSRequiresIPhoneOS",
+      "MCDeveloperKey",
+      "MinimumOSVersion",
+      "NSAdvertisingAttributionReportEndpoint",
+      "NSAppTransportSecurity",
+      "NSPrivacyTrackingDomains",
+      "NSUserTrackingUsageDescription",
+      "SKAdNetworkItems",
+      "UIDeviceFamily",
+      "UILaunchStoryboardName",
+      "UIPrerenderedIcon",
+      "UIRequiresFullScreen",
+      "UIStatusBarHidden",
+      "UISupportedInterfaceOrientations",
+      "UISupportedInterfaceOrientations~ipad",
+      "UIViewControllerBasedStatusBarAppearance",
+      "VungleAppID",
+      "minAppVersion",
+      "minAppVersionAndroid"
+    ],
+    "modificationIndicators": {
+      "decryptionWatermark": "@FastDecryptBot - https://t.me/FastDecryptBot",
+      "trackingDescription": "Used to bind your subscription key to this device and protect your activation."
+    },
+    "path": "Payload/pool.app/Info.plist",
+    "selectedValues": {
+      "AppID": "543186831",
+      "CFBundleDisplayName": "8 Ball Pool",
+      "CFBundleExecutable": "pool",
+      "CFBundleIdentifier": "com.miniclip.8ballpoolmult",
+      "CFBundleName": "8 Ball Pool",
+      "CFBundlePackageType": "APPL",
+      "CFBundleShortVersionString": "56.30.0",
+      "CFBundleSupportedPlatforms": [
+        "iPhoneOS"
+      ],
+      "CFBundleVersion": "5328",
+      "DecryptedBy": "@FastDecryptBot - https://t.me/FastDecryptBot",
+      "MinimumOSVersion": "13.0",
+      "NSUserTrackingUsageDescription": "Used to bind your subscription key to this device and protect your activation."
+    },
+    "sha256": "84572f30773e74ca2fdd1688631bd5b5ab12c12f629d38504532bc107858dd23"
+  },
+  "architectureSummary": {
+    "architectureSets": {
+      "arm64": 31
+    },
+    "machOBinaryCount": 31
+  },
   "artifact": {
     "path": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
     "preservation": "tracked source artifact; inspected read-only",
     "sha256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8",
     "sizeBytes": 98576945,
-    "zipEntries": 3505
+    "uncompressedBytes": 205308617,
+    "zipDirectories": 161,
+    "zipEntries": 3505,
+    "zipFiles": 3344
   },
-  "classificationCaveat": "ORIGINAL_GAME means structurally attributable to the host bundle and outside the injected overlay. It does not assert provenance or untampered bytes. Mixed/tampered components are UNKNOWN.",
+  "bundleIdentifiers": [
+    {
+      "bundleIdentifier": "org.cocoapods.BigoADSRes",
+      "path": "Payload/pool.app/BigoADSRes.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.AdSurge.ADN",
+      "path": "Payload/pool.app/Frameworks/AdSurgeSDK.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.applovin.sdk.resources",
+      "path": "Payload/pool.app/Frameworks/AppLovinSDK.framework/AppLovinSDKResources.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.applovin.sdk",
+      "path": "Payload/pool.app/Frameworks/AppLovinSDK.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.BigoADS",
+      "path": "Payload/pool.app/Frameworks/BigoADS.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.a9.pdp.DTBiOSSDK",
+      "path": "Payload/pool.app/Frameworks/DTBiOSSDK.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.facebook.FBAudienceNetwork",
+      "path": "Payload/pool.app/Frameworks/FBAudienceNetwork.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FBLPromises-Privacy",
+      "path": "Payload/pool.app/Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FBLPromises",
+      "path": "Payload/pool.app/Frameworks/FBLPromises.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseAnalytics",
+      "path": "Payload/pool.app/Frameworks/FirebaseAnalytics.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseCore-Privacy",
+      "path": "Payload/pool.app/Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseCore",
+      "path": "Payload/pool.app/Frameworks/FirebaseCore.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseCoreExtension-Privacy",
+      "path": "Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/FirebaseCoreExtension_Privacy.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseCoreExtension",
+      "path": "Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseCoreInternal-Privacy",
+      "path": "Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseCoreInternal",
+      "path": "Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseCrashlytics-Privacy",
+      "path": "Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/FirebaseCrashlytics_Privacy.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseCrashlytics",
+      "path": "Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseInstallations-Privacy",
+      "path": "Payload/pool.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseInstallations",
+      "path": "Payload/pool.app/Frameworks/FirebaseInstallations.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseRemoteConfigInterop",
+      "path": "Payload/pool.app/Frameworks/FirebaseRemoteConfigInterop.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.FirebaseSessions",
+      "path": "Payload/pool.app/Frameworks/FirebaseSessions.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.google.ads.GoogleAdsOnDeviceConversion",
+      "path": "Payload/pool.app/Frameworks/GoogleAdsOnDeviceConversion.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.GoogleAppMeasurement",
+      "path": "Payload/pool.app/Frameworks/GoogleAppMeasurement.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.GoogleAppMeasurementIdentitySupport",
+      "path": "Payload/pool.app/Frameworks/GoogleAppMeasurementIdentitySupport.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.GoogleDataTransport-Privacy",
+      "path": "Payload/pool.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.GoogleDataTransport",
+      "path": "Payload/pool.app/Frameworks/GoogleDataTransport.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.GoogleUtilities-Privacy",
+      "path": "Payload/pool.app/Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.GoogleUtilities",
+      "path": "Payload/pool.app/Frameworks/GoogleUtilities.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.inmobi.InMobiSDK",
+      "path": "Payload/pool.app/Frameworks/InMobiSDK.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.moloco.ads.sdk.core",
+      "path": "Payload/pool.app/Frameworks/MolocoSDK.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.iabtechlab.omsdk",
+      "path": "Payload/pool.app/Frameworks/OMSDK_Appodeal.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.Promises",
+      "path": "Payload/pool.app/Frameworks/Promises.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.Promises-Privacy",
+      "path": "Payload/pool.app/Frameworks/Promises.framework/Promises_Privacy.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.appdome.libloader",
+      "path": "Payload/pool.app/Frameworks/libloader.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.nanopb",
+      "path": "Payload/pool.app/Frameworks/nanopb.framework/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.nanopb-Privacy",
+      "path": "Payload/pool.app/Frameworks/nanopb.framework/nanopb_Privacy.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.miniclip.8ballpoolmult",
+      "path": "Payload/pool.app/Info.plist"
+    },
+    {
+      "bundleIdentifier": "org.cocoapods.PAGAdSDK",
+      "path": "Payload/pool.app/PAGAdSDK.bundle/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.miniclip.8ballpoolmult.notificationContent",
+      "path": "Payload/pool.app/PlugIns/NotificationContent.appex/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.miniclip.8ballpoolmult.notificationService",
+      "path": "Payload/pool.app/PlugIns/NotificationService.appex/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.miniclip.8ballpoolmult.poolWidget",
+      "path": "Payload/pool.app/PlugIns/PoolWidgetExtension.appex/Info.plist"
+    },
+    {
+      "bundleIdentifier": "com.miniclip.8ballpoolmult.PooliMessage",
+      "path": "Payload/pool.app/PlugIns/PooliMessage.appex/Info.plist"
+    }
+  ],
+  "bundleMetadata": [
+    {
+      "buildVersion": "1",
+      "bundleExecutable": null,
+      "bundleIdentifier": "org.cocoapods.BigoADSRes",
+      "bundleName": "BigoADSRes",
+      "minimumOSVersion": "12.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/BigoADSRes.bundle/Info.plist",
+      "sha256": "6048c2e99ecc183e146e28a137eb53c12c9973f30350ef92359aab04b3ee1cb0",
+      "shortVersion": "5.2.1",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "AdSurgeSDK",
+      "bundleIdentifier": "com.AdSurge.ADN",
+      "bundleName": "AdSurgeSDK",
+      "minimumOSVersion": "12",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/AdSurgeSDK.framework/Info.plist",
+      "sha256": "dd2e6a6e4dcd5043163672e005b71ed739daccf02166f52b79d3b0b2ff982f9a",
+      "shortVersion": "1.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": null,
+      "bundleExecutable": null,
+      "bundleIdentifier": null,
+      "bundleName": null,
+      "minimumOSVersion": null,
+      "packageType": null,
+      "path": "Payload/pool.app/Frameworks/AppLovinSDK.framework/AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/Info.plist",
+      "sha256": "ae470b1bf3c37585b0084981e8dabff9e9d66d8f86e0f08e43230490e3fa280e",
+      "shortVersion": null,
+      "supportedPlatforms": null
+    },
+    {
+      "buildVersion": "10000",
+      "bundleExecutable": null,
+      "bundleIdentifier": "com.applovin.sdk.resources",
+      "bundleName": "AppLovinSDKResources",
+      "minimumOSVersion": "12.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/Frameworks/AppLovinSDK.framework/AppLovinSDKResources.bundle/Info.plist",
+      "sha256": "742b17bb9ce29919fd4348bdc784c97ba5abaaed15318d2611483995e5dd1a31",
+      "shortVersion": "1.0.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "13060399",
+      "bundleExecutable": "AppLovinSDK",
+      "bundleIdentifier": "com.applovin.sdk",
+      "bundleName": "AppLovinSDK",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/AppLovinSDK.framework/Info.plist",
+      "sha256": "381067ce34d6a28beabcf0cc09d3b8b46423f43da66f9377f7b00ca01696dc05",
+      "shortVersion": "13.6.3",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "BigoADS",
+      "bundleIdentifier": "org.cocoapods.BigoADS",
+      "bundleName": "BigoADS",
+      "minimumOSVersion": "12.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/BigoADS.framework/Info.plist",
+      "sha256": "190dc0be4ea5ab3692af9c2696aa2985e7cd1e11e60d8af7f22233133985de0c",
+      "shortVersion": "5.2.1",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "DTBiOSSDK",
+      "bundleIdentifier": "com.a9.pdp.DTBiOSSDK",
+      "bundleName": "DTBiOSSDK",
+      "minimumOSVersion": "12.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/DTBiOSSDK.framework/Info.plist",
+      "sha256": "bab9b4a679f72e08e441f2ef96fc2381c69767e1641eaa912b284b5935a742f7",
+      "shortVersion": "1.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "6.21.1",
+      "bundleExecutable": "FBAudienceNetwork",
+      "bundleIdentifier": "com.facebook.FBAudienceNetwork",
+      "bundleName": "FBAudienceNetwork",
+      "minimumOSVersion": "13.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/FBAudienceNetwork.framework/Info.plist",
+      "sha256": "6d8c92cdadb9c92fe0ba4a904dad7f1b99415b75274663d410cd22d3f45b9230",
+      "shortVersion": "1.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": null,
+      "bundleIdentifier": "org.cocoapods.FBLPromises-Privacy",
+      "bundleName": "FBLPromises_Privacy",
+      "minimumOSVersion": "9.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/Info.plist",
+      "sha256": "89f9c2c6291b9483966a8006b3d5c4b73cba210fee6d545b9cb3f6097bd6d5ce",
+      "shortVersion": "2.4.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "FBLPromises",
+      "bundleIdentifier": "org.cocoapods.FBLPromises",
+      "bundleName": "FBLPromises",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/FBLPromises.framework/Info.plist",
+      "sha256": "a0ee8d69ba72232228c9fc2831b2a5eceaba6f7d1177894c0de7f226b1572552",
+      "shortVersion": "2.4.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "FirebaseAnalytics",
+      "bundleIdentifier": "org.cocoapods.FirebaseAnalytics",
+      "bundleName": "FirebaseAnalytics",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/FirebaseAnalytics.framework/Info.plist",
+      "sha256": "aa9ad09f04208a792c997e72146f0086e14789bfb856d1a89b5ff65634460608",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": null,
+      "bundleIdentifier": "org.cocoapods.FirebaseCore-Privacy",
+      "bundleName": "FirebaseCore_Privacy",
+      "minimumOSVersion": "12.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/Info.plist",
+      "sha256": "56b52286f01ebcb4c3087d934f5f985660243ddfc9c14a73bc3215c342739057",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "FirebaseCore",
+      "bundleIdentifier": "org.cocoapods.FirebaseCore",
+      "bundleName": "FirebaseCore",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/FirebaseCore.framework/Info.plist",
+      "sha256": "1621759c2272bd862ea71e03db277f180fbb757194dff281e7f7998fd04dfa0e",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": null,
+      "bundleIdentifier": "org.cocoapods.FirebaseCoreExtension-Privacy",
+      "bundleName": "FirebaseCoreExtension_Privacy",
+      "minimumOSVersion": "12.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/FirebaseCoreExtension_Privacy.bundle/Info.plist",
+      "sha256": "35a1c5275105ac17af21654f4a84a52e25b680dd0199ccc41aa48badc62b90bd",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "FirebaseCoreExtension",
+      "bundleIdentifier": "org.cocoapods.FirebaseCoreExtension",
+      "bundleName": "FirebaseCoreExtension",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/Info.plist",
+      "sha256": "6ef2e63785cff697f2392fa41d97472fa713ddbacd76eec4a2d8540ba9ae703b",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": null,
+      "bundleIdentifier": "org.cocoapods.FirebaseCoreInternal-Privacy",
+      "bundleName": "FirebaseCoreInternal_Privacy",
+      "minimumOSVersion": "12.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/Info.plist",
+      "sha256": "bbd027340429215ebc77aa8df4b2d9a1517252fd1d3899845d3f47675ab1f5e3",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "FirebaseCoreInternal",
+      "bundleIdentifier": "org.cocoapods.FirebaseCoreInternal",
+      "bundleName": "FirebaseCoreInternal",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/Info.plist",
+      "sha256": "b241b8af9bc81d8d14a9b4c23d37bab9e45f4394ec94af6c5fb027a8585ac99d",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": null,
+      "bundleIdentifier": "org.cocoapods.FirebaseCrashlytics-Privacy",
+      "bundleName": "FirebaseCrashlytics_Privacy",
+      "minimumOSVersion": "12.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/FirebaseCrashlytics_Privacy.bundle/Info.plist",
+      "sha256": "b4a3c16aec6c7e46481d0b63a92b9c42d14c09387d39ca8c1bec4e7f80900eea",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "FirebaseCrashlytics",
+      "bundleIdentifier": "org.cocoapods.FirebaseCrashlytics",
+      "bundleName": "FirebaseCrashlytics",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/Info.plist",
+      "sha256": "f143a481a4f0ed760c165d121abfed53bee8771e571d6150f96e1de15f5dad08",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": null,
+      "bundleIdentifier": "org.cocoapods.FirebaseInstallations-Privacy",
+      "bundleName": "FirebaseInstallations_Privacy",
+      "minimumOSVersion": "12.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/Info.plist",
+      "sha256": "39754f918af56a17eb2e47f5e727c97b596791a110b4f0ce558554cd97a95668",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "FirebaseInstallations",
+      "bundleIdentifier": "org.cocoapods.FirebaseInstallations",
+      "bundleName": "FirebaseInstallations",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/FirebaseInstallations.framework/Info.plist",
+      "sha256": "b322eaaf41de8a5eb2bee2ad58fed3a4dd305a72d4da608c256d507bcd1edeb8",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "FirebaseRemoteConfigInterop",
+      "bundleIdentifier": "org.cocoapods.FirebaseRemoteConfigInterop",
+      "bundleName": "FirebaseRemoteConfigInterop",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/FirebaseRemoteConfigInterop.framework/Info.plist",
+      "sha256": "2e0b9464527727f8d0f56c40e7e7d568a3f634a147a4b711cd2cb38ed6320eaf",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "FirebaseSessions",
+      "bundleIdentifier": "org.cocoapods.FirebaseSessions",
+      "bundleName": "FirebaseSessions",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/FirebaseSessions.framework/Info.plist",
+      "sha256": "36e25c203c21e02a061786b543a1964d407aeec4b61cfbbdb50f541b12982b39",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "2.1.0",
+      "bundleExecutable": "GoogleAdsOnDeviceConversion",
+      "bundleIdentifier": "com.google.ads.GoogleAdsOnDeviceConversion",
+      "bundleName": "GoogleAdsOnDeviceConversion",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/GoogleAdsOnDeviceConversion.framework/Info.plist",
+      "sha256": "931a04439058895df3eb5f27df95200d586f5801922359090607737bc17c657f",
+      "shortVersion": "2.1.0",
+      "supportedPlatforms": null
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "GoogleAppMeasurement",
+      "bundleIdentifier": "org.cocoapods.GoogleAppMeasurement",
+      "bundleName": "GoogleAppMeasurement",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/GoogleAppMeasurement.framework/Info.plist",
+      "sha256": "7e0e010f681922eae198e23db242e42d8b0ed735e1b07c4ece663a35fe558c02",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "GoogleAppMeasurementIdentitySupport",
+      "bundleIdentifier": "org.cocoapods.GoogleAppMeasurementIdentitySupport",
+      "bundleName": "GoogleAppMeasurementIdentitySupport",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/GoogleAppMeasurementIdentitySupport.framework/Info.plist",
+      "sha256": "7c5b428a3b6f045903a8e438f1a0d43c0160569fe830547f03fe1aa2fab95a85",
+      "shortVersion": "11.15.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": null,
+      "bundleIdentifier": "org.cocoapods.GoogleDataTransport-Privacy",
+      "bundleName": "GoogleDataTransport_Privacy",
+      "minimumOSVersion": "12.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/Info.plist",
+      "sha256": "c03c38e59bed9b40d7c965707217c17ff6872b2e728dfd4c1f1afb6963d6a4ff",
+      "shortVersion": "10.1.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "GoogleDataTransport",
+      "bundleIdentifier": "org.cocoapods.GoogleDataTransport",
+      "bundleName": "GoogleDataTransport",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/GoogleDataTransport.framework/Info.plist",
+      "sha256": "58b4695a9850788f78bba8d48f611fb95d2dddd9c386cc5f907fa798fb60842f",
+      "shortVersion": "10.1.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": null,
+      "bundleIdentifier": "org.cocoapods.GoogleUtilities-Privacy",
+      "bundleName": "GoogleUtilities_Privacy",
+      "minimumOSVersion": "12.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/Info.plist",
+      "sha256": "ce224944905f12aa4ef506046f7ab20c8af91bd3e245c915dbaaffb0177b6b1a",
+      "shortVersion": "8.1.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "GoogleUtilities",
+      "bundleIdentifier": "org.cocoapods.GoogleUtilities",
+      "bundleName": "GoogleUtilities",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/GoogleUtilities.framework/Info.plist",
+      "sha256": "6e79fdc2635633cca3c246beef4cccac4b1c808dfd219c311f14ad1e459ceca4",
+      "shortVersion": "8.1.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "11.3.0",
+      "bundleExecutable": "InMobiSDK",
+      "bundleIdentifier": "com.inmobi.InMobiSDK",
+      "bundleName": "InMobiSDK",
+      "minimumOSVersion": "12.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/InMobiSDK.framework/Info.plist",
+      "sha256": "eb00ec97dd787092ab5c1b6e6db32b6ed1767e28e302c81d420283fd86f39d19",
+      "shortVersion": "11.3.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "4.7.0",
+      "bundleExecutable": "MolocoSDK",
+      "bundleIdentifier": "com.moloco.ads.sdk.core",
+      "bundleName": "MolocoSDK",
+      "minimumOSVersion": "12.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/MolocoSDK.framework/Info.plist",
+      "sha256": "4909c70595b9ca2977c213881b27bf527063d980fcea5e69c503d6a0dba3c952",
+      "shortVersion": "4.7.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "OMSDK_Appodeal",
+      "bundleIdentifier": "com.iabtechlab.omsdk",
+      "bundleName": "OMSDK_Appodeal",
+      "minimumOSVersion": "11.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/OMSDK_Appodeal.framework/Info.plist",
+      "sha256": "201df3462b8bf92606a9e9470bf3ff1ecb1ed12bffc4dfebbde79fe611c3e4f7",
+      "shortVersion": "1.6.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "Promises",
+      "bundleIdentifier": "org.cocoapods.Promises",
+      "bundleName": "Promises",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/Promises.framework/Info.plist",
+      "sha256": "f4ef3094676a70c7172af19545a1f82019d193b55ea1bbb1b9e6a07a46b279ff",
+      "shortVersion": "2.4.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": null,
+      "bundleIdentifier": "org.cocoapods.Promises-Privacy",
+      "bundleName": "Promises_Privacy",
+      "minimumOSVersion": "9.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/Frameworks/Promises.framework/Promises_Privacy.bundle/Info.plist",
+      "sha256": "23d0fdbf58190509f2bca2fbb4e95a15f0d8d5b4650225d5ae55d0c0d886b8be",
+      "shortVersion": "2.4.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1.0.0",
+      "bundleExecutable": "libloader",
+      "bundleIdentifier": "com.appdome.libloader",
+      "bundleName": "libloader",
+      "minimumOSVersion": "11.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/libloader.framework/Info.plist",
+      "sha256": "68368882e9fde09a723cff633bd692572704f75438d28ecd39e8a0e688112bfa",
+      "shortVersion": "1.0.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": "nanopb",
+      "bundleIdentifier": "org.cocoapods.nanopb",
+      "bundleName": "nanopb",
+      "minimumOSVersion": "100.0",
+      "packageType": "FMWK",
+      "path": "Payload/pool.app/Frameworks/nanopb.framework/Info.plist",
+      "sha256": "931d20b57d3ccb64254c7a88ee95268e63d625a4909a66ba8c65f81fcf868015",
+      "shortVersion": "3.30910.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": null,
+      "bundleIdentifier": "org.cocoapods.nanopb-Privacy",
+      "bundleName": "nanopb_Privacy",
+      "minimumOSVersion": "12.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/Frameworks/nanopb.framework/nanopb_Privacy.bundle/Info.plist",
+      "sha256": "1875e77078d35002c7bbd4ca5dbac88cf3403f23bab637bf70a06802268c00e3",
+      "shortVersion": "3.30910.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "5328",
+      "bundleExecutable": "pool",
+      "bundleIdentifier": "com.miniclip.8ballpoolmult",
+      "bundleName": "8 Ball Pool",
+      "minimumOSVersion": "13.0",
+      "packageType": "APPL",
+      "path": "Payload/pool.app/Info.plist",
+      "sha256": "84572f30773e74ca2fdd1688631bd5b5ab12c12f629d38504532bc107858dd23",
+      "shortVersion": "56.30.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "1",
+      "bundleExecutable": null,
+      "bundleIdentifier": "org.cocoapods.PAGAdSDK",
+      "bundleName": "PAGAdSDK",
+      "minimumOSVersion": "12.0",
+      "packageType": "BNDL",
+      "path": "Payload/pool.app/PAGAdSDK.bundle/Info.plist",
+      "sha256": "851bf8f324ed04ec208f890d362ee915e0dab7b1c4bbd78040dda434d74a0909",
+      "shortVersion": "8.1.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": null,
+      "bundleExecutable": null,
+      "bundleIdentifier": null,
+      "bundleName": null,
+      "minimumOSVersion": null,
+      "packageType": null,
+      "path": "Payload/pool.app/PlugIns/NotificationContent.appex/Base.lproj/MainInterface.storyboardc/Info.plist",
+      "sha256": "b0e89ceae812296c06bc1497e59c9811413ea4579c0965b4617028e4235b9824",
+      "shortVersion": null,
+      "supportedPlatforms": null
+    },
+    {
+      "buildVersion": "5328",
+      "bundleExecutable": "NotificationContent",
+      "bundleIdentifier": "com.miniclip.8ballpoolmult.notificationContent",
+      "bundleName": "NotificationContent",
+      "minimumOSVersion": "13.0",
+      "packageType": "XPC!",
+      "path": "Payload/pool.app/PlugIns/NotificationContent.appex/Info.plist",
+      "sha256": "b1aee4d1c8f06a10f0f8323dc42187e7f3329683578f85afd6be083023c74feb",
+      "shortVersion": "56.30.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "5328",
+      "bundleExecutable": "NotificationService",
+      "bundleIdentifier": "com.miniclip.8ballpoolmult.notificationService",
+      "bundleName": "NotificationService",
+      "minimumOSVersion": "13.0",
+      "packageType": "XPC!",
+      "path": "Payload/pool.app/PlugIns/NotificationService.appex/Info.plist",
+      "sha256": "600c9398331ad53fcc466669751072b3b157e414893871ae54a55eea3f769d3a",
+      "shortVersion": "56.30.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": "5328",
+      "bundleExecutable": "PoolWidgetExtension",
+      "bundleIdentifier": "com.miniclip.8ballpoolmult.poolWidget",
+      "bundleName": "PoolWidgetExtension",
+      "minimumOSVersion": "14.0",
+      "packageType": null,
+      "path": "Payload/pool.app/PlugIns/PoolWidgetExtension.appex/Info.plist",
+      "sha256": "05905b7ddd4a17705567c7a2ca9a18ec898731d703456fd856265385f12c8065",
+      "shortVersion": "56.30.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": null,
+      "bundleExecutable": null,
+      "bundleIdentifier": null,
+      "bundleName": null,
+      "minimumOSVersion": null,
+      "packageType": null,
+      "path": "Payload/pool.app/PlugIns/PooliMessage.appex/Base.lproj/MainInterface.storyboardc/Info.plist",
+      "sha256": "f599288fe6bb36ff864f7f6badb834e49d98ece40785b6999052d9a38e07d2ca",
+      "shortVersion": null,
+      "supportedPlatforms": null
+    },
+    {
+      "buildVersion": "5328",
+      "bundleExecutable": "PooliMessage",
+      "bundleIdentifier": "com.miniclip.8ballpoolmult.PooliMessage",
+      "bundleName": "PooliMessage",
+      "minimumOSVersion": "13.0",
+      "packageType": "XPC!",
+      "path": "Payload/pool.app/PlugIns/PooliMessage.appex/Info.plist",
+      "sha256": "5b68931d3fa31796d4bb2e9b9b23dab2aacb35bf79a60dce0791f2c333739214",
+      "shortVersion": "56.30.0",
+      "supportedPlatforms": [
+        "iPhoneOS"
+      ]
+    },
+    {
+      "buildVersion": null,
+      "bundleExecutable": null,
+      "bundleIdentifier": null,
+      "bundleName": null,
+      "minimumOSVersion": null,
+      "packageType": null,
+      "path": "Payload/pool.app/Splash.storyboardc/Info.plist",
+      "sha256": "1f255d5cc53b531e3f29a9406a8df49a958e2bf9443d3e20bd8374f707f7d5c8",
+      "shortVersion": null,
+      "supportedPlatforms": null
+    }
+  ],
+  "classificationCaveat": "ORIGINAL_GAME means structurally attributable to the host bundle and outside the injected overlay. It does not assert provenance or untampered bytes. Mixed/post-injection components are UNKNOWN.",
   "classificationSummary": {
     "EXISTING_OVERLAY": {
       "entries": 5,
@@ -108,6 +1050,258 @@
       "uncompressedBytes": 83090739
     }
   },
+  "embeddedFrameworks": [
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/AdSurgeSDK.framework/AdSurgeSDK",
+      "bundleExecutable": "AdSurgeSDK",
+      "bundleIdentifier": "com.AdSurge.ADN",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/AdSurgeSDK.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/AppLovinSDK.framework/AppLovinSDK",
+      "bundleExecutable": "AppLovinSDK",
+      "bundleIdentifier": "com.applovin.sdk",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/AppLovinSDK.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/BigoADS.framework/BigoADS",
+      "bundleExecutable": "BigoADS",
+      "bundleIdentifier": "org.cocoapods.BigoADS",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/BigoADS.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/DTBiOSSDK.framework/DTBiOSSDK",
+      "bundleExecutable": "DTBiOSSDK",
+      "bundleIdentifier": "com.a9.pdp.DTBiOSSDK",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/DTBiOSSDK.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/FBAudienceNetwork.framework/FBAudienceNetwork",
+      "bundleExecutable": "FBAudienceNetwork",
+      "bundleIdentifier": "com.facebook.FBAudienceNetwork",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FBAudienceNetwork.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/FBLPromises.framework/FBLPromises",
+      "bundleExecutable": "FBLPromises",
+      "bundleIdentifier": "org.cocoapods.FBLPromises",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FBLPromises.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/FirebaseAnalytics.framework/FirebaseAnalytics",
+      "bundleExecutable": "FirebaseAnalytics",
+      "bundleIdentifier": "org.cocoapods.FirebaseAnalytics",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseAnalytics.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/FirebaseCore.framework/FirebaseCore",
+      "bundleExecutable": "FirebaseCore",
+      "bundleIdentifier": "org.cocoapods.FirebaseCore",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseCore.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/FirebaseCoreExtension",
+      "bundleExecutable": "FirebaseCoreExtension",
+      "bundleIdentifier": "org.cocoapods.FirebaseCoreExtension",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseCoreExtension.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal",
+      "bundleExecutable": "FirebaseCoreInternal",
+      "bundleIdentifier": "org.cocoapods.FirebaseCoreInternal",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseCoreInternal.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/FirebaseCrashlytics",
+      "bundleExecutable": "FirebaseCrashlytics",
+      "bundleIdentifier": "org.cocoapods.FirebaseCrashlytics",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseCrashlytics.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations",
+      "bundleExecutable": "FirebaseInstallations",
+      "bundleIdentifier": "org.cocoapods.FirebaseInstallations",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseInstallations.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/FirebaseRemoteConfigInterop.framework/FirebaseRemoteConfigInterop",
+      "bundleExecutable": "FirebaseRemoteConfigInterop",
+      "bundleIdentifier": "org.cocoapods.FirebaseRemoteConfigInterop",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseRemoteConfigInterop.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/FirebaseSessions.framework/FirebaseSessions",
+      "bundleExecutable": "FirebaseSessions",
+      "bundleIdentifier": "org.cocoapods.FirebaseSessions",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseSessions.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/GoogleAdsOnDeviceConversion.framework/GoogleAdsOnDeviceConversion",
+      "bundleExecutable": "GoogleAdsOnDeviceConversion",
+      "bundleIdentifier": "com.google.ads.GoogleAdsOnDeviceConversion",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/GoogleAdsOnDeviceConversion.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/GoogleAppMeasurement.framework/GoogleAppMeasurement",
+      "bundleExecutable": "GoogleAppMeasurement",
+      "bundleIdentifier": "org.cocoapods.GoogleAppMeasurement",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/GoogleAppMeasurement.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/GoogleAppMeasurementIdentitySupport.framework/GoogleAppMeasurementIdentitySupport",
+      "bundleExecutable": "GoogleAppMeasurementIdentitySupport",
+      "bundleIdentifier": "org.cocoapods.GoogleAppMeasurementIdentitySupport",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/GoogleAppMeasurementIdentitySupport.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport",
+      "bundleExecutable": "GoogleDataTransport",
+      "bundleIdentifier": "org.cocoapods.GoogleDataTransport",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/GoogleDataTransport.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/GoogleUtilities.framework/GoogleUtilities",
+      "bundleExecutable": "GoogleUtilities",
+      "bundleIdentifier": "org.cocoapods.GoogleUtilities",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/GoogleUtilities.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/InMobiSDK.framework/InMobiSDK",
+      "bundleExecutable": "InMobiSDK",
+      "bundleIdentifier": "com.inmobi.InMobiSDK",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/InMobiSDK.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/MolocoSDK.framework/MolocoSDK",
+      "bundleExecutable": "MolocoSDK",
+      "bundleIdentifier": "com.moloco.ads.sdk.core",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/MolocoSDK.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/OMSDK_Appodeal.framework/OMSDK_Appodeal",
+      "bundleExecutable": "OMSDK_Appodeal",
+      "bundleIdentifier": "com.iabtechlab.omsdk",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/OMSDK_Appodeal.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/Promises.framework/Promises",
+      "bundleExecutable": "Promises",
+      "bundleIdentifier": "org.cocoapods.Promises",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/Promises.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/libloader.framework/libloader",
+      "bundleExecutable": "libloader",
+      "bundleIdentifier": "com.appdome.libloader",
+      "classification": "EXISTING_OVERLAY",
+      "path": "Payload/pool.app/Frameworks/libloader.framework"
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "binary": "Payload/pool.app/Frameworks/nanopb.framework/nanopb",
+      "bundleExecutable": "nanopb",
+      "bundleIdentifier": "org.cocoapods.nanopb",
+      "classification": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/nanopb.framework"
+    }
+  ],
   "entries": [
     {
       "category": "ORIGINAL_GAME",
@@ -35160,7 +36354,54 @@
       "sizeBytes": 20574
     }
   ],
-  "frameworks": [
+  "existingI3rbyModification": {
+    "attribution": "HIGH: the injected binary contains com.i3rby.* persistent-domain markers and the host executable loads that binary",
+    "boundary": "Only libloader.framework members are classified as wholly owned by the existing overlay. Mixed host files remain UNKNOWN rather than being over-attributed.",
+    "hostLoadReference": "@executable_path/Frameworks/libloader.framework/libloader",
+    "i3rbyMarkers": [
+      "com.i3rby.8poolmod.autoqueue.tiercode.v1",
+      "com.i3rby.8poolmod.tg.ad_session_id",
+      "com.i3rby.8poolmod.tg.ad_session_scope",
+      "com.i3rby.autoplay",
+      "com.i3rby.autoplay.debug",
+      "com.i3rby.breaklog",
+      "com.i3rby.breaklog.debug"
+    ],
+    "mixedOrPostInjectionMembers": [
+      {
+        "path": "Payload/pool.app/pool",
+        "reason": "mixed host executable with injected LC_LOAD_DYLIB; the entire executable is not attributed to i3rby"
+      },
+      {
+        "path": "Payload/pool.app/Info.plist",
+        "reason": "host metadata contains redistribution and overlay licensing changes"
+      },
+      {
+        "path": "Payload/pool.app/_CodeSignature/",
+        "reason": "post-injection signature metadata directory"
+      },
+      {
+        "path": "Payload/pool.app/_CodeSignature/CodeResources",
+        "reason": "post-injection signature manifest covers libloader.framework"
+      },
+      {
+        "path": "Payload/pool.app/SC_Info/",
+        "reason": "FairPlay metadata location reduced to a redistribution placeholder"
+      },
+      {
+        "path": "Payload/pool.app/SC_Info/.keep",
+        "reason": "redistribution placeholder; not attributed to pristine host content"
+      }
+    ],
+    "ownedMembers": [
+      "Payload/pool.app/Frameworks/libloader.framework/",
+      "Payload/pool.app/Frameworks/libloader.framework/_CodeSignature/",
+      "Payload/pool.app/Frameworks/libloader.framework/_CodeSignature/CodeResources",
+      "Payload/pool.app/Frameworks/libloader.framework/libloader",
+      "Payload/pool.app/Frameworks/libloader.framework/Info.plist"
+    ]
+  },
+  "frameworkDirectoryEntries": [
     "AdSurgeSDK.framework",
     "AppLovinSDK.framework",
     "BigoADS.framework",
@@ -35188,6 +36429,33 @@
     "libswift_Concurrency.dylib",
     "nanopb.framework"
   ],
+  "frameworks": [
+    "AdSurgeSDK.framework",
+    "AppLovinSDK.framework",
+    "BigoADS.framework",
+    "DTBiOSSDK.framework",
+    "FBAudienceNetwork.framework",
+    "FBLPromises.framework",
+    "FirebaseAnalytics.framework",
+    "FirebaseCore.framework",
+    "FirebaseCoreExtension.framework",
+    "FirebaseCoreInternal.framework",
+    "FirebaseCrashlytics.framework",
+    "FirebaseInstallations.framework",
+    "FirebaseRemoteConfigInterop.framework",
+    "FirebaseSessions.framework",
+    "GoogleAdsOnDeviceConversion.framework",
+    "GoogleAppMeasurement.framework",
+    "GoogleAppMeasurementIdentitySupport.framework",
+    "GoogleDataTransport.framework",
+    "GoogleUtilities.framework",
+    "InMobiSDK.framework",
+    "MolocoSDK.framework",
+    "OMSDK_Appodeal.framework",
+    "Promises.framework",
+    "libloader.framework",
+    "nanopb.framework"
+  ],
   "localizationDirectories": [
     "ar.lproj",
     "de.lproj",
@@ -35207,10 +36475,480 @@
     "tr.lproj",
     "vi.lproj"
   ],
+  "machOBinaries": [
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/AdSurgeSDK.framework/AdSurgeSDK",
+      "sha256": "fc29aabfbb090caa649e41017abd0af9dd3c664fbc3e6e1e1fa05bd5ca83a6f6",
+      "sizeBytes": 4969280,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/AppLovinSDK.framework/AppLovinSDK",
+      "sha256": "ac8becb9c767ecf4387865b8615dcf2e261604e3ab9ce9424346b372349dd709",
+      "sizeBytes": 5719216,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/BigoADS.framework/BigoADS",
+      "sha256": "32073f17fa3d9bd7aa63b7d9955d26a7abdc74613ada57fa719d390a73bc43ce",
+      "sizeBytes": 35536,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/DTBiOSSDK.framework/DTBiOSSDK",
+      "sha256": "fd3de21fb2829b41170367c4f9cee149fd88e3a809ab621fee19f4b32135df81",
+      "sizeBytes": 1850224,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FBAudienceNetwork.framework/FBAudienceNetwork",
+      "sha256": "592a5a57e857a10d5bb0a7ed4eba3edbd4be474f2f7bd18e49ddb0867b7c2e04",
+      "sizeBytes": 7113728,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FBLPromises.framework/FBLPromises",
+      "sha256": "8873a298de993720b96a34d9221e02af96feec216873b4fae2817172f3369f7e",
+      "sizeBytes": 35568,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseAnalytics.framework/FirebaseAnalytics",
+      "sha256": "a50f4c59566d60dc4c954f8074464d7d43b3e90a7a462fe79908009b587f5891",
+      "sizeBytes": 35584,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseCore.framework/FirebaseCore",
+      "sha256": "48944edce34178908f9c60a27d64c17e7f494f5392d17fd644b09b156be1b9bf",
+      "sizeBytes": 35568,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/FirebaseCoreExtension",
+      "sha256": "4de03192bddc6b195207b1d3c138c07768af0c4ee9e3a9ba1de00ec48db5dc75",
+      "sizeBytes": 35600,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal",
+      "sha256": "52015bbb8a682b28d96c99282737f64b5ef2a6134d8aefe445e7200c31e26959",
+      "sizeBytes": 35584,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/FirebaseCrashlytics",
+      "sha256": "d2deaae7728678dd92b28fcc59b0ca451f22fa75a21b13b67411609a2b41423f",
+      "sizeBytes": 35584,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations",
+      "sha256": "0c91e52260e2e579053e6c8ef72daa1616fd103369b2ba58ef14aba54c24ba87",
+      "sizeBytes": 35600,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseRemoteConfigInterop.framework/FirebaseRemoteConfigInterop",
+      "sha256": "b9ef3e6f11ff9493ccabca5319893e37f483d7f10e1530f564a15107a5a639fc",
+      "sizeBytes": 35616,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/FirebaseSessions.framework/FirebaseSessions",
+      "sha256": "d51219ea09f254badf4947299b9ba91414db94f3b2caa254326a42d0a027eaf3",
+      "sizeBytes": 35584,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/GoogleAdsOnDeviceConversion.framework/GoogleAdsOnDeviceConversion",
+      "sha256": "86289400d5433f3ada10a1943de11a0cd47e48aabbfd7c5793ad46e15814b5a8",
+      "sizeBytes": 35600,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/GoogleAppMeasurement.framework/GoogleAppMeasurement",
+      "sha256": "eccfd1440fa9b53a32c29bf8945a4df91f1df9d45eef29d98553a58b8270652f",
+      "sizeBytes": 35584,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/GoogleAppMeasurementIdentitySupport.framework/GoogleAppMeasurementIdentitySupport",
+      "sha256": "d56f5cad828fd5c60f6392573b4aaab2620b8b2ba473a8eb6874d0456633fd86",
+      "sizeBytes": 35632,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport",
+      "sha256": "83b6517640b3d4bbe843117685f4f0e546a0687a3d791f074b78e95fdd6e4448",
+      "sizeBytes": 35584,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/GoogleUtilities.framework/GoogleUtilities",
+      "sha256": "3610a8e11681eedbdcf2f636d67c95d22cd4fc23c96966441386db21a3ebac36",
+      "sizeBytes": 35584,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/InMobiSDK.framework/InMobiSDK",
+      "sha256": "4ce4d9e30d40b14bb1564ecf144b075f49d838b89c976d44aa0e2e29d8e632d2",
+      "sizeBytes": 6621120,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/MolocoSDK.framework/MolocoSDK",
+      "sha256": "a59c5048a2c410dbcf5acc0441d892a2957bda9efac84ef92351b7969ed45f50",
+      "sizeBytes": 5301840,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/OMSDK_Appodeal.framework/OMSDK_Appodeal",
+      "sha256": "d4238d8dab620be1a55c05bc409977eeefdb5448eb49fbffb2170200fc712003",
+      "sizeBytes": 35536,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/Promises.framework/Promises",
+      "sha256": "ce429f4a86ea52d8d08932b64a62cfff3ca5c393da8074d081ba735f21380b9d",
+      "sizeBytes": 35552,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "EXISTING_OVERLAY",
+      "path": "Payload/pool.app/Frameworks/libloader.framework/libloader",
+      "sha256": "b7f970a8b9faa84b9614055f7966a41975777b360a3abe57ddf5e9b6c71df250",
+      "sizeBytes": 11493804,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/libswift_Concurrency.dylib",
+      "sha256": "2f6bf40708648689d451a34d0800ee4f03165f9ae951442e7a22fb39b0af5575",
+      "sizeBytes": 417072,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/Frameworks/nanopb.framework/nanopb",
+      "sha256": "9fb67c2908d8e96d5457308aaaa4e4f6c7b1aeebf423cf80f51ca51b28e6e922",
+      "sizeBytes": 35552,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/PlugIns/NotificationContent.appex/NotificationContent",
+      "sha256": "3f3f052bef114dc695371ab50f795468b5d50e9b9dfc8415f64994fe5ac344cb",
+      "sizeBytes": 99152,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/PlugIns/NotificationService.appex/NotificationService",
+      "sha256": "9c846f3d60a3b4936c20a2eec06bad4a335f674425b89b8c310dd757589c8859",
+      "sizeBytes": 99968,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/PlugIns/PoolWidgetExtension.appex/PoolWidgetExtension",
+      "sha256": "207b39899d2354e87207ded202e7b5c35dee7aa1f205d0b5d50cfca88f5daf50",
+      "sizeBytes": 152576,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "ORIGINAL_GAME",
+      "path": "Payload/pool.app/PlugIns/PooliMessage.appex/PooliMessage",
+      "sha256": "298dd82fee560d7b5b5f51e45cff8fc01f13622a52728d2128436918b98d9c61",
+      "sizeBytes": 7969584,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    },
+    {
+      "architectures": [
+        "arm64"
+      ],
+      "category": "UNKNOWN",
+      "path": "Payload/pool.app/pool",
+      "sha256": "ebf863aec2cd42b7b5794553580ff67e9f0df9a545688a095c3c452df1c4d21c",
+      "sizeBytes": 81963248,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
+    }
+  ],
   "overlay": {
     "binary": "Payload/pool.app/Frameworks/libloader.framework/libloader",
     "framework": "Payload/pool.app/Frameworks/libloader.framework",
     "macho": {
+      "architectures": [
+        "arm64"
+      ],
       "cpuType": 16777228,
       "cryptid": 0,
       "loadDylibCount": 22,
@@ -35238,10 +36976,155 @@
         "@rpath/libswiftCore.dylib",
         "@rpath/libswiftFoundation.dylib"
       ],
-      "recognized": true
+      "recognized": true,
+      "slices": [
+        {
+          "cpuType": 16777228,
+          "name": "arm64"
+        }
+      ]
     }
   },
   "payload": "Payload/",
+  "resourceBundles": [
+    "Payload/pool.app/BigoADSRes.bundle",
+    "Payload/pool.app/Frameworks/AppLovinSDK.framework/AppLovinSDKResources.bundle",
+    "Payload/pool.app/Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle",
+    "Payload/pool.app/Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle",
+    "Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/FirebaseCoreExtension_Privacy.bundle",
+    "Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle",
+    "Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/FirebaseCrashlytics_Privacy.bundle",
+    "Payload/pool.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle",
+    "Payload/pool.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle",
+    "Payload/pool.app/Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle",
+    "Payload/pool.app/Frameworks/MolocoSDK.framework/Resources.bundle",
+    "Payload/pool.app/Frameworks/Promises.framework/Promises_Privacy.bundle",
+    "Payload/pool.app/Frameworks/nanopb.framework/nanopb_Privacy.bundle",
+    "Payload/pool.app/MTGResources.bundle",
+    "Payload/pool.app/MaticooSDK.bundle",
+    "Payload/pool.app/PAGAdSDK.bundle"
+  ],
+  "resources": {
+    "extensionSummary": [
+      {
+        "extension": ".aiff",
+        "files": 1,
+        "uncompressedBytes": 1656
+      },
+      {
+        "extension": ".atlas",
+        "files": 45,
+        "uncompressedBytes": 77305
+      },
+      {
+        "extension": ".car",
+        "files": 6,
+        "uncompressedBytes": 4571029
+      },
+      {
+        "extension": ".ccbi",
+        "files": 688,
+        "uncompressedBytes": 1713020
+      },
+      {
+        "extension": ".dylib",
+        "files": 1,
+        "uncompressedBytes": 417072
+      },
+      {
+        "extension": ".fsh",
+        "files": 2,
+        "uncompressedBytes": 2441
+      },
+      {
+        "extension": ".html",
+        "files": 3,
+        "uncompressedBytes": 3636
+      },
+      {
+        "extension": ".ignore",
+        "files": 1,
+        "uncompressedBytes": 29639
+      },
+      {
+        "extension": ".jpg",
+        "files": 1,
+        "uncompressedBytes": 12131
+      },
+      {
+        "extension": ".js",
+        "files": 10,
+        "uncompressedBytes": 420704
+      },
+      {
+        "extension": ".json",
+        "files": 42,
+        "uncompressedBytes": 2058390
+      },
+      {
+        "extension": ".mp3",
+        "files": 142,
+        "uncompressedBytes": 5009425
+      },
+      {
+        "extension": ".nib",
+        "files": 23,
+        "uncompressedBytes": 127583
+      },
+      {
+        "extension": ".obj",
+        "files": 1,
+        "uncompressedBytes": 50258
+      },
+      {
+        "extension": ".plist",
+        "files": 819,
+        "uncompressedBytes": 26601718
+      },
+      {
+        "extension": ".png",
+        "files": 1326,
+        "uncompressedBytes": 21880414
+      },
+      {
+        "extension": ".skel",
+        "files": 23,
+        "uncompressedBytes": 731906
+      },
+      {
+        "extension": ".strings",
+        "files": 83,
+        "uncompressedBytes": 26833
+      },
+      {
+        "extension": ".ttf",
+        "files": 5,
+        "uncompressedBytes": 738068
+      },
+      {
+        "extension": ".txt",
+        "files": 1,
+        "uncompressedBytes": 7
+      },
+      {
+        "extension": ".wav",
+        "files": 2,
+        "uncompressedBytes": 248580
+      },
+      {
+        "extension": ".xcprivacy",
+        "files": 18,
+        "uncompressedBytes": 29875
+      },
+      {
+        "extension": "<none>",
+        "files": 101,
+        "uncompressedBytes": 140556927
+      }
+    ],
+    "fileCount": 3344
+  },
+  "schemaVersion": 2,
   "standaloneDylibs": [
     "Payload/pool.app/Frameworks/libswift_Concurrency.dylib"
   ]

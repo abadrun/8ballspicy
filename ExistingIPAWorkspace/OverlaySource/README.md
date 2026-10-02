@@ -26,8 +26,9 @@ The package does not embed or patch the supplied IPA. It contains no gameplay au
 1. In Xcode, open `ExistingIPAWorkspace/OverlaySource/Package.swift`.
 2. Select the generated `ExistingIPAOverlay-Package` scheme.
 3. Run **Product → Test** to execute `ExistingIPAOverlayCoreTests`.
-4. An authorized developer may add the `ExistingIPAOverlay` product to source for a host application they are entitled to build and sign.
-5. The SwiftUI entry point is `ExistingIPAOverlayView()`.
+4. An authorized developer may add the `ExistingIPAOverlay` package product to a host application they are entitled to build and sign.
+5. Host source imports the product's Swift module with `import ExistingIPAOverlayUI`.
+6. The SwiftUI entry point is `ExistingIPAOverlayView()`.
 
 This package must not be injected into the supplied third-party binary. It is retained alongside the existing IPA so permitted work is source-maintainable if an authorized host build path becomes available.
 

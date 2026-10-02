@@ -66,12 +66,13 @@ All are mandatory:
 
 1. An authorized Xcode `.xcworkspace` or `.xcodeproj` for the host application.
 2. A shared host scheme that archives successfully.
-3. A host-owned source integration point that imports `ExistingIPAOverlay` and presents `ExistingIPAOverlayView`.
-4. Apple Developer Team ID.
-5. Installed signing certificate/private key in the macOS keychain.
-6. Provisioning/entitlement configuration valid for the host bundle identifier.
-7. A developer-supplied `ExportOptions.plist` matching the intended legitimate distribution method.
-8. A registered device or permitted distribution target for launch validation.
+3. Host deployment target iOS 16 or newer (the accepted component cannot preserve Artifact A's iOS 13–15 compatibility).
+4. A host-owned source integration point that imports the `ExistingIPAOverlayUI` Swift module and presents `ExistingIPAOverlayView`.
+5. Apple Developer Team ID.
+6. Installed signing certificate/private key in the macOS keychain.
+7. Provisioning/entitlement configuration valid for the host bundle identifier.
+8. A developer-supplied `ExportOptions.plist` matching the intended legitimate distribution method.
+9. A registered device or permitted distribution target for launch validation.
 
 The compiled reference IPA cannot substitute for item 1 without binary injection and re-signing, which this workspace does not perform.
 

@@ -83,9 +83,10 @@ App bundle: Payload/pool.app
     [x] GBMenuKeyValueRow
     [x] GBMenuLockStrip
   Third-party rewarded-ad endpoint strings: ['https://omg10.com/4/1286848']
+  i3rby persistent-domain markers: ['com.i3rby.8poolmod.autoqueue.tiercode.v1', 'com.i3rby.8poolmod.tg.ad_session_id', 'com.i3rby.8poolmod.tg.ad_session_scope', 'com.i3rby.autoplay', 'com.i3rby.autoplay.debug', 'com.i3rby.breaklog', 'com.i3rby.breaklog.debug']
 
 --- Host app localization folders ---
-  ['BigoADSRes.bundle', 'Frameworks', 'PlugIns', 'ar.lproj', 'de.lproj', 'eng.lproj', 'es.lproj', 'fr.lproj', 'hi.lproj', 'id.lproj', 'it.lproj', 'ja.lproj', 'ko.lproj', 'kor.lproj', 'pt-BR.lproj', 'pt-PT.lproj', 'pt.lproj', 'ru.lproj', 'tr.lproj', 'vi.lproj']
+  ['ar.lproj', 'de.lproj', 'eng.lproj', 'es.lproj', 'fr.lproj', 'hi.lproj', 'id.lproj', 'it.lproj', 'ja.lproj', 'ko.lproj', 'kor.lproj', 'pt-BR.lproj', 'pt-PT.lproj', 'pt.lproj', 'ru.lproj', 'tr.lproj', 'vi.lproj']
 
 Conclusion: the archive is a FairPlay-stripped pirated copy of Miniclip's
 8 Ball Pool with an injected compiled cheat overlay (libloader.framework).

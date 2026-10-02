@@ -7,8 +7,8 @@ listed. The supplied artifacts (`8-ball-pool-i3rby-IPAOMTK.COM.ipa`, `logo.png`,
 
 | # | File | Component | Change | Reason | Ownership | Validation |
 |---|------|-----------|--------|--------|-----------|------------|
-| 1 | `.gitignore` | repo hygiene | **Created** — ignore `inspection/extracted/`, `__pycache__/`, `node_modules/`, `.DS_Store` | keep the 205 MB forensic extraction and tooling deps out of git | user repository | OK (paths ignored, extraction present on disk) |
-| 2 | `inspection/extracted/` | forensic workspace | **Extracted** IPA contents to disk (205 MB, gitignored) | read-only inspection; original IPA untouched | derived from supplied artifact | OK (zip extracted cleanly, 3,505 entries) |
+| 1 | `.gitignore` | repo hygiene | **Created** — ignore `inspection/extracted/`, `__pycache__/`, `node_modules/`, `.DS_Store` | keep forensic extractions and tooling deps out of git | user repository | OK (paths ignored; no extraction is tracked) |
+| 2 | temporary extraction | forensic workspace | **Extracted** IPA contents to disk (205 MB) | read-only inspection; original IPA untouched | derived from supplied artifact | OK (ZIP extracted cleanly, 3,505 entries; temporary tree removed after inspection) |
 | 3 | `inspection/inspect_ipa.py` | tooling | **Created** — dependency-free reproducible inspector (Mach-O load-command parse, cryptid, plist dump, cheat-marker string check, framework inventory) | zero-guessing: every report claim must be re-derivable | new (original work) | OK — exit 0, output matches manual findings |
 | 4 | `inspection/INSPECTION_OUTPUT.txt` | evidence | **Created** — captured output of `inspect_ipa.py` | immutable record of machine-checkable findings | generated | OK |
 | 5 | `inspection/README.md` | docs | **Created** — what the folder contains, how to reproduce | reproducibility | new | OK |
@@ -63,3 +63,32 @@ The original IPA was not modified. No compiled overlay code, proprietary game re
 | `analysis/EXISTING_IPA_IMPLEMENTATION_REPORT.md` | Added current verification, structure, classification, and implementation report. | Counts and hashes match generated inventories. |
 
 The existing IPA remains the base/reference artifact. No modified IPA or modified-IPA checksum was created.
+
+## Baseline requirement re-verification — 2026-10-02
+
+| File / component | Change from baseline A | Validation |
+|---|---|---|
+| `8-ball-pool-i3rby-IPAOMTK.COM.ipa` | **No byte change.** Re-hashed before and after; safely extracted to a temporary `/tmp` workspace for intake inspection. | Working file and committed blob both equal `59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8`; ZIP test passed. |
+| `inspection/inspect_ipa.py` | Added real, path-traversal-guarded `--extract-to` support and direct `com.i3rby.*` marker reporting; corrected direct-host localization discovery. | Python compilation passed; temporary extraction produced 3,344 files / 205,308,617 bytes; default report regenerated. |
+| `inspection/inventory_existing_ipa.py` | Expanded generated schema to include all bundle IDs, application plist metadata, 25 frameworks, standalone dylibs, app extensions, resource bundles/types, all Mach-O slices, and exact/mixed i3rby boundaries. | Python compilation passed; deterministic regeneration passed; 3,505 entries, 43 bundle IDs, 31 arm64 Mach-O binaries. |
+| `ExistingIPAWorkspace/Inventory/IPA_FILE_INVENTORY.json` | Regenerated from the expanded read-only inventory tool. No application payload was changed. | JSON parsed; expected checksum/count/classification assertions passed. |
+| `inspection/INSPECTION_OUTPUT.txt` | Regenerated to include direct i3rby attribution markers and corrected 17-directory host localization list. | Regenerated successfully from the preserved baseline. |
+| `analysis/BASELINE_AUDIT_2026-10-02.md` | Added explicit A/B/C distinction, temporary extraction record, full structural summary, modification ownership boundary, and zero-IPA-delta decision. | Cross-checked against generated inventory, preservation verifier, and device-component validator. |
+| `analysis/INSPECTION_REPORT.md` | Corrected an older statement that i3rby appeared only in filename provenance; the binary contains direct `com.i3rby.*` evidence. | Confirmed against `libloader` bytes and generated inventories. |
+| `analysis/EXISTING_IPA_IMPLEMENTATION_REPORT.md`, `inspection/README.md`, `ExistingIPAWorkspace/README.md` | Updated inventory/extraction scope and artifact status references. | Documentation values cross-checked against machine outputs. |
+
+Artifact B remains the separate verified unsigned component with SHA-256 `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`. Artifact C remains **NOT PRODUCED** because an authorized host source project and legitimate signing configuration are absent. No no-op IPA was created.
+
+## Implementation-path analysis — 2026-10-02
+
+| File / component | Change | Validation |
+|---|---|---|
+| `analysis/IMPLEMENTATION_PLAN.md` | Added the precise B product/API analysis, source-level integration mechanism, coexistence boundary, C delta allowlist, signing requirements, and single immediate blocker. | Cross-checked against `Package.swift`, Swift source, compiled module/object markers, resource metadata, and integration scripts. |
+| `ExistingIPAWorkspace/scripts/configure-authorized-host-package.py` | Completed Xcode project wiring: package product dependency plus `PBXBuildFile` in the target's `PBXFrameworksBuildPhase`; added strict partial-state detection and idempotence. | Three parser-fixture tests pass; no host project was created or claimed. |
+| `ExistingIPAWorkspace/scripts/test_configure_authorized_host_package.py` | Added temporary parser-data tests for dry run, complete linkage, idempotence, and missing-Frameworks-phase rejection. | 3/3 tests pass on Linux. |
+| `ExistingIPAWorkspace/scripts/integrate-authorized-host-macos.sh` | Corrected host import contract to compiled module `ExistingIPAOverlayUI`; requires an actual `ExistingIPAOverlayView(...)` construction; final validation now checks static module and exact resource bundle. | Shell syntax passed; source/module names verified in Artifact B. |
+| `ExistingIPAWorkspace/scripts/validate-device-component.py` | Requires both arm64 objects/modules, absence of an app payload, the public view marker, and exact SwiftPM resource metadata. | Artifact B passes with entry point `ExistingIPAOverlayUI.ExistingIPAOverlayView`. |
+| `ExistingIPAWorkspace/scripts/validate-final-ipa.py` | Added app-root SwiftPM resource-bundle validation and clarified static-link component evidence. | Positive resource/component check passed on known baseline structures; validator correctly rejects Artifact A as C. |
+| `ExistingIPAWorkspace/OverlaySource/README.md`, `BUILD_RUNBOOK.md`, `FINAL_BUILD_RUNBOOK.md`, `INTEGRATION_STATUS.md` | Corrected product-vs-module naming and documented static linking, resource copying, and the immediate host-source blocker. | Documentation grep and script/source cross-check passed. |
+
+Artifacts A and B were not modified. No IPA was generated.

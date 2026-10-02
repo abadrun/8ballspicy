@@ -150,9 +150,11 @@ screenshots." — explicit capture/stream evasion.
 
 `libloader.framework` is a **compiled multiplayer-game cheat** (aim assistance, autoplay,
 queue automation), with a **paid-subscription licensing system**, rewarded-ad monetization,
-and **anti-detection** features — not a neutral UI skin. The "i3rby" association comes from
-the artifact filename; no plaintext `i3rby` string appears in the binary (member names are
-obfuscated).
+and **anti-detection** features — not a neutral UI skin. Its i3rby attribution is confirmed
+inside the binary by persistent-domain strings including
+`com.i3rby.8poolmod.tg.ad_session_id`, `com.i3rby.autoplay`, and
+`com.i3rby.breaklog`; it does not rely only on filename provenance. Obfuscated member names
+remain unattributed rather than guessed.
 
 ---
 

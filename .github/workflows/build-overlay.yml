@@ -1,93 +1,124 @@
-name: Build authorized overlay source
+name: Build and test ExistingIPAOverlay
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - arena/01a0fb30-8ballspicy
+      - arena/01a0fc96-8ballspicy
     paths:
-      - "ExistingIPAWorkspace/OverlaySource/Package.swift"
-      - "ExistingIPAWorkspace/OverlaySource/Sources/**"
-      - "ExistingIPAWorkspace/OverlaySource/Tests/**"
-      - "ExistingIPAWorkspace/OverlaySource/Configuration/**"
+      - "ExistingIPAWorkspace/OverlaySource/**"
+      - "ExistingIPAWorkspace/SampleHost/**"
       - "ExistingIPAWorkspace/scripts/build-overlay-macos.sh"
+      - "ExistingIPAWorkspace/scripts/create-reproducible-zip.py"
+      - "ExistingIPAWorkspace/scripts/test-overlay-macos.sh"
       - "ExistingIPAWorkspace/scripts/validate-device-component.py"
+      - "ExistingIPAWorkspace/scripts/validate-simulator-component.py"
+      - "ExistingIPAWorkspace/scripts/validate-sample-host-*.py"
       - ".github/workflows/build-overlay.yml"
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  build-overlay:
-    name: Test and build iOS overlay component
+  test-and-build:
+    name: Core, UI, host integration, and reproducible builds
     runs-on: macos-15
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
-      - name: Show Xcode
-        run: xcodebuild -version
-
-      - name: Verify preserved baseline
-        run: bash ExistingIPAWorkspace/Preservation/verify_original.sh
-
-      - name: Run Swift package tests
-        working-directory: ExistingIPAWorkspace/OverlaySource
+      - name: Show toolchain
         run: |
-          set +e
-          set -o pipefail
-          swift test --parallel 2>&1 | tee "$RUNNER_TEMP/swift-test.log"
-          status=${PIPESTATUS[0]}
-          if [[ $status -ne 0 ]]; then
-            message=$(tail -c 6000 "$RUNNER_TEMP/swift-test.log" | python3 -c 'import sys; s=sys.stdin.read(); print(s.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A"))')
-            echo "::error title=Swift package test diagnostics::$message"
-            exit "$status"
-          fi
+          xcodebuild -version
+          swift --version
+          uname -a
 
-      - name: Upload test diagnostics
+      - name: Validate source and scripts
+        run: |
+          set -euo pipefail
+          python3 ExistingIPAWorkspace/OverlaySource/Tests/validate_source.py
+          python3 ExistingIPAWorkspace/scripts/validate-sample-host-source.py
+          python3 -m py_compile ExistingIPAWorkspace/scripts/*.py
+          for script in ExistingIPAWorkspace/scripts/*.sh; do bash -n "$script"; done
+
+      - name: Run Core, UI, lifecycle, resource, persistence, and sample-host tests
+        run: bash ExistingIPAWorkspace/scripts/test-overlay-macos.sh
+
+      - name: Build first reproducibility pass
+        env:
+          ARTIFACT_DIR: ${{ runner.temp }}/component-pass-1
+          SKIP_TESTS: "1"
+        run: bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
+
+      - name: Build canonical reproducibility pass
+        env:
+          ARTIFACT_DIR: ${{ github.workspace }}/output/components
+          SKIP_TESTS: "1"
+        run: bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
+
+      - name: Verify byte-for-byte reproducibility
+        run: |
+          set -euo pipefail
+          for name in \
+            ExistingIPAOverlay-ios-simulator-reproducible.zip \
+            ExistingIPAOverlay-ios-device-reproducible.zip; do
+            cmp "$RUNNER_TEMP/component-pass-1/$name" "output/components/$name"
+            cmp "$RUNNER_TEMP/component-pass-1/$name.manifest.json" "output/components/$name.manifest.json"
+            echo "REPRODUCIBLE: $name"
+          done
+
+      - name: Validate canonical artifacts
+        run: |
+          python3 ExistingIPAWorkspace/scripts/validate-simulator-component.py \
+            output/components/ExistingIPAOverlay-ios-simulator-reproducible.zip
+          python3 ExistingIPAWorkspace/scripts/validate-device-component.py \
+            output/components/ExistingIPAOverlay-ios-device-reproducible.zip
+          python3 - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          root=Path('output/components')
+          artifacts={}
+          for platform in ('simulator','device'):
+              path=root/f'ExistingIPAOverlay-ios-{platform}-reproducible.zip'
+              artifacts[platform]={
+                  'path': str(path),
+                  'sizeBytes': path.stat().st_size,
+                  'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+              }
+          report={
+              'schemaVersion': 1,
+              'workflowRun': int(os.environ['GITHUB_RUN_ID']),
+              'commit': os.environ['GITHUB_SHA'],
+              'coreTests': 'PASS',
+              'uiTests': 'PASS',
+              'swiftUIViewLifecycle': 'PASS',
+              'resourceBundle': 'PASS',
+              'localization': 'PASS',
+              'persistence': 'PASS',
+              'sampleHostIntegration': 'PASS',
+              'simulatorBuild': 'PASS',
+              'deviceBuild': 'PASS',
+              'reproducibility': 'PASS',
+              'prohibitedCapabilityScan': 'PASS',
+              'artifacts': artifacts,
+          }
+          (root/'component-readiness-ci.json').write_text(json.dumps(report, indent=2, sort_keys=True)+'\n')
+          print(json.dumps(report, indent=2, sort_keys=True))
+          PY
+
+      - name: Upload reproducible component artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ExistingIPAOverlay-reproducible-builds
+          path: output/components/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload test evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ExistingIPAOverlay-test-diagnostics
-          path: ${{ runner.temp }}/swift-test.log
-          if-no-files-found: error
-          retention-days: 7
-
-      - name: Build unsigned iOS device component
-        env:
-          SKIP_TESTS: "1"
-        run: |
-          bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
-          checksum=$(cat output/components/ExistingIPAOverlay-ios-device-build.zip.sha256)
-          echo "::notice title=Unsigned iphoneos component checksum::$checksum"
-
-      - name: Validate arm64 device component
-        run: |
-          python3 ExistingIPAWorkspace/scripts/validate-device-component.py \
-            output/components/ExistingIPAOverlay-ios-device-build.zip
-
-      - name: Upload unsigned device component build
-        uses: actions/upload-artifact@v4
-        with:
-          name: ExistingIPAOverlay-ios-device-build
-          path: |
-            output/components/ExistingIPAOverlay-ios-device-build.zip
-            output/components/ExistingIPAOverlay-ios-device-build.zip.sha256
-          if-no-files-found: error
+          name: ExistingIPAOverlay-test-evidence
+          path: output/test-results/
+          if-no-files-found: warn
           retention-days: 14
-
-      - name: Store validated device component under output
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          cp output/components/ExistingIPAOverlay-ios-device-build.zip output/ExistingIPAOverlay-ios-device-build.zip
-          cp output/components/ExistingIPAOverlay-ios-device-build.zip.sha256 output/ExistingIPAOverlay-ios-device-build.zip.sha256
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add output/ExistingIPAOverlay-ios-device-build.zip output/ExistingIPAOverlay-ios-device-build.zip.sha256
-          if git diff --cached --quiet; then
-            echo "Device artifact already tracked with no changes."
-            exit 0
-          fi
-          git commit -m "Store validated iOS device component artifact"
-          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"

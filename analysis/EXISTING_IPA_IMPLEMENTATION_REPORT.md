@@ -14,7 +14,9 @@
 | ZIP members | 3,505 |
 | Tracked Git blob | `6011d5cd4c7e61c407964fe949474984325b8253` |
 
-The IPA was opened read-only. Its working-tree checksum and separately stored committed Git object are verified by `ExistingIPAWorkspace/Preservation/verify_original.sh`. No duplicate 95 MB artifact was added to the patch because the Git object is already an independently recoverable untouched copy.
+The IPA was opened read-only. Its working-tree checksum and separately stored committed Git object are verified by `ExistingIPAWorkspace/Preservation/verify_original.sh`. Before tooling or documentation changed, it was also ZIP-tested and safely extracted to a temporary `/tmp/8ballspicy-baseline.*` directory: 3,344 files totaling 205,308,617 bytes. The temporary tree was removed after inspection. No duplicate 95 MB artifact was added to the patch because the Git object is already an independently recoverable untouched copy.
+
+The full pre-change intake record, including the explicit A/B/C artifact distinction, is `BASELINE_AUDIT_2026-10-02.md`.
 
 ## 2. Existing structure
 
@@ -23,11 +25,15 @@ The IPA was opened read-only. Its working-tree checksum and separately stored co
 - Identity: 8 Ball Pool 56.30.0 (5328), `com.miniclip.8ballpoolmult`
 - Main executable: `Payload/pool.app/pool`, arm64, 69 `LC_LOAD_DYLIB` entries
 - Standalone bundled dylib: `Frameworks/libswift_Concurrency.dylib`
-- Framework entries: 26, including 24 host framework bundles, the injected `libloader.framework`, and the standalone Swift dylib entry
+- Framework directory entries: 26 — 25 `.framework` bundles (24 host dependencies plus injected `libloader.framework`) and the standalone Swift dylib
+- App extensions: 4
+- Resource bundles: 16
+- Bundle identifiers discovered: 43
+- Mach-O binaries: 31, all arm64-only
 - Host localization directories: 17 (`ar`, `de`, `eng`, `es`, `fr`, `hi`, `id`, `it`, `ja`, `ko`, `kor`, `pt-BR`, `pt-PT`, `pt`, `ru`, `tr`, `vi`)
 - Other resources: Cocos layouts, property lists, sprites/images, audio, fonts, JSON/data, bundles, and plug-ins
 
-The complete member-by-member inventory—not a sample—is `ExistingIPAWorkspace/Inventory/IPA_FILE_INVENTORY.json`. Each entry records path, directory flag, uncompressed and compressed size, CRC32, uncompressed SHA-256, classification, and classification reason.
+The complete member-by-member inventory—not a sample—is `ExistingIPAWorkspace/Inventory/IPA_FILE_INVENTORY.json`. Each entry records path, directory flag, uncompressed and compressed size, CRC32, uncompressed SHA-256, classification, and classification reason. Its schema-v2 summaries also enumerate the application plist, every discovered bundle identifier, all embedded frameworks, standalone dylibs, Mach-O slices, resource types, and exact i3rby attribution markers.
 
 ## 3. Strict ownership classification
 
@@ -46,7 +52,7 @@ The complete member-by-member inventory—not a sample—is `ExistingIPAWorkspac
 - its 11,493,804-byte arm64 `libloader` binary
 - framework signature directory and `CodeResources`
 
-The host executable loads it through `@executable_path/Frameworks/libloader.framework/libloader`.
+The host executable loads it through `@executable_path/Frameworks/libloader.framework/libloader`. Direct binary markers (`com.i3rby.8poolmod.*`, `com.i3rby.autoplay*`, and `com.i3rby.breaklog*`) establish high-confidence i3rby attribution independently of the filename.
 
 ### UNKNOWN
 
@@ -102,8 +108,10 @@ Xcode compilation and iOS runtime testing were not possible because the environm
 
 ## 8. Output
 
-No modified IPA, modified checksum, signature, installation result, or export result exists.
+The authorized unsigned arm64 device component exists separately at `output/ExistingIPAOverlay-ios-device-build.zip` with SHA-256 `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`. It is not an IPA and is not integrated into the baseline.
+
+No final modified IPA, final-IPA checksum, signature, installation result, or export result exists.
 
 ```text
-NOT PRODUCED YET — BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION
+NOT PRODUCED YET — AUTHORIZED HOST SOURCE AND LEGITIMATE SIGNING ARE REQUIRED
 ```

@@ -19,7 +19,8 @@ bash ExistingIPAWorkspace/scripts/integrate-authorized-host-macos.sh \
 
 For a project container rather than a workspace, set both `--container` and
 `--project` to the authorized `.xcodeproj` path. The command verifies the frozen
-component checksum, links the local `ExistingIPAOverlay` package to the named
-host target, requires a host-owned `ExistingIPAOverlayView` reference, runs host
-tests, archives for generic iOS, exports `output/final.ipa`, validates it, and
-writes `output/final.sha256`.
+component checksum, links the local `ExistingIPAOverlay` package product into
+the target's Frameworks build phase, requires host-owned source that imports
+`ExistingIPAOverlayUI` and presents `ExistingIPAOverlayView`, runs host tests,
+archives for generic iOS, exports `output/final.ipa`, validates the statically
+linked module plus SwiftPM resource bundle, and writes `output/final.sha256`.

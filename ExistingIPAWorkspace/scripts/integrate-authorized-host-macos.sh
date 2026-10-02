@@ -23,9 +23,10 @@ Usage:
 --container must be an authorized Xcode project or workspace. When it is a
 workspace, --project identifies the authorized app project to configure.
 
-The host-owned --integration-source must already import ExistingIPAOverlay and
-reference ExistingIPAOverlayView. The script links the local Swift package to
---target, runs the host tests, archives iphoneos, exports output/final.ipa,
+The host-owned --integration-source must already import ExistingIPAOverlayUI
+(the Swift module exported by the ExistingIPAOverlay package product) and
+reference ExistingIPAOverlayView. The script links that local package product
+to --target, runs the host tests, archives iphoneos, exports output/final.ipa,
 validates the signed IPA, and writes output/final.sha256.
 EOF
   exit 2
@@ -93,12 +94,12 @@ unzip -tqq "$component"
 
 # Do not manufacture a host integration point. It must be supplied by the
 # authorized host owner and explicitly reference the package product.
-grep -Fq "import ExistingIPAOverlay" "$integration_source" || {
-  echo "ERROR: host integration source does not import ExistingIPAOverlay" >&2
+grep -Eq '^[[:space:]]*import[[:space:]]+ExistingIPAOverlayUI([[:space:]]|$)' "$integration_source" || {
+  echo "ERROR: host integration source does not import the ExistingIPAOverlayUI Swift module" >&2
   exit 4
 }
-grep -Fq "ExistingIPAOverlayView" "$integration_source" || {
-  echo "ERROR: host integration source does not reference ExistingIPAOverlayView" >&2
+grep -Eq 'ExistingIPAOverlayView[[:space:]]*\(' "$integration_source" || {
+  echo "ERROR: host integration source does not construct ExistingIPAOverlayView" >&2
   exit 4
 }
 
@@ -157,7 +158,8 @@ python3 "$validator" "$final" \
   --require-signature \
   --require-provisioning \
   --require-arm64 \
-  --require-component ExistingIPAOverlay \
+  --require-component ExistingIPAOverlayUI \
+  --require-resource-bundle ExistingIPAOverlay_ExistingIPAOverlayUI.bundle \
   --codesign-verify \
   --bundle-id "$bundle_id"
 shasum -a 256 "$final" > "$final.sha256"
