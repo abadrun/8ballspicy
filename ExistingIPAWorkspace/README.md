@@ -40,6 +40,6 @@ Payload/
 
 The IPA remains preserved and unmodified. No FairPlay, signing, provisioning, entitlement, server, anti-cheat, gameplay, or capture-evasion change was attempted. The repository and remote branches were checked for an authorized host Xcode project/workspace; none exists. The neutral `mr-spicy-ui/swift` demo source is not a host for `pool.app`.
 
-The permitted package was built and validated on a GitHub-hosted macOS 15 runner for a real generic iOS device target. The device component is available at `../output/ExistingIPAOverlay-ios-device-build.zip` with SHA-256 `f30c228a23e2496aab4b2cb55ce17ae9b00425737b75ebb14cc804b587d31043`. It is unsigned and is not an IPA. It was not injected into the third-party bundle.
+The permitted package was built and validated on a GitHub-hosted macOS 15 runner for a real generic iOS device target. The device component is available at `../output/ExistingIPAOverlay-ios-device-build.zip` with SHA-256 `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`. It is unsigned and is not an IPA. It was not injected into the third-party bundle.
 
 A signed IPA still requires an authorized host source project, source-level integration, provisioning, an Apple signing identity, archive/export, and device launch validation. Those inputs are not present.

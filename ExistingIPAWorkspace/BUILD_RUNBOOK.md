@@ -6,7 +6,7 @@
 |---|---|
 | Original IPA checksum | **VERIFIED** — `59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8` |
 | Debian structural/source tests | **DONE** |
-| Swift package tests on macOS | **PASSED** — workflow `36972215349` |
+| Swift package tests on macOS | **PASSED** — workflow `36972725882` |
 | Generic iOS device component build | **PASSED** — `iphoneos`, arm64 |
 | Device component validation | **PASSED** — ZIP, Mach-O objects, Swift modules, and resource bundle |
 | Authorized host project integration | **NOT AVAILABLE — no authorized host source is present** |
@@ -26,16 +26,16 @@ xcodebuild -scheme ExistingIPAOverlay \
   CODE_SIGNING_ALLOWED=NO clean build
 ```
 
-Run [`36972215349`](https://github.com/abadrun/8ballspicy/actions/runs/36972215349) completed successfully on `macos-15`. Its package tests, device-target build, and arm64 validation all passed. The validated component is tracked at:
+Run [`36972725882`](https://github.com/abadrun/8ballspicy/actions/runs/36972725882) completed successfully on `macos-15`. Its package tests, device-target build, and arm64 validation all passed. The validated component is tracked at:
 
 ```text
 output/ExistingIPAOverlay-ios-device-build.zip
-SHA-256 f30c228a23e2496aab4b2cb55ce17ae9b00425737b75ebb14cc804b587d31043
+SHA-256 c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b
 Size 354250 bytes
 Architecture arm64
 ```
 
-The ZIP contains `Debug-iphoneos` Swift object products, arm64 Swift modules, and the processed resource bundle. It is a compiled **component**, not an IPA or signed application. The Actions artifact is `ExistingIPAOverlay-ios-device-build` (artifact ID `11212048394`).
+The ZIP contains `Debug-iphoneos` Swift object products, arm64 Swift modules, and the processed resource bundle. It is a compiled **component**, not an IPA or signed application. The Actions artifact is `ExistingIPAOverlay-ios-device-build` (artifact ID `11212302365`).
 
 Revalidate it with:
 

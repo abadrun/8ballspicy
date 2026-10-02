@@ -4,15 +4,15 @@
 
 `ExistingIPAOverlay-ios-device-build.zip` is a real, unsigned Swift package component build produced on a GitHub-hosted macOS 15 runner with Xcode. It was built for the generic `iphoneos` destination, not Simulator.
 
-- Workflow: [36972215349](https://github.com/abadrun/8ballspicy/actions/runs/36972215349)
-- Job: `110728374128`
+- Workflow: [36972725882](https://github.com/abadrun/8ballspicy/actions/runs/36972725882)
+- Job: `110729927269`
 - Swift package tests: passed
 - Device build: passed
 - Device validation: passed by `../ExistingIPAWorkspace/scripts/validate-device-component.py`
 - Product directory: `Debug-iphoneos`
 - Architecture: `arm64`
 - Size: `354250` bytes
-- SHA-256: `f30c228a23e2496aab4b2cb55ce17ae9b00425737b75ebb14cc804b587d31043`
+- SHA-256: `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`
 
 The ZIP contains the compiled arm64 object products, Swift modules, and processed resource bundle for `ExistingIPAOverlay`. It is a **component build**, not an IPA, and is deliberately unsigned because it has no host application, provisioning profile, or Apple signing identity.
 

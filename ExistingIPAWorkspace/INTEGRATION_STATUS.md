@@ -16,7 +16,7 @@ The preservation verifier continues to compare the working IPA with the tracked 
 
 `OverlaySource/` is maintainable source for permitted menu-shell and local-settings UI. It contains no gameplay automation, prediction, aim assistance, queue automation, capture evasion, advertising, payments, activation, licensing, or network code.
 
-The source was tested and compiled on GitHub Actions run [36972215349](https://github.com/abadrun/8ballspicy/actions/runs/36972215349):
+The source was tested and compiled on GitHub Actions run [36972725882](https://github.com/abadrun/8ballspicy/actions/runs/36972725882):
 
 - Swift package tests: **PASSED**
 - Xcode destination: `generic/platform=iOS`
@@ -25,7 +25,7 @@ The source was tested and compiled on GitHub Actions run [36972215349](https://g
 - Architecture: **arm64**
 - Component validator: **PASSED**
 - Component artifact: `../output/ExistingIPAOverlay-ios-device-build.zip`
-- Component SHA-256: `f30c228a23e2496aab4b2cb55ce17ae9b00425737b75ebb14cc804b587d31043`
+- Component SHA-256: `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`
 - Signing: **not performed** (component has no app bundle, host entitlements, or provisioning profile)
 
 This is a real device-target component build, not a simulator ZIP and not an IPA.
