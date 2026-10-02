@@ -1,36 +1,31 @@
-# output/
+# Build output status
 
-**No IPA or app package is produced in this directory.** This is a deliberate,
-documented outcome — not an omission.
+A rebuildable permitted-overlay source component now exists at `../ExistingIPAWorkspace/OverlaySource/` inside the existing-IPA workspace. It is tied to the inspected IPA structure and is not a replacement application. It does not patch or embed the supplied IPA or compiled overlay.
 
-## Why there is no output IPA
+No modified IPA or checksum has been created:
 
-The requested transformation ("adjust the existing IPA's custom interface into a
-polished MR. SPICY-branded interface") fails the decision tree of the master
-specification at steps A, C and D:
+```text
+NOT PRODUCED YET — BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION
+```
 
-- **A — no legitimate adjustment path.** The supplied IPA is a **FairPlay-stripped
-  pirated copy** of Miniclip's copyrighted game (see
-  `../analysis/INSPECTION_REPORT.md` §4). Rebranding and redistributing it would
-  infringe Miniclip's copyright.
-- **C — the remaining path requires bypassing restrictions.** Producing a modified
-  IPA would require patching a compiled cheat binary and re-signing a pirated
-  bundle (bypassing platform signing and the host's licensing). That is
-  explicitly forbidden (§06) and was **not done**.
-- **D — the overlay is a multiplayer cheat.** `libloader.framework` implements
-  aim assistance, auto play, auto queue, subscription licensing and
-  anti-detection (§6 of the inspection report). Polishing or rebranding it for
-  redistribution is explicitly forbidden (§08) and was **not done**.
+## Produced
 
-## What was produced instead (Outcome C)
+- `../ExistingIPAWorkspace/` — preservation records, complete 3,505-entry IPA inventory, integration status, and permitted overlay source.
+- `../ExistingIPAWorkspace/OverlaySource/` — iOS 16+ Swift Package with SwiftUI components, local settings persistence, EN/ID localization, assets, tests, resource-bundle metadata reference, and build configuration references.
+- `../analysis/EXISTING_IPA_IMPLEMENTATION_REPORT.md` — current existing-IPA verification, complete structure summary, ownership boundary, and integration result.
+- `../analysis/OVERLAY_ARCHITECTURE.md` — ORIGINAL GAME / OVERLAY / UNKNOWN separation and VERIFIED / RECONSTRUCTED / INFERRED / NOT REPRODUCIBLE classifications.
+- `../inspection/inspect_overlay.py`, `../inspection/inventory_existing_ipa.py`, and their JSON outputs — reproducible overlay and complete archive inventories.
+- `release-manifest.json` — machine-readable source-project and no-IPA status.
 
-- `../analysis/` — full forensic inspection report, before/after audit,
-  changelog, final report.
-- `../mr-spicy-ui/` — the neutral MR. SPICY UI reference: interactive
-  prototype (validated, 45/45 functional checks) + SwiftUI reference
-  implementation, EN/AR, RTL, accessible — with **zero gameplay/cheat
-  functionality**.
+## Not produced
 
-The original artifact `8-ball-pool-i3rby-IPAOMTK.COM.ipa` is preserved untouched
-at the repository root (SHA-256
-`59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8`).
+- `8 Ball Pool Modified.ipa`
+- `8 Ball Pool Modified.sha256`
+
+The source project requires Xcode integration into an authorized host, compilation, testing, and legitimate developer signing. This environment has neither Xcode nor a signing/export identity.
+
+The original `8-ball-pool-i3rby-IPAOMTK.COM.ipa` remains unchanged with SHA-256:
+
+```text
+59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8
+```

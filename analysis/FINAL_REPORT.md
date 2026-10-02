@@ -38,3 +38,15 @@ the cheat was not polished, rebranded, operationalized, or packaged for release.
 - MR. SPICY design system + EN/AR/RTL/accessibility reference: **built and functionally validated** (web), **source-complete** (SwiftUI, compilation pending).
 - No bypass of any security, DRM, licensing, signing or anti-cheat mechanism: **performed zero.**
 - No false success claims: every statement above is traceable to a command output in this repository.
+
+---
+
+## Continuation — 2026-10-02
+
+The earlier outcome above remains the historical result of that specification. A later request authorized a new, clean source-level reconstruction limited to legitimate UI and local-configuration patterns. That continuation is now implemented under `ExistingIPAWorkspace/OverlaySource/` and documented in `OVERLAY_ARCHITECTURE.md`.
+
+Under the latest directive, that source was moved into `ExistingIPAWorkspace/OverlaySource/` and is treated only as a permitted integration component tied to the preserved existing IPA—not as an independent replacement application. A complete 3,505-entry archive inventory, preservation verifier, and integration status were added under `ExistingIPAWorkspace/`. The component contains no gameplay automation, anti-detection, ads, payment, subscription, activation, or network functionality. Structural validation passed.
+
+Xcode compilation, authorized host integration, simulator/device testing, signing, and IPA export remain unavailable in this environment.
+
+**Current status:** existing IPA preserved and fully inventoried; permitted integration source maintained; modified IPA not produced.

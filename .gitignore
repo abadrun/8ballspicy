@@ -10,3 +10,9 @@ __pycache__/
 
 # Node (validation tooling only)
 node_modules/
+
+# Swift/Xcode build products
+.build/
+DerivedData/
+*.xcarchive
+output/components/
