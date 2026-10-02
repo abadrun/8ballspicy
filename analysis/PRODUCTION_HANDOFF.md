@@ -1,6 +1,6 @@
 # Production handoff
 
-**Handoff state:** READY for an authorized developer; production integration remains blocked until the real host and signing inputs listed below are supplied.
+**Handoff state:** `WAITING_FOR_PRODUCTION_HOST`. The repository-side handoff is ready; production integration remains blocked until the real host and signing inputs listed below are supplied.
 
 This document is the execution contract for producing Artifact C later. It does not authorize use of an unrelated host, binary injection, modification of Artifact A, modification of the accepted baseline `libloader`, fabricated signing, or no-op IPA repackaging.
 
@@ -9,8 +9,8 @@ This document is the execution contract for producing Artifact C later. It does 
 | Artifact | Identity | SHA-256 | State |
 |---|---|---|---|
 | Artifact A | `8-ball-pool-i3rby-IPAOMTK.COM.ipa`, preserved i3rby baseline | `59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8` | Immutable; do not replace, recompress, patch, inject into, or re-sign |
-| Artifact B | `output/ExistingIPAOverlay-ios-device-build.zip`, accepted unsigned iPhoneOS arm64 component | `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b` | Accepted and unchanged |
-| Latest component | `ExistingIPAOverlay-ios-device-reproducible.zip`, reproducible iPhoneOS arm64 CI component | `3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f` | Verified CI artifact; not an IPA |
+| Artifact B | `ExistingIPAOverlay-ios-device-reproducible.zip`, latest verified reproducible iPhoneOS arm64 component | `3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f` | Verified CI component; not an IPA |
+| Previous accepted component | `output/ExistingIPAOverlay-ios-device-build.zip`, earlier accepted unsigned iPhoneOS arm64 component | `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b` | Preserved unchanged for compatibility/evidence |
 | Simulator component | `ExistingIPAOverlay-ios-simulator-reproducible.zip` | `9b6c20bc5113c6aa0930c0d1702377a6e087b2001f14f25e25dff55af1cfdbe5` | Verified test artifact; not an IPA |
 | Artifact C | Signed production IPA exported from the authorized host | Not available | **NOT PRODUCED** |
 
@@ -85,7 +85,7 @@ The bundle `Info.plist` must declare `CFBundlePackageType = BNDL` and an iOS dep
 Execute in order on macOS with Xcode. Stop at the first failure; do not bypass a gate.
 
 - [ ] **Freeze inputs.** Record the authorized host commit, Xcode version, scheme, target, bundle ID, Team ID, signing style, provisioning identity, export method, and expected-delta allowlist.
-- [ ] **Verify immutable inputs.** Run `bash ExistingIPAWorkspace/Preservation/verify_original.sh`; verify Artifact B equals `c0e66b...088b`; confirm `analysis/PRODUCTION_MANIFEST.json` still says `FINAL_IPA_STATUS = NOT_PRODUCED`.
+- [ ] **Verify immutable inputs.** Run `bash ExistingIPAWorkspace/Preservation/verify_original.sh`; verify latest Artifact B metadata equals `3c01a9d...ecd3f`, verify the previous accepted local component remains `c0e66b...088b`, and confirm `analysis/PRODUCTION_MANIFEST.json` still says `STATE = WAITING_FOR_PRODUCTION_HOST` and `FINAL_IPA_STATUS = NOT_PRODUCED`.
 - [ ] **Identify the actual target.** Run `xcodebuild -list -json` on the supplied project/workspace. Confirm the selected target is `com.apple.product-type.application`, not a framework, test bundle, sample, or unrelated app.
 - [ ] **Create a control build.** Archive/export the authorized host at the frozen commit and settings before package integration. Inventory it for later expected-versus-actual delta comparison. This control is not Artifact C.
 - [ ] **Add the host-owned presentation source.** Include it in the production target and confirm it imports `ExistingIPAOverlayUI` and constructs `ExistingIPAOverlayView()`.
@@ -165,7 +165,7 @@ Expected checks:
 - the deployment target is below iOS 16.0 or unresolved;
 - bundle ID, Team ID, signing style, export options, signing identity, or provisioning inputs are absent/inconsistent;
 - the host-owned presentation source is missing or lacks the required import/view construction;
-- Artifact A or accepted Artifact B no longer matches its authoritative hash;
+- Artifact A or the previous accepted local device component no longer matches its authoritative hash;
 - package source/tooling or required archive resources are missing;
 - archive/export/validation does not produce exactly one valid result;
 - an existing final output would be overwritten; or
@@ -180,7 +180,7 @@ Final repository-side verification completed without rebuilding the already acce
 - 23 Python unit tests passed (project configurator, host settings, handoff guards, and synthetic final-IPA validation).
 - Source/package/localization/prohibited-capability validation passed.
 - Clean sample-host source integration validation passed.
-- Accepted Artifact B device validation and ZIP integrity passed.
+- Previous accepted local device-component validation and ZIP integrity passed; latest Artifact B remains the verified reproducible CI component recorded above.
 - Artifact A preservation and committed-blob checks passed.
 - Artifact A was explicitly rejected as Artifact C.
 - Baseline inspection, full inventory, and overlay inventory regenerated byte-for-byte.
@@ -194,10 +194,17 @@ Production-only Xcode target resolution, signing, archive, provisioning, export,
 ## 10. Current terminal state
 
 ```text
+STATE: WAITING_FOR_PRODUCTION_HOST
 COMPONENT: READY
 PRODUCTION HOST: NOT PROVIDED
 SIGNING: NOT PROVIDED
 ARTIFACT C: NOT PRODUCED
 ```
 
-The exact remaining input is one authorized production host package containing the real project/workspace and app target, owner-approved presentation/coexistence contract, and legitimate matching Apple signing/provisioning/export configuration.
+The exact remaining input is:
+
+```text
+AUTHORIZED_PRODUCTION_XCODE_PROJECT_OR_WORKSPACE + REAL_APP_TARGET + APPROVED_INTEGRATION_POINT + LEGITIMATE_APPLE_SIGNING/PROVISIONING/EXPORT_CONFIGURATION
+```
+
+No further host search or production build should run until that actual owner-supplied input is provided.

@@ -119,3 +119,12 @@ Canonical reproducible hashes: Simulator `9b6c20bc5113c6aa0930c0d1702377a6e087b2
 | `FINAL_BUILD_RUNBOOK.md` | Pointed production execution to the authoritative handoff and documented hard gates/non-actions. | Command/options checked against script usage. |
 
 Artifact A, Artifact B, and baseline `libloader` were not modified. No host was substituted, no signing was fabricated, and no IPA was produced.
+
+## Production input wait state — 2026-10-02
+
+| File / component | Documentation-only correction | Validation |
+|---|---|---|
+| `analysis/PRODUCTION_HANDOFF.md` | Set the explicit `WAITING_FOR_PRODUCTION_HOST` state and aligned Artifact B with the latest reproducible device component while retaining the prior accepted component as separate evidence. | Authoritative hashes/status and exact next-input token asserted. |
+| `analysis/PRODUCTION_MANIFEST.json` | Added explicit wait, component, host, signing, Artifact B, previous-component, and next-input fields without changing any binary artifact. | Deterministic JSON parse and exact-value checks passed. |
+
+No source/component rebuild was performed because component code is unchanged and successful macOS/Xcode evidence remains run `37018507081`.
