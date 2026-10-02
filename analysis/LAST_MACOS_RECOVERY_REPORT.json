@@ -1,0 +1,152 @@
+{
+  "actionsArtifactRecovery": {
+    "artifactCount": 31,
+    "artifactIds": [
+      11252456477,
+      11252430147,
+      11251654016,
+      11232545551,
+      11232125806,
+      11231528753,
+      11231253906,
+      11230181999,
+      11230065300,
+      11229041111,
+      11228032973,
+      11227981519,
+      11212421283,
+      11212376427,
+      11212302365,
+      11212052269,
+      11212048394,
+      11211952489,
+      11211792622,
+      11211727352,
+      11211567893,
+      11211343609,
+      11211303305,
+      11211274146,
+      11210665414,
+      11210655427,
+      11210610256,
+      11210575220,
+      11210505497,
+      11210222800,
+      11209786977
+    ],
+    "candidatePaths": [],
+    "downloadFailures": [],
+    "downloadedArtifactCount": 31,
+    "memberCountIncludingNestedArchives": 978,
+    "productionProjectCandidates": [],
+    "result": "HOST_NOT_FOUND",
+    "schemaVersion": 1,
+    "signingInputCandidates": []
+  },
+  "baseline": {
+    "path": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
+    "preservedUnchanged": true,
+    "sha256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8"
+  },
+  "commit": "4e01c739650450ed64aaca8d5dd6014385de3d3d",
+  "component": {
+    "architecture": "arm64",
+    "expectedSHA256": "3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f",
+    "hashMatches": true,
+    "path": "components/ExistingIPAOverlay-ios-device-reproducible.zip",
+    "platform": "iPhoneOS",
+    "sha256": "3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f"
+  },
+  "componentBuild": "PASS",
+  "finalIPA": {
+    "path": null,
+    "sha256": null,
+    "status": "NOT_PRODUCED",
+    "validation": "NOT_RUN"
+  },
+  "finalIPAValidators": "NOT_RUN_NO_PRODUCTION_HOST_OR_SIGNED_IPA",
+  "macosXcode": "AVAILABLE",
+  "missingProductionHostInput": "OWNER_SUPPLIED_AUTHORIZED_PRODUCTION_XCODE_PROJECT_OR_WORKSPACE + REAL_APP_TARGET_AND_SHARED_SCHEME + OWNER_APPROVED_SOURCE_LEVEL_PRESENTATION_POINT + LAWFUL_BASELINE_COEXISTENCE_AUTHORIZATION_AND_DELTA_ALLOWLIST",
+  "missingSigningInput": "APPLE_TEAM_ID + VALID_APPLE_SIGNING_CERTIFICATE_AND_PRIVATE_KEY + VALID_PROVISIONING_CONFIGURATION + EXPORT_OPTIONS_PLIST",
+  "productionHost": "NOT_FOUND",
+  "repositoryRecovery": {
+    "commit": "4e01c739650450ed64aaca8d5dd6014385de3d3d",
+    "commitCount": 58,
+    "historicalProjectWorkspaceAndPackagePaths": [
+      "CleanOverlay/Package.swift",
+      "ExistingIPAWorkspace/OverlaySource/Package.swift",
+      "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj",
+      "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj/project.pbxproj",
+      "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj/xcshareddata",
+      "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj/xcshareddata/xcschemes",
+      "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj/xcshareddata/xcschemes/ExistingIPAOverlaySampleHost.xcscheme"
+    ],
+    "productionProjectOrWorkspaceCandidates": [],
+    "reachableObjectPathCount": 544,
+    "remoteBranchCount": 9,
+    "remoteBranches": [
+      "refs/remotes/origin/arena/01a0f603-8ballspicy",
+      "refs/remotes/origin/arena/01a0f63a-8ballspicy",
+      "refs/remotes/origin/arena/01a0fade-8ballspicy",
+      "refs/remotes/origin/arena/01a0fb18-8ballspicy",
+      "refs/remotes/origin/arena/01a0fb22-8ballspicy",
+      "refs/remotes/origin/arena/01a0fb30-8ballspicy",
+      "refs/remotes/origin/arena/01a0fc4d-8ballspicy",
+      "refs/remotes/origin/arena/01a0fc96-8ballspicy",
+      "refs/remotes/origin/main"
+    ],
+    "result": "HOST_NOT_FOUND",
+    "sampleHost": "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj",
+    "sampleHostClassification": "AUTHORIZED_TEST_ONLY_NOT_PRODUCTION",
+    "schemaVersion": 1,
+    "signingInputFiles": [],
+    "tagCount": 0,
+    "tags": [],
+    "unreachableObjects": [],
+    "workspaceArchiveAndGeneratedFiles": [
+      "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
+      "output/ExistingIPAOverlay-ios-device-build.zip"
+    ],
+    "workspaceProjectWorkspaceAndPackagePaths": [
+      "ExistingIPAWorkspace/OverlaySource/Package.swift",
+      "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj"
+    ]
+  },
+  "reproducibility": {
+    "byteIdentical": true,
+    "cleanBuildCount": 2,
+    "status": "PASS"
+  },
+  "sampleHost": {
+    "archive": "PASS",
+    "archivePath": "sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip",
+    "archiveSHA256": "cdfcf43b96ef0bacd90f18df95ff1364cb961235fe2de83c356f60e90bbcbdad",
+    "build": "PASS",
+    "classification": "AUTHORIZED_TEST_ONLY_NOT_PRODUCTION",
+    "exportedIPA": false,
+    "signed": false
+  },
+  "schemaVersion": 1,
+  "signing": "NOT_AVAILABLE",
+  "simulatorComponent": {
+    "path": "components/ExistingIPAOverlay-ios-simulator-reproducible.zip",
+    "sha256": "9b6c20bc5113c6aa0930c0d1702377a6e087b2001f14f25e25dff55af1cfdbe5"
+  },
+  "state": "COMPONENT_READY_FOR_PRODUCTION",
+  "tests": {
+    "core": "PASS",
+    "localization": "PASS",
+    "persistence": "PASS",
+    "productionGuardUnitTests": "PASS",
+    "prototypeValidation": "PASS",
+    "resources": "PASS",
+    "sampleHostDeviceBuild": "PASS",
+    "sampleHostSimulatorBuildInstallLaunch": "PASS",
+    "status": "PASS",
+    "swiftUILifecycle": "PASS",
+    "ui": "PASS"
+  },
+  "validation": "PASS",
+  "workflowAttempt": 1,
+  "workflowRun": 37065736048
+}

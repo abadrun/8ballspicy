@@ -1,0 +1,127 @@
+{
+  "archive": "ExistingIPAOverlay-mac-production-handoff.zip",
+  "excludedSuffixes": [],
+  "memberCount": 23,
+  "members": [
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-device-reproducible.zip",
+      "sha256": "3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f",
+      "sizeBytes": 343847
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-device-reproducible.zip.file-list.txt",
+      "sha256": "01903a32c304240cc225d31f8d109a6fe588ae2db1b1746ea69bffab9a67e687",
+      "sizeBytes": 1297
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-device-reproducible.zip.manifest.json",
+      "sha256": "ae00fdf98c1d94f2e509f4dc30a5896b91f21dffce11aac6e0dd821e1d4b8128",
+      "sizeBytes": 2871
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-device-reproducible.zip.sha256",
+      "sha256": "ea91c0ed3bb7c4a920f37c185ee83e97e41016da054e427e9c33409d19d6e88e",
+      "sizeBytes": 113
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-simulator-reproducible.zip",
+      "sha256": "9b6c20bc5113c6aa0930c0d1702377a6e087b2001f14f25e25dff55af1cfdbe5",
+      "sizeBytes": 339620
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-simulator-reproducible.zip.file-list.txt",
+      "sha256": "52e7ae728285c679f70b93345d7b5680a19401a3954657ca856bc6cda4c62a92",
+      "sizeBytes": 1423
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-simulator-reproducible.zip.manifest.json",
+      "sha256": "0c49d65f5b3e75433d2658c67e9f2c8b50d9383516d20c5a534e3a6aa8de3f13",
+      "sizeBytes": 3025
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-simulator-reproducible.zip.sha256",
+      "sha256": "1c3378c16a33c396db7b0f09081dacca8ecb4d6ee8788d682147578725c625d3",
+      "sizeBytes": 116
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/evidence/actions-artifact-inventory.json",
+      "sha256": "ef9386701e978f351acd9814482ca4f13e8f1fd0f68f24863067753958099dac",
+      "sizeBytes": 825
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/evidence/codesigning-identities.txt",
+      "sha256": "0ad30eb1563c325d77f4dc564c5d96851d5a39205307f5cdd7d762b59688f87a",
+      "sizeBytes": 30
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/evidence/complete-test-results.tar.gz",
+      "sha256": "8cedeb12b8a8588b00d303573f92a8ac7138f0c13e0c95c8f8987bf45b5a8803",
+      "sizeBytes": 82201
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/evidence/device-component-validation.log",
+      "sha256": "2009c1b37ddbb06c4037c89d12e618d274454370762b25ca4bb2ff54ffea5671",
+      "sizeBytes": 442
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/evidence/provisioning-profiles.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sizeBytes": 0
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/evidence/repository-host-inventory.json",
+      "sha256": "64ac6226f4fe426d8aef77cfa0dadecaa9eb95482b95dce6638cb073a55ab390",
+      "sizeBytes": 1940
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/evidence/reproducibility.json",
+      "sha256": "d09b7bf943ba6acead8eff3f2e0457322817eba53835af41f833a47a76c258e8",
+      "sizeBytes": 849
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/evidence/sample-host-archive-validation.log",
+      "sha256": "1dc074e0104476c1e6d0abafe6336b9c0f841e0e938852802ba157613cbf781d",
+      "sizeBytes": 433
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/evidence/sample-host-archive.log",
+      "sha256": "6ee10a0e0559c29762d83cea5370384bbf233ef3705cc9943b326526a1511275",
+      "sizeBytes": 197083
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/evidence/simulator-component-validation.log",
+      "sha256": "3ffa697035cd15b9e5b2f30e39b13f248f5c649e813dfe760384e48f5a84d48d",
+      "sizeBytes": 423
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/evidence/static-and-guard-validation.log",
+      "sha256": "2f787d6b3d7c5326b938862d1774868b494b5fb753ea5cfb89c9302dfc56583b",
+      "sizeBytes": 7262
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/evidence/toolchain.txt",
+      "sha256": "89b724baead741db01ab0a35843cc1f955973246a3cf3d4fa6d6df210aa45df9",
+      "sizeBytes": 328
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/mac-handoff-report.json",
+      "sha256": "f9d55535f7f50c1e7f0fba62a0f2f65d0cab988e5dec30d8c67754b316d74b51",
+      "sizeBytes": 5412
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip",
+      "sha256": "cdfcf43b96ef0bacd90f18df95ff1364cb961235fe2de83c356f60e90bbcbdad",
+      "sizeBytes": 1165417
+    },
+    {
+      "path": "ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip.sha256",
+      "sha256": "c46885a428e206f0510418645fbb63451090a725c6f0a951b570a92aa069f0ee",
+      "sizeBytes": 142
+    }
+  ],
+  "root": "ExistingIPAOverlay-mac-production-handoff",
+  "schemaVersion": 1,
+  "sha256": "1bbec431e921ae7c53e489ba7a4fb6cb459936af0d14814e997da4965c516ebc",
+  "sizeBytes": 1924588,
+  "zipTimestamp": "1980-01-01T00:00:00Z"
+}

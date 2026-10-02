@@ -1,0 +1,22 @@
+{
+  "actionsArtifactId": 11252573771,
+  "actionsArtifactName": "ExistingIPAOverlay-mac-production-handoff",
+  "baselineSHA256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8",
+  "componentBuild": "PASS",
+  "componentSHA256": "3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f",
+  "finalIPA": "NOT_PRODUCED",
+  "finalIPASHA256": null,
+  "handoffSHA256": "1bbec431e921ae7c53e489ba7a4fb6cb459936af0d14814e997da4965c516ebc",
+  "productionHost": "NOT_FOUND",
+  "repositoryHandoffPath": "output/ExistingIPAOverlay-mac-production-handoff.zip",
+  "reproducibility": "PASS",
+  "sampleHostArchive": "PASS_UNSIGNED_TEST_ONLY",
+  "sampleHostBuild": "PASS",
+  "schemaVersion": 1,
+  "signing": "NOT_AVAILABLE",
+  "sourceCommit": "4e01c739650450ed64aaca8d5dd6014385de3d3d",
+  "sourceWorkflowJob": 111032957210,
+  "sourceWorkflowRun": 37065736048,
+  "state": "COMPONENT_READY_FOR_PRODUCTION",
+  "validation": "PASS"
+}
