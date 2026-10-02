@@ -114,7 +114,7 @@ xcodebuild \
   2>&1 | tee "$results_dir/sample-host-simulator-build.log"
 simulator_app="$derived_root/SampleHostSimulator/Build/Products/Debug-iphonesimulator/ExistingIPAOverlaySampleHost.app"
 python3 "$workspace_root/scripts/validate-sample-host-app.py" "$simulator_app" --platform simulator \
-  | tee "$results_dir/sample-host-simulator-validation.log"
+  2>&1 | tee "$results_dir/sample-host-simulator-validation.log"
 
 current_phase="clean sample host Simulator install and launch"
 printf '\n== Clean sample host: Simulator install and launch ==\n'
@@ -140,7 +140,7 @@ xcodebuild \
   2>&1 | tee "$results_dir/sample-host-device-build.log"
 device_app="$derived_root/SampleHostDevice/Build/Products/Debug-iphoneos/ExistingIPAOverlaySampleHost.app"
 python3 "$workspace_root/scripts/validate-sample-host-app.py" "$device_app" --platform device \
-  | tee "$results_dir/sample-host-device-validation.log"
+  2>&1 | tee "$results_dir/sample-host-device-validation.log"
 
 current_phase="deployment target build setting verification"
 printf '\n== Deployment target contract ==\n'
