@@ -64,8 +64,14 @@ See `../../analysis/OVERLAY_ARCHITECTURE.md` and `../INTEGRATION_STATUS.md` for 
 
 ## Build status
 
-This environment has no Xcode or Swift toolchain. Compilation, simulator/device tests, host integration, signing, and export were not performed.
+This package has been tested and compiled on GitHub Actions run [36971984879](https://github.com/abadrun/8ballspicy/actions/runs/36971984879) with Xcode on `macos-15`:
 
-```text
-NOT PRODUCED YET — BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION
-```
+- Swift package tests: passed
+- Xcode destination: `generic/platform=iOS`
+- SDK/product: `iphoneos` / `Debug-iphoneos`
+- Architecture: arm64
+- Component validation: passed
+- Artifact: `../../output/ExistingIPAOverlay-ios-device-build.zip`
+- SHA-256: `ec0a0affd2c24413f3c053a58ec02c3eec3654700887d6c5777a5fcf087e7c05`
+
+The artifact is an unsigned component build, not an IPA. The repository does not contain an authorized host Xcode project for the supplied third-party app, so no injection, host integration, signing, or IPA export was performed.
