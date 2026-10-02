@@ -50,7 +50,8 @@ fi
 artifact="$artifact_dir/ExistingIPAOverlay-ios-device-build.zip"
 rm -f "$artifact"
 ditto -c -k --sequesterRsrc --keepParent "$products" "$artifact"
-shasum -a 256 "$artifact" > "$artifact.sha256"
+checksum="$(shasum -a 256 "$artifact" | awk '{print $1}')"
+printf '%s  %s\n' "$checksum" "$(basename "$artifact")" > "$artifact.sha256"
 
 printf '\nDONE: %s\n' "$artifact"
 cat "$artifact.sha256"

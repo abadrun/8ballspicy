@@ -8,6 +8,7 @@ on:
     paths:
       - "ExistingIPAWorkspace/OverlaySource/**"
       - "ExistingIPAWorkspace/scripts/build-overlay-macos.sh"
+      - "ExistingIPAWorkspace/scripts/validate-device-component.py"
       - ".github/workflows/build-overlay.yml"
 
 permissions:
@@ -56,6 +57,11 @@ jobs:
           bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
           checksum=$(cat output/components/ExistingIPAOverlay-ios-device-build.zip.sha256)
           echo "::notice title=Unsigned iphoneos component checksum::$checksum"
+
+      - name: Validate arm64 device component
+        run: |
+          python3 ExistingIPAWorkspace/scripts/validate-device-component.py \
+            output/components/ExistingIPAOverlay-ios-device-build.zip
 
       - name: Upload unsigned device component build
         uses: actions/upload-artifact@v4
