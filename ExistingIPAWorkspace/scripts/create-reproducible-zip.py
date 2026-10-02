@@ -38,10 +38,18 @@ def main() -> None:
     parser.add_argument("input", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--root-name")
+    parser.add_argument(
+        "--exclude-suffix",
+        action="append",
+        default=[],
+        help="omit files whose names end with this suffix (repeatable)",
+    )
     args = parser.parse_args()
 
     source = args.input.resolve()
     output = args.output.resolve()
+    if any(not suffix or "/" in suffix or "\\" in suffix for suffix in args.exclude_suffix):
+        raise SystemExit("ERROR: excluded suffixes must be non-empty filename suffixes")
     if not source.is_dir():
         raise SystemExit(f"ERROR: input build directory does not exist: {source}")
     try:
@@ -59,6 +67,7 @@ def main() -> None:
         (
             path for path in source.rglob("*")
             if not any(part in EXCLUDED_NAMES for part in path.relative_to(source).parts)
+            and not (path.is_file() and any(path.name.endswith(suffix) for suffix in args.exclude_suffix))
         ),
         key=lambda path: path.relative_to(source).as_posix(),
     )
@@ -100,6 +109,7 @@ def main() -> None:
         "sizeBytes": output.stat().st_size,
         "root": root_name,
         "zipTimestamp": "1980-01-01T00:00:00Z",
+        "excludedSuffixes": sorted(set(args.exclude_suffix)),
         "memberCount": len(members),
         "members": members,
     }

@@ -59,7 +59,12 @@ build_component() {
     cd "$products"
     find . -type f -print0 | xargs -0 file
   ) > "$artifact_dir/$artifact_name.file-list.txt"
-  python3 "$packer" "$products" "$artifact_dir/$artifact_name" --root-name "$product_dir"
+  # .swiftsourceinfo is Xcode IDE indexing metadata, not a compile/link input.
+  # Its opaque per-build record ordering changes across otherwise identical
+  # builds, so it is deliberately excluded from the distributable component.
+  python3 "$packer" "$products" "$artifact_dir/$artifact_name" \
+    --root-name "$product_dir" \
+    --exclude-suffix .swiftsourceinfo
 }
 
 sim_arch="$(uname -m)"
