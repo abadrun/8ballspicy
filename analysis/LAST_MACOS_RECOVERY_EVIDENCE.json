@@ -1,4 +1,31 @@
 {
+  "actionsArtifactAccounting": {
+    "allArtifactsAccountedFor": true,
+    "cacheCount": 0,
+    "downloadFailures": 0,
+    "postScanArtifactsProducedAndValidatedByCurrentRun": [
+      {
+        "artifactContainerDigest": "sha256:d13b697511c381dda2a19b861081080d356f698423fbe012d00738929da4d503",
+        "classification": "VERIFIED_HANDOFF_NO_IPA",
+        "id": 11252573771,
+        "name": "ExistingIPAOverlay-mac-production-handoff",
+        "repositoryPayloadSHA256": "1bbec431e921ae7c53e489ba7a4fb6cb459936af0d14814e997da4965c516ebc",
+        "sizeBytes": 1924965
+      },
+      {
+        "artifactContainerDigest": "sha256:97cebdfc900a8c1ac795ee03ca732be8feabbb121eae7f22968d3196f021d312",
+        "classification": "CURRENT_RUN_VALIDATION_EVIDENCE",
+        "id": 11252848366,
+        "name": "ExistingIPAOverlay-last-recovery-test-evidence",
+        "sizeBytes": 123370
+      }
+    ],
+    "productionProjectCandidates": 0,
+    "recursivelyScannedBeforeCurrentRunUploads": 31,
+    "recursivelyScannedMemberCount": 978,
+    "signingInputCandidates": 0,
+    "totalAtConclusion": 33
+  },
   "actionsArtifactId": 11252573771,
   "actionsArtifactName": "ExistingIPAOverlay-mac-production-handoff",
   "baselineSHA256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8",
@@ -6,6 +33,24 @@
   "componentSHA256": "3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f",
   "finalIPA": "NOT_PRODUCED",
   "finalIPASHA256": null,
+  "finalRepositoryFollowup": {
+    "finalIPAExists": false,
+    "ipaFilesInWorkspace": [
+      "8-ball-pool-i3rby-IPAOMTK.COM.ipa"
+    ],
+    "packageManifestCountInWorkspace": 1,
+    "productionProjectOrWorkspaceCandidates": 0,
+    "reachableCommitCount": 60,
+    "reachableObjectPathCount": 559,
+    "remoteBranchCount": 9,
+    "result": "HOST_NOT_FOUND",
+    "reviewedCommit": "91e06b200789433ea430ea1e65ea16c6b7b713c7",
+    "signingInputFileCount": 0,
+    "tagCount": 0,
+    "unreachableObjectCount": 0,
+    "xcodeProjectsIncludingSampleCount": 1,
+    "xcodeWorkspacesCount": 0
+  },
   "handoffSHA256": "1bbec431e921ae7c53e489ba7a4fb6cb459936af0d14814e997da4965c516ebc",
   "productionHost": "NOT_FOUND",
   "repositoryHandoffPath": "output/ExistingIPAOverlay-mac-production-handoff.zip",
