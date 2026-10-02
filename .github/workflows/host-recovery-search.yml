@@ -2,6 +2,11 @@ name: Exhaustive host recovery search
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - arena/01a0fc96-8ballspicy
+    paths:
+      - ".github/workflows/host-recovery-search.yml"
 
 permissions:
   actions: read
