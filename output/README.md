@@ -1,23 +1,29 @@
 # Build output status
 
-```text
-NOT PRODUCED YET — BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION
-```
+A clean, rebuildable source project now exists at `../CleanOverlay/`. It is an independent Swift Package and does not patch or embed the supplied IPA or compiled overlay.
 
-No modified IPA or checksum has been created. The supplied IPA was inspected read-only and preserved unchanged.
-
-The identified overlay is the compiled arm64 binary at:
+No modified IPA or checksum has been created:
 
 ```text
-Payload/pool.app/Frameworks/libloader.framework/libloader
+NOT PRODUCED YET — SIGNING/EXPORT REQUIRES DEVELOPER ACTION
 ```
 
-No overlay source project is present. Static inspection also establishes that the host is a FairPlay-stripped third-party game bundle and that the injected overlay implements multiplayer gameplay automation, paid activation, rewarded-ad gating, and capture evasion. Patching its licensing controls or repackaging it was not performed.
+## Produced
 
-Files relevant to the current assessment:
+- `../CleanOverlay/` — iOS 16+ Swift Package with SwiftUI components, local settings persistence, EN/ID localization, assets, tests, example Info.plist, and build configuration references.
+- `../analysis/OVERLAY_ARCHITECTURE.md` — ORIGINAL GAME / OVERLAY / UNKNOWN separation and VERIFIED / RECONSTRUCTED / INFERRED / NOT REPRODUCIBLE classifications.
+- `../inspection/inspect_overlay.py` and `../inspection/OVERLAY_INVENTORY.json` — reproducible static binary inventory.
+- `release-manifest.json` — machine-readable source-project and no-IPA status.
 
-- `../analysis/OVERLAY_ASSESSMENT.md` — concise findings and decision.
-- `../inspection/inspect_ipa.py` — reproducible read-only inspector.
-- `release-manifest.json` — machine-readable `not-produced` status.
+## Not produced
 
-The requested `8 Ball Pool Modified.ipa` and `8 Ball Pool Modified.sha256` must not be treated as existing outputs; neither file was produced.
+- `8 Ball Pool Modified.ipa`
+- `8 Ball Pool Modified.sha256`
+
+The source project requires Xcode integration into an authorized host, compilation, testing, and legitimate developer signing. This environment has neither Xcode nor a signing/export identity.
+
+The original `8-ball-pool-i3rby-IPAOMTK.COM.ipa` remains unchanged with SHA-256:
+
+```text
+59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8
+```
