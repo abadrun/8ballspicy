@@ -58,14 +58,37 @@ jobs:
 
       - name: Verify byte-for-byte reproducibility
         run: |
-          set -euo pipefail
-          for name in \
-            ExistingIPAOverlay-ios-simulator-reproducible.zip \
-            ExistingIPAOverlay-ios-device-reproducible.zip; do
-            cmp "$RUNNER_TEMP/component-pass-1/$name" "output/components/$name"
-            cmp "$RUNNER_TEMP/component-pass-1/$name.manifest.json" "output/components/$name.manifest.json"
-            echo "REPRODUCIBLE: $name"
-          done
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+
+          first = Path(os.environ['RUNNER_TEMP']) / 'component-pass-1'
+          second = Path('output/components')
+          failures = []
+          for name in (
+              'ExistingIPAOverlay-ios-simulator-reproducible.zip',
+              'ExistingIPAOverlay-ios-device-reproducible.zip',
+          ):
+              first_zip, second_zip = first / name, second / name
+              first_manifest = json.loads((first / f'{name}.manifest.json').read_text())
+              second_manifest = json.loads((second / f'{name}.manifest.json').read_text())
+              first_members = {item['path']: item for item in first_manifest['members']}
+              second_members = {item['path']: item for item in second_manifest['members']}
+              changed = [
+                  path for path in sorted(first_members.keys() | second_members.keys())
+                  if first_members.get(path) != second_members.get(path)
+              ]
+              if first_zip.read_bytes() != second_zip.read_bytes() or changed:
+                  detail = f'{name}: changed members: ' + (', '.join(changed) or '(ZIP metadata only)')
+                  failures.append(detail)
+                  print(f'NOT REPRODUCIBLE: {detail}')
+              else:
+                  print(f'REPRODUCIBLE: {name}')
+          if failures:
+              message = '%0A'.join(item.replace('%', '%25') for item in failures)
+              print(f'::error title=Component reproducibility mismatch::{message}')
+              raise SystemExit(1)
+          PY
 
       - name: Validate canonical artifacts
         run: |
