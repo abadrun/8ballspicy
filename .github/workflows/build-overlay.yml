@@ -24,7 +24,16 @@ jobs:
       - name: Show Xcode
         run: xcodebuild -version
 
-      - name: Build and test
+      - name: Verify preserved baseline
+        run: bash ExistingIPAWorkspace/Preservation/verify_original.sh
+
+      - name: Run Swift package tests
+        working-directory: ExistingIPAWorkspace/OverlaySource
+        run: swift test --parallel
+
+      - name: Build unsigned iOS Simulator component
+        env:
+          SKIP_TESTS: "1"
         run: bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
 
       - name: Upload unsigned component build

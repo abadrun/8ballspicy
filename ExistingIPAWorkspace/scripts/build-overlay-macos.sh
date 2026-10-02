@@ -19,8 +19,10 @@ printf '\n== Toolchain ==\n'
 xcodebuild -version
 swift --version
 
-printf '\n== Package tests ==\n'
-swift test --package-path "$package" --parallel
+if [[ "${SKIP_TESTS:-0}" != "1" ]]; then
+  printf '\n== Package tests ==\n'
+  swift test --package-path "$package" --parallel
+fi
 
 printf '\n== iOS Simulator build ==\n'
 (
