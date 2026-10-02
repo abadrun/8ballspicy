@@ -1,7 +1,13 @@
-# Authorized host final-build command
+# Authorized production-host build command
 
-Run only after the authorized host project, its host-owned overlay integration
-source, and legitimate Apple signing/provisioning inputs have been supplied.
+The authoritative production checklist, immutable hashes, package/resource contract, expected Artifact C checks, and delta-review requirements are in:
+
+```text
+analysis/PRODUCTION_HANDOFF.md
+analysis/PRODUCTION_MANIFEST.json
+```
+
+Run only after the authorized production host project, its host-owned presentation source, owner-approved baseline-coexistence contract, and legitimate Apple signing/provisioning/export inputs have been supplied.
 
 ```bash
 bash ExistingIPAWorkspace/scripts/integrate-authorized-host-macos.sh \
@@ -14,13 +20,12 @@ bash ExistingIPAWorkspace/scripts/integrate-authorized-host-macos.sh \
   --bundle-id com.example.authorizedhost \
   --team-id ABCDE12345 \
   --export-options /absolute/path/to/ExportOptions.plist \
-  --output-dir "$PWD/output"
+  --configuration Release \
+  --output-dir /absolute/path/to/empty-production-output
 ```
 
-For a project container rather than a workspace, set both `--container` and
-`--project` to the authorized `.xcodeproj` path. The command verifies the frozen
-component checksum, links the local `ExistingIPAOverlay` package product into
-the target's Frameworks build phase, requires host-owned source that imports
-`ExistingIPAOverlayUI` and presents `ExistingIPAOverlayView`, runs host tests,
-archives for generic iOS, exports `output/final.ipa`, validates the statically
-linked module plus SwiftPM resource bundle, and writes `output/final.sha256`.
+For a project container rather than a workspace, set both `--container` and `--project` to the authorized `.xcodeproj` path.
+
+The pipeline fails before editing when the actual app target, resolved iOS 16+ settings, bundle ID, Team ID, signing configuration, export intent, host-owned presentation source, or installed signing identity is absent. It then links local package product `ExistingIPAOverlay`, runs the host tests, archives iPhoneOS, verifies the exact `ExistingIPAOverlay_ExistingIPAOverlayUI.bundle` resources, legitimately exports one IPA, validates signature/provisioning/arm64/component/deployment/bundle identity, rejects an Artifact-A no-op, and only then atomically publishes `final.ipa` plus `final.sha256`.
+
+It does not patch, inject into, recompress, replace, or export Artifact A; does not copy or modify `libloader`; does not use the sample host as production; and does not fabricate signing.

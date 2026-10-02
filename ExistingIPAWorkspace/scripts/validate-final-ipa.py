@@ -17,7 +17,7 @@ import subprocess
 import sys
 import tempfile
 import zipfile
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 
 CPU_TYPE_ARM64 = 0x0100000C
@@ -42,6 +42,13 @@ def sha256(path: Path) -> str:
 
 def fail(message: str) -> None:
     raise SystemExit(f"INVALID: {message}")
+
+
+def version(value: str, label: str) -> tuple[int, ...]:
+    parts = value.split(".")
+    if not parts or any(not part.isdigit() for part in parts):
+        fail(f"{label} is not a numeric version: {value!r}")
+    return tuple(int(part) for part in parts)
 
 
 def cpu_name(cpu_type: int) -> str:
@@ -172,26 +179,55 @@ def main() -> None:
     parser.add_argument(
         "--require-component",
         metavar="NAME",
-        help="require a dynamic component path/load command or a static-link marker in the main executable",
+        help="require dynamic-load, executable-marker, or component-specific SwiftPM resource evidence",
     )
     parser.add_argument(
         "--require-resource-bundle",
         metavar="NAME.bundle",
         help="require a SwiftPM resource bundle at the application-bundle root",
     )
+    parser.add_argument(
+        "--require-bundle-resource",
+        action="append",
+        default=[],
+        metavar="RELATIVE_PATH",
+        help="require a file inside --require-resource-bundle (repeatable)",
+    )
+    parser.add_argument("--minimum-ios", metavar="VERSION")
+    parser.add_argument(
+        "--reject-sha256",
+        action="append",
+        default=[],
+        metavar="HEX",
+        help="reject an archive with this SHA-256 (repeatable)",
+    )
     parser.add_argument("--bundle-id")
     args = parser.parse_args()
     ipa = args.ipa.resolve()
     if not ipa.is_file() or ipa.stat().st_size == 0:
         fail("IPA does not exist or is empty")
+    ipa_sha256 = sha256(ipa)
+    rejected_hashes = {value.lower() for value in args.reject_sha256}
+    if any(len(value) != 64 or any(char not in "0123456789abcdef" for char in value) for value in rejected_hashes):
+        fail("--reject-sha256 requires a 64-character hexadecimal digest")
+    if ipa_sha256 in rejected_hashes:
+        fail(f"IPA SHA-256 is explicitly rejected: {ipa_sha256}")
     if not zipfile.is_zipfile(ipa):
         fail("not a ZIP/IPA container")
+    if args.require_bundle_resource and not args.require_resource_bundle:
+        fail("--require-bundle-resource requires --require-resource-bundle")
 
     with zipfile.ZipFile(ipa) as archive:
         bad = archive.testzip()
         if bad:
             fail(f"ZIP integrity failed at {bad}")
         names = archive.namelist()
+        if len(set(names)) != len(names):
+            fail("IPA contains duplicate ZIP member names")
+        for name in names:
+            member = PurePosixPath(name)
+            if member.is_absolute() or ".." in member.parts or "\\" in name:
+                fail(f"IPA contains an unsafe ZIP member path: {name!r}")
         if not any(name.startswith("Payload/") for name in names):
             fail("Payload directory is missing")
         apps = sorted({"/".join(name.split("/")[:2]) for name in names
@@ -213,6 +249,15 @@ def main() -> None:
             fail("bundle identifier or executable metadata is missing")
         if args.bundle_id and bundle_id != args.bundle_id:
             fail(f"bundle id {bundle_id!r} does not match required {args.bundle_id!r}")
+        deployment_target = info.get("MinimumOSVersion")
+        if args.minimum_ios:
+            if not isinstance(deployment_target, str):
+                fail("application MinimumOSVersion is missing")
+            if version(deployment_target, "application MinimumOSVersion") < version(args.minimum_ios, "required minimum iOS"):
+                fail(
+                    f"application deployment target {deployment_target} is incompatible; "
+                    f"required iOS floor is {args.minimum_ios}"
+                )
         executable_path = f"{app}/{executable}"
         if executable_path not in names:
             fail(f"main executable is missing: {executable_path}")
@@ -235,14 +280,23 @@ def main() -> None:
                 if args.require_component in dylib
             ]
             executable_reference = component_bytes in executable_data
-            if not framework_members and not executable_reference:
-                fail(f"required component {args.require_component!r} is neither embedded nor referenced by the main executable")
-            if not executable_reference and not dylib_references:
-                fail(f"required component {args.require_component!r} is present but not referenced/loaded by the main executable")
+            swiftpm_resource_members = [
+                name for name in names
+                if args.require_component in name and ".bundle/" in name
+            ]
+            if not framework_members and not executable_reference and not swiftpm_resource_members:
+                fail(
+                    f"required component {args.require_component!r} has no executable, "
+                    "framework, or SwiftPM resource evidence"
+                )
+            if framework_members and not executable_reference and not dylib_references:
+                fail(f"required dynamic component {args.require_component!r} is embedded but not loaded")
             if executable_reference:
                 component_evidence = "main executable contains component reference"
-            else:
+            elif dylib_references:
                 component_evidence = f"main executable loads {dylib_references[0]}"
+            else:
+                component_evidence = "component-specific SwiftPM resource bundle (static linkage verified during host build/test)"
 
         resource_bundle_evidence = "not requested"
         if args.require_resource_bundle:
@@ -258,6 +312,21 @@ def main() -> None:
                 fail(f"required resource bundle Info.plist is invalid: {error}")
             if resource_info.get("CFBundlePackageType") != "BNDL":
                 fail("required resource bundle has an unexpected package type")
+            if args.minimum_ios:
+                resource_minimum = resource_info.get("MinimumOSVersion")
+                if not isinstance(resource_minimum, str):
+                    fail("required resource bundle MinimumOSVersion is missing")
+                if version(resource_minimum, "resource bundle MinimumOSVersion") < version(args.minimum_ios, "required minimum iOS"):
+                    fail(
+                        f"required resource bundle deployment target {resource_minimum} "
+                        f"is below iOS {args.minimum_ios}"
+                    )
+            for relative in args.require_bundle_resource:
+                if not relative or relative.startswith(("/", "\\")) or ".." in Path(relative).parts:
+                    fail(f"invalid required bundle resource path: {relative!r}")
+                member = f"{app}/{bundle_name}/{relative}"
+                if member not in names:
+                    fail(f"required resource bundle file is missing: {relative}")
             resource_bundle_evidence = resource_info_path
 
         if args.codesign_verify or args.require_provisioning:
@@ -277,10 +346,11 @@ def main() -> None:
     print(f"file={ipa}")
     print(f"sizeBytes={ipa.stat().st_size}")
     print(f"bundleIdentifier={bundle_id}")
+    print(f"minimumIOS={deployment_target or 'not declared'}")
     print(f"architectures={','.join(architectures)}")
     print(f"component={component_evidence}")
     print(f"resourceBundle={resource_bundle_evidence}")
-    print(f"sha256={sha256(ipa)}")
+    print(f"sha256={ipa_sha256}")
 
 
 if __name__ == "__main__":

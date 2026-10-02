@@ -106,3 +106,16 @@ Artifacts A and B were not modified. No IPA was generated.
 | `analysis/COMPONENT_READINESS_2026-10-02.md` | Recorded exact tests, canonical hashes, authorized-host consumption steps, and requested final status fields. | Cross-checked against successful CI annotations and artifact metadata. |
 
 Canonical reproducible hashes: Simulator `9b6c20bc5113c6aa0930c0d1702377a6e087b2001f14f25e25dff55af1cfdbe5`; iPhoneOS arm64 `3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f`. The accepted Artifact B remains unchanged at `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`. Artifact C and a final IPA were not produced.
+
+## Production handoff readiness — 2026-10-02
+
+| File / component | Change | Validation |
+|---|---|---|
+| `analysis/PRODUCTION_HANDOFF.md` | Added the authoritative input contract, exact package/resource/signing procedure, deterministic production checklist, expected Artifact C checks, delta-review gate, and explicit non-actions. | Cross-checked against integration and final-IPA validator behavior. |
+| `analysis/PRODUCTION_MANIFEST.json` | Added deterministic machine-readable baseline/component hashes and host/signing/final status. | JSON parsed; exact required keys/values asserted. |
+| `scripts/validate-authorized-host-settings.py` | Added resolved-Xcode-settings validation for exact app target, product type, iPhoneOS support, iOS 16+, bundle ID, Team ID, signing style, and enabled signing. | Nine unit tests pass. |
+| `scripts/integrate-authorized-host-macos.sh` | Reordered all non-mutating preflight before project edits; added explicit host/target/deployment/signing/export/resource/output/no-op guards and validate-before-publish staging. | Shell syntax and five handoff-guard tests pass; no production host was supplied or used. |
+| `scripts/validate-final-ipa.py` | Added deployment floor, required bundle-member, rejected-hash, static SwiftPM resource evidence, duplicate-member, and safe-extraction checks. | Five synthetic IPA validator tests pass. |
+| `FINAL_BUILD_RUNBOOK.md` | Pointed production execution to the authoritative handoff and documented hard gates/non-actions. | Command/options checked against script usage. |
+
+Artifact A, Artifact B, and baseline `libloader` were not modified. No host was substituted, no signing was fabricated, and no IPA was produced.
