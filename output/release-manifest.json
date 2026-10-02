@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-02T00:00:00Z",
+  "status": "not-produced",
+  "statusMessage": "NOT PRODUCED YET — BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION",
+  "source": {
+    "file": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
+    "sha256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8",
+    "sizeBytes": 98576945,
+    "bundleIdentifier": "com.miniclip.8ballpoolmult",
+    "shortVersion": "56.30.0",
+    "buildVersion": "5328"
+  },
+  "identifiedOverlay": {
+    "path": "Payload/pool.app/Frameworks/libloader.framework/libloader",
+    "sizeBytes": 11493804,
+    "sourceAvailable": false
+  },
+  "outputs": {
+    "ipa": null,
+    "sha256": null
+  },
+  "actionsPerformed": [
+    "read-only IPA structure inspection",
+    "bundle metadata inspection",
+    "Mach-O load-command and encryption-flag inspection",
+    "overlay marker and class-name inspection"
+  ],
+  "actionsNotPerformed": [
+    "binary patching",
+    "advertisement or activation bypass",
+    "gameplay cheat modification",
+    "code signing",
+    "IPA repackaging"
+  ],
+  "reason": "The only overlay is a compiled multiplayer-cheat framework embedded in a FairPlay-stripped third-party game. No authorized overlay source or legitimate signing/export path is present."
+}
