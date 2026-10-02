@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - arena/01a0fade-8ballspicy
+      - arena/01a0fb30-8ballspicy
     paths:
       - "ExistingIPAWorkspace/OverlaySource/**"
       - "ExistingIPAWorkspace/scripts/build-overlay-macos.sh"
@@ -49,20 +49,20 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-      - name: Build unsigned iOS Simulator component
+      - name: Build unsigned iOS device component
         env:
           SKIP_TESTS: "1"
         run: |
           bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
-          checksum=$(cat output/components/ExistingIPAOverlay-ios-simulator-build.zip.sha256)
-          echo "::notice title=Unsigned component checksum::$checksum"
+          checksum=$(cat output/components/ExistingIPAOverlay-ios-device-build.zip.sha256)
+          echo "::notice title=Unsigned iphoneos component checksum::$checksum"
 
-      - name: Upload unsigned component build
+      - name: Upload unsigned device component build
         uses: actions/upload-artifact@v4
         with:
-          name: ExistingIPAOverlay-ios-simulator-build
+          name: ExistingIPAOverlay-ios-device-build
           path: |
-            output/components/ExistingIPAOverlay-ios-simulator-build.zip
-            output/components/ExistingIPAOverlay-ios-simulator-build.zip.sha256
+            output/components/ExistingIPAOverlay-ios-device-build.zip
+            output/components/ExistingIPAOverlay-ios-device-build.zip.sha256
           if-no-files-found: error
           retention-days: 14
