@@ -249,14 +249,12 @@ jobs:
       - name: Build clean component reproducibility pass one
         env:
           ARTIFACT_DIR: ${{ runner.temp }}/component-pass-1
-          DERIVED_DATA_PATH: ${{ runner.temp }}/derived-pass-1
           SKIP_TESTS: "1"
         run: bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
 
       - name: Build clean canonical component pass two
         env:
           ARTIFACT_DIR: ${{ github.workspace }}/output/last-recovery/components
-          DERIVED_DATA_PATH: ${{ runner.temp }}/derived-pass-2
           SKIP_TESTS: "1"
         run: bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
 
@@ -276,31 +274,44 @@ jobs:
           second = Path(os.environ['SECOND_DIR'])
           expected = os.environ['EXPECTED_DEVICE_SHA256']
           artifacts = {}
+          all_identical = True
           for name in (
               'ExistingIPAOverlay-ios-simulator-reproducible.zip',
               'ExistingIPAOverlay-ios-device-reproducible.zip',
           ):
               one, two = first / name, second / name
-              one_hash = hashlib.sha256(one.read_bytes()).hexdigest()
-              two_hash = hashlib.sha256(two.read_bytes()).hexdigest()
-              if one.read_bytes() != two.read_bytes():
-                  raise SystemExit(f'not reproducible: {name}: {one_hash} != {two_hash}')
-              artifacts[name] = {'passOneSHA256': one_hash, 'passTwoSHA256': two_hash, 'byteIdentical': True}
+              one_bytes, two_bytes = one.read_bytes(), two.read_bytes()
+              one_hash = hashlib.sha256(one_bytes).hexdigest()
+              two_hash = hashlib.sha256(two_bytes).hexdigest()
+              identical = one_bytes == two_bytes
+              all_identical = all_identical and identical
+              artifacts[name] = {
+                  'passOneSHA256': one_hash,
+                  'passTwoSHA256': two_hash,
+                  'byteIdentical': identical,
+              }
           actual = artifacts['ExistingIPAOverlay-ios-device-reproducible.zip']['passTwoSHA256']
-          if actual != expected:
-              raise SystemExit(f'device component hash mismatch: expected {expected}, got {actual}')
+          hash_matches = actual == expected
           report = {
               'schemaVersion': 1,
               'expectedDeviceSHA256': expected,
-              'deviceHashMatches': True,
-              'twoCleanBuildsByteIdentical': True,
+              'actualDeviceSHA256': actual,
+              'deviceHashMatches': hash_matches,
+              'twoCleanBuildsByteIdentical': all_identical,
               'artifacts': artifacts,
           }
           Path('output/last-recovery/evidence/reproducibility.json').write_text(
               json.dumps(report, indent=2, sort_keys=True) + '\n'
           )
           print(json.dumps(report, indent=2, sort_keys=True))
-          print(f'::notice title=Verified arm64 component::{actual}')
+          print(
+              f'::notice title=arm64 component verification::actual={actual} '
+              f'expected={expected} hashMatches={hash_matches} reproducible={all_identical}'
+          )
+          if not all_identical:
+              raise SystemExit('clean component builds are not byte-for-byte reproducible')
+          if not hash_matches:
+              raise SystemExit(f'device component hash mismatch: expected {expected}, got {actual}')
           PY
           python3 ExistingIPAWorkspace/scripts/validate-simulator-component.py \
             output/last-recovery/components/ExistingIPAOverlay-ios-simulator-reproducible.zip \
