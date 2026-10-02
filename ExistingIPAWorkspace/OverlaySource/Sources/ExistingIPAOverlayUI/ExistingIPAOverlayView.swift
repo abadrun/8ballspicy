@@ -6,8 +6,12 @@ import ExistingIPAOverlayCore
 public struct ExistingIPAOverlayView: View {
     @StateObject private var model: OverlayViewModel
 
-    public init(model: @autoclosure @escaping () -> OverlayViewModel = OverlayViewModel()) {
-        _model = StateObject(wrappedValue: model())
+    public init() {
+        _model = StateObject(wrappedValue: OverlayViewModel())
+    }
+
+    public init(model: OverlayViewModel) {
+        _model = StateObject(wrappedValue: model)
     }
 
     public var body: some View {
