@@ -1,0 +1,138 @@
+name: Exhaustive host recovery search
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Inventory every Actions artifact recursively
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import os
+          import subprocess
+          import tempfile
+          import zipfile
+          from pathlib import Path
+
+          repo = os.environ['GH_REPO']
+          def api_json(path):
+              return json.loads(subprocess.check_output(['gh', 'api', '--paginate', path], text=True))
+
+          # gh --paginate emits one JSON document for this endpoint because the
+          # repository currently has fewer than 100 artifacts.
+          response = json.loads(subprocess.check_output(
+              ['gh', 'api', f'repos/{repo}/actions/artifacts?per_page=100'], text=True
+          ))
+          artifacts = response.get('artifacts', [])
+          root = Path(tempfile.mkdtemp(prefix='all-actions-artifacts-'))
+          all_members = []
+          candidates = []
+          download_failures = []
+
+          candidate_suffixes = (
+              '.xcodeproj/project.pbxproj', '.xcworkspace/contents.xcworkspacedata',
+              '/Package.swift', 'Package.swift', 'ExportOptions.plist',
+              '.mobileprovision', '.p12', '.cer',
+          )
+
+          def classify(artifact_id, container, member):
+              normalized = member.replace('\\', '/')
+              all_members.append({'artifactId': artifact_id, 'container': container, 'path': normalized})
+              lower = normalized.lower()
+              if (
+                  lower.endswith('.xcodeproj/project.pbxproj')
+                  or lower.endswith('.xcworkspace/contents.xcworkspacedata')
+                  or lower.endswith('/package.swift')
+                  or lower == 'package.swift'
+                  or lower.endswith('exportoptions.plist')
+                  or lower.endswith(('.mobileprovision', '.p12', '.cer'))
+              ):
+                  candidates.append({'artifactId': artifact_id, 'container': container, 'path': normalized})
+
+          def scan_zip(artifact_id, path, label, depth=0):
+              try:
+                  with zipfile.ZipFile(path) as archive:
+                      for info in archive.infolist():
+                          if info.is_dir():
+                              continue
+                          classify(artifact_id, label, info.filename)
+                          if depth < 3 and info.filename.lower().endswith(('.zip', '.ipa')):
+                              nested = root / f'nested-{artifact_id}-{len(all_members)}.zip'
+                              nested.write_bytes(archive.read(info))
+                              scan_zip(artifact_id, nested, f'{label}!/{info.filename}', depth + 1)
+              except (zipfile.BadZipFile, RuntimeError) as error:
+                  download_failures.append({'artifactId': artifact_id, 'path': label, 'error': str(error)})
+
+          for artifact in artifacts:
+              artifact_id = artifact['id']
+              target = root / f'{artifact_id}.zip'
+              result = subprocess.run(
+                  ['gh', 'api', f'repos/{repo}/actions/artifacts/{artifact_id}/zip'],
+                  stdout=target.open('wb'), stderr=subprocess.PIPE,
+              )
+              if result.returncode:
+                  download_failures.append({
+                      'artifactId': artifact_id,
+                      'path': artifact['name'],
+                      'error': result.stderr.decode('utf-8', errors='replace'),
+                  })
+                  continue
+              scan_zip(artifact_id, target, artifact['name'])
+
+          production_projects = [
+              item for item in candidates
+              if item['path'].lower().endswith(('.xcodeproj/project.pbxproj', '.xcworkspace/contents.xcworkspacedata'))
+              and 'samplehost' not in item['path'].lower()
+          ]
+          signing_inputs = [
+              item for item in candidates
+              if item['path'].lower().endswith(('exportoptions.plist', '.mobileprovision', '.p12', '.cer'))
+          ]
+          report = {
+              'schemaVersion': 1,
+              'artifactCount': len(artifacts),
+              'downloadedArtifactCount': len(artifacts) - len({item['artifactId'] for item in download_failures}),
+              'memberCountIncludingNestedArchives': len(all_members),
+              'candidatePaths': candidates,
+              'productionProjectCandidates': production_projects,
+              'signingInputCandidates': signing_inputs,
+              'downloadFailures': download_failures,
+              'result': 'HOST_FOUND' if production_projects else 'HOST_NOT_FOUND',
+          }
+          Path('host-recovery-actions-report.json').write_text(
+              json.dumps(report, indent=2, sort_keys=True) + '\n'
+          )
+          message = (
+              f"artifacts={report['artifactCount']} downloaded={report['downloadedArtifactCount']} "
+              f"members={report['memberCountIncludingNestedArchives']} "
+              f"productionProjects={len(production_projects)} signingInputs={len(signing_inputs)} "
+              f"downloadFailures={len(download_failures)} result={report['result']}"
+          )
+          print(f'::notice title=Exhaustive host recovery artifact scan::{message}')
+          print(json.dumps(report, indent=2, sort_keys=True))
+          if download_failures:
+              raise SystemExit('one or more artifacts could not be inspected')
+          PY
+
+      - name: Upload machine-readable artifact inventory
+        uses: actions/upload-artifact@v5
+        with:
+          name: exhaustive-host-recovery-report
+          path: host-recovery-actions-report.json
+          if-no-files-found: error
+          retention-days: 30
