@@ -1,6 +1,6 @@
 {
   "artifact": "output/ExistingIPAOverlay-ios-device-build.zip",
-  "sha256": "ec0a0affd2c24413f3c053a58ec02c3eec3654700887d6c5777a5fcf087e7c05",
+  "sha256": "f30c228a23e2496aab4b2cb55ce17ae9b00425737b75ebb14cc804b587d31043",
   "sizeBytes": 354250,
   "zipIntegrity": "PASS",
   "deviceProduct": "Debug-iphoneos",

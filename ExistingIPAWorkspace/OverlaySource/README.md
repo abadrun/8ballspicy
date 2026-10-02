@@ -64,7 +64,7 @@ See `../../analysis/OVERLAY_ARCHITECTURE.md` and `../INTEGRATION_STATUS.md` for 
 
 ## Build status
 
-This package has been tested and compiled on GitHub Actions run [36971984879](https://github.com/abadrun/8ballspicy/actions/runs/36971984879) with Xcode on `macos-15`:
+This package has been tested and compiled on GitHub Actions run [36972215349](https://github.com/abadrun/8ballspicy/actions/runs/36972215349) with Xcode on `macos-15`:
 
 - Swift package tests: passed
 - Xcode destination: `generic/platform=iOS`
@@ -72,6 +72,6 @@ This package has been tested and compiled on GitHub Actions run [36971984879](ht
 - Architecture: arm64
 - Component validation: passed
 - Artifact: `../../output/ExistingIPAOverlay-ios-device-build.zip`
-- SHA-256: `ec0a0affd2c24413f3c053a58ec02c3eec3654700887d6c5777a5fcf087e7c05`
+- SHA-256: `f30c228a23e2496aab4b2cb55ce17ae9b00425737b75ebb14cc804b587d31043`
 
 The artifact is an unsigned component build, not an IPA. The repository does not contain an authorized host Xcode project for the supplied third-party app, so no injection, host integration, signing, or IPA export was performed.
