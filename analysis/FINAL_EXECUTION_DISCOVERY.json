@@ -1,0 +1,4579 @@
+{
+  "baseline": {
+    "path": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
+    "preservedUnchanged": true,
+    "sha256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8"
+  },
+  "classification": {
+    "historicalNoOpIPA": {
+      "gitBlob": "1b1558ca090e9aa01b7bdb0d0b548c1e13a00534",
+      "path": "output/8-ball-pool-modified.ipa",
+      "status": "REJECTED_PAYLOAD_IDENTICAL_TO_BASELINE"
+    },
+    "productionHostCandidates": [],
+    "sampleHost": "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj",
+    "sampleHostStatus": "AUTHORIZED_TEST_ONLY_NOT_PRODUCTION",
+    "signingInputCandidates": []
+  },
+  "finalIPA": {
+    "path": null,
+    "sha256": null,
+    "status": "NOT_PRODUCED"
+  },
+  "githubActions": {
+    "artifactArchiveScan": {
+      "archiveCount": 50,
+      "failures": [],
+      "memberCount": 1242,
+      "patternMatchCount": 38,
+      "patternMatches": [
+        {
+          "path": "artifact:11252848366:ExistingIPAOverlay-last-recovery-test-evidence!/test-results/PackageSimulatorTests.xcresult/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-device-reproducible.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-simulator-reproducible.zip!/Debug-iphonesimulator/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/evidence/complete-test-results.tar.gz!/test-results/PackageSimulatorTests.xcresult/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Users/runner/Objects/ExistingIPAOverlayCore.o",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Users/runner/Objects/ExistingIPAOverlayUI.o",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/en.lproj/Localizable.strings",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Assets.car",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/id.lproj/Localizable.strings",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "*.xcarchive",
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/Info.plist",
+          "patterns": [
+            "*.xcarchive",
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlaySampleHost",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/PkgInfo",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/._Products",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/dSYMs/ExistingIPAOverlaySampleHost.app.dSYM/Contents/Resources/Relocations/aarch64/ExistingIPAOverlaySampleHost.yml",
+          "patterns": [
+            "*.dSYM",
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/dSYMs/ExistingIPAOverlaySampleHost.app.dSYM/Contents/Resources/DWARF/ExistingIPAOverlaySampleHost",
+          "patterns": [
+            "*.dSYM",
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/dSYMs/ExistingIPAOverlaySampleHost.app.dSYM/Contents/Info.plist",
+          "patterns": [
+            "*.dSYM",
+            "*.xcarchive",
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11252573771:ExistingIPAOverlay-mac-production-handoff!/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Info.plist",
+          "patterns": [
+            "*.xcarchive",
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11251654016:ExistingIPAOverlay-last-recovery-test-evidence!/test-results/PackageSimulatorTests.xcresult/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11232545551:ExistingIPAOverlay-reproducible-builds!/ExistingIPAOverlay-ios-device-reproducible.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11232545551:ExistingIPAOverlay-reproducible-builds!/ExistingIPAOverlay-ios-simulator-reproducible.zip!/Debug-iphonesimulator/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11232125806:ExistingIPAOverlay-test-evidence!/PackageSimulatorTests.xcresult/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11231528753:ExistingIPAOverlay-reproducible-builds!/ExistingIPAOverlay-ios-device-reproducible.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11231528753:ExistingIPAOverlay-reproducible-builds!/ExistingIPAOverlay-ios-simulator-reproducible.zip!/Debug-iphonesimulator/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11231253906:ExistingIPAOverlay-test-evidence!/PackageSimulatorTests.xcresult/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11230181999:ExistingIPAOverlay-test-evidence!/PackageSimulatorTests.xcresult/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11230065300:ExistingIPAOverlay-test-evidence!/PackageSimulatorTests.xcresult/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11229041111:ExistingIPAOverlay-test-evidence!/PackageSimulatorTests.xcresult/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11228032973:ExistingIPAOverlay-test-evidence!/PackageSimulatorTests.xcresult/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11227981519:ExistingIPAOverlay-test-evidence!/PackageSimulatorTests.xcresult/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11212421283:ExistingIPAOverlay-ios-device-build!/ExistingIPAOverlay-ios-device-build.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11212302365:ExistingIPAOverlay-ios-device-build!/ExistingIPAOverlay-ios-device-build.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11212052269:ExistingIPAOverlay-ios-device-build!/ExistingIPAOverlay-ios-device-build.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11212048394:ExistingIPAOverlay-ios-device-build!/ExistingIPAOverlay-ios-device-build.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11211952489:ExistingIPAOverlay-ios-device-build!/ExistingIPAOverlay-ios-device-build.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11211567893:ExistingIPAOverlay-ios-device-build!/ExistingIPAOverlay-ios-device-build.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11210665414:ExistingIPAOverlay-ios-simulator-build!/ExistingIPAOverlay-ios-simulator-build.zip!/Debug-iphonesimulator/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "artifact:11210610256:ExistingIPAOverlay-ios-simulator-build!/ExistingIPAOverlay-ios-simulator-build.zip!/Debug-iphonesimulator/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        }
+      ],
+      "productionContainers": [],
+      "signingInputs": []
+    },
+    "artifactDownloadFailures": [],
+    "artifacts": [
+      {
+        "digest": "sha256:97cebdfc900a8c1ac795ee03ca732be8feabbb121eae7f22968d3196f021d312",
+        "expired": false,
+        "id": 11252848366,
+        "name": "ExistingIPAOverlay-last-recovery-test-evidence",
+        "sizeBytes": 123370,
+        "workflowRunId": 37065736048
+      },
+      {
+        "digest": "sha256:d13b697511c381dda2a19b861081080d356f698423fbe012d00738929da4d503",
+        "expired": false,
+        "id": 11252573771,
+        "name": "ExistingIPAOverlay-mac-production-handoff",
+        "sizeBytes": 1924965,
+        "workflowRunId": 37065736048
+      },
+      {
+        "digest": "sha256:ab51e673ddf16784d3bec2b10eb5c25620c0149b657a725f2854e3ed7a4df2d3",
+        "expired": false,
+        "id": 11252456477,
+        "name": "ExistingIPAOverlay-last-recovery-test-evidence",
+        "sizeBytes": 3536,
+        "workflowRunId": 37064773751
+      },
+      {
+        "digest": "sha256:176bebc42c513a713f4d89e2d82ccdcdd8b6166ef481cd78272e7ba17315a716",
+        "expired": false,
+        "id": 11252430147,
+        "name": "exhaustive-host-recovery-report",
+        "sizeBytes": 354,
+        "workflowRunId": 37063958077
+      },
+      {
+        "digest": "sha256:357eb600fdbc276eb1eb53fcd99b358f6c7132084fc910f03730f49f7382915c",
+        "expired": false,
+        "id": 11251654016,
+        "name": "ExistingIPAOverlay-last-recovery-test-evidence",
+        "sizeBytes": 111195,
+        "workflowRunId": 37064947877
+      },
+      {
+        "digest": "sha256:96acade2c43b88d2ef76aa5082220ffebc48f8b7c98e484956cd68de37a83d98",
+        "expired": false,
+        "id": 11232545551,
+        "name": "ExistingIPAOverlay-reproducible-builds",
+        "sizeBytes": 675962,
+        "workflowRunId": 37016582451
+      },
+      {
+        "digest": "sha256:6ecfaaf424a8eb6b4f4347feb7986f5c9d21ecf873093007d0c8849f2edc338e",
+        "expired": false,
+        "id": 11232125806,
+        "name": "ExistingIPAOverlay-test-evidence",
+        "sizeBytes": 105810,
+        "workflowRunId": 37016582451
+      },
+      {
+        "digest": "sha256:bafc02b37fd0fdebad7eaed4bb02ec1ccab6ef6db5c04be75ddbdcd2e27c49c7",
+        "expired": false,
+        "id": 11231528753,
+        "name": "ExistingIPAOverlay-reproducible-builds",
+        "sizeBytes": 675963,
+        "workflowRunId": 37018507081
+      },
+      {
+        "digest": "sha256:be712eb5f6025cfae27cab25707853d5692ba98d0c8edc3b0431a57ac960ec72",
+        "expired": false,
+        "id": 11231253906,
+        "name": "ExistingIPAOverlay-test-evidence",
+        "sizeBytes": 105530,
+        "workflowRunId": 37018507081
+      },
+      {
+        "digest": "sha256:8e072ed280a69ea484998f164d2da95258c1fa7bf5aca306e2330a0745985237",
+        "expired": false,
+        "id": 11230181999,
+        "name": "ExistingIPAOverlay-test-evidence",
+        "sizeBytes": 105504,
+        "workflowRunId": 37014987120
+      },
+      {
+        "digest": "sha256:1185de95209c9c90a07df98ddbf4fc23052c6ed116089e34627c4636ccc9b44c",
+        "expired": false,
+        "id": 11230065300,
+        "name": "ExistingIPAOverlay-test-evidence",
+        "sizeBytes": 105041,
+        "workflowRunId": 37013735350
+      },
+      {
+        "digest": "sha256:a82afea3a7fe98b5cfdf6b4471c4e8e1171a67393a5fb42147f02b5cc4c6828d",
+        "expired": false,
+        "id": 11229041111,
+        "name": "ExistingIPAOverlay-test-evidence",
+        "sizeBytes": 96821,
+        "workflowRunId": 37012659175
+      },
+      {
+        "digest": "sha256:b37b5da440559bffcb0091b33922972afdd5e25bdd0d78b71f67f69a06a4517b",
+        "expired": false,
+        "id": 11228032973,
+        "name": "ExistingIPAOverlay-test-evidence",
+        "sizeBytes": 97009,
+        "workflowRunId": 37011687850
+      },
+      {
+        "digest": "sha256:b34c3f441077affd8161be1f13a4b9f1a5ad5eea5cddf61159da12a5dcd3e2b5",
+        "expired": false,
+        "id": 11227981519,
+        "name": "ExistingIPAOverlay-test-evidence",
+        "sizeBytes": 113510,
+        "workflowRunId": 37010603523
+      },
+      {
+        "digest": "sha256:41ce09ff95e74e8630378496627f1027fb9b362fe3a67bb54b73bc5ccfc84e24",
+        "expired": false,
+        "id": 11212421283,
+        "name": "ExistingIPAOverlay-ios-device-build",
+        "sizeBytes": 347704,
+        "workflowRunId": 36972557722
+      },
+      {
+        "digest": "sha256:975068c8a5549f5f98dd07698ff55b9693572a162d703c30f981c57868c0dc2f",
+        "expired": false,
+        "id": 11212376427,
+        "name": "ExistingIPAOverlay-test-diagnostics",
+        "sizeBytes": 796,
+        "workflowRunId": 36972557722
+      },
+      {
+        "digest": "sha256:5f65094b923383e5fd91998998ec09f871e210b7009884280757934278ca6cc3",
+        "expired": false,
+        "id": 11212302365,
+        "name": "ExistingIPAOverlay-ios-device-build",
+        "sizeBytes": 347694,
+        "workflowRunId": 36972725882
+      },
+      {
+        "digest": "sha256:bf90032b3b348738b38aa1e2e1e9eae88e6bd46e0574eb73f3c64e0aa090ec28",
+        "expired": false,
+        "id": 11212052269,
+        "name": "ExistingIPAOverlay-ios-device-build",
+        "sizeBytes": 347732,
+        "workflowRunId": 36971701231
+      },
+      {
+        "digest": "sha256:de1ef64f4b9430af3749830b6ebc657ed878e1def485203ae7e0e509a8d18092",
+        "expired": false,
+        "id": 11212048394,
+        "name": "ExistingIPAOverlay-ios-device-build",
+        "sizeBytes": 347726,
+        "workflowRunId": 36972215349
+      },
+      {
+        "digest": "sha256:11e7483be5200c2354fb9b70d799f65a687252856425e9679fe39df74290784f",
+        "expired": false,
+        "id": 11211952489,
+        "name": "ExistingIPAOverlay-ios-device-build",
+        "sizeBytes": 347722,
+        "workflowRunId": 36971351682
+      },
+      {
+        "digest": "sha256:c6b508821e37019370b19a4addca53ce60e5f7a788a5f11edfb4ef16e5e2dd5b",
+        "expired": false,
+        "id": 11211792622,
+        "name": "ExistingIPAOverlay-test-diagnostics",
+        "sizeBytes": 797,
+        "workflowRunId": 36971351682
+      },
+      {
+        "digest": "sha256:03c4b151800f5b65dacfe9223acfbc9a3784673dc8b823ba40e9582bdb2a0fab",
+        "expired": false,
+        "id": 11211727352,
+        "name": "ExistingIPAOverlay-test-diagnostics",
+        "sizeBytes": 794,
+        "workflowRunId": 36971701231
+      },
+      {
+        "digest": "sha256:8c34445d3a1bccccc6a2f8540d40e10f47d69fa9799c80cc94bd05a1bdf8d59a",
+        "expired": false,
+        "id": 11211567893,
+        "name": "ExistingIPAOverlay-ios-device-build",
+        "sizeBytes": 347664,
+        "workflowRunId": 36971984879
+      },
+      {
+        "digest": "sha256:66bddf217bd461ae1aad2d122a5be8aa0543c88c115a136859119c1367094a85",
+        "expired": false,
+        "id": 11211343609,
+        "name": "ExistingIPAOverlay-test-diagnostics",
+        "sizeBytes": 795,
+        "workflowRunId": 36972215349
+      },
+      {
+        "digest": "sha256:5eb55db3b9261694816bc12b8150956d9336f833ac828d781582866b4c011032",
+        "expired": false,
+        "id": 11211303305,
+        "name": "ExistingIPAOverlay-test-diagnostics",
+        "sizeBytes": 797,
+        "workflowRunId": 36971984879
+      },
+      {
+        "digest": "sha256:3070af3e10890de96583820848a933b0457f72ec00248119fb72cd3381d6273f",
+        "expired": false,
+        "id": 11211274146,
+        "name": "ExistingIPAOverlay-test-diagnostics",
+        "sizeBytes": 796,
+        "workflowRunId": 36972725882
+      },
+      {
+        "digest": "sha256:13a07bde7537224aced4e7b91ac53390037bd61a4c73d7c0cfa3898ef9ce49a7",
+        "expired": false,
+        "id": 11210665414,
+        "name": "ExistingIPAOverlay-ios-simulator-build",
+        "sizeBytes": 674100,
+        "workflowRunId": 36967188194
+      },
+      {
+        "digest": "sha256:70b65a8082f862482ec65001c2c16cd34749c8895b53733869da9c3ded50fe10",
+        "expired": false,
+        "id": 11210655427,
+        "name": "ExistingIPAOverlay-test-diagnostics",
+        "sizeBytes": 790,
+        "workflowRunId": 36967188194
+      },
+      {
+        "digest": "sha256:85e9bdea00f0888629d39289ae843fee5365625d5f7fa240596a6d14c7dea055",
+        "expired": false,
+        "id": 11210610256,
+        "name": "ExistingIPAOverlay-ios-simulator-build",
+        "sizeBytes": 674196,
+        "workflowRunId": 36967006266
+      },
+      {
+        "digest": "sha256:e2b7963a3ddf4176acb5749ee2b29ed0e128d7592ad7b0033388a81aa2add864",
+        "expired": false,
+        "id": 11210575220,
+        "name": "ExistingIPAOverlay-test-diagnostics",
+        "sizeBytes": 953,
+        "workflowRunId": 36966917200
+      },
+      {
+        "digest": "sha256:c06de88bb1bdcdd180bd1e542bec7ace65f2c22fe679510da59cb5ad82d19cd3",
+        "expired": false,
+        "id": 11210505497,
+        "name": "ExistingIPAOverlay-test-diagnostics",
+        "sizeBytes": 959,
+        "workflowRunId": 36966788586
+      },
+      {
+        "digest": "sha256:9623b7f6a7d970ba40eed55efe53b67ffa0e7c294d89b142be8344d46ac41ba0",
+        "expired": false,
+        "id": 11210222800,
+        "name": "ExistingIPAOverlay-test-diagnostics",
+        "sizeBytes": 800,
+        "workflowRunId": 36967006266
+      },
+      {
+        "digest": "sha256:2754c5495a7b3ceaa32d6deb967e6cb9de339100716ae27bb2c39765c7d2d4ce",
+        "expired": false,
+        "id": 11209786977,
+        "name": "ExistingIPAOverlay-test-diagnostics",
+        "sizeBytes": 952,
+        "workflowRunId": 36966856892
+      }
+    ],
+    "caches": [],
+    "runLogDownloadFailures": [],
+    "runLogExclusions": [
+      {
+        "reason": "CURRENT_IN_PROGRESS_RUN_LOG_IS_NOT_YET_DOWNLOADABLE",
+        "runId": 37068748016
+      }
+    ],
+    "runLogMatchCount": 50,
+    "runLogMatches": [
+      {
+        "filePatternTokens": [
+          "*.xcarchive",
+          "*.ipa"
+        ],
+        "member": "0_publish.txt",
+        "runId": 37067592914,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcarchive",
+          "*.ipa"
+        ],
+        "member": "publish/4_Validate and stage the handoff without manufacturing an IPA.txt",
+        "runId": 37067592914,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.xcworkspace",
+          "project.pbxproj",
+          "Package.swift",
+          "*.mobileprovision",
+          "*.xcarchive",
+          "*.ipa",
+          "*.dSYM",
+          "ExportOptions.plist",
+          "Info.plist"
+        ],
+        "member": "0_Components, complete tests, sample archive, and final recovery.txt",
+        "runId": 37065736048,
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "PROVISIONING_PROFILE",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [],
+        "member": "Components, complete tests, sample archive, and final recovery/1_Set up job.txt",
+        "runId": 37065736048,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [],
+        "member": "Components, complete tests, sample archive, and final recovery/3_Prepare evidence directories and fetch every ref.txt",
+        "runId": 37065736048,
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.xcworkspace",
+          "project.pbxproj",
+          "Package.swift",
+          "*.mobileprovision",
+          "*.ipa",
+          "ExportOptions.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/4_Inspect all projects, workspaces, packages, refs, history, and generated files.txt",
+        "runId": 37065736048,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.xcworkspace",
+          "project.pbxproj",
+          "Package.swift",
+          "*.mobileprovision",
+          "*.ipa",
+          "ExportOptions.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/5_Inspect every existing Actions artifact recursively.txt",
+        "runId": 37065736048,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/6_Run preservation, source, policy, and production-guard validators.txt",
+        "runId": 37065736048,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.mobileprovision",
+          "*.dSYM",
+          "Info.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/7_Run complete Core, UI, lifecycle, resource, persistence, and sample-host suite.txt",
+        "runId": 37065736048,
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "PROVISIONING_PROFILE",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/8_Build clean component reproducibility pass one.txt",
+        "runId": 37065736048,
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/9_Build clean canonical component pass two.txt",
+        "runId": 37065736048,
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.mobileprovision",
+          "*.xcarchive",
+          "*.dSYM",
+          "Info.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/11_Archive and validate the unsigned authorized sample host.txt",
+        "runId": 37065736048,
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "project.pbxproj",
+          "Package.swift",
+          "*.xcarchive",
+          "*.ipa"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/12_Assemble the complete Mac-side production handoff.txt",
+        "runId": 37065736048,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.xcworkspace",
+          "project.pbxproj",
+          "Package.swift",
+          "*.mobileprovision",
+          "*.ipa",
+          "*.dSYM",
+          "ExportOptions.plist",
+          "Info.plist"
+        ],
+        "member": "0_Components, complete tests, sample archive, and final recovery.txt",
+        "runId": 37064947877,
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "PROVISIONING_PROFILE",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [],
+        "member": "Components, complete tests, sample archive, and final recovery/1_Set up job.txt",
+        "runId": 37064947877,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [],
+        "member": "Components, complete tests, sample archive, and final recovery/3_Prepare evidence directories and fetch every ref.txt",
+        "runId": 37064947877,
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.xcworkspace",
+          "project.pbxproj",
+          "Package.swift",
+          "*.mobileprovision",
+          "*.ipa",
+          "ExportOptions.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/4_Inspect all projects, workspaces, packages, refs, history, and generated files.txt",
+        "runId": 37064947877,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.xcworkspace",
+          "project.pbxproj",
+          "Package.swift",
+          "*.mobileprovision",
+          "*.ipa",
+          "ExportOptions.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/5_Inspect every existing Actions artifact recursively.txt",
+        "runId": 37064947877,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/6_Run preservation, source, policy, and production-guard validators.txt",
+        "runId": 37064947877,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.mobileprovision",
+          "*.dSYM",
+          "Info.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/7_Run complete Core, UI, lifecycle, resource, persistence, and sample-host suite.txt",
+        "runId": 37064947877,
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "PROVISIONING_PROFILE",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/8_Build clean component reproducibility pass one.txt",
+        "runId": 37064947877,
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/9_Build clean canonical component pass two.txt",
+        "runId": 37064947877,
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.xcworkspace",
+          "project.pbxproj",
+          "Package.swift",
+          "*.mobileprovision",
+          "*.ipa",
+          "ExportOptions.plist"
+        ],
+        "member": "0_Components, complete tests, sample archive, and final recovery.txt",
+        "runId": 37064773751,
+        "strings": [
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [],
+        "member": "Components, complete tests, sample archive, and final recovery/1_Set up job.txt",
+        "runId": 37064773751,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [],
+        "member": "Components, complete tests, sample archive, and final recovery/3_Prepare evidence directories and fetch every ref.txt",
+        "runId": 37064773751,
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.xcworkspace",
+          "project.pbxproj",
+          "Package.swift",
+          "*.mobileprovision",
+          "*.ipa",
+          "ExportOptions.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/4_Inspect all projects, workspaces, packages, refs, history, and generated files.txt",
+        "runId": 37064773751,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.xcworkspace",
+          "project.pbxproj",
+          "Package.swift",
+          "*.mobileprovision",
+          "*.ipa",
+          "ExportOptions.plist"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/5_Inspect every existing Actions artifact recursively.txt",
+        "runId": 37064773751,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj"
+        ],
+        "member": "Components, complete tests, sample archive, and final recovery/6_Run preservation, source, policy, and production-guard validators.txt",
+        "runId": 37064773751,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.xcworkspace",
+          "project.pbxproj",
+          "Package.swift",
+          "*.mobileprovision",
+          "*.ipa",
+          "ExportOptions.plist"
+        ],
+        "member": "0_search.txt",
+        "runId": 37063958077,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.xcworkspace",
+          "project.pbxproj",
+          "Package.swift",
+          "*.mobileprovision",
+          "*.ipa",
+          "ExportOptions.plist"
+        ],
+        "member": "search/3_Inventory every Actions artifact recursively.txt",
+        "runId": 37063958077,
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.mobileprovision",
+          "*.dSYM",
+          "Info.plist"
+        ],
+        "member": "0_Core, UI, host integration, and reproducible builds.txt",
+        "runId": 37018507081,
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "PROVISIONING_PROFILE",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.mobileprovision",
+          "*.dSYM",
+          "Info.plist"
+        ],
+        "member": "0_Core, UI, host integration, and reproducible builds.txt",
+        "runId": 37016582451,
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "PROVISIONING_PROFILE",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.mobileprovision",
+          "*.dSYM",
+          "Info.plist"
+        ],
+        "member": "0_Core, UI, host integration, and reproducible builds.txt",
+        "runId": 37014987120,
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "PROVISIONING_PROFILE",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "*.mobileprovision",
+          "*.dSYM",
+          "Info.plist"
+        ],
+        "member": "0_Core, UI, host integration, and reproducible builds.txt",
+        "runId": 37013735350,
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "PROVISIONING_PROFILE",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Core, UI, host integration, and reproducible builds.txt",
+        "runId": 37012659175,
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Core, UI, host integration, and reproducible builds.txt",
+        "runId": 37011687850,
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "*.xcodeproj",
+          "Info.plist"
+        ],
+        "member": "0_Core, UI, host integration, and reproducible builds.txt",
+        "runId": 37010603523,
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36972725882,
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36972557722,
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36972215349,
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36971984879,
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36971701231,
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36971351682,
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36967188194,
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36967006266,
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36966917200,
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36966856892,
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36966788586,
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36966722199,
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "filePatternTokens": [
+          "Info.plist"
+        ],
+        "member": "0_Test and build iOS overlay component.txt",
+        "runId": 36966594292,
+        "strings": [
+          "xcodebuild"
+        ]
+      }
+    ],
+    "runs": [
+      {
+        "conclusion": null,
+        "createdAt": "2026-10-02T21:45:48Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "fd86c0dc933c6469fc76a80f055575975c9eef57",
+        "id": 37068748016,
+        "name": "Final GitHub and Mac production-host discovery",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T21:44:55Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "d453929cb28a2f5ec9a9ccca55addb2085009fbd",
+        "id": 37068655518,
+        "name": "Final GitHub and Mac production-host discovery",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T21:44:00Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "fc1f39bded5186c038d7bc1a8aaa463691d0cdd0",
+        "id": 37068565191,
+        "name": "Final GitHub and Mac production-host discovery",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T21:43:00Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "11400f6782ce35c5e93c0a6dfa2e81e39bc64926",
+        "id": 37068467082,
+        "name": "Final GitHub and Mac production-host discovery",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T21:34:01Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "f97ec3915be0341f359ed75e49170ca2716d510b",
+        "id": 37067592914,
+        "name": "Publish verified last-recovery handoff",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T21:15:26Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "4e01c739650450ed64aaca8d5dd6014385de3d3d",
+        "id": 37065736048,
+        "name": "Last macOS production-readiness recovery pass",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T21:07:44Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "72553d5dc3bc855ea8500605e49cd21895df4da6",
+        "id": 37064947877,
+        "name": "Last macOS production-readiness recovery pass",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T21:06:05Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "dad814add0989e8232794f3b923537d43da34e8f",
+        "id": 37064773751,
+        "name": "Last macOS production-readiness recovery pass",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T20:58:20Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "400760df8924f70480baed5e95ff98c93a2b3da4",
+        "id": 37063958077,
+        "name": "Exhaustive host recovery search",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T14:14:45Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "26755b1f2c8c693ff21673cf3ac3231e3564de5f",
+        "id": 37018507081,
+        "name": "Build and test ExistingIPAOverlay",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T13:58:10Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "725969a6c6f75583229dcfd139ce5af89fe0fc53",
+        "id": 37016582451,
+        "name": "Build and test ExistingIPAOverlay",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T13:44:18Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "f92993fcfbad14ea7f378744a940751df652b223",
+        "id": 37014987120,
+        "name": "Build and test ExistingIPAOverlay",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T13:33:08Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "3fea6c78a0f93adf108e08e9cf5ecb150c8e0975",
+        "id": 37013735350,
+        "name": "Build and test ExistingIPAOverlay",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T13:23:24Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "456e4ecbfb89f86a7bbe69ac09e5ff51a6ad8408",
+        "id": 37012659175,
+        "name": "Build and test ExistingIPAOverlay",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T13:14:30Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "9395c4b98b5d1401785f440bfa5e920c753e8064",
+        "id": 37011687850,
+        "name": "Build and test ExistingIPAOverlay",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T13:04:34Z",
+        "event": "push",
+        "headBranch": "arena/01a0fc96-8ballspicy",
+        "headSHA": "693aa6b0fb5d6de95e6552a4e748b321f1332d28",
+        "id": 37010603523,
+        "name": "Build and test ExistingIPAOverlay",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T06:15:58Z",
+        "event": "push",
+        "headBranch": "arena/01a0fb30-8ballspicy",
+        "headSHA": "2225d0fbe276d1643e81946bb3593767d6bdba96",
+        "id": 36972725882,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T06:13:52Z",
+        "event": "push",
+        "headBranch": "arena/01a0fb30-8ballspicy",
+        "headSHA": "c8c7a0e48a84463eda54e9e5e72d6dc96bcd85da",
+        "id": 36972557722,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T06:09:31Z",
+        "event": "push",
+        "headBranch": "arena/01a0fb30-8ballspicy",
+        "headSHA": "58dd820ca64772641c67aff6fa881be5456ab603",
+        "id": 36972215349,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T06:06:32Z",
+        "event": "push",
+        "headBranch": "arena/01a0fb30-8ballspicy",
+        "headSHA": "224e6cbc0110a3c3b131ffaa73a50c6d01a88861",
+        "id": 36971984879,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T06:03:04Z",
+        "event": "push",
+        "headBranch": "arena/01a0fb30-8ballspicy",
+        "headSHA": "7883cb0a02c116a0445d87c6eed52b0656026f30",
+        "id": 36971701231,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T05:58:35Z",
+        "event": "push",
+        "headBranch": "arena/01a0fb30-8ballspicy",
+        "headSHA": "2f13160ae38a5915b211a40113425eae9d62ecd8",
+        "id": 36971351682,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T05:02:45Z",
+        "event": "push",
+        "headBranch": "arena/01a0fade-8ballspicy",
+        "headSHA": "20ee43025f8b17614efa9feca2d8c382bbd7196c",
+        "id": 36967188194,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-10-02T05:00:20Z",
+        "event": "push",
+        "headBranch": "arena/01a0fade-8ballspicy",
+        "headSHA": "85dd6b93905a7a45b971f11dfecbb90cdeef36a7",
+        "id": 36967006266,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T04:59:03Z",
+        "event": "push",
+        "headBranch": "arena/01a0fade-8ballspicy",
+        "headSHA": "ac745883deed6b9b4f1e0b0cfe538c905ffbcc27",
+        "id": 36966917200,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T04:58:11Z",
+        "event": "push",
+        "headBranch": "arena/01a0fade-8ballspicy",
+        "headSHA": "1865815d30ecf885af91c439c06fd14b50839393",
+        "id": 36966856892,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T04:57:11Z",
+        "event": "push",
+        "headBranch": "arena/01a0fade-8ballspicy",
+        "headSHA": "3829bb6e975bb1798231b512d26beb37d5c349fd",
+        "id": 36966788586,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T04:56:17Z",
+        "event": "push",
+        "headBranch": "arena/01a0fade-8ballspicy",
+        "headSHA": "8d7d9857bc0c2c24c9e7dc7d4b9c0b091101b3eb",
+        "id": 36966722199,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-10-02T04:54:30Z",
+        "event": "push",
+        "headBranch": "arena/01a0fade-8ballspicy",
+        "headSHA": "d02301a14db80b12e445a325821166dd5b4b5c19",
+        "id": 36966594292,
+        "name": "Build authorized overlay source",
+        "status": "completed"
+      }
+    ],
+    "workflows": [
+      {
+        "id": 372805226,
+        "name": "Build authorized overlay source",
+        "path": ".github/workflows/build-overlay.yml",
+        "state": "active"
+      },
+      {
+        "id": 373501143,
+        "name": "Final GitHub and Mac production-host discovery",
+        "path": ".github/workflows/final-execution-discovery.yml",
+        "state": "active"
+      },
+      {
+        "id": 373473865,
+        "name": "Exhaustive host recovery search",
+        "path": ".github/workflows/host-recovery-search.yml",
+        "state": "active"
+      },
+      {
+        "id": 373478835,
+        "name": "Last macOS production-readiness recovery pass",
+        "path": ".github/workflows/last-recovery-macos.yml",
+        "state": "active"
+      },
+      {
+        "id": 373496022,
+        "name": "Publish verified last-recovery handoff",
+        "path": ".github/workflows/publish-last-recovery-handoff.yml",
+        "state": "active"
+      }
+    ]
+  },
+  "historicalSearch": {
+    "filePatterns": [
+      "*.xcodeproj",
+      "*.xcworkspace",
+      "project.pbxproj",
+      "Package.swift",
+      "Podfile",
+      "Cartfile",
+      "*.xcconfig",
+      "*.entitlements",
+      "*.mobileprovision",
+      "*.xcarchive",
+      "*.ipa",
+      "*.dSYM",
+      "ExportOptions.plist",
+      "Info.plist"
+    ],
+    "gitArchiveScan": {
+      "archiveCount": 12,
+      "failures": [],
+      "memberCount": 6918,
+      "patternMatchCount": 116,
+      "patternMatches": [
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PlugIns/NotificationContent.appex/Base.lproj/MainInterface.storyboardc/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PlugIns/NotificationContent.appex/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PlugIns/PooliMessage.appex/Base.lproj/MainInterface.storyboardc/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PlugIns/PooliMessage.appex/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PlugIns/PoolWidgetExtension.appex/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PlugIns/NotificationService.appex/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/BigoADSRes.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Splash.storyboardc/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/libloader.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/DTBiOSSDK.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleDataTransport.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/InMobiSDK.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/FirebaseCrashlytics_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleAppMeasurement.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FBLPromises.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCore.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseSessions.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseAnalytics.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleUtilities.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/OMSDK_Appodeal.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/FirebaseCoreExtension_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleAdsOnDeviceConversion.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/nanopb.framework/nanopb_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/nanopb.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseRemoteConfigInterop.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/Promises.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/Promises.framework/Promises_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/AdSurgeSDK.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseInstallations.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/AppLovinSDK.framework/AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/AppLovinSDK.framework/AppLovinSDKResources.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/AppLovinSDK.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FBAudienceNetwork.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleAppMeasurementIdentitySupport.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/BigoADS.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/MolocoSDK.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PAGAdSDK.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:6011d5cd4c7e61c407964fe949474984325b8253:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:ccae1e81f255d61b2d055ee53a6b5c95658a6414:output/ExistingIPAOverlay-ios-device-build.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-device-reproducible.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-simulator-reproducible.zip!/Debug-iphonesimulator/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/evidence/complete-test-results.tar.gz!/test-results/PackageSimulatorTests.xcresult/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Users/runner/Objects/ExistingIPAOverlayCore.o",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Users/runner/Objects/ExistingIPAOverlayUI.o",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/en.lproj/Localizable.strings",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Assets.car",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/id.lproj/Localizable.strings",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "*.xcarchive",
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/Info.plist",
+          "patterns": [
+            "*.xcarchive",
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlaySampleHost",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/PkgInfo",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/._Products",
+          "patterns": [
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/dSYMs/ExistingIPAOverlaySampleHost.app.dSYM/Contents/Resources/Relocations/aarch64/ExistingIPAOverlaySampleHost.yml",
+          "patterns": [
+            "*.dSYM",
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/dSYMs/ExistingIPAOverlaySampleHost.app.dSYM/Contents/Resources/DWARF/ExistingIPAOverlaySampleHost",
+          "patterns": [
+            "*.dSYM",
+            "*.xcarchive"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/dSYMs/ExistingIPAOverlaySampleHost.app.dSYM/Contents/Info.plist",
+          "patterns": [
+            "*.dSYM",
+            "*.xcarchive",
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:52ad07d361546189fe05a48e407251d3c65f8243:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Info.plist",
+          "patterns": [
+            "*.xcarchive",
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:3dee7ba47e5c75bd9ab286e1cac230aabdbeb995:output/ExistingIPAOverlay-ios-device-build.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:5730eb470c827bf742966ec59351fae112c06688:output/ExistingIPAOverlay-ios-device-build.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:605d753ce84f8983f1b09653a8bb931b11cf0bf2:output/ExistingIPAOverlay-ios-device-build.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/PlugIns/NotificationContent.appex/Base.lproj/MainInterface.storyboardc/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/PlugIns/NotificationContent.appex/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/PlugIns/PooliMessage.appex/Base.lproj/MainInterface.storyboardc/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/PlugIns/PooliMessage.appex/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/PlugIns/PoolWidgetExtension.appex/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/PlugIns/NotificationService.appex/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/BigoADSRes.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Splash.storyboardc/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/libloader.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/DTBiOSSDK.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/GoogleDataTransport.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/InMobiSDK.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/FirebaseCrashlytics_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/GoogleAppMeasurement.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FBLPromises.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseCore.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseSessions.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseAnalytics.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/GoogleUtilities.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/OMSDK_Appodeal.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/FirebaseCoreExtension_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/GoogleAdsOnDeviceConversion.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/nanopb.framework/nanopb_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/nanopb.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseRemoteConfigInterop.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/Promises.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/Promises.framework/Promises_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/AdSurgeSDK.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FirebaseInstallations.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/AppLovinSDK.framework/AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/AppLovinSDK.framework/AppLovinSDKResources.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/AppLovinSDK.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/FBAudienceNetwork.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/GoogleAppMeasurementIdentitySupport.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/BigoADS.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Frameworks/MolocoSDK.framework/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/PAGAdSDK.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:1b1558ca090e9aa01b7bdb0d0b548c1e13a00534:output/8-ball-pool-modified.ipa!/Payload/pool.app/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        },
+        {
+          "path": "git:4bfdc7f0a31e2fd375612ae93b64a4ee6edb0184:output/ExistingIPAOverlay-ios-device-build.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        }
+      ],
+      "productionContainers": [],
+      "signingInputs": []
+    },
+    "matchingHistoricalPaths": [
+      {
+        "object": "6011d5cd4c7e61c407964fe949474984325b8253",
+        "path": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
+        "patterns": [
+          "*.ipa"
+        ]
+      },
+      {
+        "object": "63c5ea432b03a7de5afcbfbc5595ef6e79fbb22b",
+        "path": "ExistingIPAWorkspace/OverlaySource/Configuration/Debug.xcconfig",
+        "patterns": [
+          "*.xcconfig"
+        ]
+      },
+      {
+        "object": "16bec350d56c88896767aa92b9abc1d9e56731b2",
+        "path": "ExistingIPAWorkspace/OverlaySource/Configuration/Release.xcconfig",
+        "patterns": [
+          "*.xcconfig"
+        ]
+      },
+      {
+        "object": "5aa268b836857bf73e73874fb0369cb6ac0c9c72",
+        "path": "ExistingIPAWorkspace/OverlaySource/Package.swift",
+        "patterns": [
+          "Package.swift"
+        ]
+      },
+      {
+        "object": "8d75f4aee9da93c590d81f612c06b7eda9513abf",
+        "path": "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj",
+        "patterns": [
+          "*.xcodeproj"
+        ]
+      },
+      {
+        "object": "51c81ce0421942fd8960d917ec615b75904a7bcb",
+        "path": "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj/project.pbxproj",
+        "patterns": [
+          "*.xcodeproj",
+          "project.pbxproj"
+        ]
+      },
+      {
+        "object": "90b9eb8ae5aa361974af9fc75f2af07884c223c9",
+        "path": "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj/xcshareddata",
+        "patterns": [
+          "*.xcodeproj"
+        ]
+      },
+      {
+        "object": "c68a42ff2bbdcb89e5897f36ab9fef39de3e0f21",
+        "path": "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj/xcshareddata/xcschemes",
+        "patterns": [
+          "*.xcodeproj"
+        ]
+      },
+      {
+        "object": "68361b511833f44c18e1e5d57863b04389dc98d2",
+        "path": "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj/xcshareddata/xcschemes/ExistingIPAOverlaySampleHost.xcscheme",
+        "patterns": [
+          "*.xcodeproj"
+        ]
+      },
+      {
+        "object": "47b7caa5e840bee5944eae217fe3d76ea864d38a",
+        "path": "ExistingIPAWorkspace/SampleHost/Resources/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "object": "5206b5a5d450eb0fbcfb115fd1ecb53ab7660788",
+        "path": "ExistingIPAWorkspace/OverlaySource/Package.swift",
+        "patterns": [
+          "Package.swift"
+        ]
+      },
+      {
+        "object": "1b1558ca090e9aa01b7bdb0d0b548c1e13a00534",
+        "path": "output/8-ball-pool-modified.ipa",
+        "patterns": [
+          "*.ipa"
+        ]
+      },
+      {
+        "object": "0f17888d855d1d3f917b83d69b4db910859bddda",
+        "path": "ExistingIPAWorkspace/OverlaySource/Package.swift",
+        "patterns": [
+          "Package.swift"
+        ]
+      },
+      {
+        "object": "92f1fc50dc4ba54c306cb1ff74dcdd8878387be2",
+        "path": "CleanOverlay/Configuration/Debug.xcconfig",
+        "patterns": [
+          "*.xcconfig"
+        ]
+      },
+      {
+        "object": "9d3ff18d148f64c7f6fa7c74f5469340cff1150d",
+        "path": "CleanOverlay/Configuration/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "object": "63c9eb23057593dfdd23556a1720a7ec9c860743",
+        "path": "CleanOverlay/Configuration/Release.xcconfig",
+        "patterns": [
+          "*.xcconfig"
+        ]
+      },
+      {
+        "object": "502921943c5ba4cc7d71cd783ad45645c4287c99",
+        "path": "CleanOverlay/Package.swift",
+        "patterns": [
+          "Package.swift"
+        ]
+      }
+    ],
+    "matchingTextBlobs": [
+      {
+        "object": "01f6bb7a969d65b5101b6a1abbb519f745e63248",
+        "path": ".github/workflows/build-overlay.yml",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "a3a1aed8b6f3728c0b3a12d405268efad35fdc27",
+        "path": ".github/workflows/final-execution-discovery.yml",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "6d094936012ec2757ae14eb558ff39936e6d0c12",
+        "path": ".github/workflows/host-recovery-search.yml",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "57296a5b82e732cd51c8081c5fefaf8d7b787c93",
+        "path": ".github/workflows/last-recovery-macos.yml",
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "279d355e44d7c1ee89a20dd8ab7dfddb88d6a8f1",
+        "path": ".github/workflows/publish-last-recovery-handoff.yml",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "42a5ca45eebdd71303b86634cff713149b584dfd",
+        "path": ".gitignore",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "37171451e25a29fd9c3c55582bcb31ee13f75b46",
+        "path": "ExistingIPAWorkspace/BUILD_RUNBOOK.md",
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "abbc65e1246ddf32b299998a4c44ac96b40a4475",
+        "path": "ExistingIPAWorkspace/FINAL_BUILD_RUNBOOK.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "7aec700e6235f67009c3587662e07f6e4fb09f73",
+        "path": "ExistingIPAWorkspace/INTEGRATION_STATUS.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "78d76a50c1f5cbfcb0d6e2adb8ff9d537a53ca07",
+        "path": "ExistingIPAWorkspace/Inventory/IPA_FILE_INVENTORY.json",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "63c5ea432b03a7de5afcbfbc5595ef6e79fbb22b",
+        "path": "ExistingIPAWorkspace/OverlaySource/Configuration/Debug.xcconfig",
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN"
+        ]
+      },
+      {
+        "object": "16bec350d56c88896767aa92b9abc1d9e56731b2",
+        "path": "ExistingIPAWorkspace/OverlaySource/Configuration/Release.xcconfig",
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN"
+        ]
+      },
+      {
+        "object": "1efaa64b3fddf84c8d4a79a20153c177dc4e329f",
+        "path": "ExistingIPAWorkspace/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "51c81ce0421942fd8960d917ec615b75904a7bcb",
+        "path": "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj/project.pbxproj",
+        "strings": [
+          "PBXProject",
+          "PBXNativeTarget",
+          "XCBuildConfiguration",
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "archive"
+        ]
+      },
+      {
+        "object": "68361b511833f44c18e1e5d57863b04389dc98d2",
+        "path": "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj/xcshareddata/xcschemes/ExistingIPAOverlaySampleHost.xcscheme",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "055793c340de795d7143bec5771110549b3ad8eb",
+        "path": "ExistingIPAWorkspace/SampleHost/README.md",
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "47b7caa5e840bee5944eae217fe3d76ea864d38a",
+        "path": "ExistingIPAWorkspace/SampleHost/Resources/Info.plist",
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER"
+        ]
+      },
+      {
+        "object": "853c8c3468f78f15ff12c5e4d975bedb9685ec5b",
+        "path": "ExistingIPAWorkspace/build-status.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "3b3128ee858ae009f93924c6dfaf4974319720f3",
+        "path": "ExistingIPAWorkspace/scripts/build-overlay-macos.sh",
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "a2f7613eba2b6234f0c85efcbe501ba185bb1d8b",
+        "path": "ExistingIPAWorkspace/scripts/configure-authorized-host-package.py",
+        "strings": [
+          "PBXProject",
+          "PBXNativeTarget",
+          "archive"
+        ]
+      },
+      {
+        "object": "d7675b1aa6649085f74038641b1a43e9003be103",
+        "path": "ExistingIPAWorkspace/scripts/create-reproducible-zip.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "678330edf367c1f426704d3514790bf6dadf4f93",
+        "path": "ExistingIPAWorkspace/scripts/final-execution-discovery.py",
+        "strings": [
+          "PBXProject",
+          "PBXNativeTarget",
+          "XCBuildConfiguration",
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "DEVELOPMENT_TEAM",
+          "PROVISIONING_PROFILE",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "3e4539da46d15e5ad7ec50df28b5ae05818685af",
+        "path": "ExistingIPAWorkspace/scripts/identify-authorized-host-target.py",
+        "strings": [
+          "PBXNativeTarget"
+        ]
+      },
+      {
+        "object": "331648184fd0773b8b69c1adb467793e8af0557d",
+        "path": "ExistingIPAWorkspace/scripts/integrate-authorized-host-macos.sh",
+        "strings": [
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "95ffdcc96dc57666aadb0292e45584a26782c2d9",
+        "path": "ExistingIPAWorkspace/scripts/test-overlay-macos.sh",
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "953e4fd87a858849c2c86853b51f65f85ffdd638",
+        "path": "ExistingIPAWorkspace/scripts/test_configure_authorized_host_package.py",
+        "strings": [
+          "PBXProject",
+          "PBXNativeTarget",
+          "archive"
+        ]
+      },
+      {
+        "object": "29f435958dfd2cd067a1a44c9005aa67e9489c86",
+        "path": "ExistingIPAWorkspace/scripts/test_identify_authorized_host_target.py",
+        "strings": [
+          "PBXNativeTarget"
+        ]
+      },
+      {
+        "object": "4778009cde7851ee343d090cbee9f909b466eb49",
+        "path": "ExistingIPAWorkspace/scripts/test_validate_authorized_host_settings.py",
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "DEVELOPMENT_TEAM"
+        ]
+      },
+      {
+        "object": "9d268fc71f4eb901e8f2f57a15d68fa46b59f9af",
+        "path": "ExistingIPAWorkspace/scripts/test_validate_final_ipa.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "16ecfa6e6bd7ffa941ed7defeac04ff6ffcf647c",
+        "path": "ExistingIPAWorkspace/scripts/validate-authorized-host-settings.py",
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "DEVELOPMENT_TEAM",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "0642f2e8ad0fa7eeb464c466ec6af8e4a2ab4e9e",
+        "path": "ExistingIPAWorkspace/scripts/validate-device-component.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "5821315fd4e65dae6f27a19f5072294f4ea106b5",
+        "path": "ExistingIPAWorkspace/scripts/validate-final-ipa.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "7547910287aa2e46372ded4ab70ffd43272b6fdd",
+        "path": "ExistingIPAWorkspace/scripts/validate-sample-host-source.py",
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER"
+        ]
+      },
+      {
+        "object": "e013fbe7613170a01a46b79ee774c3564c9551ba",
+        "path": "ExistingIPAWorkspace/scripts/validate-simulator-component.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "300350e0682ea995025ad977364ae936d9f213cb",
+        "path": "analysis/BASELINE_AUDIT_2026-10-02.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "10e9f49835d4ab809a1fa4ae8c70aec64f7e1db6",
+        "path": "analysis/CHANGELOG.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "f3d5aa2b748ab7ac284c860b2c11ca42f60d1733",
+        "path": "analysis/COMPONENT_READINESS_2026-10-02.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "f537369acdaecb7d5cbd43d67da0be53cc8db060",
+        "path": "analysis/EXISTING_IPA_IMPLEMENTATION_REPORT.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "87dc858acc45a8f3b4bd89ce6a1bacd217d94edb",
+        "path": "analysis/FINAL_HOST_RECOVERY_REPORT.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "f685e2bbabb2ad4fa8cf7a4248c1c3984e5b31c2",
+        "path": "analysis/FINAL_REPORT.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "1f1fc8f24c89ea94af129f1c8a803af03551fa19",
+        "path": "analysis/HOST_INTEGRATION_CHECKLIST.md",
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "cdde07a8db31b69ad7647de4522378a4bc81e901",
+        "path": "analysis/IMPLEMENTATION_PLAN.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "068fc478fbff8aeb71625e5d0bdc15063be2cb98",
+        "path": "analysis/INSPECTION_REPORT.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "5615e51669285666821bf8c003de656817cbfaa0",
+        "path": "analysis/IPA_AUDIT_2026-10-02.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "ae6d9b0d83039e2104e2893d3eddc4889d0b848a",
+        "path": "analysis/LAST_MACOS_RECOVERY_EVIDENCE.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "68f9835a04c71785fa554597e58ac4205238b407",
+        "path": "analysis/LAST_MACOS_RECOVERY_REPORT.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "17ec4fa6578b92f20b51919aea4aafddeb3220cb",
+        "path": "analysis/PRODUCTION_HANDOFF.md",
+        "strings": [
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "d98d017ea499b9b27a17efbdd4e116ca45386eba",
+        "path": "analysis/PRODUCTION_MANIFEST.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "85d02e6cb59e8ba928db463c5fffa0e413fc6621",
+        "path": "analysis/REQUIRED_HOST_INPUTS.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "f005dfb68e257a4896e60237369cea1096dc212f",
+        "path": "inspection/INSPECTION_OUTPUT.txt",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "a874e60e4f3a9eb59851ad07d9bf14890da5080e",
+        "path": "inspection/OVERLAY_INVENTORY.json",
+        "strings": [
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "9091d9fba074771cf716d35238b2d0ca77edd05d",
+        "path": "inspection/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "4d94a6c6c990a40246c4e19241536d0815e8dcdd",
+        "path": "inspection/inspect_ipa.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "673bab4ed30ee5636defe80c831a39ba44a51e12",
+        "path": "inspection/inspect_overlay.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "89a4d49a354e857a112be0ae886a809cf665471e",
+        "path": "inspection/inventory_existing_ipa.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "413b68424ac8b5089956553cbd36b1a71cf04870",
+        "path": "output/ExistingIPAOverlay-mac-production-handoff.zip.manifest.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "f29ac9d5717f6485553cf62b7a230ffe3f9093e7",
+        "path": "output/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "d41be3b2242759c6f542ca92408b84b0fdd63575",
+        "path": "ExistingIPAWorkspace/scripts/final-execution-discovery.py",
+        "strings": [
+          "PBXProject",
+          "PBXNativeTarget",
+          "XCBuildConfiguration",
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN",
+          "DEVELOPMENT_TEAM",
+          "PROVISIONING_PROFILE",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "8e4876048697d846dd512514b27f742847228340",
+        "path": ".github/workflows/final-execution-discovery.yml",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "076ec26c5d389f6ba41af9db6ed7b7121f0672ea",
+        "path": ".github/workflows/final-execution-discovery.yml",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "0d52898179d49019103389864379f45a5178026f",
+        "path": "analysis/LAST_MACOS_RECOVERY_EVIDENCE.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "d5653309a910760866e61afa4e3110695f331994",
+        "path": ".github/workflows/last-recovery-macos.yml",
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "d44c65087def13b8aeefe46e3c551ced6468db8c",
+        "path": ".github/workflows/last-recovery-macos.yml",
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "f68ef9db0628f0d6cb4153c44c22a8de1a5cd8a5",
+        "path": ".github/workflows/host-recovery-search.yml",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "ba69e8661d89954b879664bf0be6f645fd2d0e7a",
+        "path": "analysis/PRODUCTION_HANDOFF.md",
+        "strings": [
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "df032be5d770ca775e3b9e56eaf7caba72aa1ec5",
+        "path": "ExistingIPAWorkspace/FINAL_BUILD_RUNBOOK.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "407dd4e9065ca5da0f4879852afafd39516c2ce6",
+        "path": "ExistingIPAWorkspace/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "d42954b3aa36ff618b8bcb1ebb41ec9b7a5c6567",
+        "path": "ExistingIPAWorkspace/scripts/integrate-authorized-host-macos.sh",
+        "strings": [
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "0e683b5962dcdcc2f0c6f20c2d883f82f3dcb2b7",
+        "path": "ExistingIPAWorkspace/scripts/test_validate_final_ipa.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "29cb50eefaba80087f389c36f6b9c95220ae5016",
+        "path": "ExistingIPAWorkspace/scripts/validate-final-ipa.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "c6ac7b6584f418bc33b068e68e58e2f78f4045b9",
+        "path": "analysis/CHANGELOG.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "01cbe542725591a269806de6fb0844b0d17f171e",
+        "path": "analysis/PRODUCTION_HANDOFF.md",
+        "strings": [
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "35a6c761c60421b303405718a4f4dd4eb4f89830",
+        "path": "analysis/CHANGELOG.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "cc1950129f46db5a33560be7a04162eb9c9709ca",
+        "path": "analysis/PRODUCTION_HANDOFF.md",
+        "strings": [
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "aa85319f90ef948bb2cac777348c9856db8c7feb",
+        "path": "ExistingIPAWorkspace/FINAL_BUILD_RUNBOOK.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "c013a6ed83db03e9946f9dcb077645b76bd9aaab",
+        "path": "ExistingIPAWorkspace/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "29985168ec0340ac225d5f80a89b36acd37993b6",
+        "path": "ExistingIPAWorkspace/scripts/integrate-authorized-host-macos.sh",
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "DEVELOPMENT_TEAM",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "53d9843f376ce13039da8e0a0eff466a64a563a5",
+        "path": "ExistingIPAWorkspace/scripts/validate-final-ipa.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "7a3f0020c78488570349866a810f55ec5c52e56a",
+        "path": "analysis/CHANGELOG.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "da29beb67643eaad895d796003526dad2f63b42a",
+        "path": "ExistingIPAWorkspace/BUILD_RUNBOOK.md",
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "6f4556af6cc73227adc62fa953fcb576fcec3dff",
+        "path": "ExistingIPAWorkspace/INTEGRATION_STATUS.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "99c15a00de832c272c2aeed6df38c9e3ff377180",
+        "path": "ExistingIPAWorkspace/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "1b6765c90c9a6694f973806a6da35a21b1b21f2d",
+        "path": "ExistingIPAWorkspace/SampleHost/README.md",
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "32aaacebc7140ba813af8ba5f9a99f9d05e23aa0",
+        "path": "analysis/CHANGELOG.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "91fdeb89af28dc159faff4e4c17c1af6846da402",
+        "path": "output/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "2fa2b8d1ff725adb971f897819ee275b02cbf072",
+        "path": ".github/workflows/build-overlay.yml",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "35d79bf85d72f4fd9f713890bd299915ef7ff1e8",
+        "path": "ExistingIPAWorkspace/scripts/build-overlay-macos.sh",
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "52231979dad4a17b18d610aaf505d455a8960a50",
+        "path": "ExistingIPAWorkspace/scripts/create-reproducible-zip.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "babc1849cb81f76cde3faaa2efbd55ba24b8edde",
+        "path": ".github/workflows/build-overlay.yml",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "b9a6329e772fa259341365308c9b3815493c13ee",
+        "path": "ExistingIPAWorkspace/scripts/test-overlay-macos.sh",
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "1f703ed3e52d70c0dc91568ff91b82c91c2ef076",
+        "path": "ExistingIPAWorkspace/scripts/test-overlay-macos.sh",
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "d6b8e1e030236cbad489b28b32afc06a2c99a835",
+        "path": ".github/workflows/build-overlay.yml",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "d4b8454d03f236cd383e0ab1943c67f8abe0d80c",
+        "path": ".gitignore",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "076fd9e37132b860545206c5fa0bebfae0034901",
+        "path": "ExistingIPAWorkspace/BUILD_RUNBOOK.md",
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "35f8d36aa920ab7b7811eb11473528e7ae529950",
+        "path": "ExistingIPAWorkspace/FINAL_BUILD_RUNBOOK.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "1b537b16e572ad5c5f8af77edd313aa1b9c80264",
+        "path": "ExistingIPAWorkspace/INTEGRATION_STATUS.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "8355598aca1ae5abf2235e505b6b3505a0f33f43",
+        "path": "ExistingIPAWorkspace/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "efc6680f4e13710a49348c5833de180733734b32",
+        "path": "ExistingIPAWorkspace/scripts/build-overlay-macos.sh",
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "0291fe9cdccfde7c760beb80cd3db19ee0fce221",
+        "path": "ExistingIPAWorkspace/scripts/configure-authorized-host-package.py",
+        "strings": [
+          "PBXProject",
+          "PBXNativeTarget",
+          "archive"
+        ]
+      },
+      {
+        "object": "ba3126762aea4eb090375d5294d89ed1e1683536",
+        "path": "ExistingIPAWorkspace/scripts/integrate-authorized-host-macos.sh",
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "DEVELOPMENT_TEAM",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "e5ae7e9abd5a9f660142366830781589138e9f83",
+        "path": "ExistingIPAWorkspace/scripts/validate-device-component.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "36ecdcb836e356ec390259a0f9d29fc502317a62",
+        "path": "ExistingIPAWorkspace/scripts/validate-final-ipa.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "962e3957764ccce176f653e54a4b6c68a6b73f44",
+        "path": "analysis/CHANGELOG.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "f593306a52c4217e89cd35a0e87e85eac704e9bc",
+        "path": "analysis/INSPECTION_REPORT.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "d5ad968de6daa6eed8ac2a9c429b184ce1562672",
+        "path": "inspection/INSPECTION_OUTPUT.txt",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "89855ec64dab590293220a24355c2e97e4d2b7bd",
+        "path": "inspection/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "4aa64b388b8127f926d5de3ab5a411f7ccf85631",
+        "path": "inspection/inspect_ipa.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "87ccaa4564db53ec8dc32b8d3f3dc7af374c02e2",
+        "path": "inspection/inventory_existing_ipa.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "cf8e5bef5c6f39687c03a76958464bd016a81e8d",
+        "path": "ExistingIPAWorkspace/build-status.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "bcc88db010e5c5f9304ef9b5a7471cef231b7523",
+        "path": "ExistingIPAWorkspace/scripts/archive-authorized-host-macos.sh",
+        "strings": [
+          "CODE_SIGN",
+          "DEVELOPMENT_TEAM",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "d56d09cfc13fc4a350647683c775cb8b29644246",
+        "path": "ExistingIPAWorkspace/scripts/validate-exported-ipa.py",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "c09e840ae83111dd301489b5ce2b1980ef720d52",
+        "path": "ExistingIPAWorkspace/BUILD_RUNBOOK.md",
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "e07c7cdf0df889c72c0280d9c89fb9bf48104dc1",
+        "path": "ExistingIPAWorkspace/build-status.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "419bf789ea853f5cad7c5dd996bbad3dd12f2932",
+        "path": "output/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "6bafd2e1b2902ce4e52c835d29a86a05492ff146",
+        "path": "ExistingIPAWorkspace/BUILD_RUNBOOK.md",
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "9cef3a158f5f0138cb6b59db8f76b023ca29cd15",
+        "path": "ExistingIPAWorkspace/INTEGRATION_STATUS.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "f69ee3ab152edd6db0da3c967f3cea5aba0e22b0",
+        "path": "ExistingIPAWorkspace/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "329e04f0d87c6c1451c470bed051da1204693ace",
+        "path": "ExistingIPAWorkspace/build-status.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "a7bdf0c5d9b5d2ad8ecf097ff17d8182ef8dd571",
+        "path": "output/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "d5871cc3a587163f263a4e8424e57658f48badc5",
+        "path": ".github/workflows/build-overlay.yml",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "359d8d974c61ab924a3938631988b7555651aebe",
+        "path": "ExistingIPAWorkspace/BUILD_RUNBOOK.md",
+        "strings": [
+          "CODE_SIGN",
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "00def6a737fced1c843e0490c908179f06a3359c",
+        "path": "ExistingIPAWorkspace/INTEGRATION_STATUS.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "be7d3e175813990078ef98c691abd375a17026c1",
+        "path": "ExistingIPAWorkspace/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "7e8b724a0ee24572874cc84aac1871c5732cc675",
+        "path": "ExistingIPAWorkspace/build-status.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "bb770112b316e903995de176a543e55e77f053bd",
+        "path": "output/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "761cdf5f40076f4b4ed1e3ae5e3f39b2926a33a4",
+        "path": "ExistingIPAWorkspace/BUILD_RUNBOOK.md",
+        "strings": [
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "a2cec8c22781141b6cba708f958e9685d23a5aae",
+        "path": "ExistingIPAWorkspace/INTEGRATION_STATUS.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "3560c8b44cafb9d37ed880460c5d04d1d99fa31f",
+        "path": "ExistingIPAWorkspace/build-status.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "1cd4c726500b635b8529e236723cc201ddcc0b90",
+        "path": "output/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "2cdb5d105383761d73d03914d1fc3d64aa6e271a",
+        "path": "output/release-manifest.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "98846a8f3d55c4a76a74cf745589a0b482c3ecea",
+        "path": ".github/workflows/build-overlay.yml",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "7bb68b45f85b321407a25e681b26f297c218d175",
+        "path": "ExistingIPAWorkspace/scripts/build-overlay-macos.sh",
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "5e0bf96c8d740809a98f020c34be5cd6e325f80e",
+        "path": ".github/workflows/build-overlay.yml",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "553a1eff460c662e3cc89187714f33d7e3e947d1",
+        "path": ".github/workflows/build-overlay.yml",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "2509cb14902385bfaaa667073c34e81cbb6603a2",
+        "path": "ExistingIPAWorkspace/scripts/build-overlay-macos.sh",
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "20f69218c71ec14c4570a0d735254cb035e2edf1",
+        "path": "ExistingIPAWorkspace/build-status.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "b9d53efa08cf83505ae82f19b3517c7ca13a64d2",
+        "path": "analysis/IPA_AUDIT_2026-10-02.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "ec88dab4dc11a6b310dabb22b5f0381d21d93d54",
+        "path": "output/README.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "63064930ab406adc032dd07d4b9751e147daab98",
+        "path": "output/release-manifest.json",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "f0ad44dda4d8f6f9114fa2629bd59437d27065b2",
+        "path": "ExistingIPAWorkspace/BUILD_RUNBOOK.md",
+        "strings": [
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "b648f70b17b49dcc89604a831f152099ec85f06d",
+        "path": ".github/workflows/build-overlay.yml",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "bd8b95760b688a0bbe2bbe3fcdb6d9a12eed2500",
+        "path": "ExistingIPAWorkspace/BUILD_RUNBOOK.md",
+        "strings": [
+          "archive",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "6ddeabcaa7f20f8966873cd1afbc4d3957246b65",
+        "path": ".github/workflows/build-overlay.yml",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "ca9acd7e9a153dbba9d381e33240c17d840c9033",
+        "path": ".github/workflows/build-overlay.yml",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "3c940868157fcaa3376086a641ea19952364384b",
+        "path": ".github/workflows/build-overlay.yml",
+        "strings": [
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "8eb8f6c7ca493b85f82e15e7cfb073a9f0bc001f",
+        "path": "ExistingIPAWorkspace/scripts/build-overlay-macos.sh",
+        "strings": [
+          "CODE_SIGN",
+          "xcodebuild"
+        ]
+      },
+      {
+        "object": "92f1fc50dc4ba54c306cb1ff74dcdd8878387be2",
+        "path": "CleanOverlay/Configuration/Debug.xcconfig",
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN"
+        ]
+      },
+      {
+        "object": "9d3ff18d148f64c7f6fa7c74f5469340cff1150d",
+        "path": "CleanOverlay/Configuration/Info.plist",
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER"
+        ]
+      },
+      {
+        "object": "63c9eb23057593dfdd23556a1720a7ec9c860743",
+        "path": "CleanOverlay/Configuration/Release.xcconfig",
+        "strings": [
+          "PRODUCT_BUNDLE_IDENTIFIER",
+          "CODE_SIGN"
+        ]
+      },
+      {
+        "object": "4ceaee76a0f2c6b0a583dffca2aa9dd3121bc11e",
+        "path": "analysis/INSPECTION_REPORT.md",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "d6963a43259100c9b796d114f2b8061e546a8571",
+        "path": "inspection/INSPECTION_OUTPUT.txt",
+        "strings": [
+          "archive"
+        ]
+      },
+      {
+        "object": "7d9be725c37f79d9993ba440048dc6db328a127d",
+        "path": "inspection/inspect_ipa.py",
+        "strings": [
+          "archive"
+        ]
+      }
+    ],
+    "searchStrings": [
+      "PBXProject",
+      "PBXNativeTarget",
+      "XCBuildConfiguration",
+      "PRODUCT_BUNDLE_IDENTIFIER",
+      "CODE_SIGN",
+      "DEVELOPMENT_TEAM",
+      "PROVISIONING_PROFILE",
+      "archive",
+      "xcodebuild"
+    ]
+  },
+  "macosDiscovery": {
+    "filesystem": {
+      "errors": [],
+      "matches": [
+        {
+          "kind": "file",
+          "path": "/Users/runner/work/8ballspicy/8ballspicy/8-ball-pool-i3rby-IPAOMTK.COM.ipa",
+          "patterns": [
+            "*.ipa"
+          ]
+        },
+        {
+          "kind": "file",
+          "path": "/Users/runner/work/8ballspicy/8ballspicy/ExistingIPAWorkspace/OverlaySource/Configuration/Debug.xcconfig",
+          "patterns": [
+            "*.xcconfig"
+          ]
+        },
+        {
+          "kind": "file",
+          "path": "/Users/runner/work/8ballspicy/8ballspicy/ExistingIPAWorkspace/OverlaySource/Configuration/Release.xcconfig",
+          "patterns": [
+            "*.xcconfig"
+          ]
+        },
+        {
+          "kind": "file",
+          "path": "/Users/runner/work/8ballspicy/8ballspicy/ExistingIPAWorkspace/OverlaySource/Package.swift",
+          "patterns": [
+            "Package.swift"
+          ]
+        },
+        {
+          "kind": "directory",
+          "path": "/Users/runner/work/8ballspicy/8ballspicy/ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj",
+          "patterns": [
+            "*.xcodeproj"
+          ]
+        },
+        {
+          "kind": "file",
+          "path": "/Users/runner/work/8ballspicy/8ballspicy/ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj/project.pbxproj",
+          "patterns": [
+            "project.pbxproj"
+          ]
+        },
+        {
+          "kind": "file",
+          "path": "/Users/runner/work/8ballspicy/8ballspicy/ExistingIPAWorkspace/SampleHost/Resources/Info.plist",
+          "patterns": [
+            "Info.plist"
+          ]
+        }
+      ],
+      "rootsInspected": [
+        "/Users/runner/work/8ballspicy/8ballspicy",
+        "/Users/runner/work/_temp",
+        "/Users/runner/Library/Developer/Xcode/Archives",
+        "/Users/runner/Library/Developer/Xcode/DerivedData",
+        "/Users/runner/Library/MobileDevice/Provisioning Profiles",
+        "/Library/MobileDevice/Provisioning Profiles",
+        "/Volumes"
+      ]
+    },
+    "mounts": {
+      "command": [
+        "mount"
+      ],
+      "exitCode": 0,
+      "output": "/dev/disk2s1s1 on / (apfs, sealed, local, read-only, journaled)\ndevfs on /dev (devfs, local, nobrowse)\n/dev/disk2s6 on /System/Volumes/VM (apfs, local, noexec, journaled, noatime, nobrowse)\n/dev/disk2s2 on /System/Volumes/Preboot (apfs, local, journaled, nobrowse)\n/dev/disk2s4 on /System/Volumes/Update (apfs, local, journaled, nobrowse)\n/dev/disk1s2 on /System/Volumes/xarts (apfs, local, noexec, journaled, noatime, nobrowse)\n/dev/disk1s1 on /System/Volumes/iSCPreboot (apfs, local, journaled, nobrowse)\n/dev/disk1s3 on /System/Volumes/Hardware (apfs, local, journaled, nobrowse)\n/dev/disk2s5 on /System/Volumes/Data (apfs, local, journaled, nobrowse, root data)\n/dev/disk4s1 on /System/Library/AssetsV2/com_apple_MobileAsset_PKITrustStore/purpose_auto/6dd55b0d06633a00de6f57ccb910a66a5ba2409a.asset/.AssetData (apfs, sealed, local, read-only, journaled, nobrowse)\nmap auto_home on /System/Volumes/Data/home (autofs, automounted, nobrowse)"
+    },
+    "sampleProjectInspection": {
+      "command": [
+        "xcodebuild",
+        "-list",
+        "-json",
+        "-project",
+        "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj"
+      ],
+      "exitCode": 0,
+      "output": "{\n  \"project\" : {\n    \"configurations\" : [\n      \"Debug\",\n      \"Release\"\n    ],\n    \"name\" : \"ExistingIPAOverlaySampleHost\",\n    \"schemes\" : [\n      \"ExistingIPAOverlay\",\n      \"ExistingIPAOverlayCore\",\n      \"ExistingIPAOverlaySampleHost\"\n    ],\n    \"targets\" : [\n      \"ExistingIPAOverlaySampleHost\"\n    ]\n  }\n}"
+    },
+    "signing": {
+      "codeSigningIdentities": {
+        "command": [
+          "security",
+          "find-identity",
+          "-v",
+          "-p",
+          "codesigning"
+        ],
+        "exitCode": 0,
+        "output": "0 valid identities found"
+      },
+      "defaultKeychain": {
+        "command": [
+          "security",
+          "default-keychain",
+          "-d",
+          "user"
+        ],
+        "exitCode": 0,
+        "output": "\"/Users/runner/Library/Keychains/login.keychain-db\""
+      },
+      "provisioningProfilePaths": [],
+      "userKeychains": {
+        "command": [
+          "security",
+          "list-keychains",
+          "-d",
+          "user"
+        ],
+        "exitCode": 0,
+        "output": "\"/Users/runner/Library/Keychains/login.keychain-db\""
+      }
+    },
+    "validCodeSigningIdentityCount": 0,
+    "xcode": {
+      "iphoneOSSDKPath": {
+        "command": [
+          "xcrun",
+          "--sdk",
+          "iphoneos",
+          "--show-sdk-path"
+        ],
+        "exitCode": 0,
+        "output": "/Applications/Xcode_16.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk"
+      },
+      "iphoneOSSDKVersion": {
+        "command": [
+          "xcrun",
+          "--sdk",
+          "iphoneos",
+          "--show-sdk-version"
+        ],
+        "exitCode": 0,
+        "output": "18.5"
+      },
+      "sdks": {
+        "command": [
+          "xcodebuild",
+          "-showsdks"
+        ],
+        "exitCode": 0,
+        "output": "DriverKit SDKs:\n\tDriverKit 24.5                \t-sdk driverkit24.5\n\niOS SDKs:\n\tiOS 18.5                      \t-sdk iphoneos18.5\n\niOS Simulator SDKs:\n\tSimulator - iOS 18.5          \t-sdk iphonesimulator18.5\n\nmacOS SDKs:\n\tmacOS 15.5                    \t-sdk macosx15.5\n\tmacOS 15.5                    \t-sdk macosx15.5\n\ntvOS SDKs:\n\ttvOS 18.5                     \t-sdk appletvos18.5\n\ntvOS Simulator SDKs:\n\tSimulator - tvOS 18.5         \t-sdk appletvsimulator18.5\n\nvisionOS SDKs:\n\tvisionOS 2.5                  \t-sdk xros2.5\n\nvisionOS Simulator SDKs:\n\tSimulator - visionOS 2.5      \t-sdk xrsimulator2.5\n\nwatchOS SDKs:\n\twatchOS 11.5                  \t-sdk watchos11.5\n\nwatchOS Simulator SDKs:\n\tSimulator - watchOS 11.5      \t-sdk watchsimulator11.5"
+      },
+      "selectedDeveloperDirectory": {
+        "command": [
+          "xcode-select",
+          "-p"
+        ],
+        "exitCode": 0,
+        "output": "/Applications/Xcode_16.4.app/Contents/Developer"
+      },
+      "version": {
+        "command": [
+          "xcodebuild",
+          "-version"
+        ],
+        "exitCode": 0,
+        "output": "Xcode 16.4\nBuild version 16F6"
+      }
+    }
+  },
+  "missingInputs": {
+    "productionHost": "OWNER_SUPPLIED_AUTHORIZED_PRODUCTION_XCODE_PROJECT_OR_WORKSPACE + REAL_APP_TARGET_AND_SHARED_SCHEME + OWNER_APPROVED_SOURCE_LEVEL_PRESENTATION_POINT + LAWFUL_BASELINE_COEXISTENCE_AUTHORIZATION_AND_DELTA_ALLOWLIST",
+    "signing": "APPLE_TEAM_ID + VALID_APPLE SIGNING CERTIFICATE AND PRIVATE KEY + VALID PROVISIONING CONFIGURATION + EXPORT_OPTIONS_PLIST"
+  },
+  "pullRequests": [
+    {
+      "baseRef": "main",
+      "commitSHAs": [
+        "4eff8ce903498d9424df36f7d3352d26b4dea5a1"
+      ],
+      "files": [
+        ".gitignore",
+        "analysis/BEFORE_AFTER_AUDIT.md",
+        "analysis/CHANGELOG.md",
+        "analysis/FINAL_REPORT.md",
+        "analysis/INSPECTION_REPORT.md",
+        "inspection/INSPECTION_OUTPUT.txt",
+        "inspection/README.md",
+        "inspection/inspect_ipa.py",
+        "mr-spicy-ui/README.md",
+        "mr-spicy-ui/prototype/assets/logo-circle-128.png",
+        "mr-spicy-ui/prototype/assets/logo-circle-256.png",
+        "mr-spicy-ui/prototype/assets/logo-circle-512.png",
+        "mr-spicy-ui/prototype/assets/logo-circle-64.png",
+        "mr-spicy-ui/prototype/css/spicy.css",
+        "mr-spicy-ui/prototype/index.html",
+        "mr-spicy-ui/prototype/js/spicy-app.js",
+        "mr-spicy-ui/prototype/js/spicy-i18n.js",
+        "mr-spicy-ui/swift/README.md",
+        "mr-spicy-ui/swift/SpicyAccountView.swift",
+        "mr-spicy-ui/swift/SpicyComponents.swift",
+        "mr-spicy-ui/swift/SpicyDemoApp.swift",
+        "mr-spicy-ui/swift/SpicyFeatureCircle.swift",
+        "mr-spicy-ui/swift/SpicyHeaderView.swift",
+        "mr-spicy-ui/swift/SpicyHomeView.swift",
+        "mr-spicy-ui/swift/SpicyLocalization.swift",
+        "mr-spicy-ui/swift/SpicyModalView.swift",
+        "mr-spicy-ui/swift/SpicyOverlayView.swift",
+        "mr-spicy-ui/swift/SpicySettingsView.swift",
+        "mr-spicy-ui/swift/SpicyTheme.swift",
+        "mr-spicy-ui/validation/README.md",
+        "mr-spicy-ui/validation/package-lock.json",
+        "mr-spicy-ui/validation/package.json",
+        "mr-spicy-ui/validation/validate-prototype.mjs",
+        "output/README.md"
+      ],
+      "headRef": "arena/01a0f603-8ballspicy",
+      "headSHA": "4eff8ce903498d9424df36f7d3352d26b4dea5a1",
+      "mergeCommitSHA": "32e93d0c37350413dca8ca63d9295ec1c07ab755",
+      "merged": true,
+      "number": 1,
+      "state": "closed",
+      "title": "IPA inspection + neutral MR. SPICY UI reference (Outcome C)"
+    },
+    {
+      "baseRef": "main",
+      "commitSHAs": [
+        "4ecceb042b7a846bccd81310b4f3b58cd5254a06",
+        "a92723328bef8fbaa7a3704adebfe26bce0e3f1b",
+        "987762ff8fb993ae30f13b3e7c7a29853c5b5f9b",
+        "d02301a14db80b12e445a325821166dd5b4b5c19",
+        "8d7d9857bc0c2c24c9e7dc7d4b9c0b091101b3eb",
+        "3829bb6e975bb1798231b512d26beb37d5c349fd",
+        "1865815d30ecf885af91c439c06fd14b50839393",
+        "ac745883deed6b9b4f1e0b0cfe538c905ffbcc27",
+        "85dd6b93905a7a45b971f11dfecbb90cdeef36a7",
+        "20ee43025f8b17614efa9feca2d8c382bbd7196c",
+        "0fbb088e47d12aa4c0ddbb06fee02051c87f9c5c",
+        "1e3d9b506423b28561ad6bd6ecf09e63b509f348"
+      ],
+      "files": [
+        ".github/workflows/build-overlay.yml",
+        ".gitignore",
+        "ExistingIPAWorkspace/BUILD_RUNBOOK.md",
+        "ExistingIPAWorkspace/INTEGRATION_STATUS.md",
+        "ExistingIPAWorkspace/Inventory/IPA_FILE_INVENTORY.json",
+        "ExistingIPAWorkspace/OverlaySource/Configuration/Debug.xcconfig",
+        "ExistingIPAWorkspace/OverlaySource/Configuration/Release.xcconfig",
+        "ExistingIPAWorkspace/OverlaySource/Configuration/ResourceBundleInfo.reference.plist",
+        "ExistingIPAWorkspace/OverlaySource/Package.swift",
+        "ExistingIPAWorkspace/OverlaySource/README.md",
+        "ExistingIPAWorkspace/OverlaySource/Sources/ExistingIPAOverlayCore/OverlaySettings.swift",
+        "ExistingIPAWorkspace/OverlaySource/Sources/ExistingIPAOverlayCore/OverlaySettingsStore.swift",
+        "ExistingIPAWorkspace/OverlaySource/Sources/ExistingIPAOverlayUI/ExistingIPAOverlayView.swift",
+        "ExistingIPAWorkspace/OverlaySource/Sources/ExistingIPAOverlayUI/OverlayComponents.swift",
+        "ExistingIPAWorkspace/OverlaySource/Sources/ExistingIPAOverlayUI/OverlayLocalization.swift",
+        "ExistingIPAWorkspace/OverlaySource/Sources/ExistingIPAOverlayUI/OverlayScreens.swift",
+        "ExistingIPAWorkspace/OverlaySource/Sources/ExistingIPAOverlayUI/OverlayTheme.swift",
+        "ExistingIPAWorkspace/OverlaySource/Sources/ExistingIPAOverlayUI/OverlayViewModel.swift",
+        "ExistingIPAWorkspace/OverlaySource/Sources/ExistingIPAOverlayUI/Resources/Media.xcassets/Contents.json",
+        "ExistingIPAWorkspace/OverlaySource/Sources/ExistingIPAOverlayUI/Resources/Media.xcassets/OverlayAccent.colorset/Contents.json",
+        "ExistingIPAWorkspace/OverlaySource/Sources/ExistingIPAOverlayUI/Resources/en.lproj/Localizable.strings",
+        "ExistingIPAWorkspace/OverlaySource/Sources/ExistingIPAOverlayUI/Resources/id.lproj/Localizable.strings",
+        "ExistingIPAWorkspace/OverlaySource/Tests/ExistingIPAOverlayCoreTests/OverlaySettingsTests.swift",
+        "ExistingIPAWorkspace/OverlaySource/Tests/validate_source.py",
+        "ExistingIPAWorkspace/Preservation/8-ball-pool-i3rby-IPAOMTK.COM.ipa.sha256",
+        "ExistingIPAWorkspace/Preservation/README.md",
+        "ExistingIPAWorkspace/Preservation/verify_original.sh",
+        "ExistingIPAWorkspace/README.md",
+        "ExistingIPAWorkspace/build-status.json",
+        "ExistingIPAWorkspace/scripts/archive-authorized-host-macos.sh",
+        "ExistingIPAWorkspace/scripts/build-overlay-macos.sh",
+        "ExistingIPAWorkspace/scripts/validate-exported-ipa.py",
+        "analysis/CHANGELOG.md",
+        "analysis/EXISTING_IPA_IMPLEMENTATION_REPORT.md",
+        "analysis/FINAL_REPORT.md",
+        "analysis/OVERLAY_ARCHITECTURE.md",
+        "analysis/OVERLAY_ASSESSMENT.md",
+        "inspection/OVERLAY_INVENTORY.json",
+        "inspection/README.md",
+        "inspection/inspect_overlay.py",
+        "inspection/inventory_existing_ipa.py",
+        "output/8-ball-pool-modified.ipa",
+        "output/8-ball-pool-modified.sha256",
+        "output/README.md",
+        "output/processing-report.json",
+        "output/release-manifest.json"
+      ],
+      "headRef": "arena/01a0fade-8ballspicy",
+      "headSHA": "1e3d9b506423b28561ad6bd6ecf09e63b509f348",
+      "mergeCommitSHA": "ef88537629c763d00a0ab39f6acc176610ec75ad",
+      "merged": true,
+      "number": 2,
+      "state": "closed",
+      "title": "Release completed modified IPA"
+    },
+    {
+      "baseRef": "main",
+      "commitSHAs": [
+        "7569f5ee04533ff31be4397c58c7dc62fa4ed0a4"
+      ],
+      "files": [
+        "analysis/IPA_AUDIT_2026-10-02.md"
+      ],
+      "headRef": "arena/01a0fb18-8ballspicy",
+      "headSHA": "7569f5ee04533ff31be4397c58c7dc62fa4ed0a4",
+      "mergeCommitSHA": "04a1087df2c23797ba5135b15869b4ab4b253580",
+      "merged": true,
+      "number": 3,
+      "state": "closed",
+      "title": "Forensic audit of modified IPA"
+    },
+    {
+      "baseRef": "main",
+      "commitSHAs": [
+        "9bc77c31f8fa202225f6c5ddff70fb3364c219cd"
+      ],
+      "files": [
+        "ExistingIPAWorkspace/build-status.json",
+        "analysis/IPA_AUDIT_2026-10-02.md",
+        "output/README.md",
+        "output/processing-report.json",
+        "output/release-manifest.json"
+      ],
+      "headRef": "arena/01a0fb22-8ballspicy",
+      "headSHA": "9bc77c31f8fa202225f6c5ddff70fb3364c219cd",
+      "mergeCommitSHA": "aa749b4e2b74cc7c678e94c8fac07587cb3b4737",
+      "merged": true,
+      "number": 4,
+      "state": "closed",
+      "title": "Correct IPA integration status and remove false release state"
+    },
+    {
+      "baseRef": "main",
+      "commitSHAs": [
+        "2f13160ae38a5915b211a40113425eae9d62ecd8",
+        "7883cb0a02c116a0445d87c6eed52b0656026f30",
+        "14e9134bd4bc0a00c598c4edc586e35dd95c240b",
+        "224e6cbc0110a3c3b131ffaa73a50c6d01a88861",
+        "9fe017b62cb7e712785011851f0e71afd8afeb6b",
+        "58dd820ca64772641c67aff6fa881be5456ab603",
+        "ad22298ca0dec62fbfeaad5df7213184bbeec382",
+        "c8c7a0e48a84463eda54e9e5e72d6dc96bcd85da",
+        "a92e734286221bcaf3cbc155b0c4cbc58cd4bb58",
+        "2225d0fbe276d1643e81946bb3593767d6bdba96",
+        "03bc7eaf7bbdaae86726d2f753a44978c2569c2f",
+        "42b69ee731e7b9c335c54dcc00b703a2c6cf4678"
+      ],
+      "files": [
+        ".github/workflows/build-overlay.yml",
+        "ExistingIPAWorkspace/BUILD_RUNBOOK.md",
+        "ExistingIPAWorkspace/INTEGRATION_STATUS.md",
+        "ExistingIPAWorkspace/OverlaySource/README.md",
+        "ExistingIPAWorkspace/README.md",
+        "ExistingIPAWorkspace/build-status.json",
+        "ExistingIPAWorkspace/scripts/build-overlay-macos.sh",
+        "ExistingIPAWorkspace/scripts/validate-device-component.py",
+        "output/8-ball-pool-modified.ipa",
+        "output/8-ball-pool-modified.sha256",
+        "output/ExistingIPAOverlay-ios-device-build.zip",
+        "output/ExistingIPAOverlay-ios-device-build.zip.sha256",
+        "output/README.md",
+        "output/component-validation-report.json",
+        "output/processing-report.json",
+        "output/release-manifest.json"
+      ],
+      "headRef": "arena/01a0fb30-8ballspicy",
+      "headSHA": "42b69ee731e7b9c335c54dcc00b703a2c6cf4678",
+      "mergeCommitSHA": "3838160adf2b14954347269429d1a56e365301d9",
+      "merged": true,
+      "number": 5,
+      "state": "closed",
+      "title": "Build and publish validated iOS device component"
+    },
+    {
+      "baseRef": "main",
+      "commitSHAs": [
+        "e55aba29711310fb6fd900dbd82b9c6475d61855"
+      ],
+      "files": [
+        "ExistingIPAWorkspace/BUILD_RUNBOOK.md",
+        "ExistingIPAWorkspace/build-status.json",
+        "output/README.md",
+        "output/component-validation-report.json",
+        "output/release-manifest.json"
+      ],
+      "headRef": "arena/01a0fb30-8ballspicy",
+      "headSHA": "e55aba29711310fb6fd900dbd82b9c6475d61855",
+      "mergeCommitSHA": "bc2c7698bb8d2b229dec4c5a3c14ba1120dd60b8",
+      "merged": true,
+      "number": 6,
+      "state": "closed",
+      "title": "Correct device artifact size metadata"
+    },
+    {
+      "baseRef": "main",
+      "commitSHAs": [
+        "1336b4a854907e0d0a8f842a0ba390c2887ac67b"
+      ],
+      "files": [
+        "ExistingIPAWorkspace/FINAL_BUILD_RUNBOOK.md",
+        "ExistingIPAWorkspace/build-status.json",
+        "ExistingIPAWorkspace/scripts/archive-authorized-host-macos.sh",
+        "ExistingIPAWorkspace/scripts/configure-authorized-host-package.py",
+        "ExistingIPAWorkspace/scripts/integrate-authorized-host-macos.sh",
+        "ExistingIPAWorkspace/scripts/validate-exported-ipa.py",
+        "ExistingIPAWorkspace/scripts/validate-final-ipa.py",
+        "analysis/REQUIRED_HOST_INPUTS.md",
+        "output/release-manifest.json"
+      ],
+      "headRef": "arena/01a0fc4d-8ballspicy",
+      "headSHA": "1336b4a854907e0d0a8f842a0ba390c2887ac67b",
+      "mergeCommitSHA": "f9fb130d9e7cf26bd20bd36b764efe86b909948a",
+      "merged": true,
+      "number": 7,
+      "state": "closed",
+      "title": "Prepare authorized host integration handoff"
+    }
+  ],
+  "releases": {
+    "assetArchiveScan": {
+      "archiveCount": 0,
+      "failures": [],
+      "memberCount": 0,
+      "patternMatchCount": 0,
+      "patternMatches": [],
+      "productionContainers": [],
+      "signingInputs": []
+    },
+    "assetDownloadFailures": [],
+    "items": []
+  },
+  "repository": {
+    "branches": [
+      {
+        "name": "arena/01a0f63a-8ballspicy",
+        "sha": "412d39410d89f036852a3b93f189ccb64de9f7ea"
+      },
+      {
+        "name": "arena/01a0f603-8ballspicy",
+        "sha": "4eff8ce903498d9424df36f7d3352d26b4dea5a1"
+      },
+      {
+        "name": "arena/01a0fade-8ballspicy",
+        "sha": "1e3d9b506423b28561ad6bd6ecf09e63b509f348"
+      },
+      {
+        "name": "arena/01a0fb18-8ballspicy",
+        "sha": "7569f5ee04533ff31be4397c58c7dc62fa4ed0a4"
+      },
+      {
+        "name": "arena/01a0fb22-8ballspicy",
+        "sha": "9bc77c31f8fa202225f6c5ddff70fb3364c219cd"
+      },
+      {
+        "name": "arena/01a0fb30-8ballspicy",
+        "sha": "e55aba29711310fb6fd900dbd82b9c6475d61855"
+      },
+      {
+        "name": "arena/01a0fc4d-8ballspicy",
+        "sha": "1336b4a854907e0d0a8f842a0ba390c2887ac67b"
+      },
+      {
+        "name": "arena/01a0fc96-8ballspicy",
+        "sha": "fd86c0dc933c6469fc76a80f055575975c9eef57"
+      },
+      {
+        "name": "main",
+        "sha": "f9fb130d9e7cf26bd20bd36b764efe86b909948a"
+      }
+    ],
+    "commitCount": 65,
+    "commits": [
+      "fd86c0dc933c6469fc76a80f055575975c9eef57",
+      "d453929cb28a2f5ec9a9ccca55addb2085009fbd",
+      "fc1f39bded5186c038d7bc1a8aaa463691d0cdd0",
+      "11400f6782ce35c5e93c0a6dfa2e81e39bc64926",
+      "1f69b19a95338dc0f334981659b24505c099c81f",
+      "91e06b200789433ea430ea1e65ea16c6b7b713c7",
+      "f97ec3915be0341f359ed75e49170ca2716d510b",
+      "4e01c739650450ed64aaca8d5dd6014385de3d3d",
+      "72553d5dc3bc855ea8500605e49cd21895df4da6",
+      "dad814add0989e8232794f3b923537d43da34e8f",
+      "808978e44c872c20f6e4529042f07fd43c185967",
+      "400760df8924f70480baed5e95ff98c93a2b3da4",
+      "cfb61b83314d518e59563a5fcbf654c9c7066748",
+      "3440ec42b0ef6bc17c0b52289d1381d942edcdd3",
+      "66ffda33e3d6f51e595852c3800c87cee32f1f62",
+      "3e6b3547e3d5edebd7102f85b3d5a431d59d3b9d",
+      "3da8eafdd3d34c2a749806f4fded14ad3eac8f43",
+      "35a1ad0146b17983ef05b9717bc62d88f05a0564",
+      "26755b1f2c8c693ff21673cf3ac3231e3564de5f",
+      "725969a6c6f75583229dcfd139ce5af89fe0fc53",
+      "f92993fcfbad14ea7f378744a940751df652b223",
+      "3fea6c78a0f93adf108e08e9cf5ecb150c8e0975",
+      "456e4ecbfb89f86a7bbe69ac09e5ff51a6ad8408",
+      "9395c4b98b5d1401785f440bfa5e920c753e8064",
+      "693aa6b0fb5d6de95e6552a4e748b321f1332d28",
+      "f9fb130d9e7cf26bd20bd36b764efe86b909948a",
+      "1336b4a854907e0d0a8f842a0ba390c2887ac67b",
+      "bc2c7698bb8d2b229dec4c5a3c14ba1120dd60b8",
+      "e55aba29711310fb6fd900dbd82b9c6475d61855",
+      "3838160adf2b14954347269429d1a56e365301d9",
+      "42b69ee731e7b9c335c54dcc00b703a2c6cf4678",
+      "03bc7eaf7bbdaae86726d2f753a44978c2569c2f",
+      "2225d0fbe276d1643e81946bb3593767d6bdba96",
+      "a92e734286221bcaf3cbc155b0c4cbc58cd4bb58",
+      "c8c7a0e48a84463eda54e9e5e72d6dc96bcd85da",
+      "ad22298ca0dec62fbfeaad5df7213184bbeec382",
+      "58dd820ca64772641c67aff6fa881be5456ab603",
+      "9fe017b62cb7e712785011851f0e71afd8afeb6b",
+      "224e6cbc0110a3c3b131ffaa73a50c6d01a88861",
+      "14e9134bd4bc0a00c598c4edc586e35dd95c240b",
+      "7883cb0a02c116a0445d87c6eed52b0656026f30",
+      "2f13160ae38a5915b211a40113425eae9d62ecd8",
+      "aa749b4e2b74cc7c678e94c8fac07587cb3b4737",
+      "9bc77c31f8fa202225f6c5ddff70fb3364c219cd",
+      "04a1087df2c23797ba5135b15869b4ab4b253580",
+      "7569f5ee04533ff31be4397c58c7dc62fa4ed0a4",
+      "ef88537629c763d00a0ab39f6acc176610ec75ad",
+      "1e3d9b506423b28561ad6bd6ecf09e63b509f348",
+      "0fbb088e47d12aa4c0ddbb06fee02051c87f9c5c",
+      "20ee43025f8b17614efa9feca2d8c382bbd7196c",
+      "85dd6b93905a7a45b971f11dfecbb90cdeef36a7",
+      "ac745883deed6b9b4f1e0b0cfe538c905ffbcc27",
+      "1865815d30ecf885af91c439c06fd14b50839393",
+      "3829bb6e975bb1798231b512d26beb37d5c349fd",
+      "8d7d9857bc0c2c24c9e7dc7d4b9c0b091101b3eb",
+      "d02301a14db80b12e445a325821166dd5b4b5c19",
+      "987762ff8fb993ae30f13b3e7c7a29853c5b5f9b",
+      "a92723328bef8fbaa7a3704adebfe26bce0e3f1b",
+      "4ecceb042b7a846bccd81310b4f3b58cd5254a06",
+      "412d39410d89f036852a3b93f189ccb64de9f7ea",
+      "32e93d0c37350413dca8ca63d9295ec1c07ab755",
+      "4eff8ce903498d9424df36f7d3352d26b4dea5a1",
+      "9695a47d38d9a34edae6240d5d0895b38b52c454",
+      "f926d3643f8add91a808d1147db406981cfd64d2",
+      "51ad41da843e9763ca3d39341b825adc7b89cfaa"
+    ],
+    "defaultBranch": "main",
+    "fsck": {
+      "command": [
+        "git",
+        "fsck",
+        "--full",
+        "--no-reflogs",
+        "--unreachable"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    "headCommit": "fd86c0dc933c6469fc76a80f055575975c9eef57",
+    "hiddenTopLevelPaths": [
+      ".git",
+      ".gitattributes",
+      ".github",
+      ".gitignore"
+    ],
+    "nameWithOwner": "abadrun/8ballspicy",
+    "reachableObjectPathCount": 586,
+    "refs": [
+      {
+        "ref": "refs/heads/arena/01a0fc96-8ballspicy",
+        "sha": "fd86c0dc933c6469fc76a80f055575975c9eef57"
+      },
+      {
+        "ref": "refs/remotes/origin/arena/01a0f603-8ballspicy",
+        "sha": "4eff8ce903498d9424df36f7d3352d26b4dea5a1"
+      },
+      {
+        "ref": "refs/remotes/origin/arena/01a0f63a-8ballspicy",
+        "sha": "412d39410d89f036852a3b93f189ccb64de9f7ea"
+      },
+      {
+        "ref": "refs/remotes/origin/arena/01a0fade-8ballspicy",
+        "sha": "1e3d9b506423b28561ad6bd6ecf09e63b509f348"
+      },
+      {
+        "ref": "refs/remotes/origin/arena/01a0fb18-8ballspicy",
+        "sha": "7569f5ee04533ff31be4397c58c7dc62fa4ed0a4"
+      },
+      {
+        "ref": "refs/remotes/origin/arena/01a0fb22-8ballspicy",
+        "sha": "9bc77c31f8fa202225f6c5ddff70fb3364c219cd"
+      },
+      {
+        "ref": "refs/remotes/origin/arena/01a0fb30-8ballspicy",
+        "sha": "e55aba29711310fb6fd900dbd82b9c6475d61855"
+      },
+      {
+        "ref": "refs/remotes/origin/arena/01a0fc4d-8ballspicy",
+        "sha": "1336b4a854907e0d0a8f842a0ba390c2887ac67b"
+      },
+      {
+        "ref": "refs/remotes/origin/arena/01a0fc96-8ballspicy",
+        "sha": "fd86c0dc933c6469fc76a80f055575975c9eef57"
+      },
+      {
+        "ref": "refs/remotes/origin/main",
+        "sha": "f9fb130d9e7cf26bd20bd36b764efe86b909948a"
+      },
+      {
+        "ref": "refs/remotes/pull/1/head",
+        "sha": "4eff8ce903498d9424df36f7d3352d26b4dea5a1"
+      },
+      {
+        "ref": "refs/remotes/pull/2/head",
+        "sha": "1e3d9b506423b28561ad6bd6ecf09e63b509f348"
+      },
+      {
+        "ref": "refs/remotes/pull/3/head",
+        "sha": "7569f5ee04533ff31be4397c58c7dc62fa4ed0a4"
+      },
+      {
+        "ref": "refs/remotes/pull/4/head",
+        "sha": "9bc77c31f8fa202225f6c5ddff70fb3364c219cd"
+      },
+      {
+        "ref": "refs/remotes/pull/5/head",
+        "sha": "42b69ee731e7b9c335c54dcc00b703a2c6cf4678"
+      },
+      {
+        "ref": "refs/remotes/pull/6/head",
+        "sha": "e55aba29711310fb6fd900dbd82b9c6475d61855"
+      },
+      {
+        "ref": "refs/remotes/pull/7/head",
+        "sha": "1336b4a854907e0d0a8f842a0ba390c2887ac67b"
+      }
+    ],
+    "tags": []
+  },
+  "result": "HOST_NOT_FOUND",
+  "schemaVersion": 1,
+  "state": "COMPONENT_READY_FOR_PRODUCTION",
+  "verifiedBuildEvidence": {
+    "componentBuild": "PASS",
+    "componentSHA256": "3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f",
+    "handoffPath": "output/ExistingIPAOverlay-mac-production-handoff.zip",
+    "handoffSHA256": "1bbec431e921ae7c53e489ba7a4fb6cb459936af0d14814e997da4965c516ebc",
+    "macOSWorkflowJob": 111032957210,
+    "macOSWorkflowRun": 37065736048,
+    "reproducibility": "PASS",
+    "sampleHostArchive": "PASS_UNSIGNED_TEST_ONLY",
+    "sampleHostBuild": "PASS",
+    "validation": "PASS"
+  },
+  "workspaceArchiveScan": {
+    "archiveCount": 7,
+    "failures": [],
+    "memberCount": 3514,
+    "patternMatchCount": 65,
+    "patternMatches": [
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PlugIns/NotificationContent.appex/Base.lproj/MainInterface.storyboardc/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PlugIns/NotificationContent.appex/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PlugIns/PooliMessage.appex/Base.lproj/MainInterface.storyboardc/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PlugIns/PooliMessage.appex/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PlugIns/PoolWidgetExtension.appex/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PlugIns/NotificationService.appex/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/BigoADSRes.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Splash.storyboardc/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/libloader.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/DTBiOSSDK.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport_Privacy.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleDataTransport.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/InMobiSDK.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/FirebaseCrashlytics_Privacy.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCrashlytics.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleAppMeasurement.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FBLPromises.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCoreInternal.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCore.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseSessions.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseAnalytics.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleUtilities.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/OMSDK_Appodeal.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/FirebaseCoreExtension_Privacy.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseCoreExtension.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleAdsOnDeviceConversion.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/nanopb.framework/nanopb_Privacy.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/nanopb.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseRemoteConfigInterop.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/Promises.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/Promises.framework/Promises_Privacy.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/AdSurgeSDK.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations_Privacy.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FirebaseInstallations.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/AppLovinSDK.framework/AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/AppLovinSDK.framework/AppLovinSDKResources.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/AppLovinSDK.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/FBAudienceNetwork.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/GoogleAppMeasurementIdentitySupport.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/BigoADS.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Frameworks/MolocoSDK.framework/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/PAGAdSDK.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:8-ball-pool-i3rby-IPAOMTK.COM.ipa!/Payload/pool.app/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-device-reproducible.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/components/ExistingIPAOverlay-ios-simulator-reproducible.zip!/Debug-iphonesimulator/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/evidence/complete-test-results.tar.gz!/test-results/PackageSimulatorTests.xcresult/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Users/runner/Objects/ExistingIPAOverlayCore.o",
+        "patterns": [
+          "*.xcarchive"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Users/runner/Objects/ExistingIPAOverlayUI.o",
+        "patterns": [
+          "*.xcarchive"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/en.lproj/Localizable.strings",
+        "patterns": [
+          "*.xcarchive"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Assets.car",
+        "patterns": [
+          "*.xcarchive"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/id.lproj/Localizable.strings",
+        "patterns": [
+          "*.xcarchive"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+        "patterns": [
+          "*.xcarchive",
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/Info.plist",
+        "patterns": [
+          "*.xcarchive",
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/ExistingIPAOverlaySampleHost",
+        "patterns": [
+          "*.xcarchive"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Products/Applications/ExistingIPAOverlaySampleHost.app/PkgInfo",
+        "patterns": [
+          "*.xcarchive"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/._Products",
+        "patterns": [
+          "*.xcarchive"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/dSYMs/ExistingIPAOverlaySampleHost.app.dSYM/Contents/Resources/Relocations/aarch64/ExistingIPAOverlaySampleHost.yml",
+        "patterns": [
+          "*.dSYM",
+          "*.xcarchive"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/dSYMs/ExistingIPAOverlaySampleHost.app.dSYM/Contents/Resources/DWARF/ExistingIPAOverlaySampleHost",
+        "patterns": [
+          "*.dSYM",
+          "*.xcarchive"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/dSYMs/ExistingIPAOverlaySampleHost.app.dSYM/Contents/Info.plist",
+        "patterns": [
+          "*.dSYM",
+          "*.xcarchive",
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-mac-production-handoff.zip!/ExistingIPAOverlay-mac-production-handoff/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip!/ExistingIPAOverlaySampleHost.xcarchive/Info.plist",
+        "patterns": [
+          "*.xcarchive",
+          "Info.plist"
+        ]
+      },
+      {
+        "path": "workspace:output/ExistingIPAOverlay-ios-device-build.zip!/Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle/Info.plist",
+        "patterns": [
+          "Info.plist"
+        ]
+      }
+    ],
+    "productionContainers": [],
+    "signingInputs": []
+  }
+}
