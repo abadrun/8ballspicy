@@ -41,6 +41,8 @@ Payload/
 
 The IPA remains preserved and unmodified. No FairPlay, signing, provisioning, entitlement, server, anti-cheat, gameplay, or capture-evasion change was attempted. The repository and remote branches were checked for an authorized host Xcode project/workspace; none exists. The neutral `mr-spicy-ui/swift` demo source is not a host for `pool.app`.
 
-The permitted package was built and validated on a GitHub-hosted macOS 15 runner for a real generic iOS device target. The device component is available at `../output/ExistingIPAOverlay-ios-device-build.zip` with SHA-256 `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`. It is unsigned and is not an IPA. It was not injected into the third-party bundle.
+The permitted package passed the full readiness pipeline on a GitHub-hosted macOS 15 runner: native and Simulator tests, SwiftUI lifecycle, resources/localization/persistence, clean sample-host build/install/launch, Simulator and generic iPhoneOS arm64 builds, policy scans, and two-build byte reproducibility. Canonical readiness hashes are `9b6c20bc5113c6aa0930c0d1702377a6e087b2001f14f25e25dff55af1cfdbe5` (Simulator) and `3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f` (device). See `../analysis/COMPONENT_READINESS_2026-10-02.md`.
 
-A signed IPA still requires an authorized host source project, source-level integration, provisioning, an Apple signing identity, archive/export, and device launch validation. Those inputs are not present.
+The earlier accepted device component remains unchanged at `../output/ExistingIPAOverlay-ios-device-build.zip`, SHA-256 `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`. All component outputs are unsigned, are not IPAs, and were not injected into the third-party bundle.
+
+A signed IPA still requires an authorized production host source project, source-level integration, lawful permission for required baseline coexistence, provisioning, an Apple signing identity, archive/export, and device launch validation. Those inputs are not present.

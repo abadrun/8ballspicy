@@ -97,20 +97,25 @@ The maintainable package can only be integrated through an authorized source-lev
 - All 3,505 ZIP members read and hashed
 - Complete inventory regenerated and JSON-parsed
 - Existing overlay inventory regenerated deterministically
-- Swift source structural validation
-- EN/ID localization key parity
-- Excluded dependency/functionality checks
-- plist parsing
-- release manifest JSON parsing
-- Git whitespace validation
+- Dependency-free source, localization, resource, and prohibited-capability validation
+- All 17 Core/UI Swift tests natively and against iOS Simulator
+- SwiftUI body and `UIHostingController` lifecycle tests
+- Isolated real-`UserDefaults` persistence tests
+- Clean iOS 16 sample-host Simulator build, validation, installation, and launch
+- Clean generic iPhoneOS arm64 sample-host build and validation
+- Two complete component builds with byte-for-byte archive/manifest comparison
+- Independent canonical Simulator/device component validation
+- plist/release-manifest parsing and Git whitespace validation
 
-Xcode compilation and iOS runtime testing were not possible because the environment has no Xcode or Swift toolchain.
+The macOS/Xcode gates passed in GitHub Actions run [37018507081](https://github.com/abadrun/8ballspicy/actions/runs/37018507081). Full evidence and hashes are recorded in `COMPONENT_READINESS_2026-10-02.md`.
 
 ## 8. Output
 
-The authorized unsigned arm64 device component exists separately at `output/ExistingIPAOverlay-ios-device-build.zip` with SHA-256 `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`. It is not an IPA and is not integrated into the baseline.
+The accepted authorized unsigned arm64 device component remains separately tracked at `output/ExistingIPAOverlay-ios-device-build.zip` with SHA-256 `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`.
 
-No final modified IPA, final-IPA checksum, signature, installation result, or export result exists.
+The successful readiness run additionally produced reproducible, unsigned component archives as Actions artifact `ExistingIPAOverlay-reproducible-builds`: Simulator SHA-256 `9b6c20bc5113c6aa0930c0d1702377a6e087b2001f14f25e25dff55af1cfdbe5` and iPhoneOS arm64 SHA-256 `3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f`. None is an IPA or integrated into the baseline.
+
+No final modified IPA, final-IPA checksum, production signature, physical-device installation result, or export result exists.
 
 ```text
 NOT PRODUCED YET — AUTHORIZED HOST SOURCE AND LEGITIMATE SIGNING ARE REQUIRED

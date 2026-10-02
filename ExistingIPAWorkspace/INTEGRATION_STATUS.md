@@ -16,19 +16,24 @@ The preservation verifier continues to compare the working IPA with the tracked 
 
 `OverlaySource/` is maintainable source for permitted menu-shell and local-settings UI. It contains no gameplay automation, prediction, aim assistance, queue automation, capture evasion, advertising, payments, activation, licensing, or network code.
 
-The source was tested and compiled on GitHub Actions run [36972725882](https://github.com/abadrun/8ballspicy/actions/runs/36972725882):
+Full component readiness passed on GitHub Actions run [37018507081](https://github.com/abadrun/8ballspicy/actions/runs/37018507081), job `110875251387`, at commit `26755b1`:
 
-- Swift package tests: **PASSED**
-- Xcode destination: `generic/platform=iOS`
-- SDK: `iphoneos`
-- Product directory: `Debug-iphoneos`
-- Architecture: **arm64**
-- Component validator: **PASSED**
-- Component artifact: `../output/ExistingIPAOverlay-ios-device-build.zip`
-- Component SHA-256: `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`
-- Signing: **not performed** (component has no app bundle, host entitlements, or provisioning profile)
+- Core/UI tests: **PASSED** natively and against iOS Simulator
+- SwiftUI hosting lifecycle: **PASSED**
+- `UserDefaults`, localization, and resource tests: **PASSED**
+- Clean sample host Simulator build/install/launch: **PASSED**
+- Clean sample host generic iPhoneOS arm64 build: **PASSED**
+- iOS 16 deployment contract: **PASSED**
+- Two-clean-build byte reproducibility: **PASSED**
+- Prohibited-capability scan: **PASSED**
+- Simulator archive SHA-256: `9b6c20bc5113c6aa0930c0d1702377a6e087b2001f14f25e25dff55af1cfdbe5`
+- Device archive SHA-256: `3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f`
+- Actions artifact: `ExistingIPAOverlay-reproducible-builds` (ID `11231528753`)
+- Signing: **not performed** (the component has no app bundle, host entitlements, or provisioning profile)
 
-This is a real device-target component build, not a simulator ZIP and not an IPA. It is a snapshot of relocatable `.o` products, compiler-specific Swift modules, and `ExistingIPAOverlay_ExistingIPAOverlayUI.bundle`; it is not a drop-in `.framework` or `.xcframework`.
+These are real target-specific component builds, not IPAs. They contain relocatable `.o` products, compiler-specific Swift modules, and `ExistingIPAOverlay_ExistingIPAOverlayUI.bundle`; they are not drop-in `.framework` or `.xcframework` bundles. Full evidence and exact consumption steps are in `../analysis/COMPONENT_READINESS_2026-10-02.md`.
+
+The earlier accepted device component remains unchanged at `../output/ExistingIPAOverlay-ios-device-build.zip`, SHA-256 `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`.
 
 ## Integration contract
 
@@ -53,4 +58,4 @@ The single immediate missing input is an authorized host Xcode project/workspace
 - Signed IPA: **NOT PRODUCED**
 - Original IPA: **PRESERVED UNCHANGED**
 
-The legitimate deliverable supported by the repository is the validated unsigned arm64 device component under `output/`. A signed application can be produced only after an authorized host owner supplies the host project, integration point, entitlements, provisioning, signing identity, export options, and device target.
+The legitimate deliverables are the unchanged accepted unsigned arm64 component under `output/` and the newer reproducible Simulator/device component archives attached to the readiness workflow. A signed application can be produced only after an authorized host owner supplies the host project, integration point, permission for any required baseline coexistence, entitlements, provisioning, signing identity, export options, and device target.

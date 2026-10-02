@@ -92,3 +92,17 @@ Artifact B remains the separate verified unsigned component with SHA-256 `c0e66b
 | `ExistingIPAWorkspace/OverlaySource/README.md`, `BUILD_RUNBOOK.md`, `FINAL_BUILD_RUNBOOK.md`, `INTEGRATION_STATUS.md` | Corrected product-vs-module naming and documented static linking, resource copying, and the immediate host-source blocker. | Documentation grep and script/source cross-check passed. |
 
 Artifacts A and B were not modified. No IPA was generated.
+
+## Component readiness pipeline — 2026-10-02
+
+| File / component | Change | Validation |
+|---|---|---|
+| `OverlaySource/Tests/ExistingIPAOverlayCoreTests/` | Expanded settings, Codable, malformed-data, reset, storage isolation, and real isolated-`UserDefaults` coverage. | Passed natively and against iOS Simulator. |
+| `OverlaySource/Tests/ExistingIPAOverlayUITests/` | Added localization/resource, view-model persistence, reduced-motion/expansion, SwiftUI body, and hosting-controller lifecycle coverage. | Passed natively and against iOS Simulator. |
+| `SampleHost/` | Added a clean iOS 16 SwiftUI consumer of local package product `ExistingIPAOverlay` and module `ExistingIPAOverlayUI`. It is not Artifact C. | Simulator build/install/launch and generic iPhoneOS arm64 build passed. |
+| `scripts/test-overlay-macos.sh` and validators | Added complete package/host lifecycle tests, app/component validation, deployment checks, and actionable CI diagnostics. | Full workflow passed. |
+| `scripts/create-reproducible-zip.py` and `build-overlay-macos.sh` | Added fixed-metadata ZIPs, per-member manifests, SHA-256 sidecars, and exclusion of volatile IDE-only `.swiftsourceinfo`. | Two clean builds were byte-identical. |
+| `.github/workflows/build-overlay.yml` | Added macOS test, clean-host, dual-build reproducibility, policy, validation, evidence, and hash-reporting gates. | Run `37018507081`, job `110875251387`: PASS. |
+| `analysis/COMPONENT_READINESS_2026-10-02.md` | Recorded exact tests, canonical hashes, authorized-host consumption steps, and requested final status fields. | Cross-checked against successful CI annotations and artifact metadata. |
+
+Canonical reproducible hashes: Simulator `9b6c20bc5113c6aa0930c0d1702377a6e087b2001f14f25e25dff55af1cfdbe5`; iPhoneOS arm64 `3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f`. The accepted Artifact B remains unchanged at `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`. Artifact C and a final IPA were not produced.

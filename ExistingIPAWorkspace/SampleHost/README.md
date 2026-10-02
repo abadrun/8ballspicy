@@ -36,4 +36,4 @@ xcodebuild \
   clean build
 ```
 
-The CI integration test also installs and launches the Simulator build, then validates that the statically linked module and `ExistingIPAOverlay_ExistingIPAOverlayUI.bundle` are present. The generic iPhoneOS build remains unsigned and is never exported as an IPA.
+The CI integration test also installs and launches the Simulator build. Source validation proves that the host compiles a direct `ExistingIPAOverlayView` reference; built-app validation confirms the SwiftPM resource bundle and absence of a dynamic overlay payload; successful launch completes the static-link consumption proof. The generic iPhoneOS arm64 build remains unsigned and is never exported as an IPA. This passed in readiness workflow run `37018507081`.

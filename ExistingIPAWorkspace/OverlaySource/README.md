@@ -25,7 +25,7 @@ The package does not embed or patch the supplied IPA. It contains no gameplay au
 
 1. In Xcode, open `ExistingIPAWorkspace/OverlaySource/Package.swift`.
 2. Select the generated `ExistingIPAOverlay-Package` scheme.
-3. Run **Product → Test** to execute `ExistingIPAOverlayCoreTests`.
+3. Run **Product → Test** to execute `ExistingIPAOverlayCoreTests` and `ExistingIPAOverlayUITests`.
 4. An authorized developer may add the `ExistingIPAOverlay` package product to a host application they are entitled to build and sign.
 5. Host source imports the product's Swift module with `import ExistingIPAOverlayUI`.
 6. The SwiftUI entry point is `ExistingIPAOverlayView()`.
@@ -47,6 +47,7 @@ Sources/
     Resources/id.lproj/
 Tests/
   ExistingIPAOverlayCoreTests/
+  ExistingIPAOverlayUITests/
   validate_source.py
 ```
 
@@ -65,14 +66,15 @@ See `../../analysis/OVERLAY_ARCHITECTURE.md` and `../INTEGRATION_STATUS.md` for 
 
 ## Build status
 
-This package has been tested and compiled on GitHub Actions run [36972725882](https://github.com/abadrun/8ballspicy/actions/runs/36972725882) with Xcode on `macos-15`:
+Full readiness passed on GitHub Actions run [37018507081](https://github.com/abadrun/8ballspicy/actions/runs/37018507081) with Xcode on `macos-15`:
 
-- Swift package tests: passed
-- Xcode destination: `generic/platform=iOS`
-- SDK/product: `iphoneos` / `Debug-iphoneos`
-- Architecture: arm64
-- Component validation: passed
-- Artifact: `../../output/ExistingIPAOverlay-ios-device-build.zip`
-- SHA-256: `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`
+- All 17 Core/UI tests passed natively and against iOS Simulator
+- SwiftUI body and hosting-controller lifecycle checks passed
+- Clean iOS 16 sample-host Simulator build/install/launch passed
+- Clean generic iPhoneOS arm64 host build passed
+- Resource bundle, EN/ID localization, and persistence checks passed
+- Two clean complete builds produced byte-identical ZIPs and manifests
+- Simulator SHA-256: `9b6c20bc5113c6aa0930c0d1702377a6e087b2001f14f25e25dff55af1cfdbe5`
+- Device SHA-256: `3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f`
 
-The artifact is an unsigned component build, not an IPA. The repository does not contain an authorized host Xcode project for the supplied third-party app, so no injection, host integration, signing, or IPA export was performed.
+The workflow outputs are unsigned component builds, not IPAs. The earlier accepted component at `../../output/ExistingIPAOverlay-ios-device-build.zip` remains unchanged. The repository does not contain an authorized production host Xcode project for the supplied third-party app, so no production-host integration, signing, or IPA export was performed.

@@ -6,10 +6,12 @@
 |---|---|
 | Original IPA checksum | **VERIFIED** — `59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8` |
 | Debian structural/source tests | **DONE** |
-| Swift package tests on macOS | **PASSED** — workflow `36972725882` |
-| Generic iOS device component build | **PASSED** — `iphoneos`, arm64 |
-| Device component validation | **PASSED** — ZIP, Mach-O objects, Swift modules, and resource bundle |
-| Authorized host project integration | **NOT AVAILABLE — no authorized host source is present** |
+| Core/UI package tests on macOS and iOS Simulator | **PASSED** — workflow `37018507081` |
+| SwiftUI lifecycle, localization, resource, persistence tests | **PASSED** |
+| Clean sample-host Simulator build/install/launch | **PASSED** |
+| Simulator and generic iOS arm64 component builds | **PASSED** |
+| Two-build byte reproducibility and component validation | **PASSED** |
+| Authorized production-host integration | **NOT AVAILABLE — no authorized host source is present** |
 | Host archive/export | **NOT AVAILABLE — requires authorized host and signing inputs** |
 | Apple signing/provisioning | **NOT PERFORMED** |
 | Physical-device runtime launch | **NOT PERFORMED — requires a signed host and registered device** |
@@ -37,7 +39,19 @@ Architecture arm64
 
 The ZIP contains `Debug-iphoneos` Swift object products, arm64 Swift modules, and the processed resource bundle. It is a compiled **component**, not an IPA or signed application. The Actions artifact is `ExistingIPAOverlay-ios-device-build` (artifact ID `11212302365`).
 
-Revalidate it with:
+This accepted artifact remains unchanged. The newer readiness workflow [37018507081](https://github.com/abadrun/8ballspicy/actions/runs/37018507081) produced and validated two additional deterministic archives in Actions artifact `ExistingIPAOverlay-reproducible-builds` (ID `11231528753`):
+
+```text
+ExistingIPAOverlay-ios-simulator-reproducible.zip
+SHA-256 9b6c20bc5113c6aa0930c0d1702377a6e087b2001f14f25e25dff55af1cfdbe5
+
+ExistingIPAOverlay-ios-device-reproducible.zip
+SHA-256 3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f
+```
+
+Two clean full builds produced byte-identical ZIPs and member manifests. Volatile `.swiftsourceinfo` IDE indexing records are explicitly excluded; compiler modules, docs, ABI metadata, object products, and resources are retained.
+
+Revalidate the accepted local artifact with:
 
 ```bash
 python3 ExistingIPAWorkspace/scripts/validate-device-component.py \
