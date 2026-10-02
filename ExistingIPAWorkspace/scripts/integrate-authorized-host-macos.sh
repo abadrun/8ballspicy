@@ -15,18 +15,19 @@ Usage:
   integrate-authorized-host-macos.sh \
     --container /path/to/AuthorizedHost.xcodeproj-or-xcworkspace \
     --scheme AuthorizedHost \
-    --target AuthorizedHost \
     --integration-source /path/to/host-owned/OverlayIntegration.swift \
     --test-destination 'platform=iOS Simulator,name=iPhone 16' \
     --bundle-id com.example.authorizedhost \
     --team-id ABCDE12345 \
     --export-options /path/to/ExportOptions.plist \
     [--project /path/to/AuthorizedHost.xcodeproj] \
+    [--target AuthorizedHost] \
     [--configuration Release] [--output-dir /empty/output/directory]
 
 --container must be an owner-supplied authorized Xcode project or workspace,
-never an IPA. For a workspace, --project identifies the authorized app project
-whose target is linked to the local package.
+never an IPA. For a workspace, --project identifies the authorized app project.
+Omit --target only when that project contains exactly one iOS application
+target; multiple app targets are rejected as ambiguous.
 
 The production target must already resolve to iOS 16.0+, the exact bundle ID
 and Team ID supplied above, enabled code signing, and an application product.
@@ -34,9 +35,10 @@ The host-owned source must import ExistingIPAOverlayUI and construct
 ExistingIPAOverlayView. ExportOptions.plist must contain the same teamID and a
 real export method. A valid installed Apple code-signing identity is mandatory.
 
-On success only, this script writes output/final.ipa and final.sha256 after the
-exported IPA has passed structure, arm64, resources, signature, provisioning,
-bundle identity, deployment-target, and component-evidence validation.
+On success only, this script writes a new output/final.ipa, final.sha256, and
+final-validation-report.json after the exported IPA has passed structure,
+arm64, resources, signature, provisioning, bundle identity, deployment-target,
+component-evidence, and Artifact-A file-delta recording.
 EOF
   exit 2
 }
@@ -60,9 +62,11 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-[[ -n "$container" ]] || { echo "ERROR: no authorized production host project/workspace was supplied (--container)" >&2; exit 2; }
+[[ -n "$container" ]] || {
+  echo "ERROR: Production host not supplied. Provide the authorized .xcodeproj/.xcworkspace and legitimate signing/export configuration." >&2
+  exit 2
+}
 [[ -n "$scheme" ]] || { echo "ERROR: authorized production scheme is required (--scheme)" >&2; exit 2; }
-[[ -n "$target" ]] || { echo "ERROR: authorized production app target is required (--target)" >&2; exit 2; }
 [[ -n "$integration_source" ]] || { echo "ERROR: host-owned presentation source is required (--integration-source)" >&2; exit 2; }
 [[ -n "$test_destination" ]] || { echo "ERROR: an iOS Simulator test destination is required (--test-destination)" >&2; exit 2; }
 [[ -n "$bundle_id" ]] || { echo "ERROR: authorized production bundle identifier is required (--bundle-id)" >&2; exit 2; }
@@ -87,6 +91,16 @@ fi
   echo "ERROR: authorized host project is missing or invalid: $project" >&2
   exit 2
 }
+script_dir="$(cd "$(dirname "$0")" && pwd)"
+target_identifier="$script_dir/identify-authorized-host-target.py"
+[[ -f "$target_identifier" ]] || { echo "ERROR: application-target identification tool is missing" >&2; exit 2; }
+command -v python3 >/dev/null || { echo "ERROR: required production tool is missing: python3" >&2; exit 2; }
+if [[ -n "$target" ]]; then
+  target="$(python3 "$target_identifier" --project "$project" --target "$target")"
+else
+  target="$(python3 "$target_identifier" --project "$project")"
+  printf 'AUTO-IDENTIFIED PRODUCTION APP TARGET: %s\n' "$target"
+fi
 [[ -f "$integration_source" ]] || { echo "ERROR: host-owned integration source is missing: $integration_source" >&2; exit 2; }
 [[ -f "$export_options" ]] || { echo "ERROR: ExportOptions.plist is missing: $export_options" >&2; exit 2; }
 [[ "$team" =~ ^[A-Z0-9]{10}$ ]] || { echo "ERROR: Apple Team ID must be exactly 10 uppercase letters/digits" >&2; exit 2; }
@@ -113,10 +127,18 @@ export_path="$repo_root/.build/AuthorizedHostExport"
 settings_path="$repo_root/.build/AuthorizedHost-build-settings.json"
 final="$output_dir/final.ipa"
 final_hash="$output_dir/final.sha256"
+final_report="$output_dir/final-validation-report.json"
+validation_report="$export_path/final-validation-report.json"
 validator="$workspace_root/scripts/validate-final-ipa.py"
 configurator="$workspace_root/scripts/configure-authorized-host-package.py"
 host_settings_validator="$workspace_root/scripts/validate-authorized-host-settings.py"
 project_resolved="$(cd "$(dirname "$project")" && pwd)/$(basename "$project")"
+final_resolved="$(python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$final")"
+baseline_resolved="$(python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$baseline")"
+[[ "$final_resolved" != "$baseline_resolved" ]] || {
+  echo "ERROR: final output path resolves to Artifact A; baseline overwrite is forbidden" >&2
+  exit 2
+}
 case "$project_resolved" in
   "$workspace_root/SampleHost"/*)
     echo "ERROR: ExistingIPAWorkspace/SampleHost is never a production host" >&2
@@ -206,8 +228,8 @@ if ! security find-identity -v -p codesigning | grep -Eq '[1-9][0-9]* valid iden
 fi
 
 mkdir -p "$output_dir"
-[[ ! -e "$final" && ! -e "$final_hash" ]] || {
-  echo "ERROR: final output already exists; use an empty output directory to prevent silent replacement: $final" >&2
+[[ ! -e "$final" && ! -e "$final_hash" && ! -e "$final_report" ]] || {
+  echo "ERROR: final output already exists; use an empty output directory to prevent silent replacement: $output_dir" >&2
   exit 5
 }
 
@@ -279,18 +301,24 @@ python3 "$validator" "$exported_ipa" \
   --require-bundle-resource en.lproj/Localizable.strings \
   --require-bundle-resource id.lproj/Localizable.strings \
   --minimum-ios "$MINIMUM_IOS" \
+  --baseline-ipa "$baseline" \
+  --report-json "$validation_report" \
   --reject-sha256 "$BASELINE_IPA_SHA256" \
   --codesign-verify \
   --bundle-id "$bundle_id"
 
 temporary_final="$output_dir/.final.ipa.tmp"
 temporary_hash="$output_dir/.final.sha256.tmp"
-trap 'rm -f "$temporary_final" "$temporary_hash"' EXIT
+temporary_report="$output_dir/.final-validation-report.json.tmp"
+trap 'rm -f "$temporary_final" "$temporary_hash" "$temporary_report"' EXIT
 cp "$exported_ipa" "$temporary_final"
 printf '%s  final.ipa\n' "$exported_sha" > "$temporary_hash"
+cp "$validation_report" "$temporary_report"
 mv "$temporary_final" "$final"
 mv "$temporary_hash" "$final_hash"
+mv "$temporary_report" "$final_report"
 trap - EXIT
 
 printf 'FINAL IPA PRODUCED AND VALIDATED: %s\n' "$final"
+printf 'VALIDATION REPORT: %s\n' "$final_report"
 cat "$final_hash"

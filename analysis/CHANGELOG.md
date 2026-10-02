@@ -128,3 +128,15 @@ Artifact A, Artifact B, and baseline `libloader` were not modified. No host was 
 | `analysis/PRODUCTION_MANIFEST.json` | Added explicit wait, component, host, signing, Artifact B, previous-component, and next-input fields without changing any binary artifact. | Deterministic JSON parse and exact-value checks passed. |
 
 No source/component rebuild was performed because component code is unchanged and successful macOS/Xcode evidence remains run `37018507081`.
+
+## Immediate host-integration readiness — 2026-10-02
+
+| File / component | Change | Validation |
+|---|---|---|
+| `analysis/HOST_INTEGRATION_CHECKLIST.md` | Added the exact owner-input, target, package/module/resource, build/test/archive/sign/export, final-output, validation-report, and stop-condition checklist. | Required checkbox text and authoritative hashes asserted. |
+| `scripts/identify-authorized-host-target.py` | Added automatic selection when exactly one iOS application target exists, explicit owner selection support, and hard failure for zero/multiple/non-app targets. | Five target-identification tests pass, including the repository sample fixture and ambiguity rejection. |
+| `scripts/integrate-authorized-host-macos.sh` | Made `--target` optional only for an unambiguous project; added the required no-host error, explicit baseline-output separation, and atomic final validation-report publication. | Handoff guard, syntax, and target-resolution tests pass; no host/build/export was attempted. |
+| `scripts/validate-final-ipa.py` | Added app version/build output, signing/provisioning status, Artifact-A member-hash delta recording, and deterministic JSON reporting. | Six synthetic IPA tests pass, including report content and added-file delta evidence. |
+| Production handoff/runbook docs | Linked the immediate checklist and documented automatic target behavior plus `final-validation-report.json`. | Documentation contract checks pass. |
+
+No component source, Artifact A, accepted `libloader`, or existing component artifact was changed. Artifact C remains not produced.

@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import hashlib
+import json
 import plistlib
 import shutil
 import struct
@@ -38,6 +39,19 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: source.read(1024 * 1024), b""):
             result.update(chunk)
     return result.hexdigest()
+
+
+def zip_member_hashes(archive: zipfile.ZipFile) -> dict[str, str]:
+    hashes: dict[str, str] = {}
+    for info in archive.infolist():
+        if info.is_dir():
+            continue
+        digest = hashlib.sha256()
+        with archive.open(info) as source:
+            for chunk in iter(lambda: source.read(1024 * 1024), b""):
+                digest.update(chunk)
+        hashes[info.filename] = digest.hexdigest()
+    return hashes
 
 
 def fail(message: str) -> None:
@@ -195,6 +209,16 @@ def main() -> None:
     )
     parser.add_argument("--minimum-ios", metavar="VERSION")
     parser.add_argument(
+        "--baseline-ipa",
+        type=Path,
+        help="record file-level added/modified/removed paths relative to this immutable baseline",
+    )
+    parser.add_argument(
+        "--report-json",
+        type=Path,
+        help="write a deterministic machine-readable validation report",
+    )
+    parser.add_argument(
         "--reject-sha256",
         action="append",
         default=[],
@@ -216,6 +240,24 @@ def main() -> None:
         fail("not a ZIP/IPA container")
     if args.require_bundle_resource and not args.require_resource_bundle:
         fail("--require-bundle-resource requires --require-resource-bundle")
+
+    baseline_sha256: str | None = None
+    baseline_hashes: dict[str, str] | None = None
+    if args.baseline_ipa:
+        baseline = args.baseline_ipa.resolve()
+        if not baseline.is_file() or not zipfile.is_zipfile(baseline):
+            fail(f"baseline IPA is missing or invalid: {baseline}")
+        baseline_sha256 = sha256(baseline)
+        with zipfile.ZipFile(baseline) as baseline_archive:
+            bad_baseline = baseline_archive.testzip()
+            if bad_baseline:
+                fail(f"baseline ZIP integrity failed at {bad_baseline}")
+            baseline_hashes = zip_member_hashes(baseline_archive)
+
+    codesign_status = "NOT_REQUESTED"
+    provisioning_status = "NOT_REQUESTED"
+    signature_status = "UNKNOWN"
+    final_hashes: dict[str, str] = {}
 
     with zipfile.ZipFile(ipa) as archive:
         bad = archive.testzip()
@@ -245,8 +287,14 @@ def main() -> None:
             fail(f"application Info.plist is invalid: {error}")
         bundle_id = info.get("CFBundleIdentifier")
         executable = info.get("CFBundleExecutable")
+        app_version = info.get("CFBundleShortVersionString")
+        build_version = info.get("CFBundleVersion")
         if not bundle_id or not executable:
             fail("bundle identifier or executable metadata is missing")
+        if not isinstance(app_version, str) or not app_version:
+            fail("application version (CFBundleShortVersionString) is missing")
+        if not isinstance(build_version, str) or not build_version:
+            fail("application build version (CFBundleVersion) is missing")
         if args.bundle_id and bundle_id != args.bundle_id:
             fail(f"bundle id {bundle_id!r} does not match required {args.bundle_id!r}")
         deployment_target = info.get("MinimumOSVersion")
@@ -267,6 +315,7 @@ def main() -> None:
         if args.require_arm64 and "arm64" not in architectures:
             fail(f"main executable has no arm64 slice (found {', '.join(architectures)})")
         code_resources = f"{app}/_CodeSignature/CodeResources"
+        signature_status = "PRESENT" if code_resources in names else "ABSENT"
         if args.require_signature and code_resources not in names:
             fail("CodeResources is missing from signed export")
 
@@ -336,21 +385,99 @@ def main() -> None:
                 app_path = root / app
                 if args.codesign_verify:
                     verify_codesign(app_path)
+                    codesign_status = "VERIFIED"
                 if args.require_provisioning:
                     profile_path = app_path / "embedded.mobileprovision"
                     if not profile_path.is_file():
                         fail("embedded.mobileprovision is missing")
                     verify_provisioning(profile_path, bundle_id)
+                    provisioning_status = "VERIFIED"
+
+        final_hashes = zip_member_hashes(archive)
+
+    delta = None
+    if baseline_hashes is not None:
+        added = sorted(final_hashes.keys() - baseline_hashes.keys())
+        removed = sorted(baseline_hashes.keys() - final_hashes.keys())
+        modified = sorted(
+            name for name in final_hashes.keys() & baseline_hashes.keys()
+            if final_hashes[name] != baseline_hashes[name]
+        )
+        delta = {
+            "baselinePath": str(args.baseline_ipa.resolve()),
+            "baselineSHA256": baseline_sha256,
+            "added": added,
+            "modified": modified,
+            "removed": removed,
+            "counts": {
+                "added": len(added),
+                "modified": len(modified),
+                "removed": len(removed),
+            },
+        }
+
+    report = {
+        "schemaVersion": 1,
+        "validation": "PASS",
+        "ipa": {
+            "path": str(ipa),
+            "sha256": ipa_sha256,
+            "sizeBytes": ipa.stat().st_size,
+            "architectures": architectures,
+            "bundleIdentifier": bundle_id,
+            "appVersion": app_version,
+            "buildVersion": build_version,
+            "minimumIOS": deployment_target,
+        },
+        "signing": {
+            "codeResources": signature_status,
+            "codesign": codesign_status,
+            "provisioning": provisioning_status,
+        },
+        "embeddedComponent": {
+            "required": args.require_component,
+            "evidence": component_evidence,
+            "status": "PASS" if args.require_component else "NOT_REQUESTED",
+        },
+        "resourceBundle": {
+            "required": args.require_resource_bundle,
+            "evidence": resource_bundle_evidence,
+            "requiredMembers": sorted(args.require_bundle_resource),
+            "status": "PASS" if args.require_resource_bundle else "NOT_REQUESTED",
+        },
+        "changedFilesRelativeToBaseline": delta,
+    }
+    if args.report_json:
+        report_path = args.report_json.resolve()
+        if report_path == ipa:
+            fail("validation report path cannot replace the IPA")
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        temporary_report = report_path.with_suffix(report_path.suffix + ".tmp")
+        temporary_report.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        temporary_report.replace(report_path)
 
     print("VALID")
     print(f"file={ipa}")
     print(f"sizeBytes={ipa.stat().st_size}")
     print(f"bundleIdentifier={bundle_id}")
+    print(f"appVersion={app_version}")
+    print(f"buildVersion={build_version}")
     print(f"minimumIOS={deployment_target or 'not declared'}")
     print(f"architectures={','.join(architectures)}")
+    print(f"signing={signature_status};codesign={codesign_status};provisioning={provisioning_status}")
     print(f"component={component_evidence}")
     print(f"resourceBundle={resource_bundle_evidence}")
+    if delta:
+        counts = delta["counts"]
+        print(
+            "changedFilesRelativeToBaseline="
+            f"added:{counts['added']},modified:{counts['modified']},removed:{counts['removed']}"
+        )
+    else:
+        print("changedFilesRelativeToBaseline=not requested")
     print(f"sha256={ipa_sha256}")
+    if args.report_json:
+        print(f"report={args.report_json.resolve()}")
 
 
 if __name__ == "__main__":

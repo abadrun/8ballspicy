@@ -25,6 +25,8 @@ def make_ipa(path: Path, minimum_ios: str = "16.0", include_assets: bool = True)
         "CFBundleIdentifier": "com.example.authorized",
         "CFBundleExecutable": "AuthorizedHost",
         "CFBundlePackageType": "APPL",
+        "CFBundleShortVersionString": "1.2.3",
+        "CFBundleVersion": "456",
         "MinimumOSVersion": minimum_ios,
     }
     resource_info = {
@@ -107,6 +109,39 @@ class FinalIPAValidatorTests(unittest.TestCase):
             result = validate(path, "--reject-sha256", digest)
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("SHA-256 is explicitly rejected", result.stderr)
+
+    def test_records_versions_signing_component_and_baseline_delta_report(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            baseline = root / "baseline.ipa"
+            final = root / "final.ipa"
+            report = root / "validation.json"
+            make_ipa(baseline)
+            make_ipa(final)
+            with zipfile.ZipFile(final, "a") as archive:
+                archive.writestr("Payload/AuthorizedHost.app/new-production-file", b"new")
+            result = validate(
+                final,
+                "--baseline-ipa",
+                str(baseline),
+                "--report-json",
+                str(report),
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            import json
+            value = json.loads(report.read_text())
+            self.assertEqual(value["validation"], "PASS")
+            self.assertEqual(value["ipa"]["architectures"], ["arm64"])
+            self.assertEqual(value["ipa"]["bundleIdentifier"], "com.example.authorized")
+            self.assertEqual(value["ipa"]["appVersion"], "1.2.3")
+            self.assertEqual(value["ipa"]["buildVersion"], "456")
+            self.assertEqual(value["signing"]["codeResources"], "ABSENT")
+            self.assertEqual(value["embeddedComponent"]["status"], "PASS")
+            self.assertEqual(value["resourceBundle"]["status"], "PASS")
+            self.assertEqual(
+                value["changedFilesRelativeToBaseline"]["added"],
+                ["Payload/AuthorizedHost.app/new-production-file"],
+            )
 
     def test_rejects_unsafe_archive_member_before_extraction(self):
         with tempfile.TemporaryDirectory() as temporary:

@@ -1,6 +1,6 @@
 # Production handoff
 
-**Handoff state:** `WAITING_FOR_PRODUCTION_HOST`. The repository-side handoff is ready; production integration remains blocked until the real host and signing inputs listed below are supplied.
+**Handoff state:** `READY_FOR_HOST`; host status is `WAITING`. Production integration remains blocked until the real host and signing inputs listed below are supplied.
 
 This document is the execution contract for producing Artifact C later. It does not authorize use of an unrelated host, binary injection, modification of Artifact A, modification of the accepted baseline `libloader`, fabricated signing, or no-op IPA repackaging.
 
@@ -14,7 +14,7 @@ This document is the execution contract for producing Artifact C later. It does 
 | Simulator component | `ExistingIPAOverlay-ios-simulator-reproducible.zip` | `9b6c20bc5113c6aa0930c0d1702377a6e087b2001f14f25e25dff55af1cfdbe5` | Verified test artifact; not an IPA |
 | Artifact C | Signed production IPA exported from the authorized host | Not available | **NOT PRODUCED** |
 
-Machine-readable values are in [`PRODUCTION_MANIFEST.json`](PRODUCTION_MANIFEST.json). The component test/build evidence remains in [`COMPONENT_READINESS_2026-10-02.md`](COMPONENT_READINESS_2026-10-02.md).
+Machine-readable values are in [`PRODUCTION_MANIFEST.json`](PRODUCTION_MANIFEST.json). The immediate host procedure is [`HOST_INTEGRATION_CHECKLIST.md`](HOST_INTEGRATION_CHECKLIST.md). The component test/build evidence remains in [`COMPONENT_READINESS_2026-10-02.md`](COMPONENT_READINESS_2026-10-02.md).
 
 ## 2. Package contract
 
@@ -85,7 +85,7 @@ The bundle `Info.plist` must declare `CFBundlePackageType = BNDL` and an iOS dep
 Execute in order on macOS with Xcode. Stop at the first failure; do not bypass a gate.
 
 - [ ] **Freeze inputs.** Record the authorized host commit, Xcode version, scheme, target, bundle ID, Team ID, signing style, provisioning identity, export method, and expected-delta allowlist.
-- [ ] **Verify immutable inputs.** Run `bash ExistingIPAWorkspace/Preservation/verify_original.sh`; verify latest Artifact B metadata equals `3c01a9d...ecd3f`, verify the previous accepted local component remains `c0e66b...088b`, and confirm `analysis/PRODUCTION_MANIFEST.json` still says `STATE = WAITING_FOR_PRODUCTION_HOST` and `FINAL_IPA_STATUS = NOT_PRODUCED`.
+- [ ] **Verify immutable inputs.** Run `bash ExistingIPAWorkspace/Preservation/verify_original.sh`; verify latest Artifact B metadata equals `3c01a9d...ecd3f`, verify the previous accepted local component remains `c0e66b...088b`, and confirm `analysis/PRODUCTION_MANIFEST.json` still says `STATE = READY_FOR_HOST` and `FINAL_IPA_STATUS = NOT_PRODUCED`.
 - [ ] **Identify the actual target.** Run `xcodebuild -list -json` on the supplied project/workspace. Confirm the selected target is `com.apple.product-type.application`, not a framework, test bundle, sample, or unrelated app.
 - [ ] **Create a control build.** Archive/export the authorized host at the frozen commit and settings before package integration. Inventory it for later expected-versus-actual delta comparison. This control is not Artifact C.
 - [ ] **Add the host-owned presentation source.** Include it in the production target and confirm it imports `ExistingIPAOverlayUI` and constructs `ExistingIPAOverlayView()`.
@@ -108,7 +108,7 @@ Execute in order on macOS with Xcode. Stop at the first failure; do not bypass a
     --output-dir /absolute/path/to/empty-production-output
   ```
 
-  For a project-only host, set `--container` and `--project` to the same `.xcodeproj`.
+  For a project-only host, set `--container` and `--project` to the same `.xcodeproj`. `--target` may be omitted only when that project contains exactly one iOS application target; multiple app targets fail as ambiguous and require an owner-selected explicit target.
 
 - [ ] **Confirm preflight.** The script must identify the exact app target, resolve iOS 16.0+, match bundle ID and Team ID, detect enabled signing, validate export options, find a real signing identity, and dry-run package linkage before editing the project.
 - [ ] **Confirm package linkage.** Product `ExistingIPAOverlay` must appear in the production target's Frameworks phase; host source must import module `ExistingIPAOverlayUI`.
@@ -136,6 +136,8 @@ python3 ExistingIPAWorkspace/scripts/validate-final-ipa.py output/final.ipa \
   --require-bundle-resource en.lproj/Localizable.strings \
   --require-bundle-resource id.lproj/Localizable.strings \
   --minimum-ios 16.0 \
+  --baseline-ipa 8-ball-pool-i3rby-IPAOMTK.COM.ipa \
+  --report-json output/final-validation-report.json \
   --reject-sha256 59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8 \
   --codesign-verify \
   --bundle-id <AUTHORIZED_PRODUCTION_BUNDLE_ID>
@@ -152,7 +154,8 @@ Expected checks:
 7. `embedded.mobileprovision` exists, decodes, is unexpired, and authorizes the exact app bundle ID.
 8. The IPA hash is not Artifact A's hash; an exact no-op baseline artifact is rejected.
 9. The final SHA-256 is calculated from the actual validated IPA and written beside it.
-10. The host-owner control-vs-final inventory delta contains only approved production/package/signing changes; unexplained changes fail handoff.
+10. The machine report records SHA-256, architecture, bundle ID, app version/build, signing/provisioning state, embedded component/resource state, and added/modified/removed paths relative to Artifact A.
+11. The host-owner control-vs-final inventory delta contains only approved production/package/signing changes; unexplained changes fail handoff.
 
 ## 8. Script hard failures and non-actions
 
@@ -177,7 +180,7 @@ The scripts never use Artifact A as a build input, never replace/recompress it, 
 
 Final repository-side verification completed without rebuilding the already accepted component:
 
-- 23 Python unit tests passed (project configurator, host settings, handoff guards, and synthetic final-IPA validation).
+- 29 Python unit tests passed (project configurator, automatic/explicit target identification, host settings, handoff guards, and synthetic final-IPA validation/reporting).
 - Source/package/localization/prohibited-capability validation passed.
 - Clean sample-host source integration validation passed.
 - Previous accepted local device-component validation and ZIP integrity passed; latest Artifact B remains the verified reproducible CI component recorded above.
@@ -194,8 +197,9 @@ Production-only Xcode target resolution, signing, archive, provisioning, export,
 ## 10. Current terminal state
 
 ```text
-STATE: WAITING_FOR_PRODUCTION_HOST
+STATE: READY_FOR_HOST
 COMPONENT: READY
+HOST: WAITING
 PRODUCTION HOST: NOT PROVIDED
 SIGNING: NOT PROVIDED
 ARTIFACT C: NOT PRODUCED

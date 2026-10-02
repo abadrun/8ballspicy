@@ -35,7 +35,10 @@ class ProductionHandoffGuardTests(unittest.TestCase):
     def test_missing_host_has_specific_error(self):
         result = run()
         self.assertNotEqual(result.returncode, 0)
-        self.assertIn("no authorized production host project/workspace", result.stderr)
+        self.assertIn(
+            "Production host not supplied. Provide the authorized .xcodeproj/.xcworkspace and legitimate signing/export configuration.",
+            result.stderr,
+        )
 
     def test_ipa_is_never_accepted_as_host(self):
         result = run(*required("anything.ipa"))
@@ -62,6 +65,9 @@ class ProductionHandoffGuardTests(unittest.TestCase):
         self.assertNotIn("codesign --sign -", text)
         self.assertIn("exported IPA is byte-identical to Artifact A", text)
         self.assertIn("ExistingIPAWorkspace/SampleHost is never a production host", text)
+        self.assertIn("final output path resolves to Artifact A; baseline overwrite is forbidden", text)
+        self.assertIn('--baseline-ipa "$baseline"', text)
+        self.assertIn("final-validation-report.json", text)
         self.assertIn("FINAL IPA PRODUCED AND VALIDATED", text)
 
 

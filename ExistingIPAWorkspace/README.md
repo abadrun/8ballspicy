@@ -15,7 +15,8 @@ The IPA remains the reference/base application. This workspace does not create a
 - `Inventory/IPA_FILE_INVENTORY.json` — schema-v2 inventory of all 3,505 ZIP members plus bundle IDs, frameworks, dylibs, resources, plists, architectures, and i3rby attribution evidence.
 - `OverlaySource/` — maintainable source for permitted overlay UI and local settings only. This is an integration source component, not a standalone application or final IPA.
 - `INTEGRATION_STATUS.md` — exact build/integration boundary and remaining developer actions.
-- `../analysis/PRODUCTION_HANDOFF.md` — deterministic authorized-host production checklist and Artifact C validation contract.
+- `../analysis/PRODUCTION_HANDOFF.md` — authoritative production contract and Artifact C validation requirements.
+- `../analysis/HOST_INTEGRATION_CHECKLIST.md` — immediate authorized-host integration checklist.
 - `../analysis/PRODUCTION_MANIFEST.json` — machine-readable authoritative handoff hashes/status.
 - `../analysis/BASELINE_AUDIT_2026-10-02.md` — pre-change temporary-extraction record and explicit baseline/component/final-artifact distinction.
 
