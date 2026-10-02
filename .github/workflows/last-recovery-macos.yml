@@ -235,6 +235,7 @@ jobs:
             python3 ExistingIPAWorkspace/OverlaySource/Tests/validate_source.py
             python3 ExistingIPAWorkspace/scripts/validate-sample-host-source.py
             python3 -m unittest discover -s ExistingIPAWorkspace/scripts -p 'test_*.py' -v
+            npm ci --prefix mr-spicy-ui/validation
             node mr-spicy-ui/validation/validate-prototype.mjs
             python3 -m py_compile ExistingIPAWorkspace/OverlaySource/Tests/*.py ExistingIPAWorkspace/scripts/*.py inspection/*.py
             for script in ExistingIPAWorkspace/scripts/*.sh ExistingIPAWorkspace/Preservation/*.sh; do
