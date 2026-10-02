@@ -52,7 +52,10 @@ jobs:
       - name: Build unsigned iOS Simulator component
         env:
           SKIP_TESTS: "1"
-        run: bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
+        run: |
+          bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
+          checksum=$(cat output/components/ExistingIPAOverlay-ios-simulator-build.zip.sha256)
+          echo "::notice title=Unsigned component checksum::$checksum"
 
       - name: Upload unsigned component build
         uses: actions/upload-artifact@v4
