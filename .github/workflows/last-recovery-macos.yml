@@ -1,0 +1,487 @@
+name: Last macOS production-readiness recovery pass
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/01a0fc96-8ballspicy
+    paths:
+      - ".github/workflows/last-recovery-macos.yml"
+
+permissions:
+  actions: read
+  contents: read
+
+env:
+  EXPECTED_DEVICE_SHA256: 3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f
+  BASELINE_SHA256: 59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8
+
+jobs:
+  macos-readiness:
+    name: Components, complete tests, sample archive, and final recovery
+    runs-on: macos-15
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Prepare evidence directories and fetch every ref
+        run: |
+          set -euo pipefail
+          mkdir -p output/last-recovery/evidence output/last-recovery/sample-host
+          git fetch --force --prune origin '+refs/heads/*:refs/remotes/origin/*'
+          git fetch --force --tags origin '+refs/tags/*:refs/tags/*'
+          {
+            xcodebuild -version
+            swift --version
+            uname -a
+          } | tee output/last-recovery/evidence/toolchain.txt
+
+      - name: Inspect all projects, workspaces, packages, refs, history, and generated files
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          def lines(*command):
+              return subprocess.check_output(command, text=True).splitlines()
+
+          root = Path('.')
+          workspace_paths = sorted(
+              path.as_posix().removeprefix('./')
+              for path in root.rglob('*')
+              if '.git' not in path.parts and (
+                  path.name.endswith(('.xcodeproj', '.xcworkspace')) or path.name == 'Package.swift'
+              )
+          )
+          object_rows = lines('git', 'rev-list', '--objects', '--all')
+          historical_paths = sorted({
+              row.split(' ', 1)[1]
+              for row in object_rows
+              if ' ' in row and (
+                  row.split(' ', 1)[1].endswith('Package.swift')
+                  or '.xcodeproj/' in row.split(' ', 1)[1]
+                  or '.xcworkspace/' in row.split(' ', 1)[1]
+                  or row.split(' ', 1)[1].endswith(('.xcodeproj', '.xcworkspace'))
+              )
+          })
+          production_containers = [
+              path for path in workspace_paths
+              if path.endswith(('.xcodeproj', '.xcworkspace')) and 'SampleHost' not in path
+          ]
+          signing_suffixes = ('.mobileprovision', '.p12', '.cer')
+          signing_files = sorted(
+              path.as_posix().removeprefix('./')
+              for path in root.rglob('*')
+              if path.is_file() and '.git' not in path.parts and (
+                  path.name.lower() == 'exportoptions.plist'
+                  or path.name.lower().endswith(signing_suffixes)
+              )
+          )
+          archive_files = sorted(
+              path.as_posix().removeprefix('./')
+              for path in root.rglob('*')
+              if path.is_file() and '.git' not in path.parts
+              and path.name.lower().endswith(('.ipa', '.zip', '.tar', '.tgz', '.tar.gz'))
+          )
+          fsck = subprocess.run(
+              ['git', 'fsck', '--full', '--no-reflogs', '--unreachable'],
+              text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=True,
+          ).stdout.splitlines()
+          branches = [
+              ref for ref in lines('git', 'for-each-ref', '--format=%(refname)', 'refs/remotes/origin')
+              if ref != 'refs/remotes/origin/HEAD'
+          ]
+          report = {
+              'schemaVersion': 1,
+              'commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+              'remoteBranches': branches,
+              'remoteBranchCount': len(branches),
+              'tags': lines('git', 'tag', '--list'),
+              'tagCount': len(lines('git', 'tag', '--list')),
+              'commitCount': int(subprocess.check_output(['git', 'rev-list', '--all', '--count'], text=True)),
+              'reachableObjectPathCount': len(object_rows),
+              'unreachableObjects': fsck,
+              'workspaceProjectWorkspaceAndPackagePaths': workspace_paths,
+              'historicalProjectWorkspaceAndPackagePaths': historical_paths,
+              'productionProjectOrWorkspaceCandidates': production_containers,
+              'signingInputFiles': signing_files,
+              'workspaceArchiveAndGeneratedFiles': archive_files,
+              'sampleHost': 'ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj',
+              'sampleHostClassification': 'AUTHORIZED_TEST_ONLY_NOT_PRODUCTION',
+              'result': 'HOST_FOUND' if production_containers else 'HOST_NOT_FOUND',
+          }
+          destination = Path('output/last-recovery/evidence/repository-host-inventory.json')
+          destination.write_text(json.dumps(report, indent=2, sort_keys=True) + '\n')
+          print(json.dumps(report, indent=2, sort_keys=True))
+          if production_containers:
+              raise SystemExit('production host candidate requires owner review before any integration')
+          if signing_files:
+              raise SystemExit('unexpected signing input requires owner review')
+          PY
+
+      - name: Inspect every existing Actions artifact recursively
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import os
+          import subprocess
+          import tempfile
+          import zipfile
+          from pathlib import Path
+
+          repo = os.environ['GH_REPO']
+          response = json.loads(subprocess.check_output(
+              ['gh', 'api', f'repos/{repo}/actions/artifacts?per_page=100'], text=True
+          ))
+          artifacts = response.get('artifacts', [])
+          root = Path(tempfile.mkdtemp(prefix='last-recovery-actions-artifacts-'))
+          all_members = []
+          candidates = []
+          failures = []
+
+          def classify(artifact_id, container, member):
+              normalized = member.replace('\\', '/')
+              all_members.append({'artifactId': artifact_id, 'container': container, 'path': normalized})
+              lower = normalized.lower()
+              if (
+                  lower.endswith('.xcodeproj/project.pbxproj')
+                  or lower.endswith('.xcworkspace/contents.xcworkspacedata')
+                  or lower.endswith('/package.swift')
+                  or lower == 'package.swift'
+                  or lower.endswith('exportoptions.plist')
+                  or lower.endswith(('.mobileprovision', '.p12', '.cer'))
+              ):
+                  candidates.append({'artifactId': artifact_id, 'container': container, 'path': normalized})
+
+          def scan_zip(artifact_id, path, label, depth=0):
+              try:
+                  with zipfile.ZipFile(path) as archive:
+                      for info in archive.infolist():
+                          if info.is_dir():
+                              continue
+                          classify(artifact_id, label, info.filename)
+                          if depth < 4 and info.filename.lower().endswith(('.zip', '.ipa')):
+                              nested = root / f'nested-{artifact_id}-{len(all_members)}.zip'
+                              nested.write_bytes(archive.read(info))
+                              scan_zip(artifact_id, nested, f'{label}!/{info.filename}', depth + 1)
+              except (zipfile.BadZipFile, RuntimeError, OSError) as error:
+                  failures.append({'artifactId': artifact_id, 'path': label, 'error': str(error)})
+
+          for artifact in artifacts:
+              artifact_id = artifact['id']
+              target = root / f'{artifact_id}.zip'
+              with target.open('wb') as output:
+                  result = subprocess.run(
+                      ['gh', 'api', f'repos/{repo}/actions/artifacts/{artifact_id}/zip'],
+                      stdout=output, stderr=subprocess.PIPE,
+                  )
+              if result.returncode:
+                  failures.append({
+                      'artifactId': artifact_id,
+                      'path': artifact['name'],
+                      'error': result.stderr.decode('utf-8', errors='replace'),
+                  })
+                  continue
+              scan_zip(artifact_id, target, artifact['name'])
+
+          production_projects = [
+              item for item in candidates
+              if item['path'].lower().endswith(('.xcodeproj/project.pbxproj', '.xcworkspace/contents.xcworkspacedata'))
+              and 'samplehost' not in item['path'].lower()
+          ]
+          signing_inputs = [
+              item for item in candidates
+              if item['path'].lower().endswith(('exportoptions.plist', '.mobileprovision', '.p12', '.cer'))
+          ]
+          report = {
+              'schemaVersion': 1,
+              'artifactCount': len(artifacts),
+              'artifactIds': [item['id'] for item in artifacts],
+              'downloadedArtifactCount': len(artifacts) - len({item['artifactId'] for item in failures}),
+              'memberCountIncludingNestedArchives': len(all_members),
+              'candidatePaths': candidates,
+              'productionProjectCandidates': production_projects,
+              'signingInputCandidates': signing_inputs,
+              'downloadFailures': failures,
+              'result': 'HOST_FOUND' if production_projects else 'HOST_NOT_FOUND',
+          }
+          destination = Path('output/last-recovery/evidence/actions-artifact-inventory.json')
+          destination.write_text(json.dumps(report, indent=2, sort_keys=True) + '\n')
+          message = (
+              f"artifacts={report['artifactCount']} downloaded={report['downloadedArtifactCount']} "
+              f"members={report['memberCountIncludingNestedArchives']} "
+              f"productionProjects={len(production_projects)} signingInputs={len(signing_inputs)} "
+              f"downloadFailures={len(failures)} result={report['result']}"
+          )
+          print(f'::notice title=Last recovery Actions artifact scan::{message}')
+          print(json.dumps(report, indent=2, sort_keys=True))
+          if failures or production_projects or signing_inputs:
+              raise SystemExit('Actions artifact recovery scan did not reach a clean HOST_NOT_FOUND result')
+          PY
+
+      - name: Run preservation, source, policy, and production-guard validators
+        run: |
+          set -euo pipefail
+          {
+            bash ExistingIPAWorkspace/Preservation/verify_original.sh
+            python3 ExistingIPAWorkspace/OverlaySource/Tests/validate_source.py
+            python3 ExistingIPAWorkspace/scripts/validate-sample-host-source.py
+            python3 -m unittest discover -s ExistingIPAWorkspace/scripts -p 'test_*.py' -v
+            node mr-spicy-ui/validation/validate-prototype.mjs
+            python3 -m py_compile ExistingIPAWorkspace/OverlaySource/Tests/*.py ExistingIPAWorkspace/scripts/*.py inspection/*.py
+            for script in ExistingIPAWorkspace/scripts/*.sh ExistingIPAWorkspace/Preservation/*.sh; do
+              bash -n "$script"
+            done
+          } 2>&1 | tee output/last-recovery/evidence/static-and-guard-validation.log
+
+      - name: Run complete Core, UI, lifecycle, resource, persistence, and sample-host suite
+        run: bash ExistingIPAWorkspace/scripts/test-overlay-macos.sh
+
+      - name: Build clean component reproducibility pass one
+        env:
+          ARTIFACT_DIR: ${{ runner.temp }}/component-pass-1
+          DERIVED_DATA_PATH: ${{ runner.temp }}/derived-pass-1
+          SKIP_TESTS: "1"
+        run: bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
+
+      - name: Build clean canonical component pass two
+        env:
+          ARTIFACT_DIR: ${{ github.workspace }}/output/last-recovery/components
+          DERIVED_DATA_PATH: ${{ runner.temp }}/derived-pass-2
+          SKIP_TESTS: "1"
+        run: bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
+
+      - name: Verify exact component hash and byte-for-byte reproducibility
+        env:
+          FIRST_DIR: ${{ runner.temp }}/component-pass-1
+          SECOND_DIR: ${{ github.workspace }}/output/last-recovery/components
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          first = Path(os.environ['FIRST_DIR'])
+          second = Path(os.environ['SECOND_DIR'])
+          expected = os.environ['EXPECTED_DEVICE_SHA256']
+          artifacts = {}
+          for name in (
+              'ExistingIPAOverlay-ios-simulator-reproducible.zip',
+              'ExistingIPAOverlay-ios-device-reproducible.zip',
+          ):
+              one, two = first / name, second / name
+              one_hash = hashlib.sha256(one.read_bytes()).hexdigest()
+              two_hash = hashlib.sha256(two.read_bytes()).hexdigest()
+              if one.read_bytes() != two.read_bytes():
+                  raise SystemExit(f'not reproducible: {name}: {one_hash} != {two_hash}')
+              artifacts[name] = {'passOneSHA256': one_hash, 'passTwoSHA256': two_hash, 'byteIdentical': True}
+          actual = artifacts['ExistingIPAOverlay-ios-device-reproducible.zip']['passTwoSHA256']
+          if actual != expected:
+              raise SystemExit(f'device component hash mismatch: expected {expected}, got {actual}')
+          report = {
+              'schemaVersion': 1,
+              'expectedDeviceSHA256': expected,
+              'deviceHashMatches': True,
+              'twoCleanBuildsByteIdentical': True,
+              'artifacts': artifacts,
+          }
+          Path('output/last-recovery/evidence/reproducibility.json').write_text(
+              json.dumps(report, indent=2, sort_keys=True) + '\n'
+          )
+          print(json.dumps(report, indent=2, sort_keys=True))
+          print(f'::notice title=Verified arm64 component::{actual}')
+          PY
+          python3 ExistingIPAWorkspace/scripts/validate-simulator-component.py \
+            output/last-recovery/components/ExistingIPAOverlay-ios-simulator-reproducible.zip \
+            | tee output/last-recovery/evidence/simulator-component-validation.log
+          python3 ExistingIPAWorkspace/scripts/validate-device-component.py \
+            output/last-recovery/components/ExistingIPAOverlay-ios-device-reproducible.zip \
+            | tee output/last-recovery/evidence/device-component-validation.log
+
+      - name: Archive and validate the unsigned authorized sample host
+        run: |
+          set -euo pipefail
+          archive="$GITHUB_WORKSPACE/output/last-recovery/sample-host/ExistingIPAOverlaySampleHost.xcarchive"
+          rm -rf "$archive"
+          xcodebuild \
+            -project ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj \
+            -scheme ExistingIPAOverlaySampleHost \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$archive" \
+            ARCHS=arm64 \
+            ONLY_ACTIVE_ARCH=YES \
+            SKIP_INSTALL=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            clean archive \
+            2>&1 | tee output/last-recovery/evidence/sample-host-archive.log
+          app="$archive/Products/Applications/ExistingIPAOverlaySampleHost.app"
+          python3 ExistingIPAWorkspace/scripts/validate-sample-host-app.py "$app" --platform device \
+            | tee output/last-recovery/evidence/sample-host-archive-validation.log
+          /usr/bin/ditto -c -k --keepParent "$archive" \
+            output/last-recovery/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip
+          shasum -a 256 output/last-recovery/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip \
+            > output/last-recovery/sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip.sha256
+          security find-identity -v -p codesigning \
+            | tee output/last-recovery/evidence/codesigning-identities.txt || true
+          find "$HOME/Library/MobileDevice/Provisioning Profiles" -type f -name '*.mobileprovision' -print \
+            > output/last-recovery/evidence/provisioning-profiles.txt 2>/dev/null || true
+
+      - name: Assemble the complete Mac-side production handoff
+        env:
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          handoff=output/last-recovery/handoff
+          rm -rf "$handoff"
+          mkdir -p "$handoff/components" "$handoff/sample-host" "$handoff/evidence"
+          cp output/last-recovery/components/* "$handoff/components/"
+          cp output/last-recovery/sample-host/*.zip* "$handoff/sample-host/"
+          cp output/last-recovery/evidence/* "$handoff/evidence/"
+          tar -czf "$handoff/evidence/complete-test-results.tar.gz" -C output test-results
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          root = Path('output/last-recovery')
+          device = root / 'components/ExistingIPAOverlay-ios-device-reproducible.zip'
+          simulator = root / 'components/ExistingIPAOverlay-ios-simulator-reproducible.zip'
+          sample = root / 'sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip'
+          sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+          actions = json.loads((root / 'evidence/actions-artifact-inventory.json').read_text())
+          repository = json.loads((root / 'evidence/repository-host-inventory.json').read_text())
+          reproducibility = json.loads((root / 'evidence/reproducibility.json').read_text())
+          expected = os.environ['EXPECTED_DEVICE_SHA256']
+          report = {
+              'schemaVersion': 1,
+              'state': 'COMPONENT_READY_FOR_PRODUCTION',
+              'workflowRun': int(os.environ['RUN_ID']),
+              'workflowAttempt': int(os.environ['RUN_ATTEMPT']),
+              'commit': os.environ['GITHUB_SHA'],
+              'macosXcode': 'AVAILABLE',
+              'componentBuild': 'PASS',
+              'component': {
+                  'path': 'components/ExistingIPAOverlay-ios-device-reproducible.zip',
+                  'platform': 'iPhoneOS',
+                  'architecture': 'arm64',
+                  'sha256': sha(device),
+                  'expectedSHA256': expected,
+                  'hashMatches': sha(device) == expected,
+              },
+              'simulatorComponent': {
+                  'path': 'components/ExistingIPAOverlay-ios-simulator-reproducible.zip',
+                  'sha256': sha(simulator),
+              },
+              'reproducibility': {
+                  'status': 'PASS',
+                  'cleanBuildCount': 2,
+                  'byteIdentical': reproducibility['twoCleanBuildsByteIdentical'],
+              },
+              'tests': {
+                  'status': 'PASS',
+                  'core': 'PASS',
+                  'ui': 'PASS',
+                  'swiftUILifecycle': 'PASS',
+                  'resources': 'PASS',
+                  'localization': 'PASS',
+                  'persistence': 'PASS',
+                  'sampleHostSimulatorBuildInstallLaunch': 'PASS',
+                  'sampleHostDeviceBuild': 'PASS',
+                  'productionGuardUnitTests': 'PASS',
+                  'prototypeValidation': 'PASS',
+              },
+              'sampleHost': {
+                  'classification': 'AUTHORIZED_TEST_ONLY_NOT_PRODUCTION',
+                  'build': 'PASS',
+                  'archive': 'PASS',
+                  'archivePath': 'sample-host/ExistingIPAOverlaySampleHost.xcarchive.zip',
+                  'archiveSHA256': sha(sample),
+                  'signed': False,
+                  'exportedIPA': False,
+              },
+              'validation': 'PASS',
+              'productionHost': repository['result'].replace('HOST_', ''),
+              'actionsArtifactRecovery': actions,
+              'repositoryRecovery': repository,
+              'signing': 'NOT_AVAILABLE',
+              'missingProductionHostInput': (
+                  'OWNER_SUPPLIED_AUTHORIZED_PRODUCTION_XCODE_PROJECT_OR_WORKSPACE + '
+                  'REAL_APP_TARGET_AND_SHARED_SCHEME + OWNER_APPROVED_SOURCE_LEVEL_PRESENTATION_POINT + '
+                  'LAWFUL_BASELINE_COEXISTENCE_AUTHORIZATION_AND_DELTA_ALLOWLIST'
+              ),
+              'missingSigningInput': (
+                  'APPLE_TEAM_ID + VALID_APPLE_SIGNING_CERTIFICATE_AND_PRIVATE_KEY + '
+                  'VALID_PROVISIONING_CONFIGURATION + EXPORT_OPTIONS_PLIST'
+              ),
+              'baseline': {
+                  'path': '8-ball-pool-i3rby-IPAOMTK.COM.ipa',
+                  'sha256': os.environ['BASELINE_SHA256'],
+                  'preservedUnchanged': True,
+              },
+              'finalIPA': {'status': 'NOT_PRODUCED', 'path': None, 'sha256': None, 'validation': 'NOT_RUN'},
+              'finalIPAValidators': 'NOT_RUN_NO_PRODUCTION_HOST_OR_SIGNED_IPA',
+          }
+          if report['component']['sha256'] != expected:
+              raise SystemExit('component hash changed while assembling handoff')
+          destination = root / 'mac-handoff-report.json'
+          destination.write_text(json.dumps(report, indent=2, sort_keys=True) + '\n')
+          (root / 'handoff/mac-handoff-report.json').write_text(destination.read_text())
+          print(json.dumps(report, indent=2, sort_keys=True))
+          PY
+          python3 ExistingIPAWorkspace/scripts/create-reproducible-zip.py \
+            "$handoff" output/ExistingIPAOverlay-mac-production-handoff.zip \
+            --root-name ExistingIPAOverlay-mac-production-handoff
+          python3 - <<'PY'
+          import zipfile
+          from pathlib import Path
+          path = Path('output/ExistingIPAOverlay-mac-production-handoff.zip')
+          with zipfile.ZipFile(path) as archive:
+              bad = archive.testzip()
+              if bad:
+                  raise SystemExit(f'handoff ZIP integrity failed at {bad}')
+          print('HANDOFF_VALID')
+          PY
+
+      - name: Publish final evidence summary
+        run: |
+          set -euo pipefail
+          cat output/last-recovery/mac-handoff-report.json >> "$GITHUB_STEP_SUMMARY"
+          handoff_sha="$(cut -d' ' -f1 output/ExistingIPAOverlay-mac-production-handoff.zip.sha256)"
+          echo "::notice title=Mac production handoff::component=$EXPECTED_DEVICE_SHA256 handoff=$handoff_sha host=NOT_FOUND signing=NOT_AVAILABLE validation=PASS"
+
+      - name: Upload complete Mac-side production handoff
+        uses: actions/upload-artifact@v5
+        with:
+          name: ExistingIPAOverlay-mac-production-handoff
+          path: |
+            output/ExistingIPAOverlay-mac-production-handoff.zip
+            output/ExistingIPAOverlay-mac-production-handoff.zip.manifest.json
+            output/ExistingIPAOverlay-mac-production-handoff.zip.sha256
+            output/last-recovery/mac-handoff-report.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload complete test evidence
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: ExistingIPAOverlay-last-recovery-test-evidence
+          path: |
+            output/test-results/
+            output/last-recovery/evidence/
+          if-no-files-found: warn
+          retention-days: 30
