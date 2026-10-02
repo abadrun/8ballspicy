@@ -6,7 +6,10 @@ on:
     branches:
       - arena/01a0fb30-8ballspicy
     paths:
-      - "ExistingIPAWorkspace/OverlaySource/**"
+      - "ExistingIPAWorkspace/OverlaySource/Package.swift"
+      - "ExistingIPAWorkspace/OverlaySource/Sources/**"
+      - "ExistingIPAWorkspace/OverlaySource/Tests/**"
+      - "ExistingIPAWorkspace/OverlaySource/Configuration/**"
       - "ExistingIPAWorkspace/scripts/build-overlay-macos.sh"
       - "ExistingIPAWorkspace/scripts/validate-device-component.py"
       - ".github/workflows/build-overlay.yml"
