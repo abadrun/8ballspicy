@@ -380,10 +380,11 @@ def main() -> None:
             continue
         seen_blob_strings.add(object_id)
         try:
+            object_type = str(run(["git", "cat-file", "-t", object_id])).strip()
             size = int(str(run(["git", "cat-file", "-s", object_id])).strip())
         except (RuntimeError, ValueError):
             continue
-        if size > TEXT_LIMIT:
+        if object_type != "blob" or size > TEXT_LIMIT:
             continue
         data = run(["git", "cat-file", "blob", object_id], binary=True)
         if b"\x00" in data[:8192]:
