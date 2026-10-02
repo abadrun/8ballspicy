@@ -14,7 +14,8 @@
     "repackaged": true,
     "applicationFilesModified": 0,
     "allApplicationFileBytesPreserved": true,
-    "prohibitedChangesPerformed": false
+    "prohibitedChangesPerformed": false,
+    "artifactClassification": "NO_OP_REPACKAGING_NOT_A_MODIFIED_RELEASE"
   },
   "validation": {
     "zipIntegrity": "PASS",
@@ -34,5 +35,11 @@
     "embeddedMobileProvisionPresent": false,
     "cryptographicVerification": "NOT PERFORMED",
     "status": "existing signature resources preserved; no new signing/provisioning performed"
-  }
+  },
+  "deviceBuild": "NOT_AVAILABLE",
+  "authorizedHostIntegration": "NOT_DONE",
+  "integratedIntoExistingIPA": false,
+  "featuresUnlocked": "NOT_VERIFIED",
+  "adsRemoved": "NOT_VERIFIED",
+  "finalIPA": "NOT_PRODUCED"
 }

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-10-02T00:00:00Z",
-  "status": "existing-ipa-preserved-source-integration-pending",
-  "statusMessage": "NOT PRODUCED YET \u2014 BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION",
+  "status": "NOT_A_RELEASE",
+  "statusMessage": "The existing output is a no-op repackaging and must not be represented as a modified IPA.",
   "source": {
     "file": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
     "sha256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8",
@@ -78,5 +78,18 @@
     "platform": "iOS Simulator",
     "signed": false,
     "ipa": false
-  }
+  },
+  "authorizedHostIntegration": {
+    "status": "NOT_DONE"
+  },
+  "deviceBuild": "NOT_AVAILABLE",
+  "integratedIntoExistingIPA": false,
+  "featuresUnlocked": "NOT_VERIFIED",
+  "adsRemoved": "NOT_VERIFIED",
+  "finalIPA": {
+    "status": "NOT_PRODUCED",
+    "path": null,
+    "sha256": null
+  },
+  "releaseEligible": false
 }
