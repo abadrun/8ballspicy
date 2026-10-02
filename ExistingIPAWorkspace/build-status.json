@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-02T06:10:00Z",
+  "updatedAt": "2026-10-02T11:20:21Z",
   "baseline": {
     "status": "VERIFIED",
     "file": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
@@ -36,16 +36,16 @@
     }
   },
   "authorizedHostIntegration": {
-    "status": "NOT_FOUND",
-    "reason": "No authorized host Xcode project or workspace exists in the current branch, remote branches, repository paths, or available workflow artifacts"
+    "status": "BLOCKED",
+    "reason": "An authorized host Xcode project/workspace and legitimate Apple signing configuration have not been provided."
   },
   "archive": {
-    "status": "NOT_AVAILABLE",
-    "reason": "Archive/export requires an authorized host source project and developer signing configuration"
+    "status": "BLOCKED",
+    "reason": "The prepared host pipeline may run only after authorized host and legitimate signing inputs are supplied."
   },
   "signing": {
-    "status": "NOT_PERFORMED",
-    "reason": "The produced component is intentionally unsigned and no signing identity or provisioning configuration is present"
+    "status": "NOT_AVAILABLE",
+    "reason": "No CI-integrated legitimate Apple certificate, private key, provisioning profile, Team ID, or export configuration is available for an authorized host."
   },
   "deviceRuntimeTest": {
     "status": "NOT_PERFORMED",
@@ -60,5 +60,6 @@
   "integratedIntoExistingIPA": false,
   "thirdPartyExecutableModified": false,
   "featuresUnlocked": "NOT_VERIFIED",
-  "adsRemoved": "NOT_VERIFIED"
+  "adsRemoved": "NOT_VERIFIED",
+  "deviceComponent": "VERIFIED"
 }

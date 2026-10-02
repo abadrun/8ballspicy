@@ -1,0 +1,5 @@
+- An authorized `.xcodeproj` or `.xcworkspace`.
+- The application's legitimate bundle identifier.
+- Apple Team ID.
+- A legitimate Apple signing configuration.
+- Provisioning/export configuration appropriate for the intended distribution.
