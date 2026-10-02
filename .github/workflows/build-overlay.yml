@@ -30,8 +30,15 @@ jobs:
       - name: Run Swift package tests
         working-directory: ExistingIPAWorkspace/OverlaySource
         run: |
+          set +e
           set -o pipefail
           swift test --parallel 2>&1 | tee "$RUNNER_TEMP/swift-test.log"
+          status=${PIPESTATUS[0]}
+          if [[ $status -ne 0 ]]; then
+            message=$(tail -c 6000 "$RUNNER_TEMP/swift-test.log" | python3 -c 'import sys; s=sys.stdin.read(); print(s.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A"))')
+            echo "::error title=Swift package test diagnostics::$message"
+            exit "$status"
+          fi
 
       - name: Upload test diagnostics
         if: always()
