@@ -31,7 +31,7 @@
   },
   "authorizedHostIntegration": {
     "status": "NOT_DONE",
-    "reason": "Authorized host Xcode source project is not present"
+    "reason": "No authorized host Xcode project is present"
   },
   "archive": {
     "status": "REQUIRES_MACOS_XCODE_AND_AUTHORIZED_HOST"
@@ -43,8 +43,12 @@
     "status": "REQUIRES_DEVICE_TEST"
   },
   "finalIPA": {
-    "status": "NOT_DONE",
+    "status": "NOT_PRODUCED",
     "path": null,
     "sha256": null
-  }
+  },
+  "deviceBuild": "NOT_AVAILABLE",
+  "integratedIntoExistingIPA": false,
+  "featuresUnlocked": "NOT_VERIFIED",
+  "adsRemoved": "NOT_VERIFIED"
 }

@@ -29,3 +29,16 @@ The original `8-ball-pool-i3rby-IPAOMTK.COM.ipa` remains unchanged with SHA-256:
 ```text
 59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8
 ```
+
+## Status correction
+
+`8-ball-pool-modified.ipa` is retained only as a historical no-op repackaging for audit purposes. Its application files are byte-identical to the original IPA and it is **not** a modified release. It must not be installed, published, or described as an integrated device build.
+
+Current verified status:
+
+- `authorizedHostIntegration`: `NOT_DONE`
+- `integratedIntoExistingIPA`: `false`
+- `deviceBuild`: `NOT_AVAILABLE`
+- `finalIPA`: `NOT_PRODUCED`
+- `featuresUnlocked`: `NOT_VERIFIED`
+- `adsRemoved`: `NOT_VERIFIED`
