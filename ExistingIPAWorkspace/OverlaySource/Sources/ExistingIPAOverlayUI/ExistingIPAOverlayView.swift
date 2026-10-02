@@ -2,6 +2,7 @@
 import SwiftUI
 import ExistingIPAOverlayCore
 
+@MainActor
 public struct ExistingIPAOverlayView: View {
     @StateObject private var model: OverlayViewModel
 
