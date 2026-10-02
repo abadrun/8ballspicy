@@ -136,11 +136,11 @@ pool executable (original game)
        └─ WebKit/StoreKit/AdSupport and rewarded-ad flow
 ```
 
-## 4. Clean source reconstruction
+## 4. Permitted source integration component
 
-Location: `CleanOverlay/`
+Location: `ExistingIPAWorkspace/OverlaySource/`
 
-The new project is an independent Swift Package for iOS 16+. It does not import, embed, patch, or communicate with the original game or `libloader`.
+This is the maintainable overlay source component associated with the existing-IPA workspace, not a replacement application. It is packaged as an iOS 16+ Swift Package so an authorized source-level host can integrate it later. It does not import, embed, patch, or communicate with the original game or `libloader`.
 
 ### Reconstructed
 
@@ -151,7 +151,7 @@ The new project is an independent Swift Package for iOS 16+. It does not import,
 - local JSON settings persistence and reset;
 - English and Indonesian localizations;
 - dark layered visual treatment inferred from the available UIKit/layer/component evidence;
-- Swift Package, tests, example host plist, and Debug/Release xcconfig references.
+- Swift Package, tests, resource-bundle metadata reference, and Debug/Release xcconfig references.
 
 ### Verified basis
 
@@ -197,5 +197,5 @@ Feature names that directly describe gameplay manipulation are retained only in 
 The package is structured for Xcode 15+ (`Package.swift`, iOS 16 platform, products, resources, and XCTest target). This Linux environment has no Swift toolchain or Xcode, so compilation, simulator testing, signing, and export are unavailable here. Repository-level structural validation is recorded separately.
 
 ```text
-NOT PRODUCED YET — SIGNING/EXPORT REQUIRES DEVELOPER ACTION
+NOT PRODUCED YET — BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION
 ```

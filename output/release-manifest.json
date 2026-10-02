@@ -1,13 +1,15 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "generatedAt": "2026-10-02T00:00:00Z",
-  "status": "source-project-produced-no-ipa",
-  "statusMessage": "NOT PRODUCED YET — SIGNING/EXPORT REQUIRES DEVELOPER ACTION",
+  "status": "existing-ipa-preserved-source-integration-pending",
+  "statusMessage": "NOT PRODUCED YET — BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION",
   "source": {
     "file": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
     "sha256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8",
     "sizeBytes": 98576945,
+    "zipEntries": 3505,
     "preservedUnchanged": true,
+    "preservedGitBlob": "6011d5cd4c7e61c407964fe949474984325b8253",
     "bundleIdentifier": "com.miniclip.8ballpoolmult",
     "shortVersion": "56.30.0",
     "buildVersion": "5328"
@@ -18,36 +20,46 @@
     "sha256": "b7f970a8b9faa84b9614055f7966a41975777b360a3abe57ddf5e9b6c71df250",
     "sourceAvailable": false
   },
-  "sourceProject": {
-    "path": "CleanOverlay/Package.swift",
+  "workspace": {
+    "path": "ExistingIPAWorkspace/",
+    "completeInventory": "ExistingIPAWorkspace/Inventory/IPA_FILE_INVENTORY.json",
+    "preservationVerifier": "ExistingIPAWorkspace/Preservation/verify_original.sh",
+    "integrationStatus": "ExistingIPAWorkspace/INTEGRATION_STATUS.md"
+  },
+  "permittedOverlaySource": {
+    "path": "ExistingIPAWorkspace/OverlaySource/Package.swift",
+    "role": "source integration component associated with the existing IPA; not a replacement application",
     "type": "Swift Package",
     "minimumIOSVersion": "16.0",
     "swiftToolsVersion": "5.9",
     "localizations": ["en", "id"],
     "externalDependencies": [],
     "structuralValidation": "passed",
-    "compiledInCurrentEnvironment": false
+    "compiledInCurrentEnvironment": false,
+    "integratedIntoExistingIPA": false
   },
   "outputs": {
-    "sourceProject": "CleanOverlay/",
+    "sourceWorkspace": "ExistingIPAWorkspace/",
     "ipa": null,
     "sha256": null
   },
   "actionsPerformed": [
-    "read-only IPA structure inspection",
-    "bundle metadata inspection",
-    "Mach-O dependency and state-marker inspection",
-    "overlay architecture documentation",
-    "clean source-level UI and local-configuration reconstruction",
-    "localization and structural source validation"
+    "verified and preserved the existing IPA",
+    "inventoried and hashed all 3505 IPA members",
+    "classified every member as ORIGINAL_GAME, EXISTING_OVERLAY, or UNKNOWN",
+    "inspected bundle metadata and Mach-O dependencies",
+    "documented overlay UI, state, configuration, resources, localization, and unknowns",
+    "maintained permitted overlay UI and local configuration as source tied to the existing-IPA workspace",
+    "validated localization and source structure"
   ],
   "actionsNotPerformed": [
-    "binary patching",
-    "advertisement or activation bypass",
-    "gameplay cheat implementation",
-    "anti-detection implementation",
-    "code signing",
+    "FairPlay or DRM modification",
+    "binary patching or dylib injection",
+    "advertisement, activation, licensing, or entitlement bypass",
+    "gameplay automation or aim-assistance implementation",
+    "capture or detection evasion",
+    "code signing or provisioning",
     "IPA repackaging"
   ],
-  "reasonNoIPA": "The clean Swift Package requires Xcode integration into an authorized host application, compilation, testing, and signing with the developer's legitimate identity. Xcode and signing are unavailable in the current environment."
+  "reasonNoIPA": "The existing artifact is a compiled app bundle, not an authorized host Xcode project. Integrating executable source would alter signed bytes and requires the host owner's source, entitlements, provisioning, Xcode build, and legitimate Apple signing/export path, none of which are available here."
 }

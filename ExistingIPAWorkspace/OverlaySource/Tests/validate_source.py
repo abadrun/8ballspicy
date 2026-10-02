@@ -8,15 +8,15 @@ root = Path(__file__).resolve().parents[1]
 swift = list((root / "Sources").rglob("*.swift"))
 assert swift, "no Swift sources"
 assert (root / "Package.swift").is_file()
-assert (root / "Tests/CleanOverlayCoreTests/OverlaySettingsTests.swift").is_file()
-plistlib.load(open(root / "Configuration/Info.plist", "rb"))
+assert (root / "Tests/ExistingIPAOverlayCoreTests/OverlaySettingsTests.swift").is_file()
+plistlib.load(open(root / "Configuration/ResourceBundleInfo.reference.plist", "rb"))
 
 
 def strings(path: Path) -> set[str]:
     return set(re.findall(r'^"([^"]+)"\s*=', path.read_text(), re.M))
 
-en = strings(root / "Sources/CleanOverlayUI/Resources/en.lproj/Localizable.strings")
-id_ = strings(root / "Sources/CleanOverlayUI/Resources/id.lproj/Localizable.strings")
+en = strings(root / "Sources/ExistingIPAOverlayUI/Resources/en.lproj/Localizable.strings")
+id_ = strings(root / "Sources/ExistingIPAOverlayUI/Resources/id.lproj/Localizable.strings")
 assert en == id_, f"localization mismatch: en-only={en-id_}, id-only={id_-en}"
 
 source_text = "\n".join(path.read_text() for path in swift)

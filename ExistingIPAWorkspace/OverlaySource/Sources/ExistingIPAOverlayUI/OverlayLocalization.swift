@@ -1,6 +1,6 @@
 #if canImport(SwiftUI)
 import Foundation
-import CleanOverlayCore
+import ExistingIPAOverlayCore
 
 public enum OverlayLocalization {
     public static func text(_ key: String, language: OverlayLanguage) -> String {

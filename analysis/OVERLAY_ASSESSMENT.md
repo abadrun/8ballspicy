@@ -49,7 +49,7 @@ The following requested artifacts were **not** created because no legitimate bui
 
 ## Continuation
 
-A subsequent clean-room, source-level reconstruction of legitimate UI and local-configuration patterns is now available under `CleanOverlay/`. It does not change the findings above and is not a reconstruction of gameplay, activation, advertising, or anti-detection behavior. See `OVERLAY_ARCHITECTURE.md` for the detailed evidence and reconstruction classification.
+A subsequent clean-room, source-level reconstruction of legitimate UI and local-configuration patterns is now available under `ExistingIPAWorkspace/OverlaySource/`. It does not change the findings above and is not a reconstruction of gameplay, activation, advertising, or anti-detection behavior. See `OVERLAY_ARCHITECTURE.md` for the detailed evidence and reconstruction classification.
 
 ## Reproduction
 

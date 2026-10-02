@@ -1,18 +1,20 @@
 # Build output status
 
-A clean, rebuildable source project now exists at `../CleanOverlay/`. It is an independent Swift Package and does not patch or embed the supplied IPA or compiled overlay.
+A rebuildable permitted-overlay source component now exists at `../ExistingIPAWorkspace/OverlaySource/` inside the existing-IPA workspace. It is tied to the inspected IPA structure and is not a replacement application. It does not patch or embed the supplied IPA or compiled overlay.
 
 No modified IPA or checksum has been created:
 
 ```text
-NOT PRODUCED YET — SIGNING/EXPORT REQUIRES DEVELOPER ACTION
+NOT PRODUCED YET — BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION
 ```
 
 ## Produced
 
-- `../CleanOverlay/` — iOS 16+ Swift Package with SwiftUI components, local settings persistence, EN/ID localization, assets, tests, example Info.plist, and build configuration references.
+- `../ExistingIPAWorkspace/` — preservation records, complete 3,505-entry IPA inventory, integration status, and permitted overlay source.
+- `../ExistingIPAWorkspace/OverlaySource/` — iOS 16+ Swift Package with SwiftUI components, local settings persistence, EN/ID localization, assets, tests, resource-bundle metadata reference, and build configuration references.
+- `../analysis/EXISTING_IPA_IMPLEMENTATION_REPORT.md` — current existing-IPA verification, complete structure summary, ownership boundary, and integration result.
 - `../analysis/OVERLAY_ARCHITECTURE.md` — ORIGINAL GAME / OVERLAY / UNKNOWN separation and VERIFIED / RECONSTRUCTED / INFERRED / NOT REPRODUCIBLE classifications.
-- `../inspection/inspect_overlay.py` and `../inspection/OVERLAY_INVENTORY.json` — reproducible static binary inventory.
+- `../inspection/inspect_overlay.py`, `../inspection/inventory_existing_ipa.py`, and their JSON outputs — reproducible overlay and complete archive inventories.
 - `release-manifest.json` — machine-readable source-project and no-IPA status.
 
 ## Not produced

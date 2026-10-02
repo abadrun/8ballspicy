@@ -1,8 +1,8 @@
 #if canImport(SwiftUI)
 import SwiftUI
-import CleanOverlayCore
+import ExistingIPAOverlayCore
 
-public struct CleanOverlayView: View {
+public struct ExistingIPAOverlayView: View {
     @StateObject private var model: OverlayViewModel
 
     public init(model: @autoclosure @escaping () -> OverlayViewModel = OverlayViewModel()) {

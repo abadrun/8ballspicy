@@ -11,7 +11,7 @@ extension UserDefaults: KeyValueStoring {}
 /// Local-only persistence. No identifiers, network calls, subscriptions, ads,
 /// activation keys, or host-application state are read or written.
 public final class OverlaySettingsStore {
-    public static let storageKey = "CleanOverlay.settings.v1"
+    public static let storageKey = "ExistingIPAOverlay.settings.v1"
     private let storage: KeyValueStoring
     private let encoder: JSONEncoder
     private let decoder: JSONDecoder

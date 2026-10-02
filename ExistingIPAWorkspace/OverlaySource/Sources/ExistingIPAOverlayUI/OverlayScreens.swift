@@ -1,6 +1,6 @@
 #if canImport(SwiftUI)
 import SwiftUI
-import CleanOverlayCore
+import ExistingIPAOverlayCore
 
 struct OverviewScreen: View {
     let select: (OverlaySection) -> Void

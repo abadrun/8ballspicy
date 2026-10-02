@@ -5,4 +5,4 @@ SWIFT_COMPILATION_MODE = wholemodule
 SWIFT_OPTIMIZATION_LEVEL = -O
 DEAD_CODE_STRIPPING = YES
 CODE_SIGN_STYLE = Automatic
-PRODUCT_BUNDLE_IDENTIFIER = com.example.cleanoverlay.host
+PRODUCT_BUNDLE_IDENTIFIER = com.example.existingipa.overlay.resources

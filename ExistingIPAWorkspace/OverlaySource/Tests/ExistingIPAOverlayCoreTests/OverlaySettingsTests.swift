@@ -1,5 +1,5 @@
 import XCTest
-@testable import CleanOverlayCore
+@testable import ExistingIPAOverlayCore
 
 final class OverlaySettingsTests: XCTestCase {
     func testDefaultsAreSafeAndLocal() {

@@ -1,6 +1,6 @@
 #if canImport(SwiftUI)
 import SwiftUI
-import CleanOverlayCore
+import ExistingIPAOverlayCore
 
 @MainActor
 public final class OverlayViewModel: ObservableObject {
