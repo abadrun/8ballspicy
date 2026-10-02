@@ -1,6 +1,6 @@
 # Production handoff
 
-**Handoff state:** `READY_FOR_HOST`; host status is `WAITING`. Production integration remains blocked until the real host and signing inputs listed below are supplied.
+**Handoff state:** `READY_FOR_MAC_PRODUCTION_BUILD`. Component work is frozen; execute the commands below only on a Mac with the authorized host and legitimate signing/export inputs.
 
 This document is the execution contract for producing Artifact C later. It does not authorize use of an unrelated host, binary injection, modification of Artifact A, modification of the accepted baseline `libloader`, fabricated signing, or no-op IPA repackaging.
 
@@ -9,12 +9,19 @@ This document is the execution contract for producing Artifact C later. It does 
 | Artifact | Identity | SHA-256 | State |
 |---|---|---|---|
 | Artifact A | `8-ball-pool-i3rby-IPAOMTK.COM.ipa`, preserved i3rby baseline | `59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8` | Immutable; do not replace, recompress, patch, inject into, or re-sign |
-| Artifact B | `ExistingIPAOverlay-ios-device-reproducible.zip`, latest verified reproducible iPhoneOS arm64 component | `3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f` | Verified CI component; not an IPA |
+| Artifact B | GitHub Actions run `37018507081` → artifact `ExistingIPAOverlay-reproducible-builds` (ID `11231528753`) → `ExistingIPAOverlay-ios-device-reproducible.zip` | `3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f` | Verified reproducible iPhoneOS arm64 component; not an IPA |
 | Previous accepted component | `output/ExistingIPAOverlay-ios-device-build.zip`, earlier accepted unsigned iPhoneOS arm64 component | `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b` | Preserved unchanged for compatibility/evidence |
 | Simulator component | `ExistingIPAOverlay-ios-simulator-reproducible.zip` | `9b6c20bc5113c6aa0930c0d1702377a6e087b2001f14f25e25dff55af1cfdbe5` | Verified test artifact; not an IPA |
 | Artifact C | Signed production IPA exported from the authorized host | Not available | **NOT PRODUCED** |
 
-Machine-readable values are in [`PRODUCTION_MANIFEST.json`](PRODUCTION_MANIFEST.json). The immediate host procedure is [`HOST_INTEGRATION_CHECKLIST.md`](HOST_INTEGRATION_CHECKLIST.md). The component test/build evidence remains in [`COMPONENT_READINESS_2026-10-02.md`](COMPONENT_READINESS_2026-10-02.md).
+Exact verified component artifact path:
+
+```text
+https://github.com/abadrun/8ballspicy/actions/runs/37018507081
+ExistingIPAOverlay-reproducible-builds/ExistingIPAOverlay-ios-device-reproducible.zip
+```
+
+The archive hash is independently recorded by the successful CI annotation and is not inferred from the earlier local component. Machine-readable values are in [`PRODUCTION_MANIFEST.json`](PRODUCTION_MANIFEST.json). The immediate host procedure is [`HOST_INTEGRATION_CHECKLIST.md`](HOST_INTEGRATION_CHECKLIST.md). The component test/build evidence remains in [`COMPONENT_READINESS_2026-10-02.md`](COMPONENT_READINESS_2026-10-02.md).
 
 ## 2. Package contract
 
@@ -29,6 +36,21 @@ Machine-readable values are in [`PRODUCTION_MANIFEST.json`](PRODUCTION_MANIFEST.
 - Component persistence: local `UserDefaults` key `ExistingIPAOverlay.settings.v1`
 
 The product is consumed from source with the authorized host's Xcode toolchain. Do not copy Artifact B's loose compiler products into an app and do not place them in `Frameworks/`.
+
+Exact production entrypoint:
+
+```text
+ExistingIPAWorkspace/scripts/integrate-authorized-host-macos.sh
+```
+
+Exact preflight/integration/validation scripts:
+
+```text
+ExistingIPAWorkspace/scripts/identify-authorized-host-target.py
+ExistingIPAWorkspace/scripts/configure-authorized-host-package.py
+ExistingIPAWorkspace/scripts/validate-authorized-host-settings.py
+ExistingIPAWorkspace/scripts/validate-final-ipa.py
+```
 
 ## 3. Required production inputs
 
@@ -197,12 +219,11 @@ Production-only Xcode target resolution, signing, archive, provisioning, export,
 ## 10. Current terminal state
 
 ```text
-STATE: READY_FOR_HOST
+STATE: READY_FOR_MAC_PRODUCTION_BUILD
 COMPONENT: READY
-HOST: WAITING
-PRODUCTION HOST: NOT PROVIDED
-SIGNING: NOT PROVIDED
-ARTIFACT C: NOT PRODUCED
+MACOS_XCODE: REQUIRED
+SIGNING: REQUIRED
+ARTIFACT C / FINAL IPA: NOT PRODUCED
 ```
 
 The exact remaining input is:
