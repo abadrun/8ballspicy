@@ -25,7 +25,7 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Show toolchain
         run: |
@@ -127,10 +127,17 @@ jobs:
           }
           (root/'component-readiness-ci.json').write_text(json.dumps(report, indent=2, sort_keys=True)+'\n')
           print(json.dumps(report, indent=2, sort_keys=True))
+          hashes=' '.join(f'{name}={data["sha256"]}' for name, data in sorted(artifacts.items()))
+          print(f'::notice title=Canonical component SHA-256::{hashes}')
+          summary=os.environ.get('GITHUB_STEP_SUMMARY')
+          if summary:
+              with open(summary, 'a') as handle:
+                  handle.write('## ExistingIPAOverlay component readiness\n\n')
+                  handle.write('```json\n'+json.dumps(report, indent=2, sort_keys=True)+'\n```\n')
           PY
 
       - name: Upload reproducible component artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ExistingIPAOverlay-reproducible-builds
           path: output/components/
@@ -139,7 +146,7 @@ jobs:
 
       - name: Upload test evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ExistingIPAOverlay-test-evidence
           path: output/test-results/
