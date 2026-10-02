@@ -1,0 +1,137 @@
+{
+  "authoritativeArtifacts": {
+    "baselineIPA": {
+      "path": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
+      "preservedUnchanged": true,
+      "sha256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8"
+    },
+    "component": {
+      "actionsArtifactId": 11231528753,
+      "actionsArtifactName": "ExistingIPAOverlay-reproducible-builds",
+      "memberPath": "ExistingIPAOverlay-ios-device-reproducible.zip",
+      "sha256": "3c01a9d55ae91b2e632ea63a6ddabcce74d3bf94562c7fd7134be9db9e0ecd3f",
+      "workflowRun": 37018507081
+    },
+    "previousAcceptedComponent": {
+      "path": "output/ExistingIPAOverlay-ios-device-build.zip",
+      "preservedUnchanged": true,
+      "sha256": "c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b"
+    }
+  },
+  "finalIPA": {
+    "path": null,
+    "sha256": null,
+    "status": "NOT_PRODUCED",
+    "validation": "NOT_RUN"
+  },
+  "historicalIPAReview": {
+    "gitBlob": "1b1558ca090e9aa01b7bdb0d0b548c1e13a00534",
+    "historicalContainerSHA256": "2e56f75c4a546e40497ae55a913decdbb0022e9727b499c0b4004ab483857763",
+    "memberContentAdded": 0,
+    "memberContentModified": 0,
+    "memberContentRemoved": 0,
+    "memberPayloadIdenticalToArtifactA": true,
+    "pathInHistory": "output/8-ball-pool-modified.ipa",
+    "recoveryDecision": "REJECTED_NO_OP_RECOMPRESSION"
+  },
+  "macosXcode": {
+    "githubHostedRunnerEvidenceRun": 37018507081,
+    "localEnvironment": "UNAVAILABLE_LINUX",
+    "status": "AVAILABLE"
+  },
+  "missingInputs": [
+    "OWNER_SUPPLIED_AUTHORIZED_PRODUCTION_XCODE_PROJECT_OR_WORKSPACE",
+    "REAL_PRODUCTION_APPLICATION_TARGET_AND_SHARED_SCHEME",
+    "OWNER_APPROVED_SOURCE_LEVEL_PRESENTATION_POINT",
+    "LAWFUL_BASELINE_COEXISTENCE_AUTHORIZATION_AND_DELTA_ALLOWLIST",
+    "APPLE_TEAM_ID_AND_SIGNING_CERTIFICATE_PRIVATE_KEY",
+    "VALID_PROVISIONING_CONFIGURATION",
+    "EXPORT_OPTIONS_PLIST"
+  ],
+  "result": {
+    "host": "NOT_FOUND",
+    "state": "BLOCKED"
+  },
+  "schemaVersion": 1,
+  "searchEvidence": {
+    "actions": {
+      "artifactCountAtConclusion": 29,
+      "artifactDownloadFailures": 0,
+      "artifactsRecursivelyScanned": 28,
+      "cacheCount": 0,
+      "memberCountIncludingNestedArchives": 875,
+      "postScanArtifactCount": 1,
+      "postScanArtifactContents": "MACHINE_READABLE_RECOVERY_REPORT_ONLY",
+      "productionProjectCandidates": 0,
+      "recoveryReportArtifactId": 11252430147,
+      "recoveryReportArtifactName": "exhaustive-host-recovery-report",
+      "recoveryWorkflowJob": 111027035771,
+      "recoveryWorkflowRun": 37063958077,
+      "signingInputCandidates": 0,
+      "workflowRunsInspected": 21
+    },
+    "archivesInWorkspace": {
+      "archiveCount": 2,
+      "candidateHostOrSigningMembers": 0,
+      "memberCount": 3531,
+      "paths": [
+        "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
+        "output/ExistingIPAOverlay-ios-device-build.zip"
+      ],
+      "scanFailures": 0
+    },
+    "git": {
+      "commitCount": 54,
+      "historicalArchiveBlobCount": 7,
+      "historicalArchiveCandidateHostOrSigningMembers": 0,
+      "historicalArchiveMemberCount": 7140,
+      "historicalArchiveScanFailures": 0,
+      "reachableObjectPathCount": 511,
+      "remoteBranchCount": 9,
+      "tagCount": 0,
+      "unreachableObjectCount": 0
+    },
+    "github": {
+      "pullRequestCount": 7,
+      "releaseCount": 0
+    },
+    "projectsAndPackages": {
+      "buildableProductionHostCount": 0,
+      "currentProjectOrPackageReferenceFileCount": 22,
+      "historicalLibraryOnlyPackages": [
+        "CleanOverlay/Package.swift",
+        "ExistingIPAWorkspace/OverlaySource/Package.swift"
+      ],
+      "sampleHostsExcluded": [
+        "ExistingIPAWorkspace/SampleHost/ExistingIPAOverlaySampleHost.xcodeproj"
+      ],
+      "uniqueHistoricalPackageManifestCount": 2,
+      "workspaceProductionProjectCount": 0,
+      "workspaceProductionWorkspaceCount": 0,
+      "workspaceXcodeProjectCountIncludingSample": 1,
+      "workspaceXcodeWorkspaceCount": 0
+    },
+    "scope": [
+      "all local and remote branches",
+      "all tags and reachable commit history",
+      "unreachable Git objects",
+      "all repository and workspace files",
+      "all local ZIP/IPA/TAR archives and members",
+      "all Package.swift files and historical package manifests",
+      "all Xcode project/workspace paths and textual references",
+      "all unexpired GitHub Actions artifacts recursively, including nested ZIP/IPA files",
+      "GitHub Actions caches",
+      "workflow runs and workflow definitions",
+      "GitHub releases and pull requests",
+      "signing, provisioning, certificate, and ExportOptions paths/references"
+    ],
+    "searchCommit": "400760df8924f70480baed5e95ff98c93a2b3da4"
+  },
+  "signing": {
+    "actionsWorkflowSigningSecretReferences": 0,
+    "certificateCandidates": 0,
+    "exportConfigurationCandidates": 0,
+    "provisioningCandidates": 0,
+    "status": "UNAVAILABLE"
+  }
+}
