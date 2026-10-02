@@ -11,7 +11,7 @@ on:
       - ".github/workflows/build-overlay.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-overlay:
@@ -66,3 +66,19 @@ jobs:
             output/components/ExistingIPAOverlay-ios-device-build.zip.sha256
           if-no-files-found: error
           retention-days: 14
+
+      - name: Store validated device component under output
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cp output/components/ExistingIPAOverlay-ios-device-build.zip output/ExistingIPAOverlay-ios-device-build.zip
+          cp output/components/ExistingIPAOverlay-ios-device-build.zip.sha256 output/ExistingIPAOverlay-ios-device-build.zip.sha256
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output/ExistingIPAOverlay-ios-device-build.zip output/ExistingIPAOverlay-ios-device-build.zip.sha256
+          if git diff --cached --quiet; then
+            echo "Device artifact already tracked with no changes."
+            exit 0
+          fi
+          git commit -m "Store validated iOS device component artifact"
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"
