@@ -1,95 +1,79 @@
 {
-  "schemaVersion": 2,
-  "generatedAt": "2026-10-02T00:00:00Z",
-  "status": "NOT_A_RELEASE",
-  "statusMessage": "The existing output is a no-op repackaging and must not be represented as a modified IPA.",
+  "schemaVersion": 3,
+  "generatedAt": "2026-10-02T06:10:00Z",
+  "status": "DEVICE_COMPONENT_BUILD_ONLY",
+  "releaseEligible": false,
+  "statusMessage": "A validated unsigned arm64 iphoneos component build exists. No authorized host application or Apple signing configuration is present, so no IPA was produced.",
   "source": {
     "file": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
     "sha256": "59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8",
-    "sizeBytes": 98576945,
-    "zipEntries": 3505,
     "preservedUnchanged": true,
-    "preservedGitBlob": "6011d5cd4c7e61c407964fe949474984325b8253",
     "bundleIdentifier": "com.miniclip.8ballpoolmult",
     "shortVersion": "56.30.0",
     "buildVersion": "5328"
   },
-  "identifiedOverlay": {
-    "path": "Payload/pool.app/Frameworks/libloader.framework/libloader",
-    "sizeBytes": 11493804,
-    "sha256": "b7f970a8b9faa84b9614055f7966a41975777b360a3abe57ddf5e9b6c71df250",
-    "sourceAvailable": false
-  },
-  "workspace": {
-    "path": "ExistingIPAWorkspace/",
-    "completeInventory": "ExistingIPAWorkspace/Inventory/IPA_FILE_INVENTORY.json",
-    "preservationVerifier": "ExistingIPAWorkspace/Preservation/verify_original.sh",
-    "integrationStatus": "ExistingIPAWorkspace/INTEGRATION_STATUS.md"
+  "authorizedHostSearch": {
+    "status": "NOT_FOUND",
+    "checked": [
+      "current branch",
+      "all remote branches",
+      "repository paths",
+      "available GitHub Actions artifacts"
+    ],
+    "excludedSource": "mr-spicy-ui/swift is a neutral standalone reference implementation and contains no authorized pool.app Xcode host project or workspace"
   },
   "permittedOverlaySource": {
     "path": "ExistingIPAWorkspace/OverlaySource/Package.swift",
-    "role": "source integration component associated with the existing IPA; not a replacement application",
+    "role": "source-level UI and local-settings component",
     "type": "Swift Package",
     "minimumIOSVersion": "16.0",
     "swiftToolsVersion": "5.9",
-    "localizations": [
-      "en",
-      "id"
-    ],
     "externalDependencies": [],
-    "structuralValidation": "passed",
-    "compiledInCurrentEnvironment": false,
-    "integratedIntoExistingIPA": false,
-    "compiledOnGitHubMacOS": true
+    "integratedIntoExistingIPA": false
+  },
+  "componentBuild": {
+    "status": "VERIFIED",
+    "workflowRun": 36972725882,
+    "workflowUrl": "https://github.com/abadrun/8ballspicy/actions/runs/36972725882",
+    "job": 110729927269,
+    "actionsArtifactId": 11212302365,
+    "actionsArtifactName": "ExistingIPAOverlay-ios-device-build",
+    "actionsArtifactSizeBytes": 347694,
+    "path": "output/ExistingIPAOverlay-ios-device-build.zip",
+    "sizeBytes": 354250,
+    "sha256": "c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b",
+    "platform": "iOS device (generic/platform=iOS, iphoneos SDK)",
+    "productDirectory": "Debug-iphoneos",
+    "architecture": "arm64",
+    "signed": false,
+    "ipa": false,
+    "swiftPackageTests": "PASSED",
+    "validation": "ExistingIPAWorkspace/scripts/validate-device-component.py PASSED"
   },
   "outputs": {
-    "sourceWorkspace": "ExistingIPAWorkspace/",
+    "component": "output/ExistingIPAOverlay-ios-device-build.zip",
+    "componentSha256": "output/ExistingIPAOverlay-ios-device-build.zip.sha256",
     "ipa": null,
-    "sha256": null
+    "ipaSha256": null
   },
-  "actionsPerformed": [
-    "verified and preserved the existing IPA",
-    "inventoried and hashed all 3505 IPA members",
-    "classified every member as ORIGINAL_GAME, EXISTING_OVERLAY, or UNKNOWN",
-    "inspected bundle metadata and Mach-O dependencies",
-    "documented overlay UI, state, configuration, resources, localization, and unknowns",
-    "maintained permitted overlay UI and local configuration as source tied to the existing-IPA workspace",
-    "validated localization and source structure"
-  ],
-  "actionsNotPerformed": [
-    "FairPlay or DRM modification",
-    "binary patching or dylib injection",
-    "advertisement, activation, licensing, or entitlement bypass",
-    "gameplay automation or aim-assistance implementation",
-    "capture or detection evasion",
-    "code signing or provisioning",
-    "IPA repackaging"
-  ],
-  "reasonNoIPA": "The overlay source now passes Swift package tests and an unsigned iOS Simulator build on macOS. A final IPA still requires an authorized host Xcode source project, host integration, developer signing credentials/provisioning, archive/export, and device validation; those developer inputs are not present.",
-  "updatedAt": "2026-10-02T05:04:20Z",
-  "componentBuild": {
-    "status": "verified",
-    "workflowRun": 36967188194,
-    "workflowUrl": "https://github.com/abadrun/8ballspicy/actions/runs/36967188194",
-    "artifactId": 11210665414,
-    "artifactName": "ExistingIPAOverlay-ios-simulator-build",
-    "artifactArchiveSizeBytes": 674100,
-    "innerZipSha256": "ad3ebf2f8ac4199f5bb3e587be8637b99db2ab87c4bc939552de1f0d16f3994a",
-    "platform": "iOS Simulator",
-    "signed": false,
-    "ipa": false
+  "signing": {
+    "status": "NOT_PERFORMED",
+    "reason": "Unsigned component build has no authorized host, provisioning profile, certificate, or private key"
   },
-  "authorizedHostIntegration": {
-    "status": "NOT_DONE"
+  "deviceRuntimeTest": {
+    "status": "NOT_PERFORMED",
+    "reason": "A physical device launch requires a signed host application and registered device"
   },
-  "deviceBuild": "NOT_AVAILABLE",
-  "integratedIntoExistingIPA": false,
-  "featuresUnlocked": "NOT_VERIFIED",
-  "adsRemoved": "NOT_VERIFIED",
+  "prohibitedOperations": {
+    "binaryInjection": false,
+    "thirdPartyExecutableModified": false,
+    "licensingOrDRMBypass": false,
+    "antiCheatOrTamperBypass": false,
+    "noOpRepackagingClaimedAsModification": false
+  },
   "finalIPA": {
     "status": "NOT_PRODUCED",
     "path": null,
     "sha256": null
-  },
-  "releaseEligible": false
+  }
 }

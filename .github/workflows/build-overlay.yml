@@ -4,14 +4,18 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - arena/01a0fade-8ballspicy
+      - arena/01a0fb30-8ballspicy
     paths:
-      - "ExistingIPAWorkspace/OverlaySource/**"
+      - "ExistingIPAWorkspace/OverlaySource/Package.swift"
+      - "ExistingIPAWorkspace/OverlaySource/Sources/**"
+      - "ExistingIPAWorkspace/OverlaySource/Tests/**"
+      - "ExistingIPAWorkspace/OverlaySource/Configuration/**"
       - "ExistingIPAWorkspace/scripts/build-overlay-macos.sh"
+      - "ExistingIPAWorkspace/scripts/validate-device-component.py"
       - ".github/workflows/build-overlay.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-overlay:
@@ -49,20 +53,41 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-      - name: Build unsigned iOS Simulator component
+      - name: Build unsigned iOS device component
         env:
           SKIP_TESTS: "1"
         run: |
           bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
-          checksum=$(cat output/components/ExistingIPAOverlay-ios-simulator-build.zip.sha256)
-          echo "::notice title=Unsigned component checksum::$checksum"
+          checksum=$(cat output/components/ExistingIPAOverlay-ios-device-build.zip.sha256)
+          echo "::notice title=Unsigned iphoneos component checksum::$checksum"
 
-      - name: Upload unsigned component build
+      - name: Validate arm64 device component
+        run: |
+          python3 ExistingIPAWorkspace/scripts/validate-device-component.py \
+            output/components/ExistingIPAOverlay-ios-device-build.zip
+
+      - name: Upload unsigned device component build
         uses: actions/upload-artifact@v4
         with:
-          name: ExistingIPAOverlay-ios-simulator-build
+          name: ExistingIPAOverlay-ios-device-build
           path: |
-            output/components/ExistingIPAOverlay-ios-simulator-build.zip
-            output/components/ExistingIPAOverlay-ios-simulator-build.zip.sha256
+            output/components/ExistingIPAOverlay-ios-device-build.zip
+            output/components/ExistingIPAOverlay-ios-device-build.zip.sha256
           if-no-files-found: error
           retention-days: 14
+
+      - name: Store validated device component under output
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cp output/components/ExistingIPAOverlay-ios-device-build.zip output/ExistingIPAOverlay-ios-device-build.zip
+          cp output/components/ExistingIPAOverlay-ios-device-build.zip.sha256 output/ExistingIPAOverlay-ios-device-build.zip.sha256
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output/ExistingIPAOverlay-ios-device-build.zip output/ExistingIPAOverlay-ios-device-build.zip.sha256
+          if git diff --cached --quiet; then
+            echo "Device artifact already tracked with no changes."
+            exit 0
+          fi
+          git commit -m "Store validated iOS device component artifact"
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"

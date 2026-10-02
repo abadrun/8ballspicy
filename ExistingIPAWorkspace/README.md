@@ -38,8 +38,8 @@ Payload/
 
 ## Current result
 
-The IPA was inspected read-only. No FairPlay, signing, provisioning, entitlement, server, anti-cheat, gameplay, or capture-evasion change was attempted. The permitted source package is maintained alongside the reference artifact, but cannot legitimately be inserted into this compiled bundle without an authorized host source/build and Apple signing path.
+The IPA remains preserved and unmodified. No FairPlay, signing, provisioning, entitlement, server, anti-cheat, gameplay, or capture-evasion change was attempted. The repository and remote branches were checked for an authorized host Xcode project/workspace; none exists. The neutral `mr-spicy-ui/swift` demo source is not a host for `pool.app`.
 
-```text
-NOT PRODUCED YET — BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION
-```
+The permitted package was built and validated on a GitHub-hosted macOS 15 runner for a real generic iOS device target. The device component is available at `../output/ExistingIPAOverlay-ios-device-build.zip` with SHA-256 `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`. It is unsigned and is not an IPA. It was not injected into the third-party bundle.
+
+A signed IPA still requires an authorized host source project, source-level integration, provisioning, an Apple signing identity, archive/export, and device launch validation. Those inputs are not present.

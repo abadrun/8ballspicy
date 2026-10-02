@@ -1,0 +1,19 @@
+{
+  "artifact": "output/ExistingIPAOverlay-ios-device-build.zip",
+  "sha256": "c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b",
+  "sizeBytes": 354250,
+  "zipIntegrity": "PASS",
+  "deviceProduct": "Debug-iphoneos",
+  "simulatorProductPresent": false,
+  "architecture": "arm64",
+  "machoObjectProducts": [
+    "Debug-iphoneos/ExistingIPAOverlayCore.o",
+    "Debug-iphoneos/ExistingIPAOverlayUI.o"
+  ],
+  "swiftModules": [
+    "arm64-apple-ios"
+  ],
+  "resourceBundle": "Debug-iphoneos/ExistingIPAOverlay_ExistingIPAOverlayUI.bundle",
+  "validator": "ExistingIPAWorkspace/scripts/validate-device-component.py",
+  "result": "PASS"
+}

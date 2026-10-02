@@ -1,39 +1,66 @@
 # Build and export runbook
 
-## Current executable status
+## Current status
 
 | Operation | Status |
 |---|---|
-| Original IPA checksum | **VERIFIED** |
+| Original IPA checksum | **VERIFIED** — `59607b4177f8ffdf36649d9bb3b0c5900d39f5b6b3eaa0c6e351ba353a58c2f8` |
 | Debian structural/source tests | **DONE** |
-| macOS package tests | **DONE / VERIFIED** — GitHub Actions run `36967188194` passed |
-| unsigned iOS Simulator component build | **DONE / VERIFIED** — artifact `11210665414` produced by run `36967188194` |
-| Authorized host project integration | **NOT DONE — authorized host source is not present** |
-| Host archive | **REQUIRES MACOS/XCODE** |
-| Apple signing/export | **REQUIRES DEVELOPER SIGNING** |
-| Launch and overlay interaction test | **REQUIRES DEVICE TEST** |
-| Final IPA | **NOT DONE** |
+| Swift package tests on macOS | **PASSED** — workflow `36972725882` |
+| Generic iOS device component build | **PASSED** — `iphoneos`, arm64 |
+| Device component validation | **PASSED** — ZIP, Mach-O objects, Swift modules, and resource bundle |
+| Authorized host project integration | **NOT AVAILABLE — no authorized host source is present** |
+| Host archive/export | **NOT AVAILABLE — requires authorized host and signing inputs** |
+| Apple signing/provisioning | **NOT PERFORMED** |
+| Physical-device runtime launch | **NOT PERFORMED — requires a signed host and registered device** |
+| Final IPA | **NOT PRODUCED** |
 
-## Commands available now
+## Produced device component
 
-Debian-safe checks:
+The macOS workflow runs the real Swift tests and builds the Swift package with:
 
-```bash
-bash ExistingIPAWorkspace/Preservation/verify_original.sh
-python3 ExistingIPAWorkspace/OverlaySource/Tests/validate_source.py
-python3 inspection/inventory_existing_ipa.py > /tmp/ipa-inventory.json
-cmp /tmp/ipa-inventory.json ExistingIPAWorkspace/Inventory/IPA_FILE_INVENTORY.json
+```text
+xcodebuild -scheme ExistingIPAOverlay \
+  -destination 'generic/platform=iOS' \
+  -sdk iphoneos \
+  CODE_SIGNING_ALLOWED=NO clean build
 ```
 
-The committed workflow `.github/workflows/build-overlay.yml` runs the real Swift tests and an unsigned iOS Simulator build on a GitHub-hosted Mac. Run [`36967188194`](https://github.com/abadrun/8ballspicy/actions/runs/36967188194) completed successfully in 1m26s and uploaded the 674,100-byte Actions artifact `ExistingIPAOverlay-ios-simulator-build` (artifact ID `11210665414`). The inner component ZIP SHA-256 is `ad3ebf2f8ac4199f5bb3e587be8637b99db2ab87c4bc939552de1f0d16f3994a`. Its build script is:
+Run [`36972725882`](https://github.com/abadrun/8ballspicy/actions/runs/36972725882) completed successfully on `macos-15`. Its package tests, device-target build, and arm64 validation all passed. The validated component is tracked at:
+
+```text
+output/ExistingIPAOverlay-ios-device-build.zip
+SHA-256 c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b
+Size 354250 bytes
+Architecture arm64
+```
+
+The ZIP contains `Debug-iphoneos` Swift object products, arm64 Swift modules, and the processed resource bundle. It is a compiled **component**, not an IPA or signed application. The Actions artifact is `ExistingIPAOverlay-ios-device-build` (artifact ID `11212302365`).
+
+Revalidate it with:
+
+```bash
+python3 ExistingIPAWorkspace/scripts/validate-device-component.py \
+  output/ExistingIPAOverlay-ios-device-build.zip
+unzip -t output/ExistingIPAOverlay-ios-device-build.zip
+sha256sum output/ExistingIPAOverlay-ios-device-build.zip
+```
+
+The build script is:
 
 ```bash
 bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
 ```
 
-The workflow artifact is a component build, **not an IPA** and not a signed application.
+It rejects non-macOS execution, invokes Swift package tests unless `SKIP_TESTS=1`, targets `generic/platform=iOS` with the `iphoneos` SDK, and rejects output without an arm64 Mach-O product. It intentionally disables code signing because this is a reusable component rather than an app.
 
-## Developer inputs required for the final application
+## Authorized host assessment
+
+The current branch, every remote branch, repository paths, and available workflow artifacts were checked for an authorized `.xcodeproj` or `.xcworkspace` for `pool.app`. None was found. `mr-spicy-ui/swift/` is a neutral standalone reference implementation; its README explicitly says it is not connected to the supplied IPA and it has no Xcode project/workspace. It is not an authorized host for this component.
+
+The component was therefore not inserted into `Payload/pool.app`, and the third-party executable was not changed. The original IPA remains preserved by `Preservation/verify_original.sh`.
+
+## Developer inputs required for a final application
 
 All are mandatory:
 
@@ -48,27 +75,7 @@ All are mandatory:
 
 The compiled reference IPA cannot substitute for item 1 without binary injection and re-signing, which this workspace does not perform.
 
-## Authorized host integration
-
-In the host project on a Mac:
-
-1. **File → Add Package Dependencies → Add Local…**
-2. Select `ExistingIPAWorkspace/OverlaySource`.
-3. Link product `ExistingIPAOverlay` to the authorized application target.
-4. From host-owned SwiftUI source, import and present the view:
-
-```swift
-import ExistingIPAOverlay
-
-// Within a host-owned ZStack or overlay container:
-ExistingIPAOverlayView()
-```
-
-Do not modify the preserved reference IPA. Build from the authorized host source project.
-
-## Exact archive/export command
-
-After the developer inputs above exist:
+## Archive/export command when legitimate inputs exist
 
 ```bash
 bash ExistingIPAWorkspace/scripts/archive-authorized-host-macos.sh \
@@ -79,29 +86,4 @@ bash ExistingIPAWorkspace/scripts/archive-authorized-host-macos.sh \
   --output-dir "$PWD/output"
 ```
 
-For an `.xcodeproj`, pass that path instead. The script:
-
-1. re-verifies the preserved baseline;
-2. resolves package dependencies;
-3. archives for generic iOS with the supplied team;
-4. verifies the archive's app signature with `codesign`;
-5. exports through `xcodebuild -exportArchive`;
-6. requires exactly one real exported IPA;
-7. validates ZIP, Payload/app, Info.plist, executable Mach-O, and CodeResources;
-8. writes the real IPA to `output/`;
-9. writes `<exported-name>.ipa.sha256` only after successful validation.
-
-Validate any exported IPA again with:
-
-```bash
-python3 ExistingIPAWorkspace/scripts/validate-exported-ipa.py \
-  output/AuthorizedHost.ipa --require-signature
-```
-
-## Final environment-dependent status
-
-Until the authorized host and signing inputs are supplied:
-
-```text
-NOT PRODUCED YET — XCODE/BUILD TOOLCHAIN REQUIRED
-```
+The archive script re-verifies the preserved baseline, resolves package dependencies, archives generic iOS, verifies the app signature, exports through `xcodebuild -exportArchive`, validates the resulting IPA, and writes its real checksum. It must only be run with an authorized host and legitimate developer signing configuration.

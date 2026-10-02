@@ -24,23 +24,34 @@ if [[ "${SKIP_TESTS:-0}" != "1" ]]; then
   swift test --package-path "$package" --parallel
 fi
 
-printf '\n== iOS Simulator build ==\n'
+printf '\n== iOS device build (generic iphoneos, unsigned component) ==\n'
 (
   cd "$package"
   xcodebuild \
     -scheme ExistingIPAOverlay \
-    -destination 'generic/platform=iOS Simulator' \
+    -destination 'generic/platform=iOS' \
+    -sdk iphoneos \
     -derivedDataPath "$derived_data" \
     CODE_SIGNING_ALLOWED=NO \
     clean build
 )
 
-products="$derived_data/Build/Products/Debug-iphonesimulator"
-[[ -d "$products" ]] || { echo "ERROR: expected build products not found at $products" >&2; exit 3; }
-artifact="$artifact_dir/ExistingIPAOverlay-ios-simulator-build.zip"
+products="$derived_data/Build/Products/Debug-iphoneos"
+[[ -d "$products" ]] || { echo "ERROR: expected device build products not found at $products" >&2; exit 3; }
+
+# A generic iphoneos build must contain at least one arm64 Mach-O product. This
+# rejects an accidental Simulator build before the artifact is published.
+if ! find "$products" -type f -print0 | xargs -0 file | grep -Eq 'Mach-O.*(arm64|arm64e)'; then
+  echo "ERROR: no arm64 device Mach-O found in $products" >&2
+  find "$products" -type f -maxdepth 3 -print >&2
+  exit 4
+fi
+
+artifact="$artifact_dir/ExistingIPAOverlay-ios-device-build.zip"
 rm -f "$artifact"
 ditto -c -k --sequesterRsrc --keepParent "$products" "$artifact"
-shasum -a 256 "$artifact" > "$artifact.sha256"
+checksum="$(shasum -a 256 "$artifact" | awk '{print $1}')"
+printf '%s  %s\n' "$checksum" "$(basename "$artifact")" > "$artifact.sha256"
 
 printf '\nDONE: %s\n' "$artifact"
 cat "$artifact.sha256"

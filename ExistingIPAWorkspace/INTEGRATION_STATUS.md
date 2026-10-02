@@ -10,46 +10,39 @@
 - Main executable: `Payload/pool.app/pool`
 - Existing overlay: `Payload/pool.app/Frameworks/libloader.framework/libloader`
 
-The working artifact and the separately stored tracked Git blob are both checked by `Preservation/verify_original.sh`.
+The preservation verifier continues to compare the working IPA with the tracked original Git blob. The third-party app bundle and executable were not modified.
 
-## Work tied to the existing IPA
+## Authorized source component
 
-1. Every archive member is recorded in `Inventory/IPA_FILE_INVENTORY.json` with uncompressed SHA-256, size, compression size, CRC, category, and classification reason.
-2. Main and overlay Mach-O linked-library inventories are recorded.
-3. Framework, standalone dylib, localization, resource, executable, signature, and overlay boundaries are recorded.
-4. Existing overlay UI classes, state fields, localization keys, dependencies, configuration patterns, and unknowns are documented in `../analysis/OVERLAY_ARCHITECTURE.md`.
-5. Permitted overlay menu-shell and local-settings source is maintained in `OverlaySource/` as a Swift Package, not as another application.
+`OverlaySource/` is maintainable source for permitted menu-shell and local-settings UI. It contains no gameplay automation, prediction, aim assistance, queue automation, capture evasion, advertising, payments, activation, licensing, or network code.
 
-## Why the source is not inserted into the current IPA
+The source was tested and compiled on GitHub Actions run [36972725882](https://github.com/abadrun/8ballspicy/actions/runs/36972725882):
 
-The available base is a compiled, signed app bundle rather than an authorized Xcode host project. Adding or replacing executable code in it would necessarily:
+- Swift package tests: **PASSED**
+- Xcode destination: `generic/platform=iOS`
+- SDK: `iphoneos`
+- Product directory: `Debug-iphoneos`
+- Architecture: **arm64**
+- Component validator: **PASSED**
+- Component artifact: `../output/ExistingIPAOverlay-ios-device-build.zip`
+- Component SHA-256: `c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b`
+- Signing: **not performed** (component has no app bundle, host entitlements, or provisioning profile)
 
-- alter signed bundle bytes;
-- invalidate the existing code signature;
-- require a new provisioning/signing operation;
-- require binary injection or load-command modification if no host source is available.
+This is a real device-target component build, not a simulator ZIP and not an IPA.
 
-Those operations are not performed. The package can only become part of a legitimate final product when an authorized developer has the host application's source-level build, entitlements, provisioning, and signing identity.
+## Host search and integration boundary
 
-## Required developer path
+The current branch, all remote branches, repository paths, and available GitHub Actions artifacts were inspected for an authorized host Xcode project or workspace. None exists. `mr-spicy-ui/swift/` is a neutral standalone reference implementation, not a host for `pool.app`, and has no Xcode project/workspace or signing configuration.
 
-1. Obtain an authorized source-level project for the host application, or a host integration target supplied by its owner.
-2. Open `OverlaySource/Package.swift` in Xcode 15+ and run its tests.
-3. Link the `ExistingIPAOverlay` product from the authorized host source project.
-4. Present `ExistingIPAOverlayView` through a host-owned integration point.
-5. Build and test on a simulator/device using the host owner's entitlements.
-6. Archive, sign, and export using the legitimate Apple Developer team.
-7. Compare the produced app's structure and behavior against the reference inventory without copying prohibited overlay systems.
-8. Only then generate an IPA checksum and release manifest for that actual output.
+The source component was not injected into `Payload/pool.app`. Replacing or adding executable code in the compiled third-party bundle would alter signed bytes and require binary injection, re-signing, and entitlements; those operations are intentionally not performed.
 
-## Current build result
+## Final application status
 
-- Swift/Xcode compilation: unavailable in this Linux environment.
-- Host integration: unavailable because authorized host source is absent.
-- Signing/export: unavailable.
-- Modified IPA: not created.
-- Modified IPA checksum: not created.
+- Authorized host integration: **NOT AVAILABLE — authorized host source is absent**
+- IPA archive/export: **NOT AVAILABLE**
+- Apple signing/provisioning: **NOT PERFORMED**
+- Physical-device runtime launch: **NOT PERFORMED — requires a signed host and registered device**
+- Signed IPA: **NOT PRODUCED**
+- Original IPA: **PRESERVED UNCHANGED**
 
-```text
-NOT PRODUCED YET — BUILD/SIGNING/EXPORT REQUIRES DEVELOPER ACTION
-```
+The legitimate deliverable supported by the repository is the validated unsigned arm64 device component under `output/`. A signed application can be produced only after an authorized host owner supplies the host project, integration point, entitlements, provisioning, signing identity, export options, and device target.

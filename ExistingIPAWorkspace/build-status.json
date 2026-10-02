@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-02T05:04:20Z",
+  "updatedAt": "2026-10-02T06:10:00Z",
   "baseline": {
     "status": "VERIFIED",
     "file": "8-ball-pool-i3rby-IPAOMTK.COM.ipa",
@@ -15,40 +15,50 @@
   "macOSComponentBuild": {
     "status": "DONE",
     "verification": "VERIFIED",
-    "workflowRun": 36967188194,
-    "workflowUrl": "https://github.com/abadrun/8ballspicy/actions/runs/36967188194",
-    "job": 110713377458,
+    "workflowRun": 36972725882,
+    "workflowUrl": "https://github.com/abadrun/8ballspicy/actions/runs/36972725882",
+    "job": 110729927269,
+    "runner": "macos-15",
     "swiftPackageTests": "PASSED",
-    "iOSSimulatorBuild": "PASSED",
+    "iOSDeviceBuild": "PASSED",
+    "deviceValidation": "PASSED",
     "artifact": {
-      "id": 11210665414,
-      "name": "ExistingIPAOverlay-ios-simulator-build",
-      "actionsArchiveSizeBytes": 674100,
-      "innerZipSha256": "ad3ebf2f8ac4199f5bb3e587be8637b99db2ab87c4bc939552de1f0d16f3994a",
+      "id": 11212302365,
+      "name": "ExistingIPAOverlay-ios-device-build",
+      "actionsArchiveSizeBytes": 347694,
+      "path": "output/ExistingIPAOverlay-ios-device-build.zip",
+      "sizeBytes": 354250,
+      "sha256": "c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b",
+      "platform": "generic iOS device / iphoneos",
+      "architecture": "arm64",
       "signed": false,
       "ipa": false
     }
   },
   "authorizedHostIntegration": {
-    "status": "NOT_DONE",
-    "reason": "No authorized host Xcode project is present"
+    "status": "NOT_FOUND",
+    "reason": "No authorized host Xcode project or workspace exists in the current branch, remote branches, repository paths, or available workflow artifacts"
   },
   "archive": {
-    "status": "REQUIRES_MACOS_XCODE_AND_AUTHORIZED_HOST"
+    "status": "NOT_AVAILABLE",
+    "reason": "Archive/export requires an authorized host source project and developer signing configuration"
   },
   "signing": {
-    "status": "REQUIRES_DEVELOPER_SIGNING"
+    "status": "NOT_PERFORMED",
+    "reason": "The produced component is intentionally unsigned and no signing identity or provisioning configuration is present"
   },
-  "deviceTest": {
-    "status": "REQUIRES_DEVICE_TEST"
+  "deviceRuntimeTest": {
+    "status": "NOT_PERFORMED",
+    "reason": "Runtime launch requires a signed host application and registered physical device"
   },
   "finalIPA": {
     "status": "NOT_PRODUCED",
     "path": null,
     "sha256": null
   },
-  "deviceBuild": "NOT_AVAILABLE",
+  "deviceBuild": "VERIFIED_UNSIGNED_COMPONENT",
   "integratedIntoExistingIPA": false,
+  "thirdPartyExecutableModified": false,
   "featuresUnlocked": "NOT_VERIFIED",
   "adsRemoved": "NOT_VERIFIED"
 }
