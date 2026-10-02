@@ -40,7 +40,7 @@
     "actionsArtifactName": "ExistingIPAOverlay-ios-device-build",
     "actionsArtifactSizeBytes": 347694,
     "path": "output/ExistingIPAOverlay-ios-device-build.zip",
-    "sizeBytes": 354250,
+    "sizeBytes": 354246,
     "sha256": "c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b",
     "platform": "iOS device (generic/platform=iOS, iphoneos SDK)",
     "productDirectory": "Debug-iphoneos",

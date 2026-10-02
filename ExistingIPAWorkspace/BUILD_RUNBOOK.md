@@ -31,7 +31,7 @@ Run [`36972725882`](https://github.com/abadrun/8ballspicy/actions/runs/369727258
 ```text
 output/ExistingIPAOverlay-ios-device-build.zip
 SHA-256 c0e66b306465fb0093a83893664982a54a914f6b49f69a2c1f001cb6f751088b
-Size 354250 bytes
+Size 354246 bytes
 Architecture arm64
 ```
 
