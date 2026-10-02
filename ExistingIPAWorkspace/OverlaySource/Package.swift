@@ -4,7 +4,10 @@ import PackageDescription
 let package = Package(
     name: "ExistingIPAOverlay",
     defaultLocalization: "en",
-    platforms: [.iOS(.v16)],
+    platforms: [
+        .iOS(.v16),
+        .macOS(.v13)
+    ],
     products: [
         .library(name: "ExistingIPAOverlay", targets: ["ExistingIPAOverlayUI"]),
         .library(name: "ExistingIPAOverlayCore", targets: ["ExistingIPAOverlayCore"])

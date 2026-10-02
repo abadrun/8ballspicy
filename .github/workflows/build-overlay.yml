@@ -1,0 +1,38 @@
+name: Build authorized overlay source
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/01a0fade-8ballspicy
+    paths:
+      - "ExistingIPAWorkspace/OverlaySource/**"
+      - "ExistingIPAWorkspace/scripts/build-overlay-macos.sh"
+      - ".github/workflows/build-overlay.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-overlay:
+    name: Test and build iOS overlay component
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show Xcode
+        run: xcodebuild -version
+
+      - name: Build and test
+        run: bash ExistingIPAWorkspace/scripts/build-overlay-macos.sh
+
+      - name: Upload unsigned component build
+        uses: actions/upload-artifact@v4
+        with:
+          name: ExistingIPAOverlay-ios-simulator-build
+          path: |
+            output/components/ExistingIPAOverlay-ios-simulator-build.zip
+            output/components/ExistingIPAOverlay-ios-simulator-build.zip.sha256
+          if-no-files-found: error
+          retention-days: 14
