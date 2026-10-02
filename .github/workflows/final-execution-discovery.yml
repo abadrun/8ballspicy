@@ -1,0 +1,96 @@
+name: Final GitHub and Mac production-host discovery
+
+on:
+  push:
+    branches:
+      - arena/01a0fc96-8ballspicy
+    paths:
+      - ".github/workflows/final-execution-discovery.yml"
+      - "ExistingIPAWorkspace/scripts/final-execution-discovery.py"
+
+permissions:
+  actions: read
+  contents: write
+  pull-requests: read
+
+jobs:
+  discover:
+    runs-on: macos-15
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: arena/01a0fc96-8ballspicy
+
+      - name: Fetch every branch, tag, and pull-request ref
+        run: |
+          set -euo pipefail
+          git fetch --force --prune origin '+refs/heads/*:refs/remotes/origin/*'
+          git fetch --force --tags origin '+refs/tags/*:refs/tags/*'
+          git fetch --force origin \
+            '+refs/pull/*/head:refs/remotes/pull/*/head' \
+            '+refs/pull/*/merge:refs/remotes/pull/*/merge'
+
+      - name: Run exhaustive GitHub, history, archive, and Mac discovery
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DISCOVERY_REPORT: analysis/FINAL_EXECUTION_DISCOVERY.json
+        run: |
+          set -euo pipefail
+          python3 -m py_compile ExistingIPAWorkspace/scripts/final-execution-discovery.py
+          python3 ExistingIPAWorkspace/scripts/final-execution-discovery.py
+
+      - name: Validate final classification and update production manifest
+        env:
+          CURRENT_RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          report_path = Path('analysis/FINAL_EXECUTION_DISCOVERY.json')
+          report = json.loads(report_path.read_text())
+          assert report['result'] == 'HOST_NOT_FOUND'
+          assert report['classification']['productionHostCandidates'] == []
+          assert report['classification']['signingInputCandidates'] == []
+          assert report['macosDiscovery']['validCodeSigningIdentityCount'] == 0
+          assert report['githubActions']['artifactDownloadFailures'] == []
+          assert report['githubActions']['artifactArchiveScan']['failures'] == []
+          assert report['githubActions']['runLogDownloadFailures'] == []
+          assert report['historicalSearch']['gitArchiveScan']['failures'] == []
+          assert report['workspaceArchiveScan']['failures'] == []
+          assert report['verifiedBuildEvidence']['componentBuild'] == 'PASS'
+          assert report['verifiedBuildEvidence']['sampleHostBuild'] == 'PASS'
+          assert report['verifiedBuildEvidence']['validation'] == 'PASS'
+          assert report['finalIPA']['status'] == 'NOT_PRODUCED'
+
+          manifest_path = Path('analysis/PRODUCTION_MANIFEST.json')
+          manifest = json.loads(manifest_path.read_text())
+          manifest.update({
+              'STATE': 'COMPONENT_READY_FOR_PRODUCTION',
+              'GITHUB_SEARCH': 'COMPLETE',
+              'FINAL_EXECUTION_DISCOVERY_REPORT': str(report_path),
+              'FINAL_EXECUTION_DISCOVERY_RUN': int(os.environ['CURRENT_RUN_ID']),
+              'PRODUCTION_HOST_STATUS': 'NOT_FOUND_AFTER_COMPLETE_GITHUB_AND_MAC_DISCOVERY',
+              'SIGNING_STATUS': 'UNAVAILABLE',
+              'PRODUCTION_BUILD': 'NOT_RUN',
+              'FINAL_IPA_STATUS': 'NOT_PRODUCED',
+              'FINAL_IPA_SHA256': None,
+          })
+          manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n')
+          print('FINAL_DISCOVERY_VALIDATION=PASS')
+          PY
+          git diff --check
+
+      - name: Commit final discovery evidence
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add analysis/FINAL_EXECUTION_DISCOVERY.json analysis/PRODUCTION_MANIFEST.json
+          git commit -m "Record complete GitHub and Mac host discovery"
+          git push origin HEAD:arena/01a0fc96-8ballspicy
