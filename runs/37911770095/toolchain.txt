@@ -1,0 +1,26 @@
+### Toolchain
+```
+ProductName:		macOS
+ProductVersion:		26.6.2
+BuildVersion:		25G83
+Xcode 26.6
+Build version 17F113
+Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+Target: arm64-apple-macosx26.0
+```
+### xcodebuild -list
+Command line invocation:
+    /Applications/Xcode_26.6.app/Contents/Developer/usr/bin/xcodebuild -list
+
+Resolve Package Graph
+2026-10-09 09:31:44.055 xcodebuild[1259:7248] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+
+
+Resolved source packages:
+  MrSpicyUI: /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+
+Information about workspace "MrSpicyUI":
+    Schemes:
+        MrSpicyUI
+
+```
