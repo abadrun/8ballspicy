@@ -1,0 +1,656 @@
+Command line invocation:
+    /Applications/Xcode_26.6.app/Contents/Developer/usr/bin/xcodebuild test -scheme MrSpicyUI -destination "platform=iOS Simulator,name=iPhone 17 Pro" -resultBundlePath MrSpicyUI-tests.xcresult
+
+Resolve Package Graph
+2026-10-09 09:54:31.554 xcodebuild[12304:36824] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+
+
+Resolved source packages:
+  MrSpicyUI: /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+
+Writing result bundle at path:
+	/Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/MrSpicyUI-tests.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:iOS Simulator, arch:arm64, id:22452A91-4697-4369-8812-53ADB77EB73B, OS:26.5, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:x86_64, id:22452A91-4697-4369-8812-53ADB77EB73B, OS:26.5, name:iPhone 17 Pro }
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (4 targets)
+    Target 'MrSpicyUI' in project 'MrSpicyUI'
+        ➜ Explicit dependency on target 'MrSpicyUI' in project 'MrSpicyUI'
+        ➜ Explicit dependency on target 'MrSpicyUI_MrSpicyUI' in project 'MrSpicyUI'
+    Target 'MrSpicyUITests' in project 'MrSpicyUI'
+        ➜ Explicit dependency on target 'MrSpicyUI' in project 'MrSpicyUI'
+    Target 'MrSpicyUI' in project 'MrSpicyUI'
+        ➜ Explicit dependency on target 'MrSpicyUI_MrSpicyUI' in project 'MrSpicyUI'
+    Target 'MrSpicyUI_MrSpicyUI' in project 'MrSpicyUI' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: 30a08ab32a900506f9b044e84691c44e
+Build description path: /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/XCBuildData/30a08ab32a900506f9b044e84691c44e.xcbuilddata
+ClangStatCache /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk /Users/runner/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-688ef53f1462e2c8f657fdc38a81448ff45c64a1807a658693f2a61704f17a36.sdkstatcache
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -o /Users/runner/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-688ef53f1462e2c8f657fdc38a81448ff45c64a1807a658693f2a61704f17a36.sdkstatcache
+
+CreateBuildDirectory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-create-build-directory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products
+
+CreateBuildDirectory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-create-build-directory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-create-build-directory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator
+
+CreateBuildDirectory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-create-build-directory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-create-build-directory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/PackageFrameworks
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-create-build-directory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/PackageFrameworks
+
+CreateBuildDirectory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-create-build-directory /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.build/MrSpicyUI_MrSpicyUI.DependencyStaticMetadataFileList (in target 'MrSpicyUI_MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.build/MrSpicyUI_MrSpicyUI.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.build/empty-MrSpicyUI_MrSpicyUI.plist (in target 'MrSpicyUI_MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.build/empty-MrSpicyUI_MrSpicyUI.plist
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.build/MrSpicyUI_MrSpicyUI.DependencyMetadataFileList (in target 'MrSpicyUI_MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.build/MrSpicyUI_MrSpicyUI.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/empty-MrSpicyUITests.plist (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/empty-MrSpicyUITests.plist
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests_const_extract_protocols.json (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.SwiftFileList (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.SwiftConstValuesFileList (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.LinkFileList (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests-OutputFileMap.json (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/MrSpicyUITests.DependencyStaticMetadataFileList (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/MrSpicyUITests.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/MrSpicyUITests.DependencyMetadataFileList (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/MrSpicyUITests.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI_const_extract_protocols.json (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.SwiftFileList (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.SwiftConstValuesFileList (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.LinkFileList (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI-OutputFileMap.json (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/MrSpicyUI.modulemap (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/MrSpicyUI.modulemap
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/MrSpicyUI.DependencyStaticMetadataFileList (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/MrSpicyUI.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/MrSpicyUI.DependencyMetadataFileList (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/MrSpicyUI.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources/resource_bundle_accessor.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    write-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources/resource_bundle_accessor.swift
+
+Copy /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/GeneratedModuleMaps-iphonesimulator/MrSpicyUI.modulemap /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/MrSpicyUI.modulemap (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/MrSpicyUI.modulemap /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/GeneratedModuleMaps-iphonesimulator
+
+MkDir /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle (in target 'MrSpicyUI_MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    /bin/mkdir -p /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle
+
+MkDir /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    /bin/mkdir -p /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest
+
+ProcessInfoPlistFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle/Info.plist /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.build/empty-MrSpicyUI_MrSpicyUI.plist (in target 'MrSpicyUI_MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-infoPlistUtility /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.build/empty-MrSpicyUI_MrSpicyUI.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphonesimulator -o /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle/Info.plist
+
+CpResource /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle/spicy-s-mark.png /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/Resources/Branding/spicy-s-mark.png (in target 'MrSpicyUI_MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/Resources/Branding/spicy-s-mark.png /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle
+
+CpResource /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle/en.lproj/Localizable.strings /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/Resources/en.lproj/Localizable.strings (in target 'MrSpicyUI_MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/Resources/en.lproj/Localizable.strings /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle/en.lproj
+
+CpResource /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle/ar.lproj/Localizable.strings /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/Resources/ar.lproj/Localizable.strings (in target 'MrSpicyUI_MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/Resources/ar.lproj/Localizable.strings /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle/ar.lproj
+
+CodeSign /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle (in target 'MrSpicyUI_MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle
+
+RegisterExecutionPolicyException /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle (in target 'MrSpicyUI_MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-RegisterExecutionPolicyException /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle
+
+Touch /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle (in target 'MrSpicyUI_MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    /usr/bin/touch -c /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle
+
+SwiftDriver MrSpicyUI normal arm64 com.apple.xcode.tools.swift.compiler (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-SwiftDriver -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name MrSpicyUI -Onone @/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target arm64-apple-ios13.0-simulator -g -module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -emit-localized-strings -emit-localized-strings-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64 -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-688ef53f1462e2c8f657fdc38a81448ff45c64a1807a658693f2a61704f17a36.sdkstatcache -output-file-map /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name mrspicyui -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI_const_extract_protocols.json -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources/arm64 -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI-Swift.h -working-directory /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode -experimental-emit-module-separately -disable-cmo
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftShims-4ILZAJD0X5XXANFI76668GQLO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/DeveloperToolsSupport-15HTNHS6XG2JTM9CJ7886EC7O.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ptrauth-4J91KJ5MN9WWGNYWAGS1CMC7F.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdarg-3M8IX500OZ8LGVOEKTMGG0698.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_float-BCNIWAWM5I21NQ52YE8FTCRHH.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ptrcheck-4XSFGFETP3LPFNBPSS5NED8U4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stddef-BNZNL0NI62QXCJ9G83ZDKIDVY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-7LKN4K87Q8VUVGCJGZ0NHE4WH.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdbool-A65CKVZI7915I5L6SB8P8NZGC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_AvailabilityInternal-1VLD81Y59RRDEH7W24O5C11YL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation1-91FCEGR8WEU45HMMODMP6BI33.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_limits-8ZWP0SL4SA02ZXJDI7OP1S5EM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation2-3000U5WJQDU8WO1TIU4ITA9ON.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/sys_types-807LMSSIH3CB140OT432WAZ5V.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdint-BT46DSCOXW85RGNBKAETDJ6TK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_tgmath-7QZ27VC716LC7HKDR738G8WNO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation3-376LS7DAL51RZH6BGC38N184G.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_intrinsics-C0TBTO78KBTJC5EVJJQZ1VNUY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdatomic-7QB2XEZ9RXW1J610XO704M1ZF.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_inttypes-6212M9V31BGFOTQR4MH38QL2B.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Darwin-EAZ0C0DDQO4JUFDE51M96P5KD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/simd-8G4076MDPOL06L6UQIEB2PAAQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/MachO-540USFMHO50WM12TOX9PI39X6.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ObjectiveC-37SA4B2CM3HRF0NJZ9JK9AYGA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os_object-3JOC1VPC17A04JQBM5ZO5N56Q.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os_workgroup-358MW29AZSV9L1MZ7EA66R8YP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Dispatch-7QV1Z97LLSX8U9Y1L4ZFJAJJQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/XPC-9VLM9PM9M6P5UJE53SDTTO3IX.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreFoundation-6YV8XNR7GCX4Z2IXWQ9W48U19.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os-2C6OUG4G3EKB6AGF9779U084Q.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Spatial-1Q5HUNMYO668MMRQ64HB3UNO1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreGraphics-6866JPQM1H5ZQMO61O9PVF9MR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Security-4PZPMXYENPCIP1VJ4CHXE0ART.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CFNetwork-7UXJ1K8KH2QIGT8N3P3AKUMU5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ImageIO-5L3WWQV4ZYCH8246L8KNEDE77.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreText-3KM7Z9LVRWGKBH57L5J6C1OP5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Foundation-BI8AOJH036CN2SY9ZZGVE9X9B.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UniformTypeIdentifiers-AQ6ZQZ8HUDX41IR0TUMD8Q69G.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/OpenGLES-7GQGXQWNAIKVLWEBFYHW61W87.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/OSLog-3CPYYPLHIERU06OYAINPK5MKS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Symbols-BSXVHLK8D82IRZKUKW4J201BA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIUtilities-21BJIM695KG1W3BCXXQFYQ5YR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/DataDetection-41VWGBNPFY63I5SY499BP8GAC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreTransferable-6YLTP2X4782ADXGVWW5I5TRXV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/IOSurface-3XDEQYBWI8S4GUT1530BJA5WG.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/FileProvider-CXHOA6I6H6HHY9QJ4WE3NIGJI.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Accessibility-6HMY7F94ZANHT6UD1FWIS4DWH.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UserNotifications-CDLGFDKBDNDH680HGSPL8OL4G.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Metal-8PG3FVVAKPOZXKM1BZBW8ETS8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreVideo-6J0WFBS7XAFZLYC14KM4N0FEJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/QuartzCore-84MDR1PE7ZZHBNZOI9MX3A9PV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreImage-7LTYYFMKHTP8UE7IH8RWC3G3W.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftUICore-C8MT2P7LNHU0PBVTIN55IN2MC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIKit-A1C7AR6FP8AN6XIR6B1MCGADU.pcm
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ MrSpicyUI (in target 'MrSpicyUI' from project 'MrSpicyUI')
+
+EmitSwiftModule normal arm64 (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 Compiling\ resource_bundle_accessor.swift,\ SpicyAccessibility.swift,\ SpicyBrand.swift,\ SpicyHeaderView.swift /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources/resource_bundle_accessor.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyAccessibility.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyBrand.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyHeaderView.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+SwiftCompile normal arm64 /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources/resource_bundle_accessor.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyAccessibility.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyBrand.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyHeaderView.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 Compiling\ SpicyHostBridge.swift,\ SpicyLocalization.swift,\ SpicyOverlayViewController.swift,\ SpicyPreferences.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyHostBridge.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyLocalization.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyOverlayViewController.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyPreferences.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyHostBridge.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyLocalization.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyOverlayViewController.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyPreferences.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 Compiling\ SpicySettingsView.swift,\ SpicyTheme.swift,\ SpicyVersion.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicySettingsView.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyTheme.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyVersion.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicySettingsView.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyTheme.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Sources/MrSpicyUI/SpicyVersion.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for MrSpicyUI (in target 'MrSpicyUI' from project 'MrSpicyUI')
+
+SwiftDriver\ Compilation\ Requirements MrSpicyUI normal arm64 com.apple.xcode.tools.swift.compiler (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name MrSpicyUI -Onone @/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target arm64-apple-ios13.0-simulator -g -module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -emit-localized-strings -emit-localized-strings-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64 -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-688ef53f1462e2c8f657fdc38a81448ff45c64a1807a658693f2a61704f17a36.sdkstatcache -output-file-map /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name mrspicyui -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI_const_extract_protocols.json -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources/arm64 -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI-Swift.h -working-directory /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Compiling SpicySettingsView.swift, SpicyTheme.swift, SpicyVersion.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+
+SwiftMergeGeneratedHeaders /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/GeneratedModuleMaps-iphonesimulator/MrSpicyUI-Swift.h /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI-Swift.h (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-swiftHeaderTool -arch arm64 /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI-Swift.h -o /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/GeneratedModuleMaps-iphonesimulator/MrSpicyUI-Swift.h
+
+Copy /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.swiftmodule/arm64-apple-ios-simulator.swiftmodule /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.swiftmodule (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.swiftmodule /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.swiftmodule/arm64-apple-ios-simulator.swiftdoc /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.swiftdoc (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.swiftdoc /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+Copy /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.swiftmodule/arm64-apple-ios-simulator.abi.json /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.abi.json (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.abi.json /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.swiftsourceinfo (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.swiftsourceinfo /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+SwiftDriverJobDiscovery normal arm64 Compiling SpicyHostBridge.swift, SpicyLocalization.swift, SpicyOverlayViewController.swift, SpicyPreferences.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+
+SwiftDriver MrSpicyUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-SwiftDriver -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name MrSpicyUITests -Onone @/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DXcode -plugin-path /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target arm64-apple-ios13.0-simulator -g -module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -emit-localized-strings -emit-localized-strings-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64 -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-688ef53f1462e2c8f657fdc38a81448ff45c64a1807a658693f2a61704f17a36.sdkstatcache -output-file-map /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name mrspicyui -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests_const_extract_protocols.json -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/DerivedSources/arm64 -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -working-directory /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Compiling resource_bundle_accessor.swift, SpicyAccessibility.swift, SpicyBrand.swift, SpicyHeaderView.swift (in target 'MrSpicyUI' from project 'MrSpicyUI')
+
+SwiftDriver\ Compilation MrSpicyUI normal arm64 com.apple.xcode.tools.swift.compiler (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-Swift-Compilation -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name MrSpicyUI -Onone @/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target arm64-apple-ios13.0-simulator -g -module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -emit-localized-strings -emit-localized-strings-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64 -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-688ef53f1462e2c8f657fdc38a81448ff45c64a1807a658693f2a61704f17a36.sdkstatcache -output-file-map /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name mrspicyui -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI_const_extract_protocols.json -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources/arm64 -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI-Swift.h -working-directory /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.o normal (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios13.0-simulator -r -isysroot /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -O0 -F/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -filelist /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.LinkFileList -nostdlib -Xlinker -object_path_lto -Xlinker /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI_lto.o -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.swiftmodule @/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI-linker-args.resp -o /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.o
+
+ExtractAppIntentsMetadata (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.6.109.0.Enlb15/Metal.xctoolchain --module-name MrSpicyUI --sdk-root /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk --xcode-version 17F113 --platform-family iOS --deployment-target 13.0 --bundle-identifier mrspicyui.MrSpicyUI --output /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.appintents --target-triple arm64-apple-ios13.0-simulator --binary-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.o --dependency-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI_dependency_info.dat --stringsdata-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.SwiftFileList --metadata-file-list /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/MrSpicyUI.DependencyMetadataFileList --static-metadata-file-list /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/MrSpicyUI.DependencyStaticMetadataFileList --swift-const-vals-list /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.SwiftConstValuesFileList --force --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-10-09 09:54:44.524 appintentsmetadataprocessor[12731:38006] Starting appintentsmetadataprocessor export
+2026-10-09 09:54:44.566 appintentsmetadataprocessor[12731:38006] Extracted no relevant App Intents symbols, skipping writing output
+
+RegisterExecutionPolicyException /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.o (in target 'MrSpicyUI' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-RegisterExecutionPolicyException /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI.o
+
+Copy /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/MrSpicyUI_MrSpicyUI.bundle /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUI_MrSpicyUI.bundle /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest
+
+ProcessInfoPlistFile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/Info.plist /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/empty-MrSpicyUITests.plist (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-infoPlistUtility /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/empty-MrSpicyUITests.plist -producttype com.apple.product-type.bundle.unit-test -expandbuildsettings -format binary -platform iphonesimulator -scanforprivacyfile /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/MrSpicyUI_MrSpicyUI.bundle -o /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/Info.plist
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCUIAutomation-JVU0LAC0AJARXFYKFEDVD1NX.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCTest-F1LI0VAIRLSQQY6AYMUYVR13Z.pcm
+
+SwiftExplicitDependencyCompileModuleFromInterface arm64 /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCUIAutomation-2QAPVX6E5XUBE.swiftmodule
+
+SwiftExplicitDependencyCompileModuleFromInterface arm64 /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCTest-207XN4QAUVTKQ.swiftmodule
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ MrSpicyUITests (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+
+EmitSwiftModule normal arm64 (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 Compiling\ SpicyOverlayLifecycleTests.swift,\ SpicyPreferencesTests.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyOverlayLifecycleTests.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyPreferencesTests.swift (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyOverlayLifecycleTests.swift (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyPreferencesTests.swift (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 Compiling\ SpicyThemeTests.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyThemeTests.swift (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyThemeTests.swift (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 Compiling\ SpicyLocalizationTests.swift,\ SpicyOverlayControlTests.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyLocalizationTests.swift /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyOverlayControlTests.swift (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyLocalizationTests.swift (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftCompile normal arm64 /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyOverlayControlTests.swift (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for MrSpicyUITests (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+
+SwiftDriver\ Compilation\ Requirements MrSpicyUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name MrSpicyUITests -Onone @/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DXcode -plugin-path /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target arm64-apple-ios13.0-simulator -g -module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -emit-localized-strings -emit-localized-strings-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64 -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-688ef53f1462e2c8f657fdc38a81448ff45c64a1807a658693f2a61704f17a36.sdkstatcache -output-file-map /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name mrspicyui -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests_const_extract_protocols.json -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/DerivedSources/arm64 -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -working-directory /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Compiling SpicyThemeTests.swift (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+
+Copy /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.swiftmodule/arm64-apple-ios-simulator.swiftmodule /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.swiftmodule (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.swiftmodule /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.swiftmodule/arm64-apple-ios-simulator.swiftdoc /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.swiftdoc (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.swiftdoc /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+Copy /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.swiftmodule/arm64-apple-ios-simulator.abi.json /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.abi.json (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.abi.json /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.swiftsourceinfo (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.swiftsourceinfo /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+SwiftDriverJobDiscovery normal arm64 Compiling SpicyOverlayLifecycleTests.swift, SpicyPreferencesTests.swift (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SpicyLocalizationTests.swift, SpicyOverlayControlTests.swift (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+
+SwiftDriver\ Compilation MrSpicyUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode
+    builtin-Swift-Compilation -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name MrSpicyUITests -Onone @/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DXcode -plugin-path /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target arm64-apple-ios13.0-simulator -g -module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -emit-localized-strings -emit-localized-strings-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64 -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-688ef53f1462e2c8f657fdc38a81448ff45c64a1807a658693f2a61704f17a36.sdkstatcache -output-file-map /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name mrspicyui -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests_const_extract_protocols.json -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/DerivedSources/arm64 -Xcc -I/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -working-directory /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/.swiftpm/xcode -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/MrSpicyUITests normal (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios13.0-simulator -bundle -isysroot /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -O0 -L/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -L/Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -filelist /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -rpath -Xlinker @loader_path/../Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests_dependency_info.dat -fobjc-link-runtime -fprofile-instr-generate -L/Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.swiftmodule @/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests-linker-args.resp -Wl,-no_warn_duplicate_libraries -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport -Xlinker -no_adhoc_codesign -o /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/MrSpicyUITests -Xlinker -add_ast_path -Xlinker /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI.swiftmodule @/Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUI.build/Objects-normal/arm64/MrSpicyUI-linker-args.resp
+
+CopySwiftLibs /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/MrSpicyUITests --scan-folder /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/Frameworks --scan-folder /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/PlugIns --scan-folder /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/SystemExtensions --scan-folder /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/Extensions --platform iphonesimulator --toolchain /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.6.109.0.Enlb15/Metal.xctoolchain --toolchain /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+ExtractAppIntentsMetadata (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.6.109.0.Enlb15/Metal.xctoolchain --module-name MrSpicyUITests --sdk-root /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk --xcode-version 17F113 --platform-family iOS --deployment-target 13.0 --bundle-identifier mrspicyui.MrSpicyUITests --output /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest --target-triple arm64-apple-ios13.0-simulator --binary-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/MrSpicyUITests --dependency-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests_dependency_info.dat --stringsdata-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.SwiftFileList --metadata-file-list /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/MrSpicyUITests.DependencyMetadataFileList --static-metadata-file-list /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/MrSpicyUITests.DependencyStaticMetadataFileList --swift-const-vals-list /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/Objects-normal/arm64/MrSpicyUITests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-10-09 09:54:46.754 appintentsmetadataprocessor[12748:38139] Starting appintentsmetadataprocessor export
+2026-10-09 09:54:46.756 appintentsmetadataprocessor[12748:38139] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+AppIntentsSSUTraining (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/Info.plist --temp-dir-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/ssu --bundle-id mrspicyui.MrSpicyUITests --product-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest --extracted-metadata-path /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/Metadata.appintents --metadata-file-list /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Intermediates.noindex/MrSpicyUI.build/Debug-iphonesimulator/MrSpicyUITests.build/MrSpicyUITests.DependencyMetadataFileList --source-file /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest/Info.plist --archive-ssu-assets
+2026-10-09 09:54:46.795 appintentsnltrainingprocessor[12749:38141] Parsing options for appintentsnltrainingprocessor
+2026-10-09 09:54:46.796 appintentsnltrainingprocessor[12749:38141] Starting AppIntents SSU YAML Generation
+2026-10-09 09:54:46.800 appintentsnltrainingprocessor[12749:38141] No AppShortcuts found - Skipping.
+
+CodeSign /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest
+
+RegisterExecutionPolicyException /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    builtin-RegisterExecutionPolicyException /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest
+
+Touch /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest (in target 'MrSpicyUITests' from project 'MrSpicyUI')
+    cd /Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI
+    /usr/bin/touch -c /Users/runner/Library/Developer/Xcode/DerivedData/MrSpicyUI-ekhvwmeepahktucytyrhybwjvuso/Build/Products/Debug-iphonesimulator/MrSpicyUITests.xctest
+
+Resolve Package Graph
+
+Resolve Package Graph
+
+Test Suite 'All tests' started at 2026-10-09 09:55:40.416.
+Test Suite 'MrSpicyUITests.xctest' started at 2026-10-09 09:55:40.418.
+Test Suite 'SpicyLocalizationTests' started at 2026-10-09 09:55:40.418.
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testArabicDefinesEveryUIKey]' started.
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testArabicDefinesEveryUIKey]' passed (0.011 seconds).
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testArabicIsRightToLeftAndEnglishIsNot]' started.
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testArabicIsRightToLeftAndEnglishIsNot]' passed (0.001 seconds).
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testEnglishAndArabicKeySetsMatch]' started.
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testEnglishAndArabicKeySetsMatch]' passed (0.001 seconds).
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testEnglishDefinesEveryUIKey]' started.
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testEnglishDefinesEveryUIKey]' passed (0.002 seconds).
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testLanguageNormalization]' started.
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testLanguageNormalization]' passed (0.001 seconds).
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testTranslationsAreNonEmptyAndDifferWhereExpected]' started.
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testTranslationsAreNonEmptyAndDifferWhereExpected]' passed (0.004 seconds).
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testUnknownKeyFallsBackToKeyItself]' started.
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testUnknownKeyFallsBackToKeyItself]' passed (0.001 seconds).
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testUnknownLanguageFallsBackToEnglish]' started.
+Test Case '-[MrSpicyUITests.SpicyLocalizationTests testUnknownLanguageFallsBackToEnglish]' passed (0.001 seconds).
+Test Suite 'SpicyLocalizationTests' passed at 2026-10-09 09:55:40.475.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.021 (0.057) seconds
+Test Suite 'SpicyOverlayControlTests' started at 2026-10-09 09:55:40.475.
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testAccessibilityIdentifiersAreInstalled]' started.
+2026-10-09 09:55:41.089176+0000 xctest[13213:39904] [framework] CoreUI: CUIThemeStore: No theme registered with id=0
+2026-10-09 09:55:41.089478+0000 xctest[13213:39904] [framework] CoreUI: CUIThemeStore: No theme registered with id=0
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testAccessibilityIdentifiersAreInstalled]' passed (0.630 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testCloseButtonNotifiesBridgeThenRequestsClose]' started.
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testCloseButtonNotifiesBridgeThenRequestsClose]' passed (0.020 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testEveryControlIsWiredToItsHandler]' started.
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testEveryControlIsWiredToItsHandler]' passed (0.018 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testHapticsHandlerTogglesIntensityControl]' started.
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testHapticsHandlerTogglesIntensityControl]' passed (0.033 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testIntensityHandlerPersistsSelection]' started.
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testIntensityHandlerPersistsSelection]' passed (0.024 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testLayoutDirectionFollowsLocalization]' started.
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testLayoutDirectionFollowsLocalization]' passed (0.024 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testNicknameHandlerPersistsText]' started.
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testNicknameHandlerPersistsText]' passed (0.021 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testResetHandlerRestoresDefaultsInModelAndUI]' started.
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testResetHandlerRestoresDefaultsInModelAndUI]' passed (0.033 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testSoundHandlerWritesPersistenceAndNotifiesBridge]' started.
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testSoundHandlerWritesPersistenceAndNotifiesBridge]' passed (0.023 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testVersionLabelShowsComponentVersion]' started.
+Test Case '-[MrSpicyUITests.SpicyOverlayControlTests testVersionLabelShowsComponentVersion]' passed (0.013 seconds).
+Test Suite 'SpicyOverlayControlTests' passed at 2026-10-09 09:55:42.434.
+	 Executed 10 tests, with 0 failures (0 unexpected) in 0.840 (1.959) seconds
+Test Suite 'SpicyOverlayLifecycleTests' started at 2026-10-09 09:55:42.502.
+Test Case '-[MrSpicyUITests.SpicyOverlayLifecycleTests testCloseButtonNotifiesBridgeAndCloses]' started.
+/Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyOverlayLifecycleTests.swift:33: -[MrSpicyUITests.SpicyOverlayLifecycleTests testCloseButtonNotifiesBridgeAndCloses] : Test skipped - Requires a UIApplication host app: hostless xctest cannot run UIKit modal presentation or control event dispatch (UIKit: 'UIApp is nil which means we cannot dispatch control actions to their targets')
+Test Case '-[MrSpicyUITests.SpicyOverlayLifecycleTests testCloseButtonNotifiesBridgeAndCloses]' skipped (0.112 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayLifecycleTests testCloseIsIdempotent]' started.
+/Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyOverlayLifecycleTests.swift:33: -[MrSpicyUITests.SpicyOverlayLifecycleTests testCloseIsIdempotent] : Test skipped - Requires a UIApplication host app: hostless xctest cannot run UIKit modal presentation or control event dispatch (UIKit: 'UIApp is nil which means we cannot dispatch control actions to their targets')
+Test Case '-[MrSpicyUITests.SpicyOverlayLifecycleTests testCloseIsIdempotent]' skipped (0.183 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayLifecycleTests testControlDispatchViaSendActionsReachesPersistenceAndBridge]' started.
+/Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyOverlayLifecycleTests.swift:33: -[MrSpicyUITests.SpicyOverlayLifecycleTests testControlDispatchViaSendActionsReachesPersistenceAndBridge] : Test skipped - Requires a UIApplication host app: hostless xctest cannot run UIKit modal presentation or control event dispatch (UIKit: 'UIApp is nil which means we cannot dispatch control actions to their targets')
+Resolve Package Graph
+Test Case '-[MrSpicyUITests.SpicyOverlayLifecycleTests testControlDispatchViaSendActionsReachesPersistenceAndBridge]' skipped (0.241 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayLifecycleTests testOpenCloseReopenCycle]' started.
+/Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyOverlayLifecycleTests.swift:33: -[MrSpicyUITests.SpicyOverlayLifecycleTests testOpenCloseReopenCycle] : Test skipped - Requires a UIApplication host app: hostless xctest cannot run UIKit modal presentation or control event dispatch (UIKit: 'UIApp is nil which means we cannot dispatch control actions to their targets')
+Test Case '-[MrSpicyUITests.SpicyOverlayLifecycleTests testOpenCloseReopenCycle]' skipped (0.113 seconds).
+Test Case '-[MrSpicyUITests.SpicyOverlayLifecycleTests testOpenIsIdempotent]' started.
+/Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/Tests/MrSpicyUITests/SpicyOverlayLifecycleTests.swift:33: -[MrSpicyUITests.SpicyOverlayLifecycleTests testOpenIsIdempotent] : Test skipped - Requires a UIApplication host app: hostless xctest cannot run UIKit modal presentation or control event dispatch (UIKit: 'UIApp is nil which means we cannot dispatch control actions to their targets')
+Test Case '-[MrSpicyUITests.SpicyOverlayLifecycleTests testOpenIsIdempotent]' skipped (0.105 seconds).
+Test Suite 'SpicyOverlayLifecycleTests' passed at 2026-10-09 09:55:43.258.
+	 Executed 5 tests, with 5 tests skipped and 0 failures (0 unexpected) in 0.754 (0.756) seconds
+Test Suite 'SpicyPreferencesTests' started at 2026-10-09 09:55:43.259.
+Test Case '-[MrSpicyUITests.SpicyPreferencesTests testFactoryDefaults]' started.
+Test Case '-[MrSpicyUITests.SpicyPreferencesTests testFactoryDefaults]' passed (0.005 seconds).
+Test Case '-[MrSpicyUITests.SpicyPreferencesTests testHapticIntensityRoundTrip]' started.
+Test Case '-[MrSpicyUITests.SpicyPreferencesTests testHapticIntensityRoundTrip]' passed (0.008 seconds).
+Test Case '-[MrSpicyUITests.SpicyPreferencesTests testResetIsPersisted]' started.
+Test Case '-[MrSpicyUITests.SpicyPreferencesTests testResetIsPersisted]' passed (0.005 seconds).
+Test Case '-[MrSpicyUITests.SpicyPreferencesTests testResetRestoresFactoryDefaults]' started.
+Test Case '-[MrSpicyUITests.SpicyPreferencesTests testResetRestoresFactoryDefaults]' passed (0.013 seconds).
+Test Case '-[MrSpicyUITests.SpicyPreferencesTests testSettingsPersistAcrossInstances]' started.
+Test Case '-[MrSpicyUITests.SpicyPreferencesTests testSettingsPersistAcrossInstances]' passed (0.005 seconds).
+Test Case '-[MrSpicyUITests.SpicyPreferencesTests testSnapshotCoversEveryKey]' started.
+Test Case '-[MrSpicyUITests.SpicyPreferencesTests testSnapshotCoversEveryKey]' passed (0.005 seconds).
+Test Suite 'SpicyPreferencesTests' passed at 2026-10-09 09:55:43.314.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.041 (0.055) seconds
+Test Suite 'SpicyThemeTests' started at 2026-10-09 09:55:43.314.
+Test Case '-[MrSpicyUITests.SpicyThemeTests testBrandMarkResourceIsBundled]' started.
+Test Case '-[MrSpicyUITests.SpicyThemeTests testBrandMarkResourceIsBundled]' passed (0.026 seconds).
+Test Case '-[MrSpicyUITests.SpicyThemeTests testComponentVersionFormat]' started.
+Test Case '-[MrSpicyUITests.SpicyThemeTests testComponentVersionFormat]' passed (0.003 seconds).
+Test Case '-[MrSpicyUITests.SpicyThemeTests testDefaultThemeColorsAreDistinctWhereItMatters]' started.
+Test Case '-[MrSpicyUITests.SpicyThemeTests testDefaultThemeColorsAreDistinctWhereItMatters]' passed (0.001 seconds).
+Test Case '-[MrSpicyUITests.SpicyThemeTests testHeaderGradientConfigured]' started.
+Test Case '-[MrSpicyUITests.SpicyThemeTests testHeaderGradientConfigured]' passed (0.032 seconds).
+Test Suite 'SpicyThemeTests' passed at 2026-10-09 09:55:43.378.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.062 (0.064) seconds
+Test Suite 'MrSpicyUITests.xctest' passed at 2026-10-09 09:55:43.378.
+	 Executed 33 tests, with 5 tests skipped and 0 failures (0 unexpected) in 1.718 (2.961) seconds
+Test Suite 'All tests' passed at 2026-10-09 09:55:43.379.
+	 Executed 33 tests, with 5 tests skipped and 0 failures (0 unexpected) in 1.718 (2.963) seconds
+
+Resolve Package Graph
+
+2026-10-09 09:55:44.232 xcodebuild[12304:36824] [MT] IDETestOperationsObserverDebug: 57.378 elapsed -- Testing started completed.
+2026-10-09 09:55:44.232 xcodebuild[12304:36824] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-09 09:55:44.232 xcodebuild[12304:36824] [MT] IDETestOperationsObserverDebug: 57.378 sec, +57.378 sec -- end
+Resolve Package Graph
+
+Resolve Package Graph
+
+
+Test session results, code coverage, and logs:
+	/Users/runner/work/8ballspicy/8ballspicy/MrSpicyUI/MrSpicyUI-tests.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
