@@ -1,0 +1,13 @@
+### Products
+```
+  build-device/Build/Products/Release-iphoneos/MrSpicyUI.o
+  build-device/Build/Products/Release-iphoneos/MrSpicyUI_MrSpicyUI.bundle/ar.lproj/Localizable.strings
+  build-device/Build/Products/Release-iphoneos/MrSpicyUI_MrSpicyUI.bundle/en.lproj/Localizable.strings
+  build-device/Build/Products/Release-iphoneos/MrSpicyUI_MrSpicyUI.bundle/spicy-s-mark.png
+  build-device/Build/Products/Release-iphoneos/MrSpicyUI_MrSpicyUI.bundle/Info.plist
+  build-device/Build/Products/Release-iphoneos/MrSpicyUI.swiftmodule/arm64-apple-ios.swiftdoc
+  build-device/Build/Products/Release-iphoneos/MrSpicyUI.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo
+  build-device/Build/Products/Release-iphoneos/MrSpicyUI.swiftmodule/arm64-apple-ios.swiftmodule
+  build-device/Build/Products/Release-iphoneos/MrSpicyUI.swiftmodule/arm64-apple-ios.abi.json
+```
+build-device/Build/Products/Release-iphoneos/MrSpicyUI.o -> arm64
